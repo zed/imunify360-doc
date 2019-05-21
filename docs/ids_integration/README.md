@@ -6,7 +6,7 @@
 <span class="notranslate">[ConfigServer Security & Firewall (CSF)](https://www.configserver.com/cp/csf.html)</span> integration is intended to allow to use <span class="notranslate">CSF</span> along with Imunify360.
 
 If <span class="notranslate">CSF</span> is **disabled** then Imunify360 becomes a primary <span class="notranslate">IDS</span>.
-* <span class="notranslate">White List</span> is loaded from <span class="notranslate">CSF</span>. Imunify360 and <span class="notranslate">CSF</span> work without any additional actions.
+* <span class="notranslate">White List</span> is not imported from <span class="notranslate">CSF</span>. Imunify360 and <span class="notranslate">CSF</span> work without any additional actions.
 * <span class="notranslate">Gray List</span> is not imported from <span class="notranslate">CSF</span> but it is possible to view and manage <span class="notranslate">Gray List</span> in Imunify360 interface. All changes **will not** be automatically exported to <span class="notranslate">CSF</span>.
 * <span class="notranslate">Black List</span> is not imported from <span class="notranslate">CSF</span> but it is possible to view and manage <span class="notranslate">Black List</span> in Imunify360 interface. All changes **will not** be automatically exported to <span class="notranslate">CSF</span>.
 

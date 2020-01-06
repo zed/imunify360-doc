@@ -254,7 +254,7 @@ https://docs.cloudlinux.com/control_panel_integration/#the-list-of-the-integrati
 
 #### How to install Imunify360
 
-##### Prerequisites
+#### Prerequisites
 
 -   [ModSecurity 2.9.x](https://modsecurity.org/)
 -   [Apache Module mod_remoteip](http://httpd.apache.org/docs/2.4/mod/mod_remoteip.html)
@@ -304,7 +304,7 @@ modsec_audit_logdir = /var/log/modsec_audit
 ```
 
 
-##### How to configure ModSecurity domain level integration
+#### How to configure ModSecurity domain level integration
 
 To enable domain-specific ModSecurity configuration, specify
 `modsec_domain_config_script` in `integration.conf`:
@@ -432,7 +432,7 @@ integrations scripts follows
 interface.
 
 
-##### Further steps
+#### Further steps
 
 Detailed instructions on how to use Imunify360 can be found in the
 technical documentation: <https://docs.imunify360.com/>

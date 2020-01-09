@@ -280,7 +280,7 @@ In the pop-up choose <span class="notranslate">_IP_</span> tab and fill out:
 When done, click <span class="notranslate">_Add IP_</span> to confirm your action or <span class="notranslate">_Cancel_</span> to hide pop-up.
 
 :::tip Notes
-* If you add a new server in CLN in a group of whitelisted IPs, then all IPs of this group will be added as whitelisted to this new server.
+* If you add a new server in an existing group in CLN, then all IPs whitelisted for this group will be added as whitelisted to this new server.
 * If you have an IP whitelisted globally, then this IP will be added to all servers belong to this group.
 * All actions performed with globally whitelisted IP propagate to a whole group (all servers and IPs included in this group).
 * If you remove an IP included in a group, this IP will be removed from all servers belonged to this group.
@@ -424,7 +424,7 @@ In the pop-up choose <span class="notranslate">_IP_</span> tab and fill out:
 * If the server is a part of a group (see: <span class="notranslate">[global Black | White list management](/dashboard/#global-black-white-list-ip-management)</span>), choose <span class="notranslate">_Scope: Local_</span> (IP will be added to Black list on a current server) or <span class="notranslate">_Group_</span> (IP will be added to a group of servers and from this moment can be managed from any server in the group).
 
 :::tip Notes
-* If you add a new server in CLN in a group of blacklisted IPs, then all IPs of this group will be added as blacklisted to this new server.
+* If you add a new server in an existing group in CLN, then all IPs blacklisted for this group will be added as blacklisted to this new server.
 * If you have an IP blacklisted globally, then this IP will be added to all servers belong to this group.
 * All actions performed with globally blacklisted IP propagate to a whole group (all servers and IPs included in this group).
 * If you remove an IP included in a group, this IP will be removed from all servers belonged to this group.

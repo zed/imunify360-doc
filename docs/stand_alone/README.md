@@ -21,7 +21,7 @@ There are some basic steps to run Imunify360
 1. Define a way to serve web-based UI
 2. Configure a user authentication process
 3. Implement integration scripts that provide Imunify360 with
-   a necessary information suchs as list of users, domains hosted on
+   a necessary information such as list of users, domains hosted on
    the server, panel administrators, general panel info
 4. Install prerequisites such as ModSecurity, remoteip web server modules
 5. Configure ModSecurity integration

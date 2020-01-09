@@ -27,6 +27,11 @@ There are some basic steps to run Imunify360
 5. Configure ModSecurity integration
 6. Configure malware scanner integration
 
+:::warning Warning
+
+Imunify Web-UI PHP code has to be executed under a user which has access to <span class="notranslate">`/var/run/defence360agent/non_root_simple_rpc.sock`</span>. If it runs in CageFS, you'll need to configure it accordingly.
+:::
+
 
 #### How to configure the Imunify360 UI
 

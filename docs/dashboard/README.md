@@ -275,9 +275,18 @@ In the pop-up choose <span class="notranslate">_IP_</span> tab and fill out:
   ::: tip Note
   You can grant or remove full access afterwards in the table, just click _Cog_ icon and choose <span class="notranslate">_Grant Full Access_</span> to grant or <span class="notranslate">_Remove Full Access_</span> to remove it.
   :::
-* If <span class="notranslate">[global Black | White list management](/dashboard/#global-black-white-list-ip-management)</span> is enabled, choose <span class="notranslate">_Scope: Local_</span> (IP will be added to White list on a current server) or <span class="notranslate">_Group_</span> (IP will be added to a group of servers and from this moment can be managed globally).
+* If the server is a part of a group (see: <span class="notranslate">[global Black | White list management](/dashboard/#global-black-white-list-ip-management)</span>, choose <span class="notranslate">_Scope: Local_</span> (IP will be added to White list on a current server) or <span class="notranslate">_Group_</span> (IP will be added to a group of servers and from this moment can be managed from any server in the group).
 
 When done, click <span class="notranslate">_Add IP_</span> to confirm your action or <span class="notranslate">_Cancel_</span> to hide pop-up.
+
+:::tip Notes
+* If you add a new server in CLN in a group of whitelisted IPs, then all IPs of this group will be added as whitelisted to this new server.
+* If you have an IP whitelisted globally, then this IP will be added to all servers belong to this group.
+* All actions performed with globally whitelisted IP propagate to a whole group (all servers and IPs included in this group).
+* If you remove an IP included in a group, this IP will be removed from all servers belonged to this group.
+* If you change the scope from <span class="notranslate">_Global_</span> to <span class="notranslate">_Local_</span>, then this IP on a current server becomes local and is removed from other servers of this group.
+* If you remove a server from a group in CLN, then all IPs whitelisted for the whole group will be removed from that server.
+:::
 
 You will see a notification if an IP has been added successfully.
 
@@ -412,7 +421,16 @@ In the pop-up choose <span class="notranslate">_IP_</span> tab and fill out:
 * <span class="notranslate">_Enter a comment_</span> – type a comment to the IP or subnet (optional)
 * <span class="notranslate">_Enter TTL_</span> in days or hours – time to live – for how long the IP will be in the Black List.
 * Choose <span class="notranslate">_Black List_</span> radio button
-* If <span class="notranslate">[global Black | White list management](/dashboard/#global-black-white-list-ip-management)</span> is enabled, choose <span class="notranslate">_Scope: Local_</span> (IP will be added to Black list on a current server) or <span class="notranslate">_Group_</span> (IP will be added to a group of servers and from this moment can be managed globally).
+* If the server is a part of a group (see: <span class="notranslate">[global Black | White list management](/dashboard/#global-black-white-list-ip-management)</span>), choose <span class="notranslate">_Scope: Local_</span> (IP will be added to Black list on a current server) or <span class="notranslate">_Group_</span> (IP will be added to a group of servers and from this moment can be managed from any server in the group).
+
+:::tip Notes
+* If you add a new server in CLN in a group of blacklisted IPs, then all IPs of this group will be added as blacklisted to this new server.
+* If you have an IP blacklisted globally, then this IP will be added to all servers belong to this group.
+* All actions performed with globally blacklisted IP propagate to a whole group (all servers and IPs included in this group).
+* If you remove an IP included in a group, this IP will be removed from all servers belonged to this group.
+* If you change the scope from <span class="notranslate">_Global_</span> to <span class="notranslate">_Local_</span>, then this IP on a current server becomes local and is removed from other servers of this group.
+* If you remove a server from a group in CLN, then all IPs blacklisted for the whole group will be removed from that server.
+:::
 
 When done, click <span class="notranslate">_Add IP_</span> to confirm your action or <span class="notranslate">_Cancel_</span> to close the pop-up.
 
@@ -488,6 +506,18 @@ When you have created a group in CLN and added IPs into this group, go to _Imuni
 You will see the _Scope_ column and controls (on clicking the _Add_ button) to manage IP locally (on a current server) or globally (on a group of servers).
 
 ![](/images/global_IP_management.png)
+
+#### How to change Scope to Group/Local
+
+To change the scope to <span class="notranslate">_Group/Local_</span>, go to <span class="notranslate">_Firewall > White/Black list_</span> and select an IP.
+
+
+* In the <span class="notranslate">_Actions_</span> column click ![](/images/gear.png).
+* Choose <span class="notranslate">_Change scope to Group/Local_</span>.
+* In the opened popup click <span class="notranslate">_Yes, change scope to Group/Local_</span> or click <span class="notranslate">_Cancel_</span> to close the popup.
+
+![](/images/change_scope.png)
+
 
 ### Blocked Ports
 

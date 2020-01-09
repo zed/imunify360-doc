@@ -114,7 +114,7 @@ Optional arguments:
 
 </div>
 
-This command allows to view or edit actual IPs in the <span class="notranslate">Black List</span>.
+This command allows you to view or edit actual IPs in the <span class="notranslate">Black List</span>.
 
 Usage:
 
@@ -165,6 +165,7 @@ where 12.34.56.78 is that specific IP address.
 |-|-|
 |<span class="notranslate">`--comment`</span>|allows to add comment to the item|
 |<span class="notranslate">`--expiration`</span>|allows to specify TTL for the blacklisted IP (in seconds since epoch)|
+|<span class="notranslate">`--scope`</span>|allows to set the scope to <span class="notranslate">_Global/Local_</span>. Accepts two values: <span class="notranslate">`local`</span> (a default value, means "add IP on this server only") and <span class="notranslate">`group`</span> (means "add IP for the whole group in which this server is").|
 
 **Examples:**
 
@@ -184,6 +185,17 @@ where 12.34.56.78 is that specific IP address.
 
    ```
    imunify360-agent blacklist --by-country-code BO
+   ```
+
+</div>
+
+
+* The following command adds an IP 1.2.3.4 to the Black List and sets the scope to <span class="notranslate">`group`</span>:
+
+<div class="notranslate">
+
+   ```
+imunify360-agent blacklist ip add 1.2.3.4 --scope group
    ```
 
 </div>
@@ -1123,6 +1135,7 @@ where `12.34.56.78` is that specific IP address.
 |<span class="notranslate">`--full-access`</span>|Only for <span class="notranslate">`move`</span> and <span class="notranslate">`edit`</span> commands.<br>Allows to grant full access to the IP or subnet ignoring the rules in Blocked ports.|
 |<span class="notranslate">`--no-full-access`</span>|Only for <span class="notranslate">`move`</span> and <span class="notranslate">`edit`</span> commands.<br>Allows to remove full access of the IP or subnet.|
 |<span class="notranslate">`--expiration`</span>|Allows to specify TTL for the blacklisted IP (in seconds since epoch).|
+|<span class="notranslate">`--scope`</span>|Allows to set the scope to <span class="notranslate">_Global/Local_</span>. Accepts two values: <span class="notranslate">`local`</span> (a default value, means "add IP on this server only") and <span class="notranslate">`group`</span> (means "add IP for the whole group in which this server is").|
 
 **Examples:**
 
@@ -1162,6 +1175,16 @@ where `12.34.56.78` is that specific IP address.
 
    ```
    imunify360-agent whitelist domain list
+   ```
+
+</div>
+
+5. The following command adds an IP 1.2.3.4 to the White List and sets the scope to <span class="notranslate">`group`</span>:
+
+<div class="notranslate">
+
+   ```
+imunify360-agent whitelist ip add 1.2.3.4 --scope group
    ```
 
 </div>

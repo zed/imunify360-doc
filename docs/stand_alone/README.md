@@ -9,6 +9,10 @@ installed. Imunify360 can be run with any web panel, as the UI is
 implemented using the single-page application (SPA) approach.
 :::
 
+:::tip Note
+The current version of Imunify360 requires Apache web-server.
+:::
+
 Below you can find the steps to install and run Imunify360 in
 stand-alone mode (without panel) or within any hosting panel.
 

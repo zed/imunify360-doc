@@ -500,7 +500,7 @@ See also: [How to use external files with the list of Black/White IPs](/firewall
 
 Starting from Imunify360 version 4.5 an administrator can manage IPs globally, this means that you can blacklist or whitelist an IP not only on one server but on a group of servers. 
 
-Prior to manage IPs globally, you should create a group and add servers into it. This can be done via [CLN UI](https://cln.cloudlinux.com/). You can find the complete documentation on how to create and manage servers’ groups [here](https://docs.cln.cloudlinux.com/dashboard/#cloudlinux-backup).
+Prior to manage IPs globally, you should create a group and add servers into it. This can be done via [CLN UI](https://cln.cloudlinux.com/). You can find the complete documentation on how to create and manage servers’ groups [here](https://docs.cln.cloudlinux.com/dashboard/#server-groups).
 
 When you have created a group in CLN and added IPs into this group, go to _Imunify360 > Firewall > White list_ or _Black list_.
 You will see the _Scope_ column and controls (on clicking the _Add_ button) to manage IP locally (on a current server) or globally (on a group of servers).

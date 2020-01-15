@@ -56,18 +56,24 @@ The options of the `pam_imunufy` are placed in the file: <span class="notranslat
 
 | | |
 |-|-|
-|<span class="notranslate">`USER_LOCK_TIMEOUT=5`</span>|a period of time on which a user should be blocked (minutes)|
+|<span class="notranslate">`USER_LOCK_TIMEOUT=5`</span>|a period of time during which a user should be blocked (minutes)|
 |<span class="notranslate">`USER_LOCK_ATTEMPTS=10`</span>|a number of attempts after which a user should be blocked|
 |<span class="notranslate">`USER_LOCK_MINUTES=5`</span>|a period of time (minutes) during which violation attempts from a user are counted; all attempts earlier than <span class="notranslate">`USER_LOCK_MINUTES`</span> are not counted|
-|<span class="notranslate">`USER_IP_LOCK_TIMEOUT=5`</span>|a period of time on which a user + IP should be blocked (minutes)|
+|<span class="notranslate">`USER_IP_LOCK_TIMEOUT=5`</span>|a period of time during which a user + IP should be blocked (minutes)|
 |<span class="notranslate">`USER_IP_LOCK_ATTEMPTS=10`</span>|a number of attempts after which a user + IP should be blocked|
 |<span class="notranslate">`USER_IP_LOCK_MINUTES=5`</span>|a period of time (minutes) during which violation attempts from a user + IP are counted; all attempts earlier than <span class="notranslate">`USER_IP_LOCK_MINUTES`</span> are not counted|
-|<span class="notranslate">`IP_LOCK_TIMEOUT=5`</span>|a period of time on which an IP should be blocked (minutes)|
+|<span class="notranslate">`IP_LOCK_TIMEOUT=5`</span>|a period of time during which an IP should be blocked (minutes)|
 |<span class="notranslate">`IP_LOCK_ATTEMPTS=10`</span>|a number of attempts after which an IP should be blocked|
 |<span class="notranslate">`IP_LOCK_MINUTES=5`</span>|a period of time during which violation attempts from an IP are counted; all attempts earlier than <span class="notranslate">`IP_LOCK_MINUTES`</span> are not counted|
 
+#### How it works
+
+During the last <span class="notranslate">`XXX_LOCK_MINUTES`</span> we count the number of login failures (unsuccessful login attempts). If the number of attempts exceeds the specified threshold <span class="notranslate">`XXX_LOCK_ATTEMPTS`</span>, the PAM plugin blocks access for <span class="notranslate">`XXX_LOCK_TIMEOUT`</span> minutes. After that, the counter is reset and the process repeats. 
+Note that the plugin has three separate counters and a set of settings for USER/IP/USER+IP management regarding brute-force attacks (see the table above).
+
+
 :::tip Notes
-* If a user is blocked by <span class="notranslate">`USER_LOCK_ATTEMPTS`</span>, than this user will not have access to the server from any IP
-* If a user is blocked by <span class="notranslate">`USER_IP_LOCK_ATTEMPTS`</span>, than this user will not have access to the server from that specific IP
-* If an IP is blocked by <span class="notranslate">`IP_LOCK_ATTEMPTS`</span>, than all users will not have access to the server from that specific blocked IP
+* If a user is blocked by <span class="notranslate">`USER_LOCK_ATTEMPTS`</span>, then this user will not have access to the server from any IP
+* If a user is blocked by <span class="notranslate">`USER_IP_LOCK_ATTEMPTS`</span>, then this user will not have access to the server from that specific IP
+* If an IP is blocked by <span class="notranslate">`IP_LOCK_ATTEMPTS`</span>, then all users will not have access to the server from that specific blocked IP
 :::

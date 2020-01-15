@@ -56,13 +56,18 @@ The options of the `pam_imunufy` are placed in the file: <span class="notranslat
 
 | | |
 |-|-|
-|<span class="notranslate">`USER_LOCK_TIMEOUT=5`</span>|timeout to lock a user in minutes|
-|<span class="notranslate">`USER_LOCK_ATTEMPTS=10`</span>|number of attempts after which a user should be locked|
-|<span class="notranslate">`USER_LOCK_MINUTES=5`</span>|a period during which attempts should be accounted for|
-|<span class="notranslate">`USER_IP_LOCK_TIMEOUT=5`</span>|timeout to lock a user/IP should in minutes|
-|<span class="notranslate">`USER_IP_LOCK_ATTEMPTS=10`</span>|number of attempts after which a user/IP should be locked|
-|<span class="notranslate">`USER_IP_LOCK_MINUTES=5`</span>|a period during which attempts should be accounted for|
-|<span class="notranslate">`IP_LOCK_TIMEOUT=5`</span>|timeout to lock an IP in minutes|
-|<span class="notranslate">`IP_LOCK_ATTEMPTS=10`</span>|number of attempts after which an IP should be locked|
-|<span class="notranslate">`IP_LOCK_MINUTES=5`</span>|period during which attempts should be accounted for|
+|<span class="notranslate">`USER_LOCK_TIMEOUT=5`</span>|a period of time on which a user should be blocked (minutes)|
+|<span class="notranslate">`USER_LOCK_ATTEMPTS=10`</span>|a number of attempts after which a user should be blocked|
+|<span class="notranslate">`USER_LOCK_MINUTES=5`</span>|a period of time (minutes) during which violation attempts from a user are counted; all attempts earlier than <span class="notranslate">`USER_LOCK_MINUTES`</span> are not counted|
+|<span class="notranslate">`USER_IP_LOCK_TIMEOUT=5`</span>|a period of time on which a user + IP should be blocked (minutes)|
+|<span class="notranslate">`USER_IP_LOCK_ATTEMPTS=10`</span>|a number of attempts after which a user + IP should be blocked|
+|<span class="notranslate">`USER_IP_LOCK_MINUTES=5`</span>|a period of time (minutes) during which violation attempts from a user + IP are counted; all attempts earlier than <span class="notranslate">`USER_IP_LOCK_MINUTES`</span> are not counted|
+|<span class="notranslate">`IP_LOCK_TIMEOUT=5`</span>|a period of time on which an IP should be blocked (minutes)|
+|<span class="notranslate">`IP_LOCK_ATTEMPTS=10`</span>|a number of attempts after which an IP should be blocked|
+|<span class="notranslate">`IP_LOCK_MINUTES=5`</span>|a period of time during which violation attempts from an IP are counted; all attempts earlier than <span class="notranslate">`IP_LOCK_MINUTES`</span> are not counted|
 
+:::tip Notes
+* If a user is blocked by <span class="notranslate">`USER_LOCK_ATTEMPTS`</span>, than this user will not have access to the server from any IP
+* If a user is blocked by <span class="notranslate">`USER_IP_LOCK_ATTEMPTS`</span>, than this user will not have access to the server from that specific IP
+* If an IP is blocked by <span class="notranslate">`IP_LOCK_ATTEMPTS`</span>, than all users will not have access to the server from that specific blocked IP
+:::

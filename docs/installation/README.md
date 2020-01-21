@@ -69,7 +69,7 @@ Before proceeding to installation process read carefully the information about s
 :::
 
 :::warning Warning
-On DirectAdmin, Imunify UI requires the <span class="notranslate">`proc_open`</span> PHP function to be enabled. If you are unable to log in, you might see a related message in the <span class="notranslate">`errror.log`</span> of the web-server. If so, please remove it from the <span class="notranslate">`disable_functions`</span> list in <span class="notranslate">`php.ini`</span>.
+On DirectAdmin, Imunify UI requires the <span class="notranslate">`proc_open`</span> PHP function to be enabled. If you are unable to open the Imunify UI, you might see a related message in the <span class="notranslate">`errror.log`</span> of the web-server. If so, please remove it from the <span class="notranslate">`disable_functions`</span> list in <span class="notranslate">`php.ini`</span>.
 :::
 
 To install Imunify360 proceed the following steps:

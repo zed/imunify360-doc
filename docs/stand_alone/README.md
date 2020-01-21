@@ -38,8 +38,14 @@ Imunify Web-UI PHP code has to be executed under a user which has access to <spa
 
 #### How to configure Imunify360 UI
 
-Create the <span class="notranslate">`/etc/sysconfig/imunify360/integration.conf`</span> file with a
-<span class="notranslate">`ui_path`</span> option defining the path that will serve web-based UI. For
+
+:::warning Note
+Imunify UI requires the <span class="notranslate">`proc_open`</span> PHP function to be enabled. If you are unable to log in, you might see a related message in the <span class="notranslate">`errror.log`</span> of the web-server.
+If so, please remove it from the <span class="notranslate">`disable_functions`</span> list in `php.ini`.
+:::
+
+Create the <span class="notranslate">`/etc/sysconfig/imunify360/integration.conf`</span> file with the
+<span class="notranslate">`ui_path`</span> option defining a path that will serve web-based UI. For
 example:
 
 <div class="notranslate">

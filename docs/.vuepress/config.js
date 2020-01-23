@@ -10,6 +10,14 @@ module.exports = {
       }
     }
   },
+  plugins: [
+    [
+      '@vuepress/google-analytics',
+      {
+        'ga': 'UA-85618808-1' // UA-00000000-0
+      }
+    ]
+  ],
   base: "/",
   head: [
     ["link", { rel: "icon", href: "/favicon.ico" }],

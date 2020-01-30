@@ -71,13 +71,13 @@ installation.
 Imunify360 can use PAM to authenticate users.
 Once the UI is opened, the user sees a sign-in form. The credentials are checked via PAM.
 
-You can specify which PAM service Imunify360 should use with the <span class="notranslate">`SERVICE_NAME`</span> option:
+You can specify which PAM service Imunify360 should use with the <span class="notranslate">`service_name`</span> option:
 
 <div class="notranslate">
 
 ``` ini
-[PAM]
-SERVICE_NAME = system-auth
+[pam]
+service_name = system-auth
 ```
 </div>
 
@@ -129,7 +129,7 @@ It should point to an executable file that generates a JSON file similar to the 
 #### How to provide Imunify360 with an actual list of users (optional)
 
 By default, Imunify360 will use Linux system users, limited
-by <span class="notranslate">`UID_MIN`</span> and <span class="notranslate">`UID_MAX`</span> from <span class="notranslate">`/etc/login.defs`</span>
+by <span class="notranslate">`uid_min`</span> and <span class="notranslate">`uid_max`</span> from <span class="notranslate">`/etc/login.defs`</span>
 
 If you want to see a specific list of users (note, that all of them
 must be real Linux users accessible via PAM), you can specify the
@@ -207,7 +207,7 @@ you can use a Python or PHP script.
 
 #### How to provide information about domains
 
-Specify <span class="notranslate">`DOMAINS`</span> option in the <span class="notranslate">`/etc/sysconfig/imunify360/integration.conf`</span>:
+Specify <span class="notranslate">`domains`</span> option in the <span class="notranslate">`/etc/sysconfig/imunify360/integration.conf`</span>:
 
 <div class="notranslate">
 
@@ -448,7 +448,7 @@ be defined. It contains two kinds of fields:
 
 * A simple variable, for example, <span class="notranslate">`[web_server].server_type`</span>
 * A path to a script that will return the data for Imunify360, for example,
-  <span class="notranslate">`[integration_scripts].DOMAINS`</span>.
+  <span class="notranslate">`[integration_scripts].domains`</span>.
 
 <div class="notranslate">
 

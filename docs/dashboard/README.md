@@ -603,10 +603,6 @@ This is also a real time file scanner for vulnerability and it can:
 
 * scan on-demand (any folder needed)
 
-::: tip Note
-When using Mod_Security for real-time scans, it is only possible to detect file owner if Apache is running with `mod_ruid2` configured. In other cases, the user for these files will always be the user a web server is running under (usually <span class="notranslate">`nobody`</span>).
-:::
-
 Malware scanning allows you to:
 
 * observe scanner activity

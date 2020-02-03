@@ -441,3 +441,7 @@ scp /tmp/eicar.com.txt  mycooluser@X.Y.Z.A:/var/www/mycooluser/mycoolwebsite_doc
 where <span class="notranslate">`X.Y.Z.A`</span> - your server IP address
 
 You can find the results in the <span class="notranslate">_Malware scanner > Files_</span> tab.
+
+### 17. Can Imunify360 firewall block traffic by domain name?
+
+Unfortunately, Imunify360 does not have such ability. 

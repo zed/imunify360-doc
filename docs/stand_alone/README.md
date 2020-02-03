@@ -11,7 +11,7 @@ You can drop any feedback to [feedback@imunify360.com](mailto:feedback@imunify36
 **Beta version limitations**
 
 * No WebShield support yet (Captcha, GreyList and etc.)
-* Support for apache server only, ngix/lightspeed/openLightSpeed are coming
+* Support for apache server only, Ngix/LiteSpeed/OpenLiteSpeed are coming
 * No support for managing disabled rules yet. See also: [Disabled rules](/dashboard/#disabled-rules)
 
 

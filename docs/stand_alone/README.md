@@ -459,8 +459,8 @@ It should point to an executable file that generates a JSON file similar to the 
 |Key|Nullable|Description|
 |<span class="notranslate">`id`</span>|<span class="notranslate">`False`</span>|ID of the UNIX account in the system.|
 |<span class="notranslate">`username`</span>|<span class="notranslate">`False`</span>|The name of the UNIX account in the system.|
-|<span class="notranslate">`owner`</span>|<span class="notranslate">`True`</span>|The name of the account owner in the control panel. The owner can be an administrator (in this case he should be included in the <span class="notranslate">`admins()`</span> output) or a reseller (in this case he should be included in the <span class="notranslate">`resellers()`</span> output).|
-|<span class="notranslate">`locale_code`</span>|<span class="notranslate">`True`</span>|The control panel locale selected by a user.|
+|<span class="notranslate">`owner`</span>|<span class="notranslate">`True`</span>|The name of the account owner. The owner can be an administrator (in this case he should be included in the <span class="notranslate">`admins()`</span> output) or a reseller (in this case he should be included in the <span class="notranslate">`resellers()`</span> output).|
+|<span class="notranslate">`locale_code`</span>|<span class="notranslate">`True`</span>|The locale selected by a user.|
 |<span class="notranslate">`email`</span>|<span class="notranslate">`True`</span>|Email of the account user. If there is no email, it should return null.|
 |<span class="notranslate">`domain`</span>|<span class="notranslate">`True`</span>|The main domain of a user.|
 |<span class="notranslate">`package`</span>|<span class="notranslate">`True`</span>|Information about the package to which a user belongs to. If the user doesn’t belong to any package, it should return null.|

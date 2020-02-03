@@ -11,7 +11,7 @@ You can drop any feedback to [feedback@imunify360.com](mailto:feedback@imunify36
 **Beta version limitations**
 
 * No WebShield support yet (Captcha, GreyList and etc.)
-* No support for different web servers like Nginx or LightSpeed yet
+* Support for apache server only, ngix/lightspeed/openLightSpeed are coming
 * No support for managing disabled rules yet. See also: [Disabled rules](/dashboard/#disabled-rules)
 
 
@@ -29,7 +29,9 @@ You can drop any feedback to [feedback@imunify360.com](mailto:feedback@imunify36
 * Apache
 
 
-There are four main steps in general required for having Imunify360 Stand-alone running on your server:
+
+
+#### There are four main steps in general required for having Imunify360 Stand-alone running on your server:
 
 1. Install and configure the prerequisites like web servers modules or so
 2. Configure Imunify360 integrations like authentication or <span class="notranslate">`mod_security`</span> configuration
@@ -233,7 +235,7 @@ The installation instructions are the same as for cPanel/Plesk/DirectAdmin versi
 
 The web-based UI is available via the domain configured in the <span class="notranslate">`ui_path`</span>.
 
-For example, if <span class="notranslate">`/var/www/vhosts/imunify360/imunify360.hosting.example.com/html/im360`</span> is the document root folder for the <span class="notranslate">`imunify360.hosting.example.com`</span> domain, then you could open ImunifyAV with the following URL:
+For example, if <span class="notranslate">`/var/www/vhosts/imunify360/imunify360.hosting.example.com/html/im360`</span> is the document root folder for the <span class="notranslate">`imunify360.hosting.example.com`</span> domain, then you could open Imunify360 with the following URL:
 
 * <span class="notranslate">`https://imunify360.hosting.example.com/`</span> (when you have TLS certificate configured for the domain) or
 * <span class="notranslate">`http://imunify360.hosting.example.com/`</span>
@@ -302,7 +304,7 @@ To provide a list of domains for Imunify360, specify the script that generates a
 <div class="notranslate">
 
 ``` ini
-[integration_sctipts]
+[integration_scripts]
 domains = /path/to/get-domains-script.sh
 ```
 </div>

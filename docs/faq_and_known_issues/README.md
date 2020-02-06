@@ -445,3 +445,19 @@ You can find the results in the <span class="notranslate">_Malware scanner > Fil
 ### 17. Can Imunify360 firewall block traffic by domain name?
 
 Unfortunately, Imunify360 does not have such ability. 
+
+### 18. What ports are used by Webshield?  
+ 
+The following ports are reserved - 52223,52224,52227-52235
+
+An additional information you can find in the following config files
+
+<div class="notranslate">
+
+```
+/etc/imunify360-webshield/ports.conf
+/etc/imunify360-webshield/ssl_ports.conf
+/etc/imunify360-webshield/webshield.conf
+```
+
+</div>

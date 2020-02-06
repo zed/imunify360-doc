@@ -264,4 +264,11 @@ systemctl reload imunify360-webshield
 
 It will block traffic from those countries no matter if it goes via known proxies or directly.
 
+### Where Webshield and Captcha related logs are placed:
 
+<div class="notranslate">
+
+```
+/var/log/imunify360-webshield/
+```
+</div>

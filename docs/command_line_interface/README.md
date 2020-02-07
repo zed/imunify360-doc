@@ -200,6 +200,11 @@ imunify360-agent blacklist ip add 1.2.3.4 --scope group
 
 </div>
 
+
+:::warning Warning
+For now, ipset has a limitation. It is supported only ipv6 /64 networks
+:::
+
 <div class="notranslate">
 
 ## Blocked ports

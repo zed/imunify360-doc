@@ -833,6 +833,119 @@ imunify360-agent register IPL
 </div>
 
 <div class="notranslate">
+	
+## Remote-proxy	
+	
+</div>
+
+Allows to add an additional proxy subnet.
+
+Usage:
+
+<div class="notranslate">
+
+```
+imunify360-agent remote-proxy [commands] [--optional arguments]
+```
+
+</div>
+
+Positional arguments:
+
+| | |
+|-|-|
+|<span class="notranslate">`add`</span>|Add proxy subnet in CIDR notation.|
+|<span class="notranslate">`delete`</span>|Delete proxy subnet in CIDR notation.|
+|<span class="notranslate">`list`</span>|List of manually added proxies|
+|<span class="notranslate">`group`</span>|Manage proxies by Name|
+
+Positional arguments for <span class="notranslate">`add`</span>:
+
+| | |
+|-|-|
+|<span class="notranslate">`NETWORKS`</span>| Subnet in CIDR notation|
+
+Optional arguments for <span class="notranslate">`add`</span>:
+
+| | |
+|-|-|
+|<span class="notranslate">`-h, --help`</span>|Show this help message.|
+|<span class="notranslate">`--json`</span>|Return data in JSON format.|
+|<span class="notranslate">`--name NAME`</span>|Name of the added proxy.|
+|<span class="notranslate">`--verbose, -v`</span>|Allows to return data in good-looking view if option <span class="notranslate">`--json`</span> is used.|
+
+Positional arguments for <span class="notranslate">`delete`</span>:
+
+| | |
+|-|-|
+|<span class="notranslate">`NETWORKS`</span>| Subnet in CIDR notation|
+
+Optional arguments for <span class="notranslate">`delete`</span>:
+
+| | |
+|-|-|
+|<span class="notranslate">`-h, --help`</span>|Show this help message.|
+|<span class="notranslate">`--json`</span>|Return data in JSON format.|
+|<span class="notranslate">`--verbose, -v`</span>|Allows to return data in good-looking view if option <span class="notranslate">`--json`</span> is used.|
+
+Optional arguments for <span class="notranslate">`list`</span>:
+
+| | |
+|-|-|
+|<span class="notranslate">`-h, --help`</span>|Show this help message.|
+|<span class="notranslate">`--by-group BY_GROUP`</span>|Sort by GROUP.|
+|<span class="notranslate">`--by-source BY_SOURCE`</span>|Sort by SOURCE.|
+|<span class="notranslate">`--json`</span>|Return data in JSON format.|
+|<span class="notranslate">`--verbose, -v`</span>|Allows to return data in good-looking view if option <span class="notranslate">`--json`</span> is used.|
+
+Positional arguments for <span class="notranslate">`group`</span>:
+
+| | |
+|-|-|
+|<span class="notranslate">`enable`</span>|Enable group.|
+|<span class="notranslate">`disable`</span>|Disable group.|
+
+Positional arguments for <span class="notranslate">`enable/disable`</span>:
+
+| | |
+|-|-|
+|<span class="notranslate">`name`</span>| Name of your proxy subnet|
+
+
+Optional arguments for <span class="notranslate">`enable/disable`</span>:
+
+| | |
+|-|-|
+|<span class="notranslate">`-h, --help`</span>|Show this help message.|
+|<span class="notranslate">`--source SOURCE`</span>||
+|<span class="notranslate">`--json`</span>|Return data in JSON format.|
+|<span class="notranslate">`--verbose, -v`</span>|Allows to return data in good-looking view if option <span class="notranslate">`--json`</span> is used.|
+
+Optional arguments for <span class="notranslate">`group`</span>:
+
+| | |
+|-|-|
+|<span class="notranslate">`-h, --help`</span>|Show this help message.|
+
+
+Optional arguments for <span class="notranslate">`remote-proxy`</span>:
+
+| | |
+|-|-|
+|<span class="notranslate">`-h, --help`</span>|Show this help message.|
+
+
+**Examples**
+
+<div class="notranslate">
+
+```
+imunify360-agent remote-proxy add 1.1.2.0/24 --name "my_own_proxy"
+```
+
+</div>
+
+<div class="notranslate">
 
 ## Rstatus
 

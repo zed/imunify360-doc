@@ -447,6 +447,10 @@ If <span class="notranslate">_Show only manually added_</span> switcher is disab
 Regardless of switched CSF off or on, blocked by Imunify360 IPs exist along with CSF deny list. Warning displayed at the top of the table says that CSF is running and can be used for blacklisting along with Imunify360.
 :::
 
+:::warning Warning
+For now, ipset has a limitation. It is supported only ipv6 /64 networks
+:::
+
 #### How to add a country manually
 
 To add a country to the Black List, click <span class="notranslate">_Add_</span> on the right side of the page.

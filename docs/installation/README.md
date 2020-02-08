@@ -61,22 +61,21 @@ _<span class="notranslate">ISPManager</span>, non-panel - soon after._
 
 ## Installation Instructions
 
-::: tip Note
-Make sure that you have a license key. You can purchase it or get a trial license key at [https://www.imunify360.com/](https://www.imunify360.com/). Finally, you will receive an email with a license key.
-:::
-::: tip Note
-Before proceeding to installation process read carefully the information about specific settings for each supported hosting panel and <span class="notranslate">mod_security</span> rulesets [here](/hosting_panels_specific_settin/).
-:::
-
 :::warning Warning
 On DirectAdmin, Imunify UI requires the <span class="notranslate">`proc_open`</span> PHP function to be enabled. If you are unable to open the Imunify UI, you might see a related message in the <span class="notranslate">`errror.log`</span> of the web-server. If so, please remove it from the <span class="notranslate">`disable_functions`</span> list in <span class="notranslate">`php.ini`</span>.
 :::
 
-To install Imunify360 proceed the following steps:
+1. Get your license key at [https://www.imunify360.com/](https://www.imunify360.com/). You can purchase it or get a trial key from a received email.
 
-1. Log in with root privileges to the server where Imunify360 should be installed.
 
-2. Go to your home directory and run the commands:
+2. Setup or install the prerequisites required for your environment if any.
+   * [cPanel  hosting panel](/hosting_panels_specific_settin/#cpanel)
+   * [Plesk hosting panel](/hosting_panels_specific_settin/#plesk)
+   * [Stand-alone version (no hosting panel)](/stand_alone/)
+
+3. Log in with root privileges to the server where Imunify360 should be installed.
+
+4. Go to your home directory and run the commands:
 
 <div class="notranslate">
 

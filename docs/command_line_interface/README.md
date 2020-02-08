@@ -46,6 +46,7 @@ Available commands:
 |<span class="notranslate">`malware`</span>|Allows to manage malware options|
 |<span class="notranslate">`migratedb`</span>|Check and repair database if it is corrupted|
 |<span class="notranslate">`register`</span>|Agent registration|
+|<span class="notranslate">`remote-proxy`</span>|Allows to add an additional proxy subnet|
 |<span class="notranslate">`rstatus`</span>|Query the server to check if the license is valid|
 |<span class="notranslate">`rules`</span>|Allows user to manage disabled rules|
 |<span class="notranslate">`unregister`</span>|Unregistration the agent|
@@ -854,72 +855,72 @@ Positional arguments:
 
 | | |
 |-|-|
-|<span class="notranslate">`add`</span>|Add proxy subnet in CIDR notation.|
-|<span class="notranslate">`delete`</span>|Delete proxy subnet in CIDR notation.|
+|<span class="notranslate">`add`</span>|Add proxy subnet in CIDR notation|
+|<span class="notranslate">`delete`</span>|Delete proxy subnet in CIDR notation|
 |<span class="notranslate">`list`</span>|List of manually added proxies|
-|<span class="notranslate">`group`</span>|Manage proxies by Name|
+|<span class="notranslate">`group`</span>|Manage proxies by name|
 
 Positional arguments for <span class="notranslate">`add`</span>:
 
 | | |
 |-|-|
-|<span class="notranslate">`NETWORKS`</span>| Subnet in CIDR notation|
+|<span class="notranslate">`NETWORKS`</span>|Subnet in CIDR notation|
 
 Optional arguments for <span class="notranslate">`add`</span>:
 
 | | |
 |-|-|
-|<span class="notranslate">`-h, --help`</span>|Show this help message.|
-|<span class="notranslate">`--json`</span>|Return data in JSON format.|
-|<span class="notranslate">`--name NAME`</span>|Name of the added proxy.|
-|<span class="notranslate">`--verbose, -v`</span>|Allows to return data in good-looking view if option <span class="notranslate">`--json`</span> is used.|
+|<span class="notranslate">`-h`, `--help`</span>|Show this help message|
+|<span class="notranslate">`--json`</span>|Return data in JSON format|
+|<span class="notranslate">`--name NAME`</span>|Name of an added proxy|
+|<span class="notranslate">`--verbose`, `-v`</span>|Allows to return data in a good-looking view if the <span class="notranslate">`--json`</span> option is used.|
 
 Positional arguments for <span class="notranslate">`delete`</span>:
 
 | | |
 |-|-|
-|<span class="notranslate">`NETWORKS`</span>| Subnet in CIDR notation|
+|<span class="notranslate">`NETWORKS`</span>|Subnet in CIDR notation|
 
 Optional arguments for <span class="notranslate">`delete`</span>:
 
 | | |
 |-|-|
-|<span class="notranslate">`-h, --help`</span>|Show this help message.|
-|<span class="notranslate">`--json`</span>|Return data in JSON format.|
-|<span class="notranslate">`--verbose, -v`</span>|Allows to return data in good-looking view if option <span class="notranslate">`--json`</span> is used.|
+|<span class="notranslate">`-h`, `--help`</span>|Show this help message|
+|<span class="notranslate">`--json`</span>|Return data in JSON format|
+|<span class="notranslate">`--verbose`, `-v`</span>|Allows to return data in a good-looking view if the <span class="notranslate">`--json`</span> option is used.|
 
 Optional arguments for <span class="notranslate">`list`</span>:
 
 | | |
 |-|-|
-|<span class="notranslate">`-h, --help`</span>|Show this help message.|
-|<span class="notranslate">`--by-group BY_GROUP`</span>|Sort by GROUP.|
-|<span class="notranslate">`--by-source BY_SOURCE`</span>|Sort by SOURCE.|
-|<span class="notranslate">`--json`</span>|Return data in JSON format.|
-|<span class="notranslate">`--verbose, -v`</span>|Allows to return data in good-looking view if option <span class="notranslate">`--json`</span> is used.|
+|<span class="notranslate">`-h`, `--help`</span>|Show this help message|
+|<span class="notranslate">`--by-group BY_GROUP`</span>|Sort by <span class="notranslate">`GROUP`</span>|
+|<span class="notranslate">`--by-source BY_SOURCE`</span>|Sort by <span class="notranslate">`SOURCE`</span>|
+|<span class="notranslate">`--json`</span>|Return data in JSON format|
+|<span class="notranslate">`--verbose`, `-v`</span>|Allows to return data in a good-looking view if the <span class="notranslate">`--json`</span> option is used|
 
 Positional arguments for <span class="notranslate">`group`</span>:
 
 | | |
 |-|-|
-|<span class="notranslate">`enable`</span>|Enable group.|
-|<span class="notranslate">`disable`</span>|Disable group.|
+|<span class="notranslate">`enable`</span>|Enable group|
+|<span class="notranslate">`disable`</span>|Disable group|
 
-Positional arguments for <span class="notranslate">`enable/disable`</span>:
-
-| | |
-|-|-|
-|<span class="notranslate">`name`</span>| Name of your proxy subnet|
-
-
-Optional arguments for <span class="notranslate">`enable/disable`</span>:
+Positional arguments for <span class="notranslate">`enable`/`disable`</span>:
 
 | | |
 |-|-|
-|<span class="notranslate">`-h, --help`</span>|Show this help message.|
-|<span class="notranslate">`--source SOURCE`</span>||
-|<span class="notranslate">`--json`</span>|Return data in JSON format.|
-|<span class="notranslate">`--verbose, -v`</span>|Allows to return data in good-looking view if option <span class="notranslate">`--json`</span> is used.|
+|<span class="notranslate">`name`</span>|Name of your proxy subnet|
+
+
+Optional arguments for <span class="notranslate">`enable`/`disable`</span>:
+
+| | |
+|-|-|
+|<span class="notranslate">`-h`, `--help`</span>|Show this help message|
+|<span class="notranslate">`--source SOURCE`</span>|Enable/disable a group by <span class="notranslate">`SOURCE`</span>|
+|<span class="notranslate">`--json`</span>|Return data in JSON format|
+|<span class="notranslate">`--verbose`, `-v`</span>|Allows to return data in a good-looking view if the <span class="notranslate">`--json`</span> option is used.|
 
 Optional arguments for <span class="notranslate">`group`</span>:
 
@@ -932,10 +933,12 @@ Optional arguments for <span class="notranslate">`remote-proxy`</span>:
 
 | | |
 |-|-|
-|<span class="notranslate">`-h, --help`</span>|Show this help message.|
+|<span class="notranslate">`-h`, `--help`</span>|Show this help message.|
 
 
 **Examples**
+
+The following command adds proxy subnet 1.1.2.0/24 with name <span class="notranslate"`my_own_proxy`</span>
 
 <div class="notranslate">
 

@@ -446,11 +446,15 @@ You can find the results in the <span class="notranslate">_Malware scanner > Fil
 
 Unfortunately, Imunify360 does not have such ability. 
 
-### 18. What ports are used by Webshield?  
+### 18. What ports are used by WebShield?  
  
-The following ports are reserved - 52223,52224,52227-52235
+The following ports are reserved:
 
-An additional information you can find in the following config files
+* 52223
+* 52224
+* 52227-52235
+
+You can find additional information in the following config files:
 
 <div class="notranslate">
 

@@ -448,7 +448,7 @@ Regardless of switched CSF off or on, blocked by Imunify360 IPs exist along with
 :::
 
 :::warning Warning
-For now, ipset has a limitation. It is supported only ipv6 /64 networks
+For now, ipset supports only IPv6/64 networks
 :::
 
 #### How to add a country manually

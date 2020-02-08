@@ -938,7 +938,7 @@ Optional arguments for <span class="notranslate">`remote-proxy`</span>:
 
 **Examples**
 
-The following command adds proxy subnet 1.1.2.0/24 with name <span class="notranslate"`my_own_proxy`</span>
+The following command adds proxy subnet 1.1.2.0/24 with name <span class="notranslate">`my_own_proxy`</span>
 
 <div class="notranslate">
 

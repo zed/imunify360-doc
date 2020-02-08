@@ -744,12 +744,12 @@ imunify360-agent malware on-demand start --path='/var/www/vhosts/d*' --ignore-ma
 ```
 </div>
 
-3. The following command shows the example how to get extended list of malisious files for particular used. By default a limit value equal to 50
+3. The following command shows how to get an extended list of malicious files for a particular user. By default, a limit value equals to 50
 
 <div class="notranslate">
 
 ```
-imunify360-agent malware malicious list --user cltest  --limit 500
+imunify360-agent malware malicious list --user cltest --limit 500
 ```
 </div>
 

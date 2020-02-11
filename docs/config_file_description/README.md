@@ -199,3 +199,32 @@ systemctl restart imunify360
 ```
 
 </div>
+
+### How to apply changes from CLI
+
+In order to apply changes via command-line interface (CLI), you can use the following command:
+
+<div class="notranslate">
+
+```
+imunify360-agent config update ‘{"SECTION": {"parameter": value}}’ 
+```
+</div>
+
+For example, if you want to set <span class="notranslate">`MALWARE_SCAN_INTENSITY.cpu = 5`</span> from a command line, then you should execute the following command:
+
+<div class="notranslate">
+
+```
+imunify360-agent config update ‘{"MALWARE_SCAN_INTENSITY": {"cpu": 5}}’
+```
+</div>
+
+It is also possible to apply several parameters at once. For example:
+
+<div class="notranslate">
+
+```
+imunify360-agent config update '{"PAM": {"exim_dovecot_protection": false, "enable":true}}'
+```
+</div>

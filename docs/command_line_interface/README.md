@@ -36,6 +36,7 @@ Available commands:
 |<span class="notranslate">`blocked-port`</span>|Return/Edit list of blocked ports|
 |<span class="notranslate">`check-domains`</span>|Send domain list check|
 |<span class="notranslate">`clean`</span>|Clean the incidents|
+|<span class="notranslate">`config update`</span>|Allows to update configuration file via CLI|
 |<span class="notranslate">`checkdb`</span>|Check database integrity|
 |<span class="notranslate">`doctor`</span>|Collect info about system and send it to CloudLinux|
 |<span class="notranslate">`features`</span>|Manage available features for Imunify360|
@@ -314,6 +315,38 @@ Optional arguments:
 |<span class="notranslate">`--json`</span>|return data in JSON format|
 |<span class="notranslate">`--days`</span>|cleanups incidents from database, if there are more than specified days quantity<br>Example: <span class="notranslate">`--days 5`</span>.<br>this option will cause deletion of all incidents that are older than 5 days from today|
 |<span class="notranslate">`--limit`</span>|leaves only limited number of the incidents in the database and deletes the others<br>Example: <span class="notranslate">`--limit 5000`</span>.<br>this option will leave only 5000 new incidents and delete the others|
+
+
+<div class="notranslate">
+
+## Config update
+
+</div>
+
+Allows to update configuration file via CLI.
+
+Usage:
+
+<div class="notranslate">
+
+```
+imunify360-agent config update [configuration options]
+```
+
+</div>
+
+You can find all configuration options [here](/config_file_description/) and instructions on how to apply configuration changes from CLI [here](/config_file_description/#how-to-apply-changes-from-cli).
+
+**Example:**
+
+Set <span class="notranslate">`MALWARE_SCAN_INTENSITY.cpu = 5`</span> configuration option from a command line:
+
+<div class="notranslate">
+
+```
+imunify360-agent config update ‘{"MALWARE_SCAN_INTENSITY": {"cpu": 5}}’
+```
+</div>
 
 <div class="notranslate">
 

@@ -465,3 +465,7 @@ You can find additional information in the following config files:
 ```
 
 </div>
+
+### 19. Where can I find the quarantined files?
+
+You can find the quarantined files in the following directory: <span class="notranslate">`/home/.imunify.quarantined/USERNAME`</span>

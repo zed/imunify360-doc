@@ -469,3 +469,36 @@ You can find additional information in the following config files:
 ### 19. Where can I find the quarantined files?
 
 You can find the quarantined files in the following directory: <span class="notranslate">`/home/.imunify.quarantined/USERNAME`</span>
+
+### 20. How to check that CAPTCHA works?
+
+First, remove the IP from the whitelist:
+
+<div class="notranslate">
+
+```
+# imunify360-agent whitelist ip delete YOUR_IP 
+```
+
+</div>
+
+After that run the following loop which triggers ModSecurity test rule 5 times in a row that lead to graylisting of IP due to the sequence of 403 HTTP errors
+
+<div class="notranslate">
+
+```
+# for i in {1..5} ; do curl -s http://SERVER_IP/?i360test=88ff0adf94a190b9d1311c8b50fe2891c85af732 > /dev/null; echo $i; done
+```
+</div>
+
+Where "SERVER_IP" - the server's IP address where Imunify360 is installed and where you want to check CAPTCHA 
+Also, it is possible to use a domain name of a website which DNS A resord is pointed to the server. another words  - which is located on the server, like: 
+
+<div class="notranslate">
+
+```
+# for i in {1..5} ; do curl -s http://your.cooldomain.net/?i360test=88ff0adf94a190b9d1311c8b50fe2891c85af732 > /dev/null; echo $i; done
+```
+</div>
+
+</div>

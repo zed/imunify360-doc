@@ -194,6 +194,7 @@ For cPanel/EasyApache 4, Plesk, DirectAdmin and LiteSpeed _mod_remoteip_ will be
 * QUANTIL
 * QUIC.cloud CDN
 * BunnyCDN
+* Sucuri WAF
 
 
 ### SplashScreen for Chinese customers

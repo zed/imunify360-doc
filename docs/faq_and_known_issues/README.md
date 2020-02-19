@@ -442,11 +442,86 @@ where <span class="notranslate">`X.Y.Z.A`</span> - your server IP address
 
 You can find the results in the <span class="notranslate">_Malware scanner > Files_</span> tab.
 
-### 17. Can Imunify360 firewall block traffic by domain name?
+### 17. Malware file reasons <Badge text="v.4.6" />
+
+Starting from Imunify version 4.6 you can see the advanced reason why a file was detected as malicious.
+
+Go to <span class="notranslate">Imunify → Malware Scanner → Files tab → Reason</span>. See [Malware Scanner → Files tab](/dashboard/#files).
+
+A reason pattern looks like the following:
+
+<div class="notranslate">
+
+```
+<type>-<detected>-<ID>-<file-type>.<mlwcategory>.<mlwclassification>
+```
+</div>
+
+| | |
+|-|-|
+|<span class="notranslate">`<type>`</span>|`SMW` – server malware, `CMW` – client malware|
+|<span class="notranslate">`<detected>`</span>|`SA`- stand-alone (file is completely malicious), `INJ` – injections (malware is injected to some legitimate file), `BLKH` – blackhash|
+|<span class="notranslate">`<ID>`</span>|a signature ID|
+|<span class="notranslate">`<file-type>`</span>|a file type; see [Table 1](/faq_and_known_issues/#table-1-file-types-and-their-codes) below|
+|<span class="notranslate">`<mlwcategory>`</span>|a malware category, see [Table 2](/faq_and_known_issues/#table-2-malware-categories) below|
+|<span class="notranslate">`<mlwclassification>`</span>|malware classification; can vary depends on the different cases and signatures; see [Table 3](/faq_and_known_issues/#table-3-malware-classification) below|
+
+#### Table 1. File types and their codes
+
+| | |
+|-|-|
+|**File types**|**Codes**|
+|Markup language files|`htm`, `html`, `shtml` ,`phtml`|
+|Server config files|`htaccess`|
+|<span class="notranslate">JavaScript</span> files|`js`|
+|<span class="notranslate">Perl</span> files|`pl`|
+|<span class="notranslate">Python</span> files|`py`|
+|<span class="notranslate">Ruby</span> files|`rb`|
+|<span class="notranslate">Shell</span> scripts|shells in common: `sh`|
+|Other server pages|`Jsp` (`asp`,`aspx`), `vb`|
+
+
+#### Table 2. Malware categories
+
+| | |
+|-|-|
+|**Category**|**Explanation**|
+|<span class="notranslate">`bkdr`</span>|Artifacts that help attackers with partial or complete access to victims. Example: web shells|
+|<span class="notranslate">`tool`</span>|Scripts that are uploaded to victim's servers and can be used to perform certain specific actions like file upload, database access, downloaders/droppers, mailers, brute-force scripts, proxy scripts, etc.|
+|<span class="notranslate">`exploit`</span>|Scripts that are uploaded to victim's servers and meant to exploit certain other vulnerabilities or bugs. Example: WordPress/Joomla exploits|
+|<span class="notranslate">`spam`</span>|Files that deliver spam or point end-users towards spammy content. Example: doorway pages, other SEO spam, spam advertisement, injections, etc.|
+|<span class="notranslate">`phish`</span>|Phishing related malware artifacts|
+|<span class="notranslate">`miner`</span>|All sorts of miners go under this category|
+|<span class="notranslate">`redi`</span>|Malware artifacts causing redirects for any sort of malicious reason can be covered under this category|
+|<span class="notranslate">`deface`</span>|Any sort of artifacts that are meant to show off attacker's intentions or to spread a certain message. Example: Defacements, banners, etc.|
+
+
+#### Table 3. Malware classification
+
+| | |
+|-|-|
+|**Category**|**Classification**|
+|<span class="notranslate">`bkdr`</span>|<span class="notranslate">`wshll`</span> for web shells; <span class="notranslate">`exec`</span> for simple command executor injections|
+|<span class="notranslate">`tool`</span>|<span class="notranslate">`upldr`/`dwnldr`/`drpr`</span> for uploader/downloader/dropper type of files|
+|<span class="notranslate">`exploit`</span>|<span class="notranslate">`vuln`/`joom`/`wp`</span> for vulnerability/Joomla/WordPress|
+|<span class="notranslate">`phish`</span>|<span class="notranslate">`ecom`/`bank`/`edu`</span> for mentioning phishing on e-commerce/banking/educational domains|
+|<span class="notranslate">`miner`</span>|<span class="notranslate">`chive`/`cimp`/`cloot`</span> for Coinhive/CoinIMP/CryptoLoot|
+
+
+
+#### Example
+
+| | |
+|-|-|
+|**Reason**|**Explanation**|
+|<span class="notranslate">`SMW-SA-05155-sh.bkdr.wshll`</span>|**type**: server malware (`SMW`)<br>**detected**: stand-alone (file is completely malicious) (`SA`)<br>**signature ID**: `05155`<br>**file type**: shell scripts (`sh`)<br>**mlwcategory**: artifacts that help attackers with partial or complete access to victims (`bkdr`)<br>**mlwclassification**: web shells (`wshll`)|
+
+
+### 18. Can Imunify360 firewall block traffic by domain name?
 
 Unfortunately, Imunify360 does not have such ability. 
 
-### 18. What ports are used by WebShield?  
+### 19. What ports are used by WebShield?  
  
 The following ports are reserved:
 
@@ -466,6 +541,6 @@ You can find additional information in the following config files:
 
 </div>
 
-### 19. Where can I find the quarantined files?
+### 20. Where can I find the quarantined files?
 
 You can find the quarantined files in the following directory: <span class="notranslate">`/home/.imunify.quarantined/USERNAME`</span>

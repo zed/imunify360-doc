@@ -20,7 +20,7 @@ If you use CSF, then try to find the IP in [CSF](/ids_integration/#csf-integrati
 If nothing helps, then [contact our support team](https://cloudlinux.zendesk.com/hc/requests/new).
 
 :::tip Note
-There is a corner case of [IP/port blocking precedence](/faq_and_known_issues/#ip-port-blocking-precedence)
+There is a corner case of [IP whitelisting/port blocking precedence](/faq_and_known_issues/#ip-whitelisting-port-blocking-precedence)
 :::
 
 ### 2. Could I disable IPtables (firewall) or OSSEC, when using Imunify360?
@@ -551,7 +551,7 @@ You can find the quarantined files in the following directory: <span class="notr
 
 ## Corner cases
 
-#### IP/port blocking precedence
+#### IP whitelisting/port blocking precedence
 
 Imunify360 has a corner case related to the following behavior of the Imunify360 firewall: when some IP is whitelisted and at the same time a certain port is blocked, the access to the port for the whitelisted IP is blocked (the port setting takes precedence).
 ![](/images/corner1.jpg)

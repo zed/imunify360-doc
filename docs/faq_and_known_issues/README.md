@@ -544,3 +544,24 @@ You can find additional information in the following config files:
 ### 20. Where can I find the quarantined files?
 
 You can find the quarantined files in the following directory: <span class="notranslate">`/home/.imunify.quarantined/USERNAME`</span>
+
+## Corner cases
+
+#### IP/port blocking corner case
+
+Imunify360 has a corner case related to the following behavior of the Imunify360 firewall: when some IP is whitelisted and at the same time a certain port is blocked, the access to the port for the whitelisted IP is blocked (the port setting takes precedence).
+![](/images/corner1.jpg)
+![](/images/corner2.jpg)
+
+As a workaround, you may add the IP address to "Whitelisted IP" list for the blocked port:
+![](/images/corner3.jpg)
+
+If you wish to use CLI -  you may remove the blocked port for all IPs and add a new record with the list of whitelisted IPs. Here's an example for TCP port 2083:
+
+<div class="notranslate">
+
+```
+imunify360-agent blocked-port delete 2083:tcp
+imunify360-agent blocked-port add  2083:tcp --ips 69.178.6.6  10.102.1.37
+```
+</div>

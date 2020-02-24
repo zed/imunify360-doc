@@ -90,7 +90,7 @@ SecRuleEngine = "On"
 ```
 </div>
 
-Create the empty file <span class="notranslate">`/etc/sysconfig/imunify360/generic/modsec.conf`</span> and include it into the web server config as <span class="notranslate">`IncludeOptional`</span>. The file would be replaced with the actual config during Imunify360 installation.
+Create the empty file <span class="notranslate">`/etc/sysconfig/imunify360/generic/modsec.conf`</span> and include it into the web server config as <span class="notranslate">`IncludeOptional`</span>. The file would be replaced with the actual config during the first Imunify360 installation or you can fill it via calling the Imunify360 ModSec ruleset installation <span class="notranslate">`imunify360-agent install-vendor`</span>.
 
 Set the path and graceful restart script in the <span class="notranslate">`integration.conf`</span>
 

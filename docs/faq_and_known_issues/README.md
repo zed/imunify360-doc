@@ -549,15 +549,51 @@ You can find additional information in the following config files:
 
 You can find the quarantined files in the following directory: <span class="notranslate">`/home/.imunify.quarantined/USERNAME`</span>
 
+
+### 21. How to check that CAPTCHA works?
+
+First, remove an IP from the White list:
+
+<div class="notranslate">
+
+```
+# imunify360-agent whitelist ip delete YOUR_IP 
+```
+
+</div>
+
+After that, run the following loop which triggers ModSecurity test rule 5 times in a row that leads to graylisting of the IP due to the sequence of 403 HTTP errors:
+
+<div class="notranslate">
+
+```
+# for i in {1..5} ; do curl -s http://SERVER_IP/?i360test=88ff0adf94a190b9d1311c8b50fe2891c85af732 > /dev/null; echo $i; done
+```
+</div>
+
+Where <span class="notranslate">`SERVER_IP`</span> is the server's IP address where Imunify360 is installed and where you want to check CAPTCHA.
+
+Also, it is possible to use a domain name of a website which `DNS A` record is pointed to the server. In other words, which is located on the server, like: 
+
+<div class="notranslate">
+
+```
+
+# for i in {1..5} ; do curl -s http://your.cooldomain.net/?i360test=88ff0adf94a190b9d1311c8b50fe2891c85af732 > /dev/null; echo $i; done
+```
+</div>
+
 ## Corner cases
 
 #### IP whitelisting/port blocking precedence
 
 Imunify360 has a corner case related to the following behavior of the Imunify360 firewall: when some IP is whitelisted and at the same time a certain port is blocked, the access to the port for the whitelisted IP is blocked (the port setting takes precedence).
+
 ![](/images/corner1.jpg)
 ![](/images/corner2.jpg)
 
 As a workaround, you may add the IP address to "Whitelisted IP" list for the blocked port:
+
 ![](/images/corner3.jpg)
 
 If you wish to use CLI -  you may remove the blocked port for all IPs and add a new record with the list of whitelisted IPs. Here's an example for TCP port 2083:

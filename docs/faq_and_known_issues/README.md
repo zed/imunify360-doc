@@ -472,7 +472,7 @@ You can find the quarantined files in the following directory: <span class="notr
 
 ### 20. How to check that CAPTCHA works?
 
-First, remove the IP from the whitelist:
+First, remove an IP from the White list:
 
 <div class="notranslate">
 
@@ -482,7 +482,7 @@ First, remove the IP from the whitelist:
 
 </div>
 
-After that run the following loop which triggers ModSecurity test rule 5 times in a row that lead to graylisting of IP due to the sequence of 403 HTTP errors
+After that, run the following loop which triggers ModSecurity test rule 5 times in a row that leads to graylisting of the IP due to the sequence of 403 HTTP errors:
 
 <div class="notranslate">
 
@@ -491,14 +491,13 @@ After that run the following loop which triggers ModSecurity test rule 5 times i
 ```
 </div>
 
-Where "SERVER_IP" - the server's IP address where Imunify360 is installed and where you want to check CAPTCHA 
-Also, it is possible to use a domain name of a website which DNS A resord is pointed to the server. another words  - which is located on the server, like: 
+Where <span class="notranslate">`SERVER_IP`</span> is the server's IP address where Imunify360 is installed and where you want to check CAPTCHA.
+
+Also, it is possible to use a domain name of a website which `DNS A` record is pointed to the server. In other words, which is located on the server, like: 
 
 <div class="notranslate">
 
 ```
 # for i in {1..5} ; do curl -s http://your.cooldomain.net/?i360test=88ff0adf94a190b9d1311c8b50fe2891c85af732 > /dev/null; echo $i; done
 ```
-</div>
-
 </div>

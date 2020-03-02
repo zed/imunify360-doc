@@ -162,5 +162,7 @@ module.exports = {
   "/stand_alone/#extended-integration-conf-example-for-reference": "/stand_alone/#integration-config-file",
   "/ru/stand_alone/#extended-integration-conf-example-for-reference": "/ru/stand_alone/#integration-config-file",
   "/stand_alone/#further-steps": "/stand_alone/#imunify360-stand-alone",
-  "/ru/stand_alone/#further-steps": "/ru/stand_alone/#imunify360-stand-alone"
+  "/ru/stand_alone/#further-steps": "/ru/stand_alone/#imunify360-stand-alone",
+  "/ru/features/smtp-traffic-manager": "/ru/features/#smtp-traffic-manager",
+  "/features/smtp-traffic-manager": "/features/#smtp-traffic-manager"
 };

@@ -206,7 +206,7 @@ There is a color indication for IP address.
 * <span class="notranslate">_Country_ </span>– country origin of the abuser IP address.
 * <span class="notranslate">_# of Times_</span> – the number of times the abuser tried to repeat the action.
 * <span class="notranslate">_Event_</span> – description of the event or suspicious activity (as it is described by OSSEC and Mod_Security sensors).
-* <span class="notranslate">_Severity_</span> – severity level of the incidents (as it is estimated in [OSSEC severity levels](http://ossec-docs.readthedocs.io/en/latest/manual/rules-decoders/rule-levels.html) and [Mod_Security severity levels](https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual-%28v2.x%29#severity)). The color of severity means:
+* <span class="notranslate">_Severity_</span> – severity level of the incidents (as it is estimated in [OSSEC severity levels](https://ossec-docs.readthedocs.io/en/latest/docs/manual/rules-decoders/rule-levels.html?highlight=severity%20level) and [Mod_Security severity levels](https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual-%28v2.x%29#severity)). The color of severity means:
 
   * Green – Mod_Security levels 7-5, OSSEC levels 00-03
   * Orange – Mod_Security level 4, OSSEC levels 04-10

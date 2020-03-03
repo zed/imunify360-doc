@@ -22,7 +22,7 @@
 * <span class="notranslate">Plesk (Plesk</span> 12.5 is not supported starting with Imunify360 3.8.5)
 * <span class="notranslate">DirectAdmin</span> <sup>Imunify360 v. 3.1.3+</sup>
 
-_<span class="notranslate">ISPManager</span>, non-panel - soon after._
+_<span class="notranslate">ISPManager</span> - soon after._
 
 **Required browsers**
 

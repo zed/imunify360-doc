@@ -246,7 +246,7 @@ imunify360-agent blocked-port [command] <value> [--option]
 | | |
 |-----|-|
 |<span class="notranslate">`--comment`</span>| allows to add comment to the item|
-|<span class="notranslate">`--ips`</span>| allows to add IP addresses to ignore list of the<br>blocked port (port won’t be blocked for this IP addresses)|
+|<span class="notranslate">`--ips`</span>| block port for all IP addresses except the specified|
 
 **Example:**
 
@@ -526,7 +526,7 @@ imunify360-agent get --period 1h --by-country-code UA --by-list black --json
 
 </div>
 
-This command allows to view or edit actual IP <span class="notranslate">Black List</span>.
+This command allows to view or edit IP <span class="notranslate">Gray List</span>.
 
 Usage:
 
@@ -1240,7 +1240,7 @@ Optional arguments:
  
 <div class="notranslate">
 
-## Whitelist 
+## Whitelist
 
 </div>
 
@@ -1270,7 +1270,7 @@ imunify360-agent whitelist [subject] [command] <value> [--option]
 |<span class="notranslate">`add`</span>|Add item(-s) to the <span class="notranslate">White List</span>.|
 |<span class="notranslate">`delete`</span>|Remove item(-s) from the <span class="notranslate">White List.</span>|
 |<span class="notranslate">`move`</span>|Move item(-s) to the <span class="notranslate">White List</span>.|
-|<span class="notranslate">`edit`</span>|Edit comment on the item in the <span class="notranslate">White List</span>.|
+|<span class="notranslate">`edit`</span>|Edit TTL, comment and other parameters of the Whitelisted item.|
 |<span class="notranslate">`list`</span>|List items(-s) in the <span class="notranslate">White List</span>.|
 |<span class="notranslate">`reset-to`</span>|Replace whitelisted domains list with a new list.|
 
@@ -1296,7 +1296,7 @@ where `12.34.56.78` is that specific IP address.
 |<span class="notranslate">`--comment`</span>|Allows to add a comment to the item.|
 |<span class="notranslate">`--full-access`</span>|Only for <span class="notranslate">`move`</span> and <span class="notranslate">`edit`</span> commands.<br>Allows to grant full access to the IP or subnet ignoring the rules in Blocked ports.|
 |<span class="notranslate">`--no-full-access`</span>|Only for <span class="notranslate">`move`</span> and <span class="notranslate">`edit`</span> commands.<br>Allows to remove full access of the IP or subnet.|
-|<span class="notranslate">`--expiration`</span>|Allows to specify TTL for the blacklisted IP (in seconds since epoch).|
+|<span class="notranslate">`--expiration`</span>|Allows specifying TTL for the blacklisted IP (in seconds since epoch).|
 |<span class="notranslate">`--scope`</span>|Allows to set the scope to <span class="notranslate">_Global/Local_</span>. Accepts two values: <span class="notranslate">`local`</span> (a default value, means "add IP on this server only") and <span class="notranslate">`group`</span> (means "add IP for the whole group in which this server is").|
 
 **Examples:**

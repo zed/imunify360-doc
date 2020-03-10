@@ -188,6 +188,11 @@ By default, <span class="notranslate">`root`</span> is considered to be the only
 To add more administrators, list them in the <span class="notranslate">`/etc/sysconfig/imunify360/auth.admin`</span> file 
 or specify the admins option in the <span class="notranslate">`/etc/sysconfig/imunify360/integration.conf`</span>
 
+::: tip Note
+If some integration script is not found in *integration_scripts* section of `/etc/sysconfig/imunify360/integration.conf`, we will look for it in [/opt/cpvendor/etc/integration.ini](https://docs.cloudlinux.com/control_panel_integration/#general) too.  
+If `integration_scripts.admins` is defined in any of them, it is used instead of `/etc/sysconfig/imunify360/auth.admin`
+:::
+
 <div class="notranslate">
 
 ``` ini

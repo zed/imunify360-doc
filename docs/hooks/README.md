@@ -149,7 +149,7 @@ imunify360-agent hook add --event <event name> --path </path/to/hook_script>
       * users[] / string array / users that have been scanned (if any)
       * total_files / int / number of files checked within the last scanning
       * total_malicious / int / number of detected malicious files
-      * tmp_filename / string / path to a temporary file with a list of detected threads. The list of threads is in the format of the following command: `imunify360-agent malware malicious list --by-scan-id=... --json`
+      * tmp_filename / string / path to a temporary file with a list of detected threads. The list of threads is in the format of the following command: <span class="notranslate"> `imunify360-agent malware malicious list --by-scan-id=... --json` </span>
 
     <div class="notranslate">
 
@@ -217,7 +217,7 @@ All results can be saved in a temporary file before handler invocation and then 
     * params[]
       * cleanup_id / string / unique id of the cleanup
       * started / int / unixtime when the cleanup was started
-      * tmp_filename / string / path to a temporary file with a scanning report. The list is in the format of the following command: `imunify360-agent malware malicious list --by-scan-id=... --json`. See malware-detected hook section for details.
+      * tmp_filename / string / path to a temporary file with a scanning report. The list is in the format of the following command: <span class="notranslate"> `imunify360-agent malware malicious list --by-scan-id=... --json` </span>. See malware-detected hook section for details.
       * total_files / int / number of files that were sent for cleanup
 
     <div class="notranslate">
@@ -276,12 +276,12 @@ imunify360-agent hook [command] --event [event_name|all] [--path </path/to/hook_
 
 The following commands are supported:
 
-* **add** - register a new event handler
-* **delete** - unregister existing event handler
-* **list** - show existing event handlers
-* **add-native** - register a new native event handler
+* <span class="notranslate"> **add** </span> - register a new event handler
+* <span class="notranslate"> **delete** </span> - unregister existing event handler
+* <span class="notranslate"> **list** </span> - show existing event handlers
+* <span class="notranslate"> **add-native** </span> - register a new native event handler
 
-The third parameter _event_name_ defines a particular event that invokes a registered handler as opposed to **all** keyword.
+The third parameter <span class="notranslate"> _event_name_ </span> defines a particular event that invokes a registered handler as opposed to <span class="notranslate"> **all** </span> keyword.
 The fourth parameter `/path/to/hook_script` shall contain a valid path to a handler of the event, it shall be any executable or Python Native event handlers that agent will run upon a registered event.
 
 ## Native
@@ -302,7 +302,7 @@ where `dict_param` would hold the same data as JSON that non-Native hook would g
 
 ## Log File
 
-You can see all hook data in the log file. It is located at _/var/log/imunify360/hook.log_.
+You can see all hook data in the log file. It is located at <span class="notranslate"> _/var/log/imunify360/hook.log_ </span> .
 When the event comes, the data is recorded to the log file in the following format:
 
 <div class="notranslate">
@@ -313,8 +313,8 @@ timestamp event : id : started [native:] name :  subtype : script_path
 
 </div>
 
-* **native** is prepended for the Native hook implementation
-* **id** is a unique ID for each event
+* <span class="notranslate"> **native** </span> is prepended for the Native hook implementation
+* <span class="notranslate"> **id** </span> is a unique ID for each event
 
 Once the listener is done, the data is recorded to the log file in the following format:
 

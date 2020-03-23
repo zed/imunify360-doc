@@ -6294,7 +6294,7 @@ vuepress-html-webpack-plugin@^3.2.0:
 
 "vuepress-theme-cloudlinux@https://github.com/cloudlinux/cloudlinux-doc-theme.git":
   version "0.0.1"
-  resolved "https://github.com/cloudlinux/cloudlinux-doc-theme.git#e6fe14fccaee02fbe17ce3bbee938dc0a9ae686a"
+  resolved "https://github.com/cloudlinux/cloudlinux-doc-theme.git#9bc1f160d9c9d9c4b6ee2963047a0fa3f3e92509"
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^1.2.2"
     "@fortawesome/free-brands-svg-icons" "^5.2.0"

@@ -45,6 +45,8 @@ In the config file it is possible to set up Imunify360 configuration. The follow
 <tr>
 <td width="250px;"><span class="notranslate">ruleset: FULL</span></td><td># defines what ruleset to use: <span class="notranslate">FULL</span> (default value) or <span class="notranslate">MINIMAL</span>. If the amount of RAM on the server is less than 2.1GB, the ruleset value is automatically set to <span class="notranslate">MINIMAL</span>.</td></tr>
 <tr>
+<td width="250px;"><span class="notranslate">cms_account_compromise_prevention: true</span></td><td># enables WordPress account brute-force protection.</td></tr>
+<tr>
 <th colspan="2" align="left"><span class="notranslate">MOD_SEC_BLOCK_BY_SEVERITY:</span></th></tr>
  <tr><td><span class="notranslate">enable: true</span></td><td># allows to enable or disable option that moves IPs to <span class="notranslate">Gray List</span> if the ModSecurity rule is triggered</td></tr>
 <tr><td><span class="notranslate">max_incidents: 2</span></td><td># set a number of repeats of the ModSecurity incident from the same IP for adding it to <span class="notranslate">Gray List</span></td></tr>

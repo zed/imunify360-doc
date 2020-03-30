@@ -729,9 +729,13 @@ It is possible to scan a specific directory for malware. Go to <span class="notr
 	     * from <span class="notranslate">Low</span> to <span class="notranslate">High</span>.
    * <span class="notranslate">_I/O consumption_</span>. Defines the I/O consumption for scanning without decreasing efficiency:
 	     * from <span class="notranslate">Low</span> to <span class="notranslate">High</span>.
-	* <span class="notranslate">_Follow symlinks<sup> 3.9.0+</sup>_</span>. Follow all symlinks within the folder to scan. 
+	* <span class="notranslate">_Follow symlinks_</span>. Follow all symlinks within the folder to scan. 
 
-![](/images/malware_scanner.png)
+:::tip Note
+If Imunify360 <sup>4.6+</sup> is running on CloudLinux OS, LVE is used to manage scan intensity. If it is running on other operating systems, “nice” is used to control CPU and “ionice” is used when the I/O scheduler is CFQ.
+:::
+
+![](/images/malware_scanner_4_7.png)
 
 1. Click <span class="notranslate">_Start_</span>.
 
@@ -1242,9 +1246,24 @@ When the <span class="notranslate">_Minimized ModSec Ruleset_</span> option is o
 You can switch back to the normal mode by enabling WebShield or unchecking <span class="notranslate">_Minimized ModSec Ruleset_</span> in Settings | General | WAF Settings
 
 
-![](/images/waf_settings.png)
+![](/images/waf_wordpress_acp.png)
 
 Click <span class="notranslate">_Save changes_</span> button on the bottom of the section to save changes.
+
+#### WordPress account brute-force protection
+
+Server admin can enable an option to prevent access to WordPress accounts with well-known (trivial) passwords.
+When the option is enabled, all end-users that are trying to log into the admin account with weak/trivial or well-known passwords from the dictionary used by brute-forcers will be taken to the special alert page with an appeal to change their current password.
+
+This feature can be enabled by setting <span class="notranslate">`cms_account_compromise_prevention` to `true`</span> in MOD_SEC [config file section](/config_file_description/#config-file-description)
+
+:::tip Note
+This feature is implemented via modsec rule and could be partially [disabled on a per-domain basis](/command_line_interface/#rules) (the rule id is 33355)
+:::
+
+![](/images/waf_wordpress_acp_alert.png)
+
+The alert page supports localization and is displayed in the language of the browser (on an external Imunify domain).
 
 #### DoS Protection
 
@@ -1325,8 +1344,6 @@ Click <span class="notranslate">_Save changes_</span> button on the bottom of th
 #### WebShield
 
 <span class="notranslate">_Detect IPs behind CDN_</span> feature allows to recognize and block IPs with suspicious activity behind supported CDN providers.
-
-Starting from Imunify360 4.4 beta it is enabled by default for all new installations.
 
 To enable/disable it, tick the <span class="notranslate">_Detect IPs behind CDN_</span> checkbox.
 
@@ -1424,9 +1441,9 @@ Click <span class="notranslate">_Save changes_</span> button at the bottom of th
 Here you can configure the following:
 * <span class="notranslate">Resource consumption</span>
 * <span class="notranslate">General</span>
-* <span class="notranslate">Background Scanning</span><sup> Beta 4.1+</sup>
-* <span class="notranslate">Malware Cleanup</span><sup> 3.7.1+</sup>
-* <span class="notranslate">Proactive Defense</span><sup> 4.0+</sup>
+* <span class="notranslate">Background Scanning</span>
+* <span class="notranslate">Malware Cleanup</span>
+* <span class="notranslate">Proactive Defense</span>
 
 
 ::: tip Note
@@ -1447,6 +1464,9 @@ Read [CXS integration](/ids_integration/#cxs-integration) documentation carefull
     Low I/O usage means low scanning speed
     :::
 
+    :::tip Note
+    If Imunify360 <sup>4.6+</sup> is running on CloudLinux OS, LVE is used to manage scan intensity. If it is running on other operating systems, “nice” is used to control CPU and “ionice” is used when the I/O scheduler is CFQ.
+    :::
 
 **General**
 
@@ -1480,7 +1500,7 @@ Those options may be hidden for end-user if Cleanup is disabled in Features Mana
 :::
 
 * <span class="notranslate">_RapidScan_</span> – dramatically speeds up repeated scans based on smart re-scan approach, local result caching and cloud-assisted scan. When you first enable the RapidScan feature, the first scan will run as before. But subsequent scans will see a dramatic speed improvement, anywhere between 5 to 20 times faster. You can find details [here](/features/#rapidscan).
-* <span class="notranslate">_Binary (ELF) malware detection_</span> <sup>Beta</sup> <sup>4.4+</sup> – this option allows to scans user home directories for malware. It’s disabled in Imunify360 version 4.4 by default.
+* <span class="notranslate">_Binary (ELF) malware detection_</span> <sup>4.4+</sup> – this option allows to scans user home directories for malware.
 
 Tick required checkboxes and click <span class="notranslate">_Save changes_</span> button.
 
@@ -1507,7 +1527,7 @@ Depending on the selected period, precise settings.
 You can track the scanning activity at the <span class="notranslate">[Malware Scanner](#malware-scanner)</span> tab.
 
 
-#### Cleanup <sup><Badge text="3.7.1+" type="tip"/></sup>
+#### Cleanup
 
 * <span class="notranslate">_Trim file instead of removal_</span> — do not remove infected file during cleanup but make the file zero-size (for malwares like web-shells);
 * <span class="notranslate">_Keep original files for … days_</span> — the original infected file is available for restore within the defined period. Default is 14 days.
@@ -1515,7 +1535,7 @@ You can track the scanning activity at the <span class="notranslate">[Malware Sc
 ![](/images/malwarescannersettings_zoom70.png)
 
 
-#### Proactive Defense <sup><Badge text="4.2+" type="tip"/></sup>
+#### Proactive Defense
 
 * <span class="notranslate">_Enable Blamer_</span> — tick to allow Imunify360 to find a root cause of how infection got injected into the server through PHP. Blamer pinpoints exact URL, PHP script & PHP execution path that allowed a hacker to inject malware onto the server.
 Imunify360 security team will use that information to prevent future infections from happening.

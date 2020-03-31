@@ -297,7 +297,7 @@ All results can be saved in a temporary file before handler invocation and then 
       ```
       {
         "exp_time": 1587365282,
-        "license": "single"
+        "license": "imunify360"
       }
       ```
       </div>

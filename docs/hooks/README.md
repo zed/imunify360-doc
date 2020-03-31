@@ -262,6 +262,48 @@ All results can be saved in a temporary file before handler invocation and then 
 
     </div>
 
+
+### license
+
+* subtype ( expiring | expired | renewed )
+
+  * **expiring** - the event is generated when license is about to expire, the even should be sent 3 days prior to expiration
+    * params[]
+      * **exp_time** / int / unixtime data when the license expired
+
+      <div class="notranslate">
+
+      ```
+      {"exp_time": 1587365282}
+      ```
+      </div>
+  * **expired** - the event is generated when license has expired
+    * params[]
+      * **exp_time** / int / unixtime data when the license is expired
+      
+      <div class="notranslate">
+
+      ```
+      {"exp_time": 1587365282}
+      ```
+      </div>
+  * **renewed** - the event is generated when the license is updated (renewed)
+    * params[]
+      * **exp_time** / int / unixtime data when the license will expire
+      * **license** / string / license type
+
+       <div class="notranslate">
+
+      ```
+      {
+        "exp_time": 1587365282,
+        "license": "single"
+      }
+      ```
+      </div>
+
+
+
 ## CLI
 
 The following CLI command is used to manage hooks:

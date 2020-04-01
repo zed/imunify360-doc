@@ -839,6 +839,10 @@ To search file or folder in the <span class="notranslate">Ignore List</span> use
  
 <span class="notranslate">Proactive Defense</span> is a unique Imunify360 feature that can prevent malicious activity through PHP scripts. It is available as a PHP module for Apache and LiteSpeed web servers and analyzes script activity using known patterns like obfuscated command injection, malicious code planting, sending spam, SQL injection etc.
 
+:::tip Note
+Proactive Defense requires [Hardened PHP](/dashboard/#installation) (alt-php) to operate.
+:::
+
 ### User Interface
 
 Go to <span class="notranslate">Imunify360 → Proactive Defense</span>.

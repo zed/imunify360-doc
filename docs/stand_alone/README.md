@@ -38,6 +38,10 @@ You can drop any feedback to [feedback@imunify360.com](mailto:feedback@imunify36
 3. Install Imunify360
 4. Change default Imunify360 settings to reflect your needs
 
+:::warning Warning
+Imunify Web-UI PHP code has to be executed under a non-root user which has access to `/var/run/defence360agent/non_root_simple_rpc.sock`. If it runs in CageFS, you'll need to configure it accordingly.
+:::
+
 
 ## 1. Prerequisites
 

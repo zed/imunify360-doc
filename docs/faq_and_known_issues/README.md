@@ -605,3 +605,49 @@ imunify360-agent blocked-port delete 2083:tcp
 imunify360-agent blocked-port add  2083:tcp --ips 69.175.3.6  10.102.1.37
 ```
 </div>
+
+## Plesk related
+
+### How to get an Imunify activation key from the extended Plesk license
+
+Often our clients purchase Imunify licenses through Plesk/Odin and in such cases, they get a universal key which includes the Imunify license and other additional keys for Plesk plugins. Such a key has the following syntax – `A00B00-0CDE00-F0G000-HIGK00-LM0N00`, – and initially, it is installed through Plesk automatically and the license gets activated successfully.
+
+However, if it is required to re-register the agent for some reason or simply get the Imunify activation key separately, it would be impossible to apply the above-mentioned one – we would need to deal with the Imunify service separately. 
+
+To get the Imunify360 activation key from the extended Plesk license key, you will need to proceed with the following.
+
+1. Navigate to <span class="notranslate">_Tools & Settings >> Plesk >> License Management >> Additional License Keys_</span>
+
+  ![](/images/LicenseManagement.png)
+
+  ![](/images/AdditionalLicenseKeys.png)
+
+2. Click <span class="notranslate">_Download key_</span> next to the Imunify license listed on the page and open the file downloaded in some text editor
+
+3. Find the following abstract:
+
+  <div class="notranslate">
+
+  ```
+  <!--Key body-->
+  <aps-3:key-body core:encoding="base64" core:type="binary">YOUR_BASE64_ENCODED_LICENSE_KEY==</aps-3:key-body>
+  <!--Information about additional key-->
+  ```
+  </div>
+
+4. This is your base64-encoded key, and it should be decoded using a CLI utility or an online base64 decoder into UTF-8, e.g. [https://www.base64decode.org](https://www.base64decode.org). 
+The new license key should have the following format: `IMxxxxxxxxxxxxxxx`.
+
+5. Use the new key decoded to activate the service:
+
+  <div class="notranslate">
+
+  ```
+  # imunify360-agent register DECODED_KEY_HERE
+  ```
+  </div>
+
+This is it!
+
+
+

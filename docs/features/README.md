@@ -14,7 +14,7 @@ RapidScan feature allows you to increase scanning speed by lower system resource
 
 When you first enable the RapidScan feature, the first scan will run as before. But subsequent scans will see a speed improvement, anywhere between 5 to 20 times faster. This is the case for both on-demand and scheduled scans, and means you can afford more scans without affecting system performance.
 
-To take advantage of these new improvements, go to your Imunify control panel and enable RapidScan in Settings→Malware Scanner. See details [here](/dashboard/#malware).
+To take advantage of these new improvements, go to your Imunify360 control panel and enable RapidScan in Settings→Malware Scanner. See details [here](/dashboard/#malware).
 
 ## Low Resource Usage mode
 

@@ -191,12 +191,25 @@ apt-get install --only-upgrade imunify360-firewall
 
 </div>
 
-To update Imunify360 beta version on <span class="notranslate">Ubuntu</span> the command:
+To update Imunify360 beta version on <span class="notranslate">Ubuntu 16.04</span> run the command:
 
 <div class="notranslate">
 
 ```
 echo 'deb https://repo.imunify360.cloudlinux.com/imunify360/ubuntu-testing/16.04/ xenial main'  > /etc/apt/sources.list.d/imunify360-testing.list
+apt-get update
+apt-get install --only-upgrade imunify360-firewall
+```
+
+</div>
+
+
+To update Imunify360 beta version on <span class="notranslate">Ubuntu 18.04</span> run the command:
+
+<div class="notranslate">
+
+```
+echo 'deb https://repo.imunify360.cloudlinux.com/imunify360/ubuntu-testing/18.04/ bionic main'  > /etc/apt/sources.list.d/imunify360-testing.list
 apt-get update
 apt-get install --only-upgrade imunify360-firewall
 ```

@@ -166,7 +166,7 @@ where 12.34.56.78 is that specific IP address.
 | | |
 |-|-|
 |<span class="notranslate">`--comment`</span>|allows to add comment to the item|
-|<span class="notranslate">`--expiration`</span>|allows specifying TTL for the blacklisted IP (in seconds since epoch)|
+|<span class="notranslate">`--expiration`</span>|allows specifying expiration time for the blacklisted IP (in seconds since epoch)|
 |<span class="notranslate">`--scope`</span>|allows to set the scope to <span class="notranslate">_Global/Local_</span>. Accepts two values: <span class="notranslate">`local`</span> (a default value, means "add IP on this server only") and <span class="notranslate">`group`</span> (means "add IP for the whole group in which this server is").|
 
 **Examples:**

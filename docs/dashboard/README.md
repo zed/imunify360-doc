@@ -1271,7 +1271,7 @@ The alert page supports localization and is displayed in the language of the bro
 
 #### DoS Protection
 
-<span class="notranslate">DoS Protection</span> section allows to enable or disable DoS protection. DoS protection works by counting connections from each remote IP address per local port separately. Starting from Imunify360 4.4 beta it is enabled by default for all new installations.
+<span class="notranslate">DoS Protection</span> section allows to enable or disable DoS protection. DoS protection works by counting connections from each remote IP address per local port separately.
 To enable/disable it, tick the <span class="notranslate">_Enable Dos Protection_</span> checkbox. Or you can enable it using the following CLI command:
 
 <div class="notranslate">
@@ -1285,6 +1285,14 @@ It is possible to configure how Imunify360 will behave:
 
 * <span class="notranslate">_Max Connections_</span>– allows to setup the number of simultaneous connections allowed before IP will be blocked. Cannot be set lower than 100.
 * <span class="notranslate">_Check delay_</span> – allows to setup period in seconds between each DoS detection system activation that will check a server for DoS attack. Also, it is possible to set different limits for different local ports by editing the configuration file directly.
+
+:::tip Note
+Although DoS protection works on the TCP level, it is not the same as http request rate - even if there is large number of http connections, the number of TCP connections can be relatively low.
+:::
+
+:::tip Note
+Imunify360 DoS protection is automatically disabled if CSF is active - a warning is shown in Imunify360 UI in that case
+:::
 	
 ![](/images/DosProtection.png)
 

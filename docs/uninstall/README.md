@@ -1,6 +1,26 @@
 # Uninstall
 
-## How to uninstall Imunify360
+#### How to stop Imunify360
+
+For CentOS6/CloudLinux6, run the following command:
+
+<div class="notranslate">
+
+```
+service imunify360 stop
+```
+</div>
+
+For all other operating systems, run the following command:
+
+<div class="notranslate">
+
+```
+systemctl stop imunify360
+```
+</div>
+
+#### How to uninstall Imunify360
 
 To uninstall Imunify360, run:
 
@@ -37,24 +57,3 @@ For CloudLinux OS, please run the following commands:
 </div>
 
 to remount <span class="notranslate">CageFS</span> and remove files from user's local directories as after uninstallation these files are not removed automatically and can generate errors to Apache log.
-
-
-## How to stop Imunify360
-
-For CentOS6/CloudLinux6, run the following command:
-
-<div class="notranslate">
-
-```
-service imunify360 stop
-```
-</div>
-
-For all other operating systems, run the following command:
-
-<div class="notranslate">
-
-```
-systemctl stop imunify360
-```
-</div>

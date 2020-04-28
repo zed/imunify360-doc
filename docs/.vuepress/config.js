@@ -123,9 +123,9 @@ module.exports = {
               "/config_file_description/",
               "/features/",
               "/command_line_interface/",
-              "/uninstall/",
               "/faq_and_known_issues/",
-              "/whmcs_plugin/"
+              "/whmcs_plugin/",
+              "/uninstall/"
             ]
           }
         ]
@@ -184,9 +184,9 @@ module.exports = {
               "/ru/config_file_description/",
               "/ru/features/",
               "/ru/command_line_interface/",
-              "/ru/uninstall/",
               "/ru/faq_and_known_issues/",
-              "/ru/whmcs_plugin/"
+              "/ru/whmcs_plugin/",
+              "/ru/uninstall/"
             ]
           }
         ]

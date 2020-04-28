@@ -163,6 +163,8 @@ module.exports = {
   "/ru/stand_alone/#extended-integration-conf-example-for-reference": "/ru/stand_alone/#integration-config-file",
   "/stand_alone/#further-steps": "/stand_alone/#imunify360-stand-alone",
   "/ru/stand_alone/#further-steps": "/ru/stand_alone/#imunify360-stand-alone",
-  "/ru/features/smtp-traffic-manager/": "/ru/features/#smtp-traffic-manager",
-  "/features/smtp-traffic-manager/": "/features/#smtp-traffic-manager"
+  "/ru/features/smtp-traffic-manager/": "/ru/dashboard/#smtp-traffic-manager",
+  "/features/smtp-traffic-manager/": "/dashboard/#smtp-traffic-manager",
+  "/ru/firewall_config/": "/ru/features/#external-black-whitelist-management",
+  "/firewall_config/": "/features/#external-black-whitelist-management"
 };

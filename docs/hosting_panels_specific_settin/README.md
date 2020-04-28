@@ -121,7 +121,7 @@ To check, if Imunify360 ruleset is installed, run the following as root:
 
 ``` bash
 # plesk sbin modsecurity_ctl -L --enabled
-imunify360-full-apache
+custom
 ```
 
 </div>

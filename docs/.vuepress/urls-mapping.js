@@ -166,5 +166,7 @@ module.exports = {
   "/ru/features/smtp-traffic-manager/": "/ru/dashboard/#smtp-traffic-manager",
   "/features/smtp-traffic-manager/": "/dashboard/#smtp-traffic-manager",
   "/ru/firewall_config/": "/ru/features/#external-black-whitelist-management",
-  "/firewall_config/": "/features/#external-black-whitelist-management"
+  "/firewall_config/": "/features/#external-black-whitelist-management",
+  "/ru/hooks/": "/ru/features/#hooks",
+  "/hooks/": "/features/#hooks"
 };

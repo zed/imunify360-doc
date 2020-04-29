@@ -151,7 +151,7 @@ INFO    [+ 8781ms]   defence360agent.subsys.panels.plesk.mod_security|Successful
 INFO    [+ 8782ms]                  defence360agent.subsys.web_server|Performing web_server graceful restart
 OK
 # plesk sbin modsecurity_ctl -L --enabled
-imunify360-full-apache
+custom
 ```
 
 </div>

@@ -1,6 +1,6 @@
 # Imunify360 User Interface
 
-Imunify360 is an all-in-one security solution with robust herd protection against the newest attacks, and it is available directly within your control panel (cPanel, Plesk, and DirectAdmin).
+Imunify360 is an all-in-one security solution with robust cloud protection against the newest attacks, and it is available directly within your control panel (cPanel, Plesk, and DirectAdmin).
 
 When you log in to your control panel, Imunify360 asks you to enter your email address.
 
@@ -168,7 +168,7 @@ Attacks against network services, e.g. FTP, SSH, POP, IMAP, etc., recorded by OS
 
 * **Denied Requests from Bad Bots**
 
-Attacks detected by the Imunify360 Bot-Detector heuristics-based plugin. Bot-Detector is a part of Imunify360’s “herd immunity” feature that collects and analyzes a massive amount of information on new attacks on a global scale which it uses to prevent attacks across multiple servers.
+Attacks detected by the Imunify360 Bot-Detector heuristics-based plugin. Bot-Detector is a part of Imunify360’s cloud heuristics feature that collects and analyzes a massive amount of information on new attacks on a global scale which it uses to prevent attacks across multiple servers.
 
 :::tip Note
 Some charts may be hidden if no alerts of a particular type were recorded within the selected time interval.

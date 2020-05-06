@@ -21,6 +21,12 @@ module.exports = {
       before: info => `<div class="tip custom-block"><p class="custom-block-title">${info}</p>`,
       after: '</div>',
     }],
+    ['disqus', { shortname: 'cldocs' }],
+    ['@vuepress/google-analytics',
+      {
+        'ga': 'UA-12711721-12'
+      }
+    ]
   ],
   configureWebpack: {
     resolve: {
@@ -33,7 +39,6 @@ module.exports = {
   head: [
     ["link", { rel: "icon", href: "/favicon.ico" }],
   ],
-  ga: "UA-12711721-12", // google analytics
 
   locales: {
     // The key is the path for the locale to be nested under.

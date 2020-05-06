@@ -1,8 +1,27 @@
 ﻿const urls = require("./urls-mapping.js");
 const sidebarUrls = require("./sidebar-urls");
-const _slugify = require('vuepress/lib/markdown/slugify');
+const _slugify = require('@vuepress/shared-utils/lib/slugify');
+
+const slugifyLinks = (s) => {
+  if (sidebarUrls[s]) {
+    return sidebarUrls[s];
+  }
+  return _slugify(s);
+};
 
 module.exports = {
+  plugins: [
+    ['container', {
+      type: 'warning',
+      before: info => `<div class="warning custom-block"><p class="custom-block-title">${info}</p>`,
+      after: '</div>',
+    }],
+    ['container', {
+      type: 'tip',
+      before: info => `<div class="tip custom-block"><p class="custom-block-title">${info}</p>`,
+      after: '</div>',
+    }],
+  ],
   configureWebpack: {
     resolve: {
       alias: {
@@ -30,15 +49,14 @@ module.exports = {
       description: "Документация Imunify360"
     }
   },
-  theme: "cloudlinux",
+  // theme: "cloudlinux",
+  theme: '/Users/azamat/Projects/cl/js/cloudlinux-doc-theme',
   // theme: '/Users/prefer/src/cloudlinux-doc-theme', // local path
   markdown: {
-      slugify: (s) => {
-        if (sidebarUrls[s]) {
-          return sidebarUrls[s];
-        }
-        return _slugify(s);
-      }
+    slugify: slugifyLinks,
+    toc: {
+      slugify: slugifyLinks,
+    }
   },
 
   themeConfig: {

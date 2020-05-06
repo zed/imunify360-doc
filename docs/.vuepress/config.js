@@ -1,8 +1,33 @@
 ﻿const urls = require("./urls-mapping.js");
 const sidebarUrls = require("./sidebar-urls");
-const _slugify = require('vuepress/lib/markdown/slugify');
+const _slugify = require('@vuepress/shared-utils/lib/slugify');
+
+const slugifyLinks = (s) => {
+  if (sidebarUrls[s]) {
+    return sidebarUrls[s];
+  }
+  return _slugify(s);
+};
 
 module.exports = {
+  plugins: [
+    ['container', {
+      type: 'warning',
+      before: info => `<div class="warning custom-block"><p class="custom-block-title">${info}</p>`,
+      after: '</div>',
+    }],
+    ['container', {
+      type: 'tip',
+      before: info => `<div class="tip custom-block"><p class="custom-block-title">${info}</p>`,
+      after: '</div>',
+    }],
+    ['disqus', { shortname: 'cldocs' }],
+    ['@vuepress/google-analytics',
+      {
+        'ga': 'UA-12711721-12'
+      }
+    ]
+  ],
   configureWebpack: {
     resolve: {
       alias: {
@@ -14,7 +39,6 @@ module.exports = {
   head: [
     ["link", { rel: "icon", href: "/favicon.ico" }],
   ],
-  ga: "UA-12711721-12", // google analytics
 
   locales: {
     // The key is the path for the locale to be nested under.
@@ -33,12 +57,10 @@ module.exports = {
   theme: "cloudlinux",
   // theme: '/Users/prefer/src/cloudlinux-doc-theme', // local path
   markdown: {
-      slugify: (s) => {
-        if (sidebarUrls[s]) {
-          return sidebarUrls[s];
-        }
-        return _slugify(s);
-      }
+    slugify: slugifyLinks,
+    toc: {
+      slugify: slugifyLinks,
+    }
   },
 
   themeConfig: {

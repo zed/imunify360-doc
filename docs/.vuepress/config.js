@@ -54,8 +54,7 @@ module.exports = {
       description: "Документация Imunify360"
     }
   },
-  // theme: "cloudlinux",
-  theme: '/Users/azamat/Projects/cl/js/cloudlinux-doc-theme',
+  theme: "cloudlinux",
   // theme: '/Users/prefer/src/cloudlinux-doc-theme', // local path
   markdown: {
     slugify: slugifyLinks,

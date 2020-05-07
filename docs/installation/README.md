@@ -62,7 +62,7 @@ _<span class="notranslate">ISPManager</span> - soon after._
 |-|-|
 |**<span class="notranslate">IDS</span> name** | **Comment**|
 |<span class="notranslate">ASL (Atomicorp Secured Linux)</span> | Possibly is not compatible (investigating).|
-|<span class="notranslate">fail2ban</span> | Imunify360 disables <span class="notranslate">fail2ban</span>.|
+|<span class="notranslate">fail2ban</span> | Imunify360 disables <span class="notranslate">fail2ban</span>: the latter resets chains of iptables rules which causes inconsistency with Imunify360|
 
 ## Installation Instructions
 

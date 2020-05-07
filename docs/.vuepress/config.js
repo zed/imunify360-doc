@@ -114,11 +114,11 @@ module.exports = {
         bottomLinks: [
             {
                 text: "How to",
-                url: "https://cloudlinux.zendesk.com/hc/sections/115001344329-How-do-I"
+                url: "https://cloudlinux.zendesk.com/hc/en-us/categories/360002375980-Imunify-Security-Products"
             },
             {
                 text: "Getting started",
-                url: "https://imunify360.com/getting-started"
+                url: "https://cloudlinux.zendesk.com/hc/en-us/sections/360004020779-Getting-Started"
             },
             {
                 text: "Contact support",
@@ -175,11 +175,11 @@ module.exports = {
         bottomLinks: [
             {
                 text: "Инструкции",
-                url: "https://cloudlinux.zendesk.com/hc/sections/115001344329-How-do-I"
+                url: "https://cloudlinux.zendesk.com/hc/en-us/categories/360002375980-Imunify-Security-Products"
             },
             {
                 text: "С чего начать",
-                url: "https://imunify360.com/getting-started"
+                url: "https://cloudlinux.zendesk.com/hc/en-us/sections/360004020779-Getting-Started"
             },
             {
                 text: "Техподдержка",

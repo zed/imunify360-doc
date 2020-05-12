@@ -115,36 +115,17 @@ service imunify360-webshield restart
 
 If a server owner has his own Google reCAPTCHA keys (both private and public), he may use them instead of the default CloudLinux keys.
 
-To set Google reCAPTCHA keys, do the following:
+To set Google reCAPTCHA keys, place your keys into the <span class="notranslate">`/etc/imunify360-webshield/webshield-http.conf.d/captchakeys.conf`</span> file as shown in the example below:
 
-1. In the <span class="notranslate">`/etc/imunify360-webshield/virtserver.conf`</span> file find the <span class="notranslate">`set $captcha_key`</span> line 
-2. Replace the provided key with your own public key, for example:
+<div class="notranslate">
 
-    <div class="notranslate">
+```
+captcha_site_key <YOUR_SITE_KEY>;
+captcha_secret_key <YOUR_SECRET_KEY>;
+```
+</div>
 
-    ```
-    location @to_captcha {
-    ...
-    set $captcha_key YOUR_OWN_PUBLIC_KEY;
-    content_by_lua_file lua/captcha.lua;
-    }
-    ```
-    </div>
-
-    :::warning Note
-    Pay attention to semicolon at the end of the line.
-    :::
-3. Then go to the <span class="notranslate">`/etc/imunify360-webshield/webshield.conf`</span> file and uncomment the <span class="notranslate">`captcha_custom_secret_key`</span> directive
-4. Place your private key into it, for example:
-
-    <div class="notranslate">
-
-    ```
-    # Uncomment the following line if you have your own google recaptcha key and want to use it
-    captcha_custom_secret_key YOUR_SECRET_KEY;
-    ```
-    </div>
-5. Reload WebShield
+Then reload WebShield.
 
 ## CDN Support <sup>3.8+</sup>
 	

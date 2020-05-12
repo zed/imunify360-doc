@@ -27,6 +27,7 @@ You can drop any feedback to [feedback@imunify360.com](mailto:feedback@imunify36
 **Web servers**
 
 * Apache
+* LiteSpeed
 
 
 

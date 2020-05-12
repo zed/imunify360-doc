@@ -15,3 +15,4 @@ selenium-debug.log
 docs/.vuepress/dist
 .vscode
 .DS_Store
+docs/.vuepress/config.js

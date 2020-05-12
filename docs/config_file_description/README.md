@@ -233,6 +233,8 @@ to request CAPTCHA again</td></tr>
 <td># show (<span class="notranslate">True</span>) (the default value) or hide (<span class="notranslate">False</span>) the Support icon in the Imunify360 UI.</td></tr>
 <tr><td><span class="notranslate">user_ignore_list: True</span></td>
 <td># show (<span class="notranslate">True</span>) (the default value) or hide (<span class="notranslate">False</span>) the Ignore List tab for end-users in the Imunify360 UI.</td></tr>
+<tr><td><span class="notranslate">allow_malware_scan: False</span></td>
+<td># enable (<span class="notranslate">True</span>) or disable (<span class="notranslate">False</span>) (the default value) “scan” action in the UI of the end-user.</td></tr>
 <tr><th colspan="2" align="left"><span class="notranslate">STOP_MANAGING:</span></th></tr>
 <tr><td><span class="notranslate">modsec_directives: False</span></td>
 <td># for internal useage, do not edit</td></tr>

@@ -583,6 +583,80 @@ Also, it is possible to use a domain name of a website which `DNS A` record is p
 ```
 </div>
 
+
+### 22. How to edit watched and excluded patterns for Malware Scanner? <Badge text="v.4.8" />
+
+Starting from Imunify version 4.8 you can edit watched and excluded patterns for Malware Scanner.
+
+There are two files:
+* <span class="notranslate">`/etc/sysconfig/imunify360/malware-filters-admin-conf/watched.txt`</span> defines which paths are watched by Imunify360
+* <span class="notranslate">`/etc/sysconfig/imunify360/malware-filters-admin-conf/ignored.txt`</span> defines which paths are excluded by Imunify360
+
+:::tip Note
+This exclude list is intended for things like logs, tmp files, etc. Things that are not worth scanning in real-time and should not be allowed to execute.
+Proactive Defense will prevent <span class="notranslate">`include`/`require`</span> of PHP files that are excluded by realtime-scan.
+There is a separate ignore list for false-positive hits: see [Ignore List](/dashboard/#ignore-list)
+:::
+
+The `watched.txt` file contains additional shell-like glob patterns specifying what file system directories should be monitored by inotify/fanotify realtime scanner.
+
+Patterns can be absolute:
+
+<div class="notranslate">
+
+```
+/another/folder
+```
+</div>
+
+or relative to basedirs supplied by hosting control panels, if they start with a "+" sign:"
+
+<div class="notranslate">
+
+```
++*/www
+```
+</div>
+
+This relative pattern will expand to the `/home/*/www` for cPanel, for example.
+
+All patterns listed here have higher priority than stock watched and excluded lists supplied with Imunify360.
+
+:::warning IMPORTANT
+After making changes to this file, run the `imunify360-agent malware rebuild patterns` command.
+:::
+
+The <span class="notranslate">`ignored.txt`</span> file contains additional regular expression patterns specifying what filesystem paths should not be monitored by inotify/fanotify realtime scanner.
+
+Patterns can be absolute:
+
+<div class="notranslate">
+
+```
+/another/folder
+```
+</div>
+
+or relative to basedirs supplied by hosting control panels, if they start with a "+" sign:"
+
+<div class="notranslate">
+
+```
++[^/]+/www/\.cache
+```
+</div>
+
+This relative pattern may expand to the <span class="notranslate">`^/home/[^/]+/www/\.cache`</span> for cPanel, for example. The `+` sign at the beginning is substituted with all base directories for user homes. Imunify360 picks up those directories from hosting panel configuration.
+
+All patterns listed here have higher priority than stock watched and excluded lists supplied with Imunify360.
+
+Custom exclude patterns have higher priority than custom watched patterns.
+
+:::warning IMPORTANT
+After making changes to this file, perform the <span class="notranslate">`imunify360-agent malware rebuild patterns`</span> command.
+:::   
+
+
 ## Corner cases
 
 #### IP whitelisting/port blocking precedence

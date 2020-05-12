@@ -1,4 +1,4 @@
-# Imunify360 User Interface
+# Imunify360 Admin Interface
 
 Imunify360 is an all-in-one security solution with robust cloud protection against the newest attacks, and it is available directly within your control panel (cPanel, Plesk, and DirectAdmin).
 
@@ -14,12 +14,12 @@ This email address is used ONLY for receiving server reports.
 
 Or you can do it later in the <span class="notranslate">[Settings | General | Contact Details](/dashboard/#contact-details)</span>.
 
-Log in to your control panel as an admin and go to <span class="notranslate">Plugins</span>, choose Imunify360 to get to the Imunify360 user interface.
+Log in to your control panel as an admin and go to <span class="notranslate">Plugins</span>, choose Imunify360 to get to the Imunify360 admin interface.
 
 It allows to access:
-* <span class="notranslate">[Support](/dashboard/#support)</span> – allows you to contact our support team directly from your Imunify360 User Interface
+* <span class="notranslate">[Support](/dashboard/#support)</span> – allows you to contact our support team directly from your Imunify360 Admin Interface
   
-* <span class="notranslate">[Dashboard](/dashboard/#dashboard)</span> – allows you to see retrospective data in form of charts/heatmaps in your Imunify360 User Interface
+* <span class="notranslate">[Dashboard](/dashboard/#dashboard)</span> – allows you to see retrospective data in form of charts/heatmaps in your Imunify360 Admin Interface
 
 * <span class="notranslate">[Incidents](/dashboard/#incidents)</span> – the list of all suspicious activity on the server.
 
@@ -39,9 +39,9 @@ It allows to access:
 ## Support
 
 
-This tab allows you to contact our support team directly from your Imunify360 User Interface. You can create a request and attach some files to it.
+This tab allows you to contact our support team directly from your Imunify360 Admin Interface. You can create a request and attach some files to it.
 
-To contact our support team in Imunify360 User Interface, please click the _Call_ icon at the top right corner of the page.
+To contact our support team in Imunify360 Admin Interface, please click the _Call_ icon at the top right corner of the page.
 
 ![](/images/contactsupport_zoom70.png)
 
@@ -168,7 +168,11 @@ Attacks against network services, e.g. FTP, SSH, POP, IMAP, etc., recorded by OS
 
 * **Denied Requests from Bad Bots**
 
-Attacks detected by the Imunify360 Bot-Detector heuristics-based plugin. Bot-Detector is a part of Imunify360’s cloud heuristics feature that collects and analyzes a massive amount of information on new attacks on a global scale which it uses to prevent attacks across multiple servers.
+Attacks detected by the Imunify360 Bot-Detector heuristics-based plugin. Bot-Detector is a part of Imunify360’s “cloud heuristics” feature that collects and analyzes a massive amount of information on new attacks on a global scale which it uses to prevent attacks across multiple servers.
+
+* **Cleaned malicious files**
+
+This chart lists the number of cleaned malicious files. 
 
 :::tip Note
 Some charts may be hidden if no alerts of a particular type were recorded within the selected time interval.
@@ -614,7 +618,7 @@ Malware scanning allows you to:
 * manage malicious and quarantined files
 * manage Ignore List
 
-Click <span class="notranslate">_Malware Scanner_</span> in the main menu of the Imunify360 user interface.
+Click <span class="notranslate">_Malware Scanner_</span> in the main menu of the Imunify360 admin interface.
 
 ![](/images/malwarescanner_general.png)
 
@@ -633,6 +637,9 @@ The following tabs are available:
 </div>
 
 Go to <span class="notranslate">Imunify360 → Malware Scanner → Users</span> tab. Here, there is a table with a list of users on the server, except users with root privileges.
+
+The badge in the <span class="notranslate">_History_</span> tab shows the number of missed events in the Malware Scanner’s History. You won’t miss any automatic actions applied to infected files, since they are listed in the <span class="notranslate">_History_</span> tab and shown in the badge.
+
 
 ![](/images/malwarescanner_users.png)
 
@@ -830,6 +837,8 @@ The table can be sorted by <span class="notranslate">_Added_</span> and <span cl
 
 To search file or folder in the <span class="notranslate">Ignore List</span> use <span class="notranslate">_Search_</span> input field above the table.
 
+See also: [How to edit watched and excluded patterns for Malware Scanner?](/faq_and_known_issues/#_22-how-to-edit-watched-and-excluded-patterns-for-malware-scanner)
+
 
 ## Proactive Defense
 
@@ -965,6 +974,8 @@ The <span class="notranslate">_Ignore List_</span> table includes the following 
 * <span class="notranslate">Rules to ignore</span> — displays the pattern to be ignored.
 * <span class="notranslate">Actions</span> — allows to view details and perform actions on the file.
 
+See also: [How to edit watched and excluded patterns for Malware Scanner?](/faq_and_known_issues/#_22-how-to-edit-watched-and-excluded-patterns-for-malware-scanner).
+
 **How to test Proactive Defense**
 
 1. Set <span class="notranslate">Proactive Defense</span> to <span class="notranslate">_Log only_</span> mode (requests will not be blocked) or to <span class="notranslate">_Kill mode_</span> to kill all requests.
@@ -1065,7 +1076,7 @@ imunify360-agent proactive list
 
 ## Reputation Management
 
-Choose <span class="notranslate">_Reputation Management_</span> in the main menu of the Imunify360 user interface to get to the <span class="notranslate">Reputation Management</span> page.
+Choose <span class="notranslate">_Reputation Management_</span> in the main menu of the Imunify360 admin interface to get to the <span class="notranslate">Reputation Management</span> page.
 
 <span class="notranslate">Reputation Management</span> allows to check if a domain registered on your server is safe or not based on the following reputation engines:
 
@@ -1189,7 +1200,7 @@ HardenedPHP is free on the servers with Imunify360 installed.
 **Overview**
 
 This feature allows to automatically determine if the user is a human. The system falls back to CAPTCHA solving if the algorithm determines that a user may not be a human.
-It is possible to enable Invisible CAPTCHA feature via Imunify360 user interface (UI) and via command line interface (CLI).
+It is possible to enable Invisible CAPTCHA feature via Imunify360 admin interface and via command line interface (CLI).
 
 **How to install Invisible CAPTCHA**
 
@@ -1253,6 +1264,7 @@ You can switch back to the normal mode by enabling WebShield or unchecking <span
 
 ![](/images/waf_wordpress_acp.png)
 
+
 Click <span class="notranslate">_Save changes_</span> button on the bottom of the section to save changes.
 
 #### WordPress account brute-force protection
@@ -1269,6 +1281,16 @@ This feature is implemented via modsec rule and could be partially [disabled on 
 ![](/images/waf_wordpress_acp_alert.png)
 
 The alert page supports localization and is displayed in the language of the browser (on an external Imunify domain).
+
+#### CMS-specific WAF Rules
+
+WAF Rules Auto-Configurator generates a set of rules on a per-domain basis, considering the Content Management System (CMS), that the website is running (WordPress, Joomla, Drupal etc).
+
+It allows making WAF rules more effective to protect websites and reduce the number os false positives.
+
+It works in the background and scans domains for installed CMS daily, after that rebuilds ModSec configuration based on detected software.
+
+![](/images/cms-specific_waf_rules.png)
 
 #### DoS Protection
 
@@ -1359,9 +1381,11 @@ Tick the <span class="notranslate">_Manage CSF Events and Lists_</span> checkbox
 	
 ![](/images/3rd_party_protection.png)
 
+This settings is explained in more detail [here](/ids_integration/#_3-rd-party-integration-mode)
+
 #### Auto White List
  
-<span class="notranslate">Auto White List</span> section allows to automatically add admin IP to the <span class="notranslate">White List</span> each time when he logs in to hosting panel and enters Imunify360 user interface.
+<span class="notranslate">Auto White List</span> section allows to automatically add admin IP to the <span class="notranslate">White List</span> each time when he logs in to hosting panel and enters Imunify360 admin interface.
 In <span class="notranslate">_Timeout_</span> field enter the number of minutes – the IP will be removed from the white list automatically after this time.
 
 ::: tip Note
@@ -1937,6 +1961,3 @@ It is possible to enable Service Status checker for Imunify360. Perform the foll
 If succeeded, the status of Imunify360 service will be displayed at Service Status section of Server Status.
 
 ![](/images/service_status.jpg)
-
-
-

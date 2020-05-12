@@ -1,15 +1,14 @@
 # Installation Guide
 ## Requirements
 **Operating system**
-* <span class="notranslate">CentOS 6 and 7</span>
-* <span class="notranslate">RHEL</span>
+* <span class="notranslate">CentOS/RHEL 6 and 7</span>
 * <span class="notranslate">CloudLinux OS</span> 6 and 7
-* <span class="notranslate">Ubuntu 16.04 LTS</span> only <sup>3.6+</sup>
-* <span class="notranslate">Ubuntu 18.04</span> <sup><span class="notranslate">Beta</span> 3.9+</sup>
+* <span class="notranslate">Ubuntu 16.04 LTS</span> only
+* <span class="notranslate">Ubuntu 18.04</span>
 
 **Virtualization**
 
-<span class="notranslate">OpenVZ</span> - works for <span class="notranslate">Virtuozzo</span> 7 with kernel 3.10.0-327.10.1.vz7.12.8 or later.
+<span class="notranslate">OpenVZ</span> - works for <span class="notranslate">Virtuozzo</span> 7 with kernel 3.10.0-327.10.1.vz7.12.8 or newer.
 
 **Hardware**
 
@@ -19,10 +18,9 @@
 **Supported hosting panels**
 
 * <span class="notranslate">cPanel</span>
-* <span class="notranslate">Plesk (Plesk</span> 12.5 is not supported starting with Imunify360 3.8.5)
-* <span class="notranslate">DirectAdmin</span> <sup>Imunify360 v. 3.1.3+</sup>
-
-_<span class="notranslate">ISPManager</span> - soon after._
+* <span class="notranslate">Plesk (Plesk</span> 12.5 is not supported)
+* <span class="notranslate">DirectAdmin</span>
+* [No hosting panel systems](/stand_alone/)
 
 **Required browsers**
 

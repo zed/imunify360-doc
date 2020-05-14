@@ -1262,6 +1262,7 @@ imunify360-agent whitelist [subject] [command] <value> [--option]
 |-|-|
 |<span class="notranslate">`ip`</span>|Allows to manipulate with IPs in the <span class="notranslate">White List</span>.|
 |<span class="notranslate">`domain`</span>|Allows to manipulate with domains in the <span class="notranslate">White List</span>.|
+|<span class="notranslate">`country`</span>|Allows to manipulate with countries in the <span class="notranslate">White List</span>.|
 
 <span class="notranslate">`command`</span> is a second positional argument and can be:
 
@@ -1347,6 +1348,16 @@ where `12.34.56.78` is that specific IP address.
 
    ```
 imunify360-agent whitelist ip add 1.2.3.4 --scope group
+   ```
+
+</div>
+
+6. The following command adds Bolivia to the <span class="notranslate">White List</span>:
+
+<div class="notranslate">
+
+   ```
+imunify360-agent whitelist country add BO
    ```
 
 </div>

@@ -37,4 +37,4 @@ Send the translated version to us and we will gladly include it in one of the ne
 
 Captcha localization is described in the [Captcha](/webshield/#captcha) article.
 
-
+<Disqus/>

@@ -57,3 +57,5 @@ For CloudLinux OS, please run the following commands:
 </div>
 
 to remount <span class="notranslate">CageFS</span> and remove files from user's local directories as after uninstallation these files are not removed automatically and can generate errors to Apache log.
+
+<Disqus/>

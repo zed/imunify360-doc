@@ -1482,7 +1482,7 @@ You can also enable it via CLI with the following command:
 <div class="notranslate">
 
 ```
-imunify360-agent config update '{"PAM": {"enabled": true}}'
+imunify360-agent config update '{"PAM": {"enable": true}}'
 ```
 </div>
 
@@ -1499,7 +1499,7 @@ You can also enable it via CLI with the following command:
 <div class="notranslate">
 
 ```
-imunify360-agent config update '{"PAM.exim_dovecot_protection": {"enabled": true}}'
+imunify360-agent config update '{"PAM": {"exim_dovecot_protection": true}}'
 ```
 </div>
 

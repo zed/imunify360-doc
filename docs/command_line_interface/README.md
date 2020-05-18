@@ -45,7 +45,6 @@ Available commands:
 |<span class="notranslate">`import`</span>|Import data|
 |<span class="notranslate">`infected-domains`</span>|Returns infected domain list|
 |<span class="notranslate">`malware`</span>|Allows to manage malware options|
-|<span class="notranslate">`migratedb`</span>|Check and repair database if it is corrupted|
 |<span class="notranslate">`register`</span>|Agent registration|
 |<span class="notranslate">`remote-proxy`</span>|Allows to add an additional proxy subnet|
 |<span class="notranslate">`rstatus`</span>|Query the server to check if the license is valid|
@@ -354,7 +353,7 @@ imunify360-agent config update ‘{"MALWARE_SCAN_INTENSITY": {"cpu": 5}}’
 
 </div>
 
-Checks database integrity. In case database is corrupt, then this command saves backup copy of the database at <span class="notranslate">`/var/imunify360`</span> and tries to restore integrity of the original database. Note that if this command cannot restore database integrity, then it will destroy the original broken database. Use <span class="notranslate">`migratedb`</span> command to create new clean database.
+Checks database integrity. In case database is corrupt, then this command saves backup copy of the database at <span class="notranslate">`/var/imunify360`</span> and tries to restore integrity of the original database. Note that if this command cannot restore database integrity, then it will destroy the original broken database.
 
 Usage:
 
@@ -791,35 +790,6 @@ imunify360-agent malware on-demand start --path='/var/www/vhosts/d*' --ignore-ma
 imunify360-agent malware malicious list --user cltest --limit 500
 ```
 </div>
-
-<div class="notranslate">
-
-## Migratedb
-
-</div>
-
-Allows to create clean database if it was corrupted.
-
-::: tip Note
-Use <span class="notranslate">`checkdb`</span> to check database health.
-:::
-
-Usage:
-
-<div class="notranslate">
-
-```
-Imunify360-agent migratedb [-h]
-```
-
-</div>
-
-Optional arguments:
-
-| | |
-|-|-|
-|<span class="notranslate">`--help, -h`</span>|show this help message|
-
 
 <div class="notranslate">
 

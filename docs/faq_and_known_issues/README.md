@@ -151,7 +151,7 @@ Start the agent
 
 OWASP rule set may conflict with Imunify360 default rule set on a server running <span class="notranslate">LiteSpeed Web Server</span>. We recommend to turn off OWASP rule set prior to installing Imunify360.
 
-Please find more FAQs in our [Knowledge Base](https://cloudlinux.zendesk.com/hc/sections/115001538929-FAQ).
+Please find more FAQs in our [Knowledge Base](https://cloudlinux.zendesk.com/hc/sections/360003635400-FAQ).
 
 ### 9. Disabling WAF rules for certain countries.
 

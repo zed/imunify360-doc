@@ -656,6 +656,27 @@ Custom exclude patterns have higher priority than custom watched patterns.
 After making changes to this file, perform the <span class="notranslate">`imunify360-agent malware rebuild patterns`</span> command.
 :::   
 
+### 23. How to test rules based on ModSecurity tags?
+
+You can use the following URIs to check what was activated.
+
+<div class="notranslate">
+
+```
+curl -k 'https://example.org/?tag_test=joomla_core'
+```
+</div>
+
+It will produce 403 only for sites with Joomla!.
+
+<div class="notranslate">
+
+```
+curl -k 'https://example.org/?tag_test=wp_core'
+```
+</div>
+
+It will produce 403 only for sites with WordPress.
 
 ## Corner cases
 
@@ -723,4 +744,6 @@ The new license key should have the following format: `IMxxxxxxxxxxxxxxx`.
 
 This is it!
 
+
 <Disqus/>
+

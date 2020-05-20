@@ -1339,6 +1339,12 @@ You can enable the <span class="notranslate">SMTP Traffic Management</span> in t
 * <span class="notranslate">**Allow local**</span> - block all except the local SMTP (localhost). By default it is disabled.
 * <span class="notranslate">**Redirect to local**</span> - enable automatic redirection to the local ports for outgoing mail traffic. By default it is disabled.
 
+::: tip Note
+The following is added by default into the _Allow users_ and the _Allow groups_ for cPanel:
+UIDs - 0 (root), 202 (cpanel)
+GIDs - 12 (mail) 
+:::
+
 To enable these settings via direct config file update or a command-line interface, use this command: 
 
 <div class="notranslate">

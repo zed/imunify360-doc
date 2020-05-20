@@ -1178,15 +1178,19 @@ Optional arguments:
 
 </div>
 
-To submit file as false positive (if Imunify360 considers file as a malicious but it actually doesn’t) you can use the following command (please make sure to specify the file name along with full path):
+To submit file as false positive (if Imunify360 considers file as a malicious but it actually isn't) you can use the following command (please make sure to specify the file name along with full path):
 
 <div class="notranslate">
 
 ```
-imunify360-agent submit false-positive --reason <reason> --scanner ai-bolit <file>
+imunify360-agent submit false-positive --reason <reason> <file>
 ```
 
 </div>
+
+:::tip Note
+<span class="notranslate">`--scanner`</span> argument is deprecated and will be ignored, because there is only one vendor now: <span class="notranslate">`ai-bolit`</span>
+:::
 
 To submit file as false negative (if Imunify360 considers file as a non-malicious but it actually does) you can use the following command (please make sure to specify the file name along with full path):
 

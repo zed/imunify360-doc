@@ -1341,8 +1341,8 @@ You can enable the <span class="notranslate">SMTP Traffic Management</span> in t
 
 ::: tip Note
 The following is added by default into the _Allow users_ and the _Allow groups_ for cPanel:
-UIDs - 0 (root), 202 (cpanel)
-GIDs - 12 (mail) 
+* UIDs - 0 (root), 202 (cpanel)
+* GIDs - 12 (mail) 
 :::
 
 To enable these settings via direct config file update or a command-line interface, use this command: 

@@ -1309,6 +1309,15 @@ It is possible to configure how Imunify360 will behave:
 * <span class="notranslate">_Max Connections_</span>– allows to setup the number of simultaneous connections allowed before IP will be blocked. Cannot be set lower than 100.
 * <span class="notranslate">_Check delay_</span> – allows to setup period in seconds between each DoS detection system activation that will check a server for DoS attack. Also, it is possible to set different limits for different local ports by editing the configuration file directly.
 
+**The minimum values**: 
+
+* Max Connections = 100
+* Check delay = 30
+
+:::tip Note
+_Check delay_ is limited by the minimum value of 30, lower values can cause "false positives" triggering.
+:::
+
 :::tip Note
 Although DoS protection works on the TCP level, it is not the same as http request rate - even if there is large number of http connections, the number of TCP connections can be relatively low.
 :::
@@ -1321,7 +1330,7 @@ Imunify360 DoS protection is automatically disabled if CSF is active - a warning
 
 Click <span class="notranslate">_Save changes_</span> button on the bottom of the section to save changes.
 
-#### SMTP Traffic Manager <sup><Badge text="4.6+"/> <Badge text="Experimental" type="warn"/></sup>
+#### SMTP Traffic Manager
 
 SMTP traffic management provides more control over SMTP traffic.
 

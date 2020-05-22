@@ -106,7 +106,7 @@ Example
 ``` ini
 [web_server]
 server_type = apache
-graceful_restart_script = /path/to/a/script/that/restarts/web-server/properly
+graceful_restart_script = /usr/sbin/apachectl restart
 modsec_audit_log = /var/log/httpd/modsec_audit.log
 modsec_audit_logdir = /var/log/modsec_audit
 ```

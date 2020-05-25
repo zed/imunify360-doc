@@ -446,7 +446,7 @@ where <span class="notranslate">`X.Y.Z.A`</span> - your server IP address
 
 You can find the results in the <span class="notranslate">_Malware scanner > Files_</span> tab.
 
-### 17. Malware file reasons <Badge text="v.4.6" />
+### 17. Malware file reasons
 
 Starting from Imunify version 4.6 you can see the advanced reason why a file was detected as malicious.
 

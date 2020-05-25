@@ -63,7 +63,7 @@ When the <span class="notranslate">_Low Resource Usage_</span> mode is activated
 
 ![](/images/LowResourceUsage.png)
 
-## Exim+Dovecot brute-force attack protection <sup><Badge text="4.5+"/> <Badge text="Experimental" type="warn"/></sup>
+## Exim+Dovecot brute-force attack protection
 
 :::tip Note
 cPanel only, other panels will be added later

@@ -49,7 +49,7 @@ A support ticket will be created and an email will be sent to a specified email 
 
 <div class="notranslate">
 
-## Dashboard <Badge text="4.0+"/>
+## Dashboard
 
 </div>
 
@@ -64,7 +64,7 @@ Here you can see notifications about server security and Imunify360 configuratio
 
 <div class="notranslate">
 
-### Multi-server Dashboard <Badge text="4.1+"/>
+### Multi-server Dashboard
 
 </div>
 
@@ -504,7 +504,7 @@ You will see a notification if an IP is successfully removed.
 
 See also: [How to use external files with the list of Black/White IPs](/firewall_config/#external-black-whitelist-management)
 
-### Global Black/White list IP management <sup><Badge text="4.5+"/> <Badge text="beta" type="warn"/></sup>
+### Global Black/White list IP management
 
 Starting from Imunify360 version 4.5 an administrator can manage IPs globally, this means that you can blacklist or whitelist an IP not only on one server but on a group of servers. 
 
@@ -1229,7 +1229,7 @@ To install or uninstall KernelCare click on a button related. Please find additi
 KernelCare is free on the servers with Imunify360 installed.
 :::
 
-#### Privilege escalation detection & protection <sup><Badge text="beta" type="warn"/> <Badge text="4.4+"/></sup>
+#### Privilege escalation detection & protection
 
 The KernelCare extension for Imunify360 allows tracing malicious invocations to detect privilege escalation attempts.
 
@@ -1484,7 +1484,7 @@ The purpose of the feature is significantly reducing false positive rate while i
 
 Click <span class="notranslate">_Save changes_</span> button on the bottom of the section to save changes.
 
-#### PAM <sup><Badge text="4.4+"/></sup>
+#### PAM
 
 #### PAM brute-force attack protection
 
@@ -1503,7 +1503,7 @@ imunify360-agent config update '{"PAM": {"enable": true}}'
 
 Click <span class="notranslate">_Save changes_</span> button on the bottom of the section to save changes.
 
-#### Exim+Dovecot brute-force attack protection <sup><Badge text="4.5+"/> <Badge text="Beta" type="warn"/></sup>
+#### Exim+Dovecot brute-force attack protection
 
 Tick the <span class="notranslate">_Exim+Dovecot brute-force attack protection_</span> checkbox to enable advanced protection against Dovecot brute-force attacks. PAM module protects against IMAP/POP3 brute-force attack and prevents mail account from being compromised via brute-forcing.
 
@@ -1530,7 +1530,7 @@ Tick <span class="notranslate">_Enable Sentry error reporting_</span> checkbox t
 
 Click <span class="notranslate">_Save changes_</span> button on the bottom of the section to save changes.
 
-#### Contact Details <sup><Badge text="4.1+"/></sup>
+#### Contact Details
  
 Type your email into the <span class="notranslate">_Email_</span> field to receive email reports about critical issues, security alerts or system misconfigurations detected on your servers.
 

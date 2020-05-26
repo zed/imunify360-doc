@@ -1880,13 +1880,13 @@ You can perform all these actions via [CLI](/command_line_interface/).
 
 <div class="notranslate">
 
-### Native Feature Management<sup> 4.0</sup>
+### Native Feature Management
 
 </div>
 
 <span class="notranslate">Feature Management</span> allows a hoster to enable/disable different Imunify360 features for server users. Using this functionality, hosting companies may resell chosen Imunify360 features as a part of hosting packages to end-users as well as make features available/unavailable for a group of end-users.
 
-### WHM/cPanel<sup> 4.0</sup>
+### WHM/cPanel
 
 <span class="notranslate">WHM/cPanel Feature Management</span> is now available under <span class="notranslate">WHM/cPanel Package Manager</span> via <span class="notranslate">Package Extension (PE)</span>.
 Using <span class="notranslate">WHM/cPanel Native Feature Management</span> a hoster can enable/disable <span class="notranslate">Malware Scanner</span> and <span class="notranslate">Proactive Defense</span> for all users with the same package (service plan) instantly.

@@ -1,5 +1,10 @@
 # Command-line Interface (CLI)
 
+#### Description
+
+Imunify360 command-line interface (CLI) makes working with Imunify360 basics and features from your terminal even simpler. 
+
+#### Usage
 
 For access to Imunify360 agent features from command-line interface (CLI), use the following command:
 
@@ -11,13 +16,6 @@ imunify360-agent
 
 </div>
 
-Optional arguments:
-
-| | |
-|-------|-|
-| <span class="notranslate">`-h, --help`</span>| Returns the help message|
-| <span class="notranslate">`--console-log-level [ERROR,WARNING,INFO,DEBUG]`</span>| Level of logging input to the console|
-
 Basic usage:
 
 <div class="notranslate">
@@ -28,45 +26,78 @@ imunify360-agent [command] [--option1] [--option2]...
 
 </div>
 
+#### Options
+
+The following options are available for all commands.
+
+| | |
+|-------|-|
+|<span class="notranslate">`--console-log-level [ERROR,WARNING,INFO,DEBUG]`</span>|Level of logging input to the console|
+|<span class="notranslate">`-h`, `--help`</span>|Returns the help message|
+|<span class="notranslate">`--json`</span>|Returns data in JSON format|
+|<span class="notranslate">`-v`, `--verbose`</span>|Allows to return data in good-looking view if the<span class="notranslate">`--json`</span> option is used.|
+
+#### Examples
+
+1. This command returns help message for the <span class="notranslate">`3rdparty`</span> command:
+   
+   <div class="notranslate">
+
+   ```
+   imunify360-agent 3rdparty -h
+   ```
+   </div>
+
+2. This command returns data in JSON format in a good-looking view for the <span class="notranslate">`get`</span> command:
+
+   <div class="notranslate">
+
+   ```
+   imunify360-agent get --period 1h --by-country-code UA --by-list black --json --verbose
+   ```
+   </div>
+   
+
 Available commands:
 | | |
 |-|-|
-|<span class="notranslate">`3rdparty`</span>|Make Imunify360 the primary IDS|
-|<span class="notranslate">`blacklist`</span>|Return/Edit IP blacklist|
-|<span class="notranslate">`blocked-port`</span>|Return/Edit list of blocked ports|
-|<span class="notranslate">`check-domains`</span>|Send domain list check|
-|<span class="notranslate">`clean`</span>|Clean the incidents|
-|<span class="notranslate">`config update`</span>|Allows to update configuration file via CLI|
-|<span class="notranslate">`checkdb`</span>|Check database integrity|
-|<span class="notranslate">`doctor`</span>|Collect info about system and send it to CloudLinux|
-|<span class="notranslate">`features`</span>|Manage available features for Imunify360|
-|<span class="notranslate">`get`</span>|Returns list of incidents|
-|<span class="notranslate">`graylist`</span>|Return/Edit IP <span class="notranslate">Gray List</span>|
-|<span class="notranslate">`import`</span>|Import data|
-|<span class="notranslate">`infected-domains`</span>|Returns infected domain list|
-|<span class="notranslate">`malware`</span>|Allows to manage malware options|
-|<span class="notranslate">`register`</span>|Agent registration|
-|<span class="notranslate">`remote-proxy`</span>|Allows to add an additional proxy subnet|
-|<span class="notranslate">`rstatus`</span>|Query the server to check if the license is valid|
-|<span class="notranslate">`rules`</span>|Allows user to manage disabled rules|
-|<span class="notranslate">`unregister`</span>|Unregistration the agent|
-|<span class="notranslate">`vendors`</span>|Command for manipulating Imunify360 vendors|
-|<span class="notranslate">`version`</span>|Show version|
-|<span class="notranslate">`whitelist`</span>|Return/Edit operator for IP and domain white list|
-|<span class="notranslate">`proactive`</span><sup>3.7.0+</sup>|Allows to manage Proactive Defense feature|
-|<span class="notranslate">`check modsec directives `</span><sup> Beta 3.9.0+ cPanel</sup>|Allows to check whether the global ModSecurity<br>directives have values recommended by Imunify360|
-|<span class="notranslate">`fix modsec directives `</span><sup> Beta 3.9.0+ cPanel</sup>|Fixes the non-recommended values (sets them to ones<br>recommended by Imunify360)|
-|<span class="notranslate">`feature-management`</span>| manage Imunify360 features available for users|
-|<span class="notranslate">`feature-management native enable`<sup> Beta 4.0+ cPanel</sup></span>|activate the Native Features Management using WHM/cPanel package extensions.|
-|<span class="notranslate">`feature-management native disable`<sup> Beta 4.0+ cPanel</sup></span>|deactivate the Native Features Management using WHM/cPanel package extensions and return the original Imunify360 Features Management back.|
-|<span class="notranslate">`backup-systems`</span>|allows to manage CloudLinux Backup|
+|[<span class="notranslate">`3rdparty`</span>](/command_line_interface/#_3rdparty)|Make Imunify360 the primary IDS|
+|[<span class="notranslate">`backup-systems`</span>](/command_line_interface/#backup-systems)|allows to manage CloudLinux Backup|
+|[<span class="notranslate">`blacklist`</span>](/command_line_interface/#blacklist)|Return/Edit IP blacklist|
+|[<span class="notranslate">`blocked-port`</span>](/command_line_interface/#blocked-ports)|Return/Edit list of blocked ports|
+|[<span class="notranslate">`checkdb`</span>](/command_line_interface/#checkdb)|Check database integrity|
+|[<span class="notranslate">`check-domains`</span>](/command_line_interface/#check-domains)|Send domain list check|
+|[<span class="notranslate">`check modsec directives`</span>](/command_line_interface/#check-modsec-directives)<sup> Beta 3.9.0+ cPanel</sup>|Allows to check whether the global ModSecurity<br>directives have values recommended by Imunify360|
+|[<span class="notranslate">`clean`</span>](/command_line_interface/#clean)|Clean the incidents|
+|[<span class="notranslate">`config update`</span>](/command_line_interface/#config-update)|Allows to update configuration file via CLI|
+|[<span class="notranslate">`doctor`</span>](/command_line_interface/#doctor)|Collect info about system and send it to CloudLinux|
+|[<span class="notranslate">`features`</span>](/command_line_interface/#features)|Manage available features for Imunify360|
+|[<span class="notranslate">`feature-management`</span>](/command_line_interface/#feature-management)| manage Imunify360 features available for users|
+|[<span class="notranslate">`feature-management native disable`</span>](/command_line_interface/#feature-management-native-disable)|deactivate the Native Features Management using WHM/cPanel package extensions and return the original Imunify360 Features Management back.|
+|[<span class="notranslate">`feature-management native enable`</span>](/command_line_interface/#feature-management-native-enable)|activate the Native Features Management using WHM/cPanel package extensions.|
+|[<span class="notranslate">`fix modsec directives`</span>](/command_line_interface/#fix-modsec-directives)|Fixes the non-recommended values (sets them to ones<br>recommended by Imunify360)|
+|[<span class="notranslate">`get`</span>](/command_line_interface/#get)|Returns list of incidents|
+|[<span class="notranslate">`graylist`</span>](/command_line_interface/#graylist)|Return/Edit IP <span class="notranslate">Gray List</span>|
+|[<span class="notranslate">`hooks`</span>](/command_line_interface/#hooks)|Hooks-related commands|
+|[<span class="notranslate">`import`</span>](/command_line_interface/#import)|Import data|
+|[<span class="notranslate">`infected-domains`</span>](/command_line_interface/#infected-domains)|Returns infected domain list|
+|[<span class="notranslate">`malware`</span>](/command_line_interface/#malware)|Allows to manage malware options|
+|[<span class="notranslate">`proactive`</span>](/command_line_interface/#proactive)|Allows to manage Proactive Defense feature|
+|[<span class="notranslate">`register`</span>](/command_line_interface/#register)|Agent registration|
+|[<span class="notranslate">`remote-proxy`</span>](/command_line_interface/#remote-proxy)|Allows to add an additional proxy subnet|
+|[<span class="notranslate">`rstatus`</span>](/command_line_interface/#rstatus)|Query the server to check if the license is valid|
+|[<span class="notranslate">`rules`</span>](/command_line_interface/#rules)|Allows user to manage disabled rules|
+|[<span class="notranslate">`submit false-positive/false-negative`</span>](/command_line_interface/#submit-false-positive-false-negative)|Allows to submit a file as false positive/false negative|
+|[<span class="notranslate">`unregister`</span>](/command_line_interface/#unregister)|Unregistration the agent|
+|[<span class="notranslate">`vendors`</span>](/command_line_interface/#vendors)|Command for manipulating Imunify360 vendors|
+|[<span class="notranslate">`version`</span>](/command_line_interface/#version)|Show version|
+|[<span class="notranslate">`whitelist`</span>](/command_line_interface/#whitelist)|Return/Edit operator for IP and domain white list|
+
 
 Optional arguments for the commands:
 
 | | |
 |-----------|-|
-|<span class="notranslate">`-h, --help`</span>|Shows this help message.|
-|<span class="notranslate">`--json`</span>|Returns data in JSON format.|
 |<span class="notranslate">`--by-country-code [country_code]`</span>|Filters output by country code.<br>Requires valid country code as argument.<br> Find valid country codes [here](https://www.nationsonline.org/oneworld/country_code_list.htm) in column ISO ALPHA-2 CODE.|
 |<span class="notranslate">`--by-ip [ip_address]`</span>|Filters output by abuser's IP or by subnet in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).<br>Example: <span class="notranslate">`--by-ip 1.2.3.0/24`</span>.|
 |<span class="notranslate">`--by-list`</span>|Can be:<br><ul><li><span class="notranslate">any</span></li><li><span class="notranslate">gray (Gray List)</span></li><li><span class="notranslate">white (White List)</span></li><li><span class="notranslate">black (Black List)</span></li></ul>Filters output based on the list type.<br>Example: <span class="notranslate">`--by-list black`</span>.|
@@ -75,7 +106,6 @@ Optional arguments for the commands:
 |<span class="notranslate">`--offset`</span>|Offset for pagination. By default, equals 0.|
 |<span class="notranslate">`--to`</span>|Allows to set the end of the period for filter.<br>Format is a timestamp.|
 |<span class="notranslate">`--manual`</span>|Show only items that have been added manually.|
-|<span class="notranslate">`--verbose, -v`</span>|Allows to return data in good-looking view if<br>option <span class="notranslate">`--json`</span> is used.|
 |<span class="notranslate">`--order-by`</span>|List of fields to sort the results by.|
  
 <div class="notranslate">
@@ -91,7 +121,7 @@ Usage:
 <div class="notranslate">
 
 ```
-imunify360-agent 3rdparty [-h]
+imunify360-agent 3rdparty
 ```
 
 </div>
@@ -102,14 +132,105 @@ imunify360-agent 3rdparty [-h]
 |-|-|
 |<span class="notranslate">`conflicts`</span>| Show conflicts with other software|
 |<span class="notranslate">`list`</span>| List other IDS that might be running concurrently with Imunify360|
-
-Optional arguments:
-
-| | |
-|-|-|
-|<span class="notranslate">`-h, --help`</span>| Show this help message|
  
 <div class="notranslate">
+
+## Backup systems
+
+Allows to manage backup systems integrated to Imunify360.
+
+**Usage:**
+
+<div class="notranslate">
+
+```
+imunify360-agent backup-systems [command] <value>
+```
+</div>
+
+<span class="notranslate">`command`</span> is a positional argument and can be:
+| | |
+|-|-|
+|<span class="notranslate">`list`</span>|List of all available backup systems.|
+|<span class="notranslate">`status`</span>|Returns backup system status including a current backup system and enabling status.|
+|<span class="notranslate">`extended-status`</span>|Returns extended status including log file path, error on executing, current backup system, enabling status, current state, and current backup progress bar.|
+|<span class="notranslate">`init`</span>|<span class="notranslate">`<value>`</span> must be in the list of available backup systems. Initializes <span class="notranslate">`<value>`</span> backup system.|
+|<span class="notranslate">`disable`</span>|Disables backup system.|
+|<span class="notranslate">`check`</span>|Returns licenses info.|
+
+The <span class="notranslate">`status`</span> command returns <span class="notranslate">`{'<key>': <value>}`</span> (<span class="notranslate">JSON</span> formatted):
+
+|Key|Value|
+|-|-|
+|<span class="notranslate">`backup_system`</span>|<span class="notranslate">Str</span> with the name of the currently enabled backup system.|
+|<span class="notranslate">`enabled`</span>|If backups are enabled — <span class="notranslate">`True`</span>, else — <span class="notranslate">`False`</span>.|
+
+The <span class="notranslate">`extended-status`</span> command returns <span class="notranslate">`{'<key>': <value>}`</span> (<span class="notranslate">JSON</span> formatted):
+
+|Key|Value|
+|-|-|
+|<span class="notranslate">`log_path`</span>|<span class="notranslate">Str</span> with the path to the log file.|
+|<span class="notranslate">`error`</span>|<span class="notranslate">Str</span> with a human-friendly error message.|
+|<span class="notranslate">`backup_system`</span>|<span class="notranslate">Str</span> with the name of the currently enabled backup system.|
+|<span class="notranslate">`enabled`</span>|If backups are enabled — <span class="notranslate">`True`</span>, else — <span class="notranslate">`False`</span>.|
+|<span class="notranslate">`state`</span>|<span class="notranslate">Str</span> with the current running condition. Statuses: <span class="notranslate">`not_running`, `init`, `backup`, `done`, `unpaid`</span>.|
+|<span class="notranslate">`progress`</span>|This key is optional. It represents the progress of backup if it is running.|
+
+The <span class="notranslate">`check`</span> command returns <span class="notranslate">`{'<key>': <value>}`</span> (<span class="notranslate">JSON</span> formatted):
+
+|Key|Value|
+|-|-|
+|<span class="notranslate">`status`</span>|<span class="notranslate">Str</span> with the license status. Statuses: <span class="notranslate">`paid`, `unpaid`</span>.|
+|<span class="notranslate">`size`</span>|<span class="notranslate">Int</span>, which represents a paid size of backups in GB. E.g. <span class="notranslate">`'size': 10`</span> means that you paid for 10GB.|
+
+
+**Examples:**
+
+1. The following command prints a list of all available backup systems:
+   
+<div class="notranslate">
+
+   ```
+   $ imunify360-agent backup-systems list
+   acronis 
+   r1soft 
+   cloudlinux
+   ```
+</div>
+
+2. The following command initializes CloudLinux backup system:
+
+<div class="notranslate">
+
+   ```
+   $ imunify360-agent backup-systems init cloudlinux
+   Backup initialization process is in progress
+   ```
+</div>
+
+3. The following command checks if the CloudLinux backup system is connected:
+
+<div class="notranslate">
+
+   ```
+   $ imunify360-agent backup-systems check cloudlinux
+   {'url': 'https://cln.cloudlinux.com/clweb/cb/buy.html?id=YourServerIdHere', 'status': 'unpaid'}
+   ```
+</div>
+
+At first, it shows that it isn't, so you should open the URL from the JSON response in the browser to activate the backup. Once this is done, it shows in the CLN.
+
+Run the check again and now it returns the size and that the backup has been paid for.
+
+<div class="notranslate">
+
+   ```
+   $ imunify360-agent backup-systems check cloudlinux
+   {'size': 10, 'status': 'paid'}
+   ```
+</div>
+
+The above commands create a new cloudlinuxbackup.com account and link that account to this server after following the link and confirming the payment of $0.00 for free 10GB.
 
 ## Blacklist
 
@@ -261,6 +382,26 @@ imunify360-agent blocked-port add 5555:tcp --comment “Some comment”
 
 <div class="notranslate">
 
+## Checkdb
+
+</div>
+
+Checks database integrity. In case database is corrupt, then this command saves backup copy of the database at <span class="notranslate">`/var/imunify360`</span> and tries to restore integrity of the original database. Note that if this command cannot restore database integrity, then it will destroy the original broken database.
+
+Usage:
+
+<div class="notranslate">
+
+```
+imunify360-agent checkdb
+```
+
+</div>
+
+<div class="notranslate">
+
+
+
 ## Check-domains
 
 </div>
@@ -280,14 +421,29 @@ imunify360-agent check-domains [--optional arguments]
 
 </div>
 
-Optional arguments:
 
-| | |
-|-|-|
-|<span class="notranslate">`-h, --help`</span>|show this help message|
-|<span class="notranslate">`--json`</span>|return data in JSON format|
-|<span class="notranslate">`--verbose, -v`</span>|allows to return data in good-looking view if option <span class="notranslate">`--json`</span> is used|
+<div class="notranslate">
 
+## Check modsec directives
+
+</div>
+	
+::: tip Note
+Beta Imunify360 version 3.9.0+ cPanel only
+:::
+	
+Allows to check whether the global [ModSecurity directives](https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual-%28v2.x%29#Configuration_Directives) have values recommended by Imunify360. 
+	
+Usage:
+	
+<div class="notranslate">
+
+```
+imunify360-agent check modsec directives [--optional arguments]
+```
+
+</div>
+	
 <div class="notranslate">
 
 ## Clean
@@ -310,8 +466,6 @@ Optional arguments:
 
 | | |
 |-|-|
-|<span class="notranslate">`-h, --help`</span>|show this help message|
-|<span class="notranslate">`--json`</span>|return data in JSON format|
 |<span class="notranslate">`--days`</span>|cleanups incidents from database, if there are more than specified days quantity<br>Example: <span class="notranslate">`--days 5`</span>.<br>this option will cause deletion of all incidents that are older than 5 days from today|
 |<span class="notranslate">`--limit`</span>|leaves only limited number of the incidents in the database and deletes the others<br>Example: <span class="notranslate">`--limit 5000`</span>.<br>this option will leave only 5000 new incidents and delete the others|
 
@@ -349,31 +503,6 @@ imunify360-agent config update ‘{"MALWARE_SCAN_INTENSITY": {"cpu": 5}}’
 
 <div class="notranslate">
 
-## Checkdb
-
-</div>
-
-Checks database integrity. In case database is corrupt, then this command saves backup copy of the database at <span class="notranslate">`/var/imunify360`</span> and tries to restore integrity of the original database. Note that if this command cannot restore database integrity, then it will destroy the original broken database.
-
-Usage:
-
-<div class="notranslate">
-
-```
-imunify360-agent checkdb [-h]
-```
-
-</div>
-
-Optional arguments:
-
-| | |
-|-|-|
-|<span class="notranslate">`-h, --help`</span>|Show this help message.|
-|<span class="notranslate">`--json`</span>|Return data in JSON format.|
-|<span class="notranslate">`--verbose, -v`</span>|Allows to return data in good-looking view if option <span class="notranslate">`--json`</span> is used.|
-
-<div class="notranslate">
 
 ## Doctor
 
@@ -386,24 +515,15 @@ Usage:
 <div class="notranslate">
 
 ```
-imunify360-agent doctor [-h]
+imunify360-agent doctor
 ```
 
 </div>
-
-Optional arguments:
-
-| | |
-|-|-|
-|<span class="notranslate">`-h, --help`</span>|Show this help message.|
-|<span class="notranslate">`--json`</span>|Return data in JSON format.|
-|<span class="notranslate">`--verbose, -v`</span>|Allows to return data in good-looking view if option <span class="notranslate">`--json`</span> is used.|
  
-<div class="notranslate">
+
 
 ## Features
 
-</div>
 
 Allows to enable or disable additional CloudLinux software included in Imunify360 for free. The following software is available:
 
@@ -420,7 +540,7 @@ Usage:
 <div class="notranslate">
 
 ```
-imunify360-agent features [-h] [command] <feature name>
+imunify360-agent features [command] <feature name>
 ```
 
 </div>
@@ -433,12 +553,6 @@ imunify360-agent features [-h] [command] <feature name>
 |<span class="notranslate">`remove`</span>|allows to disable software|
 |<span class="notranslate">`status`</span>|allows to check the status of the software|
 |<span class="notranslate">`list`</span>|allows to list all available software|
-
-Optional arguments:
-
-| | |
-|-|-|
-|<span class="notranslate">`-h, --help`</span>|show this help message|
 
 **Examples:**
 
@@ -472,11 +586,140 @@ Optional arguments:
 
 </div>
 
+
+## Feature-management
+
+Allows to manage Imunify360 features available for users.
+
+**Usage:**
+
 <div class="notranslate">
+
+```
+imunify360-agent feature-management [command] [--optional argument]...
+```
+
+</div>
+
+<span class="notranslate">`Command`</span> can be one of the following:
+
+| | |
+|-|-|
+|<span class="notranslate">`defaults`</span>| show the default value for each feature that is applied for newly created user|
+|<span class="notranslate">`disable`</span>| disable a feature for some or all users|
+|<span class="notranslate">`enable`</span>| enable a feature for some or all users|
+|<span class="notranslate">`get`</span>| obtains the status of all available features for a <span class="notranslate">`USER`</span>|
+|<span class="notranslate">`list`</span>| list all available features|
+
+<span class="notranslate">`Optional argument`</span> for the <span class="notranslate">`enable/disable`</span> commands can be one of the following:
+
+| | |
+|-|-|
+|<span class="notranslate">`[--feature av]`</span>|enable/disable <span class="notranslate">Malware Cleanup</span>|
+<span class="notranslate">`[--feature proactive]`</span>|enable/disable <span class="notranslate">Proactive Defense</span>|
+|<span class="notranslate">`[--users [USERS [USERS ...]]]`</span>| specifies the list of users which will be affected, otherwise the default value will be changed|
+
+The mandatory argument for the <span class="notranslate">`get`</span> command:
+
+| | |
+|-|-|
+|<span class="notranslate">`[--user USER]`</span>| specifies a user name to obtain the status of features for|
+
+**Example:**
+
+The following command enables <span class="notranslate">Malware Cleanup</span> feature for the <span class="notranslate">`user1`</span>:
+
+<div class="notranslate">
+
+```
+imunify360-agent feature-management enable --feature av --users user1
+```
+
+</div>
+
+## Feature-management native disable
+
+
+Allows to deactivate the <span class="notranslate">Native Features Management</span> using WHM/cPanel package extensions and return the original Imunify360 <span class="notranslate">Features Management</span> back.
+
+**Usage:**
+
+
+<div class="notranslate">
+
+```
+imunify360-agent feature-management native disable
+```
+
+</div>
+
+Once the command executed:
+
+* The <span class="notranslate">Native Features Management</span> will be deactivated
+* The Imunify360 <span class="notranslate">Package Extensions</span> will be removed from all packages
+* The original Imunify360 <span class="notranslate">Features Management</span> will be activated
+
+
+::: tip Note
+Imunify360 will keep applying users <span class="notranslate">Features Management</span> settings stored in their data bases after switching to the original Imunify360 <span class="notranslate">Features Management</span>.
+:::
+
+::: warning Warning
+<span class="notranslate">`feature-management enable/disable --feature av`</span> and <span class="notranslate">`feature-management enable/disable --feature proactive`</span> commands will start functioning.
+:::
+
+## Feature-management native enable
+
+Allows to activate the <span class="notranslate">Native Features Management</span> using WHM/cPanel package extensions.
+
+**Usage:**
+
+
+<div class="notranslate">
+
+```
+imunify360-agent feature-management native enable
+```
+
+</div>
+
+Once the command executed, the following default Imunify360 <span class="notranslate">Package Extension</span> settings will be applied to all Packages:
+* <span class="notranslate">Malware Scanner - View Reports Only</span>
+* <span class="notranslate">Proactive Defense - Available</span>
+
+Imunify360 <span class="notranslate">Package Extensions</span> will be auto-enabled for all packages disregarding the fact they have Imunify360 plugin enabled or not. 
+
+
+All existing <span class="notranslate">Features Management</span> settings will be overridden with the Imunify360 <span class="notranslate">Package Extensions</span> ones for all users.
+
+::: tip Note
+<span class="notranslate">Features Management</span> tab will be hidden on the User Interface.
+:::
+
+::: warning Warning
+<span class="notranslate">`feature-management enable/disable --feature av`</span> and <span class="notranslate">`feature-management enable/disable --feature proactive`</span> commands will stop functioning.
+:::
+
+## Fix modsec directives
+	
+::: tip Note
+Beta Imunify360 version 3.9.0+ cPanel only
+:::
+	
+Fixes the non-recommended values (sets them to ones recommended by Imunify360)
+	
+Usage:
+	
+<div class="notranslate">
+
+```
+imunify360-agent fix modsec directives [--optional arguments]
+```
+	
+</div>  
 
 ## Get
 
-</div>
 
 The command returns the lists of incidents.
 
@@ -544,22 +787,14 @@ Available commands:
 |<span class="notranslate">`delete`</span>|allows to remove IP from <span class="notranslate">Gray List</span>|
 |<span class="notranslate">`list`</span>|allows to list IPs in <span class="notranslate">Gray List</span>|
 
-Optional arguments:
-
-| | |
-|-|-|
-|<span class="notranslate">`-h, --help`</span>|show this help message|
-
 Optional arguments for <span class="notranslate">`list`</span>:
 
 | | |
 |-|-|
-|<span class="notranslate">`--json`</span>|Returns data in JSON format.|
 |<span class="notranslate">`--by-country-code [country_code]`</span>|Filters output by country code.<br>Requires valid country code as argument.<br>Find valid country codes<br>in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks) in column ISO ALPHA-2 CODE.|
 |<span class="notranslate">`--by-ip [ip_address]`</span>|Filters output by abuser's IP or by subnet in CIDR notation.<br>Example: <span class="notranslate">`--by-ip 1.2.3.0/24`</span>|
 |<span class="notranslate">`--limit`</span>|Limits the output with specified number of IPs.<br>Must be a number greater than zero. By default, equals 100.|
 |<span class="notranslate">`--offset`</span>|Offset for pagination. By default, equals 0.|
-|<span class="notranslate">`--verbose, -v`</span>|Allows to return data in good-looking view<br>if option <span class="notranslate">`--json`</span> is used.|
 
 Please note that by default <span class="notranslate">`list`</span> command outputs only first 100 items in the list as if it was run as <span class="notranslate">`graylist ip list --limit 100`</span>.
 To check whether specific IP address is in the list, you can run the following command:
@@ -588,6 +823,10 @@ imunify360-agent graylist ip delete 1.2.3.4
 
 <div class="notranslate">
 
+## Hooks
+
+Hooks-related command description is available [here](/hooks/#cli)
+
 ## Import
 
 </div>
@@ -600,7 +839,7 @@ Usage:
 <div class="notranslate">
 
 ```
-imunify360-agent import [-h] {blocked-ports, wblist} ...
+imunify360-agent import {blocked-ports, wblist} ...
 ```
 
 </div>
@@ -611,12 +850,6 @@ Positional arguments:
 |-|-|
 |<span class="notranslate">`blocked-ports`</span>|Import blocked-ports from other IDS|
 |<span class="notranslate">`wblist`</span>|Import <span class="notranslate">White/Black List</span> from other IDS|
-
-Optional arguments:
-
-| | |
-|-|-|
-|<span class="notranslate">`-h, --help`</span>|Show this help message|
 
 **Example:**
 
@@ -643,7 +876,7 @@ Usage:
 <div class="notranslate">
 
 ```
-imunify360-agent infected-domains [-h] [--optional arguments]
+imunify360-agent infected-domains [--optional arguments]
 ```
 
 </div>
@@ -652,16 +885,10 @@ Optional arguments for <span class="notranslate">`list`</span>:
 
 | | |
 |-|-|
-|<span class="notranslate">`--json`</span>|Returns data in JSON format.|
 |<span class="notranslate">`--limit`</span>|Limits the output with the specified number of domains.<br>Must be a number greater than zero. By default, equals 100.|
 |<span class="notranslate">`--offset`</span>|Offset for pagination. By default, equals 0.|
-|<span class="notranslate">`--verbose, -v`</span>|Allows to return data in a good-looking view if option <span class="notranslate">`--json`</span> is used.|
  
 <div class="notranslate">
-
-## Hooks
-
-Hooks-related command description is available [here](/hooks/#cli)
 
 ## Malware
 
@@ -694,11 +921,8 @@ Optional arguments:
 
 | | |
 |-|-|
-|<span class="notranslate">`-h, --help`</span>|Show this help message.|
-|<span class="notranslate">`--json`</span>|Returns data in JSON format.|
 |<span class="notranslate">`--limit LIMIT`</span>|Limits the output with the specified number of domains.<br>Must be a number greater than zero. By default, equals 100.|
 |<span class="notranslate">`--offset OFFSET`</span>|Offset for pagination. By default, equals 0.|
-|<span class="notranslate">`--verbose, -v`</span>|Allows to return data in a good-looking view if option <span class="notranslate">`--json`</span> is used.|
 |<span class="notranslate">`--since SINCE`</span>|Start date.|
 |<span class="notranslate">`--to TO`</span>|End date.|
 |<span class="notranslate">`--user USER`</span>|Returns results for a chosen user.|
@@ -791,6 +1015,73 @@ imunify360-agent malware malicious list --user cltest --limit 500
 ```
 </div>
 
+
+<div class="notranslate">
+
+## Proactive
+
+</div>
+
+These commands allow to manage <span class="notranslate">Proactive Defense</span> feature.
+
+Usage:
+
+<div class="notranslate">
+
+```
+imunify360-agent proactive [command] [--option] <value>
+```
+
+</div>
+
+Available commands:
+
+| | |
+|-|-|
+|<span class="notranslate">`ignore delete path`</span>|allows to remove a file from <span class="notranslate">Proactive Defense Ignore List</span>.|
+|<span class="notranslate">`ignore delete rule`</span>|allows to remove a rule for a file from <span class="notranslate">Proactive Defense Ignore List</span>.|
+|<span class="notranslate">`list`</span>|allows to list <span class="notranslate">Proactive Defense</span> events.|
+|<span class="notranslate">`details`</span>|allows to show details for the event.|
+|<span class="notranslate">`ignore list`</span>|allows to list files included to <span class="notranslate">Proactive Defense Ignore List</span>.|
+|<span class="notranslate">`ignore add`</span>|allows to add a file to <span class="notranslate">Proactive Defense Ignore List</span>.|
+
+<span class="notranslate">`option`</span> can be one or few of the optional arguments listed above and one more.
+
+| | |
+|-|-|
+|<span class="notranslate">`--path`</span>|for <span class="notranslate">`ignore add`</span>, <span class="notranslate">`ignore delete path`</span>, <span class="notranslate">`ignore delete rule`</span> commands.<br>Allows to specify a path to the file.|
+|<span class="notranslate">`--id`</span>|for <span class="notranslate">`details`</span>, <span class="notranslate">`ignore delete rule`</span> commands.<br>Allows to specify rule id.|
+|<span class="notranslate">`--rule-id`</span>|only for <span class="notranslate">`ignore add`</span> command.<br>Allows to specify rule id.|
+|<span class="notranslate">`--rule-name`</span>|only for <span class="notranslate">`ignore add`</span> command.<br>Allows to specify rule name.|
+|<span class="notranslate">`--since [timestamp]`</span>|allows to set start time to filter the list of incidents by period.|
+|<span class="notranslate">`--to [timestamp]`</span>|allows to set finish time to filter the list of incidents by period.|
+|<span class="notranslate">`--user`</span>|show events for a specific user.|
+|<span class="notranslate">`--search`</span>|string to search Proactive events by.|
+
+**Examples:**
+
+1. This command adds a file located at <span class="notranslate">`/home/user/index.php`</span> to <span class="notranslate">Proactive Defense Ignore List</span> for the rule id 12 and name <span class="notranslate">`Suspicious detection rule`</span>.
+It means that <span class="notranslate">Proactive Defense</span> will not analyze this file according to this rule:
+
+<div class="notranslate">
+
+   ```
+   imunify360-agent proactive ignore add --path /home/user/index.php --rule-id 12 --rule-name 'Suspicious detection rule'
+   ```
+</div>
+
+2. This command removes files located at <span class="notranslate">`<path to file 1>`</span> and <span class="notranslate">`<path to file 2>`</span> from <span class="notranslate">Proactive Defense Ignore List</span>:
+
+<div class="notranslate">
+
+   ```
+   imunify360-agent proactive ignore delete path <path to file 1> <path to file 2>
+   ```
+
+   </div>
+
+
+
 <div class="notranslate">
 
 ## Register
@@ -816,14 +1107,6 @@ imunify360-agent register [--optional arguments] [KEY]
 |<span class="notranslate">`KEY`</span>|Register with activation key (use <span class="notranslate">`IPL`</span> to register by IP).|
 
 If you will use this command without the <span class="notranslate">`KEY`</span> argument, then it will try to register and activate current activation key.
-
-Optional arguments:
-
-| | |
-|-|-|
-|<span class="notranslate">`-h, --help`</span>|Show this help message.|
-|<span class="notranslate">`--json`</span>|Return data in JSON format.|
-|<span class="notranslate">`--verbose, -v`</span>|Allows to return data in good-looking view if option <span class="notranslate">`--json`</span> is used.|
 
 **Example 1:**
 
@@ -886,10 +1169,7 @@ Optional arguments for <span class="notranslate">`add`</span>:
 
 | | |
 |-|-|
-|<span class="notranslate">`-h`, `--help`</span>|Show this help message|
-|<span class="notranslate">`--json`</span>|Return data in JSON format|
 |<span class="notranslate">`--name NAME`</span>|Name of an added proxy|
-|<span class="notranslate">`--verbose`, `-v`</span>|Allows to return data in a good-looking view if the <span class="notranslate">`--json`</span> option is used.|
 
 Positional arguments for <span class="notranslate">`delete`</span>:
 
@@ -897,23 +1177,12 @@ Positional arguments for <span class="notranslate">`delete`</span>:
 |-|-|
 |<span class="notranslate">`NETWORKS`</span>|Subnet in CIDR notation|
 
-Optional arguments for <span class="notranslate">`delete`</span>:
-
-| | |
-|-|-|
-|<span class="notranslate">`-h`, `--help`</span>|Show this help message|
-|<span class="notranslate">`--json`</span>|Return data in JSON format|
-|<span class="notranslate">`--verbose`, `-v`</span>|Allows to return data in a good-looking view if the <span class="notranslate">`--json`</span> option is used.|
-
 Optional arguments for <span class="notranslate">`list`</span>:
 
 | | |
 |-|-|
-|<span class="notranslate">`-h`, `--help`</span>|Show this help message|
 |<span class="notranslate">`--by-group BY_GROUP`</span>|Sort by <span class="notranslate">`GROUP`</span>|
 |<span class="notranslate">`--by-source BY_SOURCE`</span>|Sort by <span class="notranslate">`SOURCE`</span>|
-|<span class="notranslate">`--json`</span>|Return data in JSON format|
-|<span class="notranslate">`--verbose`, `-v`</span>|Allows to return data in a good-looking view if the <span class="notranslate">`--json`</span> option is used|
 
 Positional arguments for <span class="notranslate">`group`</span>:
 
@@ -933,23 +1202,7 @@ Optional arguments for <span class="notranslate">`enable`/`disable`</span>:
 
 | | |
 |-|-|
-|<span class="notranslate">`-h`, `--help`</span>|Show this help message|
 |<span class="notranslate">`--source SOURCE`</span>|Enable/disable a group by <span class="notranslate">`SOURCE`</span>|
-|<span class="notranslate">`--json`</span>|Return data in JSON format|
-|<span class="notranslate">`--verbose`, `-v`</span>|Allows to return data in a good-looking view if the <span class="notranslate">`--json`</span> option is used.|
-
-Optional arguments for <span class="notranslate">`group`</span>:
-
-| | |
-|-|-|
-|<span class="notranslate">`-h, --help`</span>|Show this help message.|
-
-
-Optional arguments for <span class="notranslate">`remote-proxy`</span>:
-
-| | |
-|-|-|
-|<span class="notranslate">`-h`, `--help`</span>|Show this help message.|
 
 
 **Examples**
@@ -981,14 +1234,6 @@ imunify360-agent rstatus [--optional arguments]
 ```
 
 </div>
-
-Optional arguments:
-
-| | |
-|-|-|
-|<span class="notranslate">`-h, --help`</span>|Show this help message.|
-|<span class="notranslate">`-json`</span>|Return data in JSON format.|
-|<span class="notranslate">`--verbose, -v`</span>|Allows to return data in good-looking view if option <span class="notranslate">`--json`</span> is used.|
 
 <div class="notranslate">
 
@@ -1084,96 +1329,6 @@ Option can be:
  
 <div class="notranslate">
 
-## Unregister
-
-</div>
-
-Allows to unregister and disable Imunify360 on the server. 
-
-::: tip Note
-To remove Imunify360 from the server it needs to be [uninstalled](/uninstall/).
-:::
-
-Usage:
-
-<div class="notranslate">
-
-```
-imunify360-agent unregister [--optional arguments]
-```
-
-</div>
-
-Optional arguments:
-
-| | |
-|-|-|
-|<span class="notranslate">`-h, --help`</span>|Show this help message.|
-|<span class="notranslate">`--json`</span>|Return data in JSON format.|
-|<span class="notranslate">`--verbose, -v`</span>|Allows to return data in good-looking view if option <span class="notranslate">`--json`</span> is used.|
-
-<div class="notranslate">
-
-## Vendors
-
-</div>
-
-Command for manipulating Imunify360 vendors.
-
-Usage:
-
-<div class="notranslate">
-
-```
-imunify360-agent [command]
-```
-
-</div>
-
-<span class="notranslate">`command`</span> is a positional argument and can be:
-
-| | |
-|-|-|
-|<span class="notranslate">`install-vendors`</span>|Install ModSecurity vendors.<br>This command will install Imunify360 vendor and<br>[Comodo WAF](https://modsecurity.comodo.com/) if there are no conflicts with other installed vendors.|
-|<span class="notranslate">`uninstall-vendors`</span>|uninstall <span class="notranslate">ModSecurity</span> vendors.|
-
-Optional arguments:
-
-| | |
-|-|-|
-|<span class="notranslate">`-h, --help`</span>|Show this help message.|
-|<span class="notranslate">`--json`</span>|Return data in JSON format.|
-|<span class="notranslate">`--verbose, -v`</span>|Return data in good-looking view if option <span class="notranslate">`--json`</span> is used.|
-
-<div class="notranslate">
-
-## Version
-
-</div>
-
-Allows to view the actual Imunify360 version installed on the server.
-
-Usage:
-
-<div class="notranslate">
-
-```
-imunify360-agent version [-h] [--json]
-```
-
-</div>
-
-Optional arguments:
-
-| | |
-|-|-|
-|<span class="notranslate">`-h, --help`</span>|Show this help message.|
-|<span class="notranslate">`--json`</span>|Return data in JSON format.|
-|<span class="notranslate">`--verbose, -v`</span>|Allows to return data in good-looking view if option <span class="notranslate">`--json`</span> is used.|
-
-
-<div class="notranslate">
-
 ## Submit false-positive/false-negative
 
 </div>
@@ -1208,11 +1363,77 @@ Optional arguments:
 |-|-|
 |<span class="notranslate">`--to`</span>|Email to send.|
 |<span class="notranslate">`--sender`</span>|User email.|
-|<span class="notranslate">`-h, --help`</span>|Show this help message|
-|<span class="notranslate">`--json`</span>|Return data in JSON format.|
-|<span class="notranslate">`--verbose, -v`</span>|Allows to return data in good-looking view if option <span class="notranslate">`--json`</span> is used.|
  
 <div class="notranslate">
+
+
+<div class="notranslate">
+
+## Unregister
+
+</div>
+
+Allows to unregister and disable Imunify360 on the server. 
+
+::: tip Note
+To remove Imunify360 from the server it needs to be [uninstalled](/uninstall/).
+:::
+
+Usage:
+
+<div class="notranslate">
+
+```
+imunify360-agent unregister [--optional arguments]
+```
+
+</div>
+
+<div class="notranslate">
+
+## Vendors
+
+</div>
+
+Command for manipulating Imunify360 vendors.
+
+Usage:
+
+<div class="notranslate">
+
+```
+imunify360-agent [command]
+```
+
+</div>
+
+<span class="notranslate">`command`</span> is a positional argument and can be:
+
+| | |
+|-|-|
+|<span class="notranslate">`install-vendors`</span>|Install ModSecurity vendors.<br>This command will install Imunify360 vendor and<br>[Comodo WAF](https://modsecurity.comodo.com/) if there are no conflicts with other installed vendors.|
+|<span class="notranslate">`uninstall-vendors`</span>|uninstall <span class="notranslate">ModSecurity</span> vendors.|
+
+<div class="notranslate">
+
+## Version
+
+</div>
+
+Allows to view the actual Imunify360 version installed on the server.
+
+Usage:
+
+<div class="notranslate">
+
+```
+imunify360-agent version [--json]
+```
+
+</div>
+
+
+
 
 ## Whitelist
 
@@ -1335,352 +1556,5 @@ imunify360-agent whitelist country add BO
    ```
 
 </div>
-
-<div class="notranslate">
-
-## Proactive
-
-</div>
-
-These commands allow to manage <span class="notranslate">Proactive Defense</span> feature.
-
-Usage:
-
-<div class="notranslate">
-
-```
-imunify360-agent proactive [command] [--option] <value>
-```
-
-</div>
-
-Available commands:
-
-| | |
-|-|-|
-|<span class="notranslate">`ignore delete path`</span>|allows to remove a file from <span class="notranslate">Proactive Defense Ignore List</span>.|
-|<span class="notranslate">`ignore delete rule`</span>|allows to remove a rule for a file from <span class="notranslate">Proactive Defense Ignore List</span>.|
-|<span class="notranslate">`list`</span>|allows to list <span class="notranslate">Proactive Defense</span> events.|
-|<span class="notranslate">`details`</span>|allows to show details for the event.|
-|<span class="notranslate">`ignore list`</span>|allows to list files included to <span class="notranslate">Proactive Defense Ignore List</span>.|
-|<span class="notranslate">`ignore add`</span>|allows to add a file to <span class="notranslate">Proactive Defense Ignore List</span>.|
-
-<span class="notranslate">`option`</span> can be one or few of the optional arguments listed above and one more.
-
-| | |
-|-|-|
-|<span class="notranslate">`--path`</span>|for <span class="notranslate">`ignore add`</span>, <span class="notranslate">`ignore delete path`</span>, <span class="notranslate">`ignore delete rule`</span> commands.<br>Allows to specify a path to the file.|
-|<span class="notranslate">`--id`</span>|for <span class="notranslate">`details`</span>, <span class="notranslate">`ignore delete rule`</span> commands.<br>Allows to specify rule id.|
-|<span class="notranslate">`--rule-id`</span>|only for <span class="notranslate">`ignore add`</span> command.<br>Allows to specify rule id.|
-|<span class="notranslate">`--rule-name`</span>|only for <span class="notranslate">`ignore add`</span> command.<br>Allows to specify rule name.|
-|<span class="notranslate">`--since [timestamp]`</span>|allows to set start time to filter the list of incidents by period.|
-|<span class="notranslate">`--to [timestamp]`</span>|allows to set finish time to filter the list of incidents by period.|
-|<span class="notranslate">`--user`</span>|show events for a specific user.|
-|<span class="notranslate">`--search`</span>|string to search Proactive events by.|
-
-**Examples:**
-
-1. This command adds a file located at <span class="notranslate">`/home/user/index.php`</span> to <span class="notranslate">Proactive Defense Ignore List</span> for the rule id 12 and name <span class="notranslate">`Suspicious detection rule`</span>.
-It means that <span class="notranslate">Proactive Defense</span> will not analyze this file according to this rule:
-
-<div class="notranslate">
-
-   ```
-   imunify360-agent proactive ignore add --path /home/user/index.php --rule-id 12 --rule-name 'Suspicious detection rule'
-   ```
-</div>
-
-2. This command removes files located at <span class="notranslate">`<path to file 1>`</span> and <span class="notranslate">`<path to file 2>`</span> from <span class="notranslate">Proactive Defense Ignore List</span>:
-
-<div class="notranslate">
-
-   ```
-   imunify360-agent proactive ignore delete path <path to file 1> <path to file 2>
-   ```
-
-   </div>
-
-<div class="notranslate">
-
-## Check modsec directives
-
-</div>
-	
-::: tip Note
-Beta Imunify360 version 3.9.0+ cPanel only
-:::
-	
-Allows to check whether the global [ModSecurity directives](https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual-%28v2.x%29#Configuration_Directives) have values recommended by Imunify360. 
-	
-Usage:
-	
-<div class="notranslate">
-
-```
-imunify360-agent check modsec directives [--optional arguments]
-```
-
-</div>
-	
-Optional arguments:
-	
-| | |
-|-|-|
-|<span class="notranslate">`-h, --help`</span>|Show this help message.|
-|<span class="notranslate">`--json`</span>|Return data in JSON format.|
-|<span class="notranslate">`--verbose, -v`</span>|Allows to return data in good-looking view if option <span class="notranslate">`--json`</span> is used.|
-	
-<div class="notranslate">
-
-## Fix modsec directives
-
-</div>
-	
-::: tip Note
-Beta Imunify360 version 3.9.0+ cPanel only
-:::
-	
-Fixes the non-recommended values (sets them to ones recommended by Imunify360)
-	
-Usage:
-	
-<div class="notranslate">
-
-```
-imunify360-agent fix modsec directives [--optional arguments]
-```
-	
-</div>   
-
-Optional arguments:
-
-| | |
-|-|-|
-|<span class="notranslate">`-h, --help`</span>|Show this help message.|
-|<span class="notranslate">`--json`</span>|Return data in JSON format.|
-|<span class="notranslate">`--verbose, -v`</span>|Allows to return data in good-looking view if option <span class="notranslate">`--json`</span> is used.|
-
-<div class="notranslate">
-
-## Feature-management
-
-</div>
-
-Allows to manage Imunify360 features available for users.
-
-**Usage:**
-
-<div class="notranslate">
-
-```
-imunify360-agent feature-management [command] [--optional argument]...
-```
-
-</div>
-
-<span class="notranslate">`Command`</span> can be one of the following:
-
-| | |
-|-|-|
-|<span class="notranslate">`defaults`</span>| show the default value for each feature that is applied for newly created user|
-|<span class="notranslate">`disable`</span>| disable a feature for some or all users|
-|<span class="notranslate">`enable`</span>| enable a feature for some or all users|
-|<span class="notranslate">`get`</span>| obtains the status of all available features for a <span class="notranslate">`USER`</span>|
-|<span class="notranslate">`list`</span>| list all available features|
-
-<span class="notranslate">`Optional argument`</span> for the <span class="notranslate">`enable/disable`</span> commands can be one of the following:
-
-| | |
-|-|-|
-|<span class="notranslate">`[--feature av]`</span>|enable/disable <span class="notranslate">Malware Cleanup</span>|
-<span class="notranslate">`[--feature proactive]`</span>|enable/disable <span class="notranslate">Proactive Defense</span>|
-|<span class="notranslate">`[--users [USERS [USERS ...]]]`</span>| specifies the list of users which will be affected, otherwise the default value will be changed|
-
-The mandatory argument for the <span class="notranslate">`get`</span> command:
-
-| | |
-|-|-|
-|<span class="notranslate">`[--user USER]`</span>| specifies a user name to obtain the status of features for|
-
-**Example:**
-
-The following command enables <span class="notranslate">Malware Cleanup</span> feature for the <span class="notranslate">`user1`</span>:
-
-<div class="notranslate">
-
-```
-imunify360-agent feature-management enable --feature av --users user1
-```
-
-</div>
-
-<div class="notranslate">
-
-## Feature-management native enable
-
-</div>
-
-Allows to activate the <span class="notranslate">Native Features Management</span> using WHM/cPanel package extensions.
-
-**Usage:**
-
-
-<div class="notranslate">
-
-```
-imunify360-agent feature-management native enable
-```
-
-</div>
-
-Once the command executed, the following default Imunify360 <span class="notranslate">Package Extension</span> settings will be applied to all Packages:
-* <span class="notranslate">Malware Scanner - View Reports Only</span>
-* <span class="notranslate">Proactive Defense - Available</span>
-
-Imunify360 <span class="notranslate">Package Extensions</span> will be auto-enabled for all packages disregarding the fact they have Imunify360 plugin enabled or not. 
-
-
-All existing <span class="notranslate">Features Management</span> settings will be overridden with the Imunify360 <span class="notranslate">Package Extensions</span> ones for all users.
-
-::: tip Note
-<span class="notranslate">Features Management</span> tab will be hidden on the User Interface.
-:::
-
-::: warning Warning
-<span class="notranslate">`feature-management enable/disable --feature av`</span> and <span class="notranslate">`feature-management enable/disable --feature proactive`</span> commands will stop functioning.
-:::
-
-
-<div class="notranslate">
-
-## Feature-management native disable
-
-</div>
-
-Allows to deactivate the <span class="notranslate">Native Features Management</span> using WHM/cPanel package extensions and return the original Imunify360 <span class="notranslate">Features Management</span> back.
-
-**Usage:**
-
-
-<div class="notranslate">
-
-```
-imunify360-agent feature-management native disable
-```
-
-</div>
-
-Once the command executed:
-
-* The <span class="notranslate">Native Features Management</span> will be deactivated
-* The Imunify360 <span class="notranslate">Package Extensions</span> will be removed from all packages
-* The original Imunify360 <span class="notranslate">Features Management</span> will be activated
-
-
-::: tip Note
-Imunify360 will keep applying users <span class="notranslate">Features Management</span> settings stored in their data bases after switching to the original Imunify360 <span class="notranslate">Features Management</span>.
-:::
-
-::: warning Warning
-<span class="notranslate">`feature-management enable/disable --feature av`</span> and <span class="notranslate">`feature-management enable/disable --feature proactive`</span> commands will start functioning.
-:::
-
-
-## Backup systems
-
-Allows to manage backup systems integrated to Imunify360.
-
-**Usage:**
-
-<div class="notranslate">
-
-```
-imunify360-agent backup-systems [command] <value>
-```
-</div>
-
-<span class="notranslate">`command`</span> is a positional argument and can be:
-| | |
-|-|-|
-|<span class="notranslate">`list`</span>|List of all available backup systems.|
-|<span class="notranslate">`status`</span>|Returns backup system status including a current backup system and enabling status.|
-|<span class="notranslate">`extended-status`</span>|Returns extended status including log file path, error on executing, current backup system, enabling status, current state, and current backup progress bar.|
-|<span class="notranslate">`init`</span>|<span class="notranslate">`<value>`</span> must be in the list of available backup systems. Initializes <span class="notranslate">`<value>`</span> backup system.|
-|<span class="notranslate">`disable`</span>|Disables backup system.|
-|<span class="notranslate">`check`</span>|Returns licenses info.|
-
-The <span class="notranslate">`status`</span> command returns <span class="notranslate">`{'<key>': <value>}`</span> (<span class="notranslate">JSON</span> formatted):
-
-|Key|Value|
-|-|-|
-|<span class="notranslate">`backup_system`</span>|<span class="notranslate">Str</span> with the name of the currently enabled backup system.|
-|<span class="notranslate">`enabled`</span>|If backups are enabled — <span class="notranslate">`True`</span>, else — <span class="notranslate">`False`</span>.|
-
-The <span class="notranslate">`extended-status`</span> command returns <span class="notranslate">`{'<key>': <value>}`</span> (<span class="notranslate">JSON</span> formatted):
-
-|Key|Value|
-|-|-|
-|<span class="notranslate">`log_path`</span>|<span class="notranslate">Str</span> with the path to the log file.|
-|<span class="notranslate">`error`</span>|<span class="notranslate">Str</span> with a human-friendly error message.|
-|<span class="notranslate">`backup_system`</span>|<span class="notranslate">Str</span> with the name of the currently enabled backup system.|
-|<span class="notranslate">`enabled`</span>|If backups are enabled — <span class="notranslate">`True`</span>, else — <span class="notranslate">`False`</span>.|
-|<span class="notranslate">`state`</span>|<span class="notranslate">Str</span> with the current running condition. Statuses: <span class="notranslate">`not_running`, `init`, `backup`, `done`, `unpaid`</span>.|
-|<span class="notranslate">`progress`</span>|This key is optional. It represents the progress of backup if it is running.|
-
-The <span class="notranslate">`check`</span> command returns <span class="notranslate">`{'<key>': <value>}`</span> (<span class="notranslate">JSON</span> formatted):
-
-|Key|Value|
-|-|-|
-|<span class="notranslate">`status`</span>|<span class="notranslate">Str</span> with the license status. Statuses: <span class="notranslate">`paid`, `unpaid`</span>.|
-|<span class="notranslate">`size`</span>|<span class="notranslate">Int</span>, which represents a paid size of backups in GB. E.g. <span class="notranslate">`'size': 10`</span> means that you paid for 10GB.|
-
-
-**Examples:**
-
-1. The following command prints a list of all available backup systems:
-   
-<div class="notranslate">
-
-   ```
-   $ imunify360-agent backup-systems list
-   acronis 
-   r1soft 
-   cloudlinux
-   ```
-</div>
-
-2. The following command initializes CloudLinux backup system:
-
-<div class="notranslate">
-
-   ```
-   $ imunify360-agent backup-systems init cloudlinux
-   Backup initialization process is in progress
-   ```
-</div>
-
-3. The following command checks if the CloudLinux backup system is connected:
-
-<div class="notranslate">
-
-   ```
-   $ imunify360-agent backup-systems check cloudlinux
-   {'url': 'https://cln.cloudlinux.com/clweb/cb/buy.html?id=YourServerIdHere', 'status': 'unpaid'}
-   ```
-</div>
-
-At first, it shows that it isn't, so you should open the URL from the JSON response in the browser to activate the backup. Once this is done, it shows in the CLN.
-
-Run the check again and now it returns the size and that the backup has been paid for.
-
-<div class="notranslate">
-
-   ```
-   $ imunify360-agent backup-systems check cloudlinux
-   {'size': 10, 'status': 'paid'}
-   ```
-</div>
-
-The above commands create a new cloudlinuxbackup.com account and link that account to this server after following the link and confirming the payment of $0.00 for free 10GB.
 
 <Disqus/>

@@ -825,7 +825,7 @@ imunify360-agent graylist ip delete 1.2.3.4
 
 ## Hooks
 
-Hooks-related command description is available [here](/hooks/#cli)
+Hooks-related command description is available [here](/features/#cli)
 
 ## Import
 

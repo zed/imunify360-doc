@@ -1,5 +1,5 @@
 ---
-title: Интерфейс пользователя
+title: Интерфейс администратора
 ---
 <gtranslate-io>
 # Imunify360 User Interface

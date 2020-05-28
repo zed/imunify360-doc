@@ -502,7 +502,7 @@ You will see a notification if an IP is successfully removed.
 
 ![](/images/success_01_zoom75.png)
 
-See also: [How to use external files with the list of Black/White IPs](/firewall_config/#external-black-whitelist-management)
+See also: [How to use external files with the list of Black/White IPs](/features/#external-black-whitelist-management)
 
 ### Global Black/White list IP management
 

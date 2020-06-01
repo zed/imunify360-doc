@@ -180,6 +180,8 @@ service_name = system-auth
 ```
 </div>
 
+You can get a token which can be used for authentication using the [<span class="notranslate">`login`</span> command](/command_line_interface/#login). 
+
 #### Define administrators for Imunify360
 
 The administrators have full access to Imunify360 UI and its settings.

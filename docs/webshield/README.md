@@ -127,7 +127,120 @@ captcha_secret_key <YOUR_SECRET_KEY>;
 
 Then reload WebShield.
 
-## CDN Support <sup>3.8+</sup>
+## Configuring reCAPTCHA keys
+
+### Why do you need to specify the Google reCAPTCHA keys in the Imunify360 product
+
+Prior to version 4.9, Imunify360 used embedded reCAPTCHA keys to show Google reCAPTCHA challenge for greylisted IP addresses and did not require any settings for captcha challenge. Starting from v4.9, Imunify360 admin shall specify reCAPTCHA keys for the server since we’re planning to completely remove embedded reCAPTCHA keys in the future versions.
+
+In this article, you can find a step by step guide on how to set up a custom site and secret keys for your Imunify360 server.
+
+### How to specify the keys for the Imunify360 CAPTCHA
+
+Public and secret reCAPTCHA keys are required for integration between Imunify360 and Google reCAPTCHA service. 
+
+The site key will be publicly available and shown on pages along with reCAPTCHA widget or Invisible CAPTCHA, whereas the secret key will be stored for intercommunication between the backend of Imunify360 and Google service.
+
+:::tip Note: Due to the captcha rate limit we recommend using different reCAPTCHA keys for each server.
+[Google’s quotation](https://developers.google.com/recaptcha/docs/faq#are-there-any-qps-or-daily-limits-on-my-use-of-recaptcha):
+If you wish to make more than 1k calls per second or 1m calls per month, you must use reCAPTCHA Enterprise or fill out this form and wait for an exception approval.
+:::
+
+### Steps to configure
+
+1. Open [https://www.google.com/recaptcha/admin/create](https://www.google.com/recaptcha/admin/create)
+2. Fill in required values
+   * Set any value as a label, e.g. <span class="notranslate">_my servers cluster #1_</span>
+   * Select _reCAPTCHA v2_
+   * Select <span class="notranslate">_Invisible reCAPTCHA badge_</span>
+   * Add any dummy domain, e.g. <span class="notranslate">_example.org_</span>
+   :::tip Note
+   You don’t need to put all your domains here
+   :::
+
+   ![](/images/reCaptchaRegister.png)
+
+3. Accept terms and proceed
+4. Notice keys
+
+   ![](/images/reCaptchaNoticeKeys.png)
+
+5. You need to put these keys on the Imunify360 settings page
+
+   ![](/images/reCaptchaImunifyKeys.png)
+
+   or use the following CLI commands:
+
+   <div class="notranslate">
+
+   ```
+   # imunify360-agent config update '{"WEBSHIELD": {"captcha_site_key": "6Ldu4XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXCN6fJ"}}'
+
+   # imunify360-agent config update '{"WEBSHIELD": {"captcha_secret_key": "6Ldu4XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXQqUuk"}}'
+   ```
+   </div>
+
+6. The final step is to allow Google to process requests from any of your domains
+
+   * Open the <span class="notranslate">_Settings_</span> page
+
+      ![](/images/reCaptchaVerify.png)
+
+   * And disable the <span class="notranslate">_Verify the origin of reCAPTCHA solutions_</span>
+
+      ![](/images/reCaptchaVerifyDisable.png)
+
+That’s it.
+
+### Verification
+
+In order to make sure that you’ve done everything correctly you need to do the following:
+
+1. Make sure that your IP is not whitelisted (using the CLI):
+
+   <div class="notranslate">
+
+   ```
+   # imunify360-agent whitelist ip list
+   IP          TTL    COUNTRY  IMPORTED_FROM  COMMENT
+   1.2.3.4     10256  None     None           Whitelisted for 3 hours due to successful panel login
+
+   # imunify360-agent whitelist ip delete 1.2.3.4
+   OK
+
+   # imunify360-agent whitelist ip list
+   IP          TTL    COUNTRY  IMPORTED_FROM  COMMENT
+   ```
+   </div>
+
+2. Send at least two WAF test requests to any domain on the server
+
+   <div class="notranslate">
+
+   ```
+   # curl -v http://example.org/?i360test=88ff0adf94a190b9d1311c8b50fe2891c85af732
+   ```
+   </div>
+
+3. Open your test domain in the browser and let it pass the captcha challenge
+4. Check the list of whitelisted IPs again
+
+   <div class="notranslate">
+
+   ```
+   # imunify360-agent whitelist ip list
+   IP          TTL    COUNTRY  IMPORTED_FROM  COMMENT
+   1.2.3.4     86377  None     None           IP auto-whitelisted with expiration date: 2020-05-28 15:29:34
+
+   ```
+   </div>
+
+If you see that your IP is whitelisted then integration between Imunify360 and reCAPTCHA service was **done properly**.
+
+You can watch how invisible reCAPTCHA works at [https://www.youtube.com/watch?v=GQXmAj5hyDo](https://www.youtube.com/watch?v=GQXmAj5hyDo).
+
+
+## CDN Support
 	
 Starting from version 3.8 Imunify360 correctly graylists and blocks IPs behind Cloudflare and other CDNs (see [here](/webshield/#supported-cdn-providers) for the full list).
 	

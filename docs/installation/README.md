@@ -166,6 +166,17 @@ imunify360-agent register IPL
 
 </div>
 
+### SELinux support
+
+If selinux is enabled on your server, you must install Imunify360 selinux policy module. Policy is shipped with Imunify360 package in located in `/opt/alt/python35/share/imunify360/imunify360.te`
+
+To apply it, run the following commands:
+```
+checkmodule -M -m -o /var/imunify360/imunify360.mod /opt/alt/python35/share/imunify360/imunify360.te
+semodule_package -o /var/imunify360/imunify360.pp -m /var/imunify360/imunify360.mod
+semodule -i /var/imunify360/imunify360.pp
+```
+
 ## Update Instructions
 
 

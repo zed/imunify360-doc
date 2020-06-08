@@ -3,14 +3,8 @@
 
 Previously, Imunify360 had to be installed through a particular control panel, such as cPanel, DirectAdmin, or Plesk. Now, with version 4.5, it can be installed directly on the server, independent of any panel, regardless of the administrative interface. 
 
-#### Beta Limitations
+#### Limitations
 
-This version is released as beta and our product team is looking for feedback and possible issues.
-You can drop any feedback to [feedback@imunify360.com](mailto:feedback@imunify360.com).
-
-**Beta version limitations**
-
-* No WebShield support yet (Captcha, GreyList and etc.)
 * No support for managing disabled rules yet. See also: [Disabled rules](/dashboard/#disabled-rules)
 
 
@@ -18,7 +12,7 @@ You can drop any feedback to [feedback@imunify360.com](mailto:feedback@imunify36
 
 **Operating system**
 
-* CentOS 6/7
+* CentOS 6/7/8
 * RHEL 6/7
 * CloudLinux OS 
 * Ubuntu 16.04/18.04
@@ -54,8 +48,9 @@ Imunify360 Stand-alone version requires the following components installed or en
 Imunify360 Stand-alone version require the following integrations before installation:
 
 * Integration with web server for serving UI
-* Integration with ModSecurity
-* Integration with Malware scanner
+* Interaction with ModSecurity
+* Integration with WebShield
+* Integration with Malware Scanner
 * Integration with authentication service
 * Define administrators for Imunify360
 
@@ -139,8 +134,144 @@ The script should also restart the web server to apply the configuration. This s
 If configuration change failed, the script should return 1, and in the standard error stream (stderr) it should return the reason for failure. On success, the script should return 0.
 In a single run of the script, we might update a single domain/user, as well as multiple users (all users) on the system.
 
+#### Integration with WebShield
 
-#### Integration with malware scanner
+WebShield consists of four services:
+
+* WebShield itself
+* Shared memory daemon makes it easier to deal with certain aspects of Nginx configuration without reloading
+* SSL-caching daemon watches changes to host SSL certificate sets (for known hosting panels only: cPanel, Plesk, DirectAdmin) and updates the WebShield SSL cache when a certificate is added, updated or removed
+* Sentrylogs daemon watches WebShield log files to detect errors
+
+The configuration of WebShield is done by an agent, and direct editing of WebShield configuration files is generally not recommended. This is mainly because after the next reconfiguration all custom changes would be lost. However, a host administrator is allowed to set a certificate as the default one for WebShield to return.
+
+#### Set default SSL certificate explicitly
+
+1. Place a certificate and a key into the <span class="notranslate">`/etc/imunify360-webshield/ssl_certs`</span> folder
+2. If required, in the <span class="notranslate">`/etc/imunify360-webshield/ssl.conf`</span> file, change the following directives according to your changes:
+ 
+  <div class="notranslate">
+
+  ```
+  ssl_certificate             ssl_certs/dummy.pem;
+
+  ssl_certificate_key         ssl_certs/dummy.pem;
+  ```
+  </div>
+
+If you want to provide intermediate certificates, they are to be appended to the certificate file.
+
+Additionally, the administrator is allowed to disable searching for the first certificate in the cache before returning the default one for non-SNI (or for non-existent domains) requests. To disable searching, in the <span class="notranslate">`/etc/imunify360-webshield/ssl.conf`</span> file set the <span class="notranslate">`lua_enable_ws_sslcache_search`</span> directive to <span class="notranslate">`off`</span>.
+
+These settings require WebShield to be restarted/reloaded.
+
+#### Manage WebShield SSL cache manually
+
+To manually manage the certificate cache, use the <span class="notranslate">`/usr/sbin/im360-ssl-cache`</span> utility.
+
+To add certificates to the cache, a user would run the command:
+
+<div class="notranslate">
+
+```
+im360-ssl-cache --add /path/to/certs.json
+```
+</div>
+
+The <span class="notranslate">`--add`</span> parameter accepts zero or one parameter. If a parameter is given, it is taken as a path to a file in JSON format with a list of certificates and private keys to be added. Otherwise, data is expected to be sent in JSON format to STDIN as in the following example:
+
+<div class="notranslate">
+
+```
+cat certs.json | im360-ssl-cache --add
+```
+</div>
+
+Format of JSON file:
+
+<div class="notranslate">
+
+```json
+[
+  {
+      "domain": "john.example.com",
+      "key": "-----BEGIN PRIVATE KEY-----\nM...O\n-----END PRIVATE KEY-----\n",
+      "certificate": "-----BEGIN CERTIFICATE-----\nMI...Y=\n-----END CERTIFICATE-----\n",
+      "chain": "-----BEGIN CERTIFICATE-----\nM...I=\n-----END CERTIFICATE-----\n-----BEGIN CERTIFICATE-----\nM...U=\n-----END CERTIFICATE-----\n"
+    },
+    {
+      "domain": "bob.example.com",
+      "key": "...",
+      "certificate": "...",
+      "chain": "..."
+    }
+]
+```
+</div>
+
+:::tip Note
+As JSON text is not allowed to have line breaks, all newline symbols must be escaped as in the example above.
+:::
+
+To remove certificate(s) from the cache, a user is expected to run the command:
+
+<div class="notranslate">
+
+```
+im360-ssl-cache --remove example.org example.com …
+```
+</div>
+
+The <span class="notranslate">`--remove`</span> parameter expects one or more space-separated domain names, for which certificates are to be removed from the cache.
+
+When no parameters are passed, the <span class="notranslate">`im360-ssl-cache`</span> simply lists all domain names of certificates in the cache.
+
+:::warning Note
+Passing certificates data in JSON format is done to put data flow in good order, to avoid excessive checks of data. No certificate checks are made.
+:::
+
+#### Non-SNI requests
+
+When a request without Server Name Indication (SNI) comes, WebShield has to guess what certificate from the cache to serve.
+
+To allow WebShield to handle non-SNI requests properly, include an `ip` field in the JSON that you pass to the <span class="notranslate">`im360-ssl-cache`</span>.
+
+<div class="notranslate">
+
+```json
+[
+    {
+        "domain": "...",
+        "key": "...",
+        "certificate": "...",
+        "chain": "...",
+        "ip": "..."  // NEW, optional, NOT UNIQUE
+    },..
+]
+```
+</div>
+
+WebShield will use this data to decide which certificate to serve if a request without Server Name Indication (SNI) arrives. If there are several domains with the specified IPs, WebShield will use the first one alphabetically.
+
+#### Required mod_remoteip configuration
+
+To ensure WebShield and Graylist are working correctly (e.g. a correct IP is passed to ModSecurity), the server must recognize WebShield as an internal proxy. For example, for Apache, `mod_remoteip` must be installed and configured like this:
+
+<div class="notranslate">
+
+```
+<IfModule remoteip_module>
+    RemoteIPInternalProxy 127.0.0.1
+    RemoteIPInternalProxy ::1
+    RemoteIPHeader X-Real-IP
+</IfModule>
+```
+</div>
+
+WebShield passes the real client IP in the <span class="notranslate">`X-Real-IP`</span> header.
+
+
+#### Integration with Malware Scanner
 
 To scan files uploaded via FTP, configure [PureFTPd](https://www.pureftpd.org/project/pure-ftpd/). Write in the <span class="notranslate">`pure-ftp.conf`</span>:
 

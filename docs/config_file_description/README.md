@@ -96,7 +96,7 @@ that were uploaded via http/https. Note that it requires <a href="https://modsec
 <tr><td><span class="notranslate">notify_on_detect: False</span></td>
 <td># notify (<span class="notranslate">True</span>) or not (<span class="notranslate">False</span>) (default value) an admin when malware is detected</td></tr>
 <tr><td><span class="notranslate">optimize_realtime_scan: False</span></td>
-<td># use optimized engine for realtime scan</td></tr>
+<td># enable (<span class="notranslate">True</span>) or disable (<span class="notranslate">False</span>) (default value) the  <a href="https://docs.cloudlinux.com/cloudlinux_os_kernel/#file-change-api" target="_blank">File Change API</a> support to reduce the system load while watching for file changes in comparison with inotify watch</td></tr>
 <tr><td><span class="notranslate">sends_file_for_analysis: True</span></td>
 <td># send (<span class="notranslate">True</span>) (default value) or not (<span class="notranslate">False</span>) malicious and suspicious files to the Imunify team for analysis</td></tr>
 <tr><td><span class="notranslate">i360_clamd: False</span></td>
@@ -165,6 +165,10 @@ to request CAPTCHA again</td></tr>
 <td># enable CDN support, treat IPs behind CDN as any other IPs</td></tr>
 <tr><td><span class="notranslate">enable: true</span></td>
 <td># enable (true) (default value) or disable (false) WebShield</td></tr>
+<tr><td><span class="notranslate">captcha_site_key: ""</span></td>
+<td># your site key; required to show reCAPTCHA on the page</td></tr>
+<tr><td><span class="notranslate">captcha_secret_key: ""</span></td>
+<td># your secret key; required for communication between Google server and this server to get reCAPTCHA pass results</td></tr>
 <tr>
 <th colspan="2" align="left"><span class="notranslate">PROACTIVE_DEFENСE:</span></th></tr>
 <tr><td><span class="notranslate">blamer: false</span></td>

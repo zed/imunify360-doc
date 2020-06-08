@@ -5,6 +5,13 @@
 * <span class="notranslate">CloudLinux OS</span> 6 and 7
 * <span class="notranslate">Ubuntu 16.04 LTS</span> only
 * <span class="notranslate">Ubuntu 18.04</span>
+* CentOS 8 with Plesk
+* CentOS 8 with DirectAdmin
+* CentOS 8 as stand-alone
+* CloudLinux OS 8 with DirectAdmin
+* CloudLinux OS 8 as stand-alone
+
+
 
 **Virtualization**
 

@@ -232,6 +232,14 @@ Click an incident to expand the detailed information.
 
 ![](/images/move_button_zoom94.png)
 
+* Bulk actions on a list of IPs. The following actions are available:
+  * Move to the White list/Black list
+  * Delete from a list
+  * Move IPs to the group
+
+![](/images/IncidentsBulkActions.png)
+
+
 ## Firewall
 
 
@@ -1449,29 +1457,31 @@ Click <span class="notranslate">_Save changes_</span> button on the bottom of th
 	
 #### WebShield
 
-<span class="notranslate">_Detect IPs behind CDN_</span> feature allows to recognize and block IPs with suspicious activity behind supported CDN providers.
-
-To enable/disable it, tick the <span class="notranslate">_Detect IPs behind CDN_</span> checkbox.
-
 ![](/images/webshield.png)
 
-Or you can enable it using the following CLI command:
+* <span class="notranslate">_Enable WebShield_</span>. When the option is off, disable WebShield, GreyList, and CAPTCHA. A disabled state is recommended for the servers with a small amount of RAM. A disabled option along with enabled "Minimized WAF Ruleset" will switch Imunify360 to the "Low Resource Usage" mode.  
+* <span class="notranslate">_Detect IPs behind CDN_</span> feature allows to recognize and block IPs with suspicious activity behind supported CDN providers.
+  
+  To enable/disable it, tick the <span class="notranslate">_Detect IPs behind CDN_</span> checkbox.
 
-<div class="notranslate">
+  Or you can enable it using the following CLI command:
 
-```
-imunify360-agent config update '{"WEBSHIELD": {"known_proxies_support": true}}'
-```
-</div>
+  <div class="notranslate">
 
-Supported CDN providers:
+  ```
+  imunify360-agent config update '{"WEBSHIELD": {"known_proxies_support": true}}'
+  ```
+  </div>
 
-* Cloudflare
-* MaxCDN
-* StackPath CDN
-* KeyCDN
-* Dartspeed.com
-* QUIC.cloud CDN
+  Supported CDN providers:
+
+  * Cloudflare
+  * MaxCDN
+  * StackPath CDN
+  * KeyCDN
+  * Dartspeed.com
+  * QUIC.cloud CDN
+* <span class="notranslate">_Google reCAPTCHA configuration window_</span> allows admin to specify reCAPTCHA keys for the server. Follow the [step by step guide](/webshield/#configuring-recaptcha-keys) to setup a <span class="notransate">_Site key_</span> and a <span class="notranslate">_Secret key_</span>.
 
 Click <span class="notranslate">_Save changes_</span> button on the bottom of the section to save changes.
 
@@ -1544,12 +1554,14 @@ Click <span class="notranslate">_Save changes_</span> button at the bottom of th
 
 ### Malware
 
+Go to the _Imunify360 → Settings → Malware_. The following sections are available:
+
 Here you can configure the following:
-* <span class="notranslate">Resource consumption</span>
-* <span class="notranslate">General</span>
-* <span class="notranslate">Background Scanning</span>
-* <span class="notranslate">Malware Cleanup</span>
-* <span class="notranslate">Proactive Defense</span>
+* [<span class="notranslate">Resource consumption</span>](/dashboard/#resource-consumption)
+* [<span class="notranslate">General</span>](/dashboard/#general-2)
+* [<span class="notranslate">Background Scanning</span>](/dashboard/#background-scanning)
+* [<span class="notranslate">Cleanup</span>](/dashboard/#cleanup)
+* [<span class="notranslate">Proactive Defense</span>](/dashboard/#proactive-defense-2)
 
 
 ::: tip Note
@@ -1557,7 +1569,7 @@ Read [CXS integration](/ids_integration/#cxs-integration) documentation carefull
 :::
 
 
-**Resource consumption**
+#### Resource consumption
 
 ![](/images/SettingsMalwareResourceConsumption.png)
 
@@ -1574,7 +1586,7 @@ Read [CXS integration](/ids_integration/#cxs-integration) documentation carefull
     If Imunify360 <sup>4.6+</sup> is running on CloudLinux OS, LVE is used to manage scan intensity. If it is running on other operating systems, “nice” is used to control CPU and “ionice” is used when the I/O scheduler is CFQ.
     :::
 
-**General**
+#### General
 
 ![](/images/SettingsMalware2.png)
 
@@ -1582,6 +1594,7 @@ Read [CXS integration](/ids_integration/#cxs-integration) documentation carefull
   ::: tip Note
   It requires inotify to be installed and may put an additional load on a system.
   :::
+* <span class="notranslate">_Optimize real-time scan_</span><sup><em> 4.9 Beta</em></sup> – enables the [File Change API](https://docs.cloudlinux.com/cloudlinux_os_kernel/#file-change-api) support to reduce the system load while watching for file changes in comparison with inotify watchs.
 * <span class="notranslate">_Automatically scan any file uploaded using web_</span> – enables real-time scanning of all the files that were uploaded via http/https.
   ::: tip Note
   It requires [ModSecurity](https://modsecurity.org/) to be installed.
@@ -1605,8 +1618,8 @@ Read [CXS integration](/ids_integration/#cxs-integration) documentation carefull
 Those options may be hidden for end-user if Cleanup is disabled in Features Management.
 :::
 
-* <span class="notranslate">_RapidScan_</span> – dramatically speeds up repeated scans based on smart re-scan approach, local result caching and cloud-assisted scan. When you first enable the RapidScan feature, the first scan will run as before. But subsequent scans will see a dramatic speed improvement, anywhere between 5 to 20 times faster. You can find details [here](/features/#rapidscan).
-* <span class="notranslate">_Binary (ELF) malware detection_</span> <sup>4.4+</sup> – this option allows to scans user home directories for malware.
+* <span class="notranslate">_Enable RapidScan_</span> – dramatically speeds up repeated scans based on smart re-scan approach, local result caching and cloud-assisted scan. When you first enable the RapidScan feature, the first scan will run as before. But subsequent scans will see a dramatic speed improvement, anywhere between 5 to 20 times faster. You can find details [here](/features/#rapidscan).
+* <span class="notranslate">_Binary (ELF) malware detection_</span> – this option allows to scans user home directories for malware.
 
 Tick required checkboxes and click <span class="notranslate">_Save changes_</span> button.
 

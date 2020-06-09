@@ -1213,9 +1213,11 @@ Optional arguments:
 
 | | |
 |-|-|
-|<span class="notranslate">`add`</span>|add a file PATH to the <span class="notranslate">Ignore List</span>|
-|<span class="notranslate">`delete`</span>|delete a file PATH from the <span class="notranslate">Ignore List</span>|
+|<span class="notranslate">`add`</span>|add file PATHS to the <span class="notranslate">Ignore List</span>|
+|<span class="notranslate">`delete`</span>|delete file PATHS from the <span class="notranslate">Ignore List</span>|
 |<span class="notranslate">`list`</span>|shows <span class="notranslate">Ignore List</span> entries (optional arguments apply)|
+
+where PATHS are the absolute paths to files or folders divided by a whitespace.
 
 <span class="notranslate">`command2`</span> is the second positional argument for the <span class="notranslate">`malicious`</span> command and can be one of the following:
 
@@ -1241,11 +1243,10 @@ Optional arguments:
 |<span class="notranslate">`start --path PATH`</span>|starts an on-demand scan for a specified PATH|
 |<span class="notranslate">`status`</span>|show the on-demand malware scanner status|
 |<span class="notranslate">`stop`</span>|stop on-demand malware scanner process|
-|<span class="notranslate">`queue`</span>|show a queue for on-demand scan|
-|<span class="notranslate">`queue put`</span>|put a file in a queue for on-demand scan|
-|<span class="notranslate">`queue remove`</span>|remove a file in a queue for on-demand scan|
+|<span class="notranslate">`queue put`</span>|put file PATHS to the queue for on-demand scan|
+|<span class="notranslate">`queue remove`</span>|remove scans from the queue for on-demand scan|
 
-The optional arguments for <span class="notranslate">`on-demand start`</span> are:
+The optional arguments for <span class="notranslate">`on-demand start`</span> and <span class="notranslate">`on-demand queue put`</span> are:
 
 | |
 |-|
@@ -1296,21 +1297,22 @@ imunify360-agent malware on-demand start --path='/var/www/vhosts/d*' --ignore-ma
 ```
 </div>
 
-3. The following command shows how to get an extended list of malicious files for a particular user. By default, a limit value equals to 50
+3. The following command adds on-demand scans for the selected path(s) to the scan queue
 
 <div class="notranslate">
 
 ```
-imunify360-agent malware malicious list --user cltest --limit 500
+imunify360-agent malware on-demand queue put "/home/user1/some folder" "/home/user2" --file-mask="*.php"
 ```
 </div>
 
-4. The following command adds the specified path to the Ignore List
+4. The following command removes the selected scans from the scan queue
 
 <div class="notranslate">
 
 ```
-imunify360-agent malware ignore add /home/<username>/public_html/
+imunify360-agent malware on-demand list	# get scan_ids for the selected scans from the malicious list
+imunify360-agent malware on-demand queue remove 84f043211dc045ae8e6d641f3b9fdb0a 8c4ee39d4d8f43e296e893940c8e791a
 ```
 </div>
 
@@ -1323,7 +1325,34 @@ imunify360-agent malware on-demand stop
 ```
 </div>
 
-6. The following command saves changes after editing watched and excluded patterns for Malware Scanner.
+6. The following command stops the on-demand Malware Scanner process and clears the scan queue
+
+<div class="notranslate">
+
+```
+imunify360-agent malware on-demand stop --all
+```
+</div>
+
+7. The following command shows how to get an extended list of malicious files for a particular user. By default, a limit value equals to 50
+
+<div class="notranslate">
+
+```
+imunify360-agent malware malicious list --user cltest --limit 500
+```
+</div>
+
+8. The following command adds the specified path to the Ignore List
+
+<div class="notranslate">
+
+```
+imunify360-agent malware ignore add /home/user1/public_html/ "/home/some user/public_html/index.php"
+```
+</div>
+
+9. The following command saves changes after editing watched and excluded patterns for Malware Scanner.
 
 <div class="notranslate">
 
@@ -1332,7 +1361,7 @@ imunify360-agent malware rebuild patterns
 ```
 </div>
 
-7. The following command lists all users and their current infection status
+10. The following command lists all users and their current infection status
 
 <div class="notranslate">
 

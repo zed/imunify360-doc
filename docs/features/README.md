@@ -152,8 +152,8 @@ Start using hooks with three simple steps:
 
 1) Create a script to handle an event (a hook handler):
 
-   * you can use our [scripts example](/hooks/#structure-and-examples-of-a-hook-script) as a template
-   * [the following events are available](/hooks/#available-events-and-their-parameters)
+   * you can use our [scripts example](/features/#structure-and-examples-of-a-hook-script) as a template
+   * [the following events are available](/features/#available-events-and-their-parameters)
 
 2) Register your hook handler in Imunify360 agent - use registration command:
 
@@ -165,7 +165,7 @@ imunify360-agent hook add --event <event name> --path </path/to/hook_script>
 
 </div>
 
-3) Once the event added - check results and the [log file](/hooks/#log-file)
+3) Once the event added - check results and the [log file](/features/#log-file)
 
 ### Available events and their parameters
 

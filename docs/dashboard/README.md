@@ -1511,7 +1511,7 @@ imunify360-agent config update '{"PAM": {"enable": true}}'
 ```
 </div>
 
-Click <span class="notranslate">_Save changes_</span> button on the bottom of the section to save changes.
+Click <span class="notranslate">_Save changes_</span> button on the bottom of the section to save changes. This will enable protection for SSH/FTP protocols.
 
 #### Exim+Dovecot brute-force attack protection
 

@@ -82,6 +82,15 @@ If your hosting requires specific files permissions, change them accordingly in 
 8. Click <span class="notranslate">_Save Changes_</span> to confirm.
 9. Setup desired <span class="notranslate">_Auto-setup_</span> options.
 
+:::tip Note
+You can use the CloudLinux license module as an individual product. By default, for IP license a client’s IP address defined while ordering is used. You can change license IP in service settings (as an administrator or a user). If you want to use a custom field to get the correct IP during the order, you should create a custom field with any field name where IP phrase is used.
+:::
+
+Example:
+
+![](/images/WHMCSCustomField.png)
+
+
 ### Configuration of Add-on
 
 1. Go to <span class="notranslate">_Setup → Add-on Modules_</span>, find <span class="notranslate">_CloudLinux Licenses Add-on_</span> and click <span class="notranslate">_Activate_</span> next to it.

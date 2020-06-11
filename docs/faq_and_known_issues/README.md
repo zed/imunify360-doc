@@ -481,6 +481,7 @@ A reason pattern looks like the following:
 |<span class="notranslate">Perl</span> files|`pl`|
 |<span class="notranslate">Python</span> files|`py`|
 |<span class="notranslate">Ruby</span> files|`rb`|
+|<span class="notranslate">Cron</span> files|`cron`|
 |<span class="notranslate">Shell</span> scripts|shells in common: `sh`|
 |Other server pages|`Jsp` (`asp`,`aspx`), `vb`|
 
@@ -501,6 +502,10 @@ A reason pattern looks like the following:
 
 
 #### Table 3. Malware classification
+
+The <span class="notranslate">_Malware classification_</span> field is not fixed and may vary depending on the purposes of the malware.
+
+The following table shows the <span class="notranslate">_Malware classification_</span> field examples.
 
 | | |
 |-|-|

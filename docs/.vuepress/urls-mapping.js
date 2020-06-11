@@ -171,5 +171,6 @@ module.exports = {
   "/hooks/": "/features/#hooks",
   "/recaptcha-setup/": "/webshield/#configuring-recaptcha-keys",
   "/stand_alone/#beta-limitations": "/stand_alone/#limitations",
-  "/ru/stand_alone/#beta-limitations": "/ru/stand_alone/#limitations"
+  "/ru/stand_alone/#beta-limitations": "/ru/stand_alone/#limitations",
+  "/agent-not-running/": "/faq_and_known_issues/#_24-imunify-agent-is-not-running-troubleshooting"
 };

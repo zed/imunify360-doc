@@ -817,6 +817,8 @@ If you face any difficulties during the progress or simply cannot make the agent
 
 and provide the output to our Support Team at [https://cloudlinux.zendesk.com/hc/requests/new](https://cloudlinux.zendesk.com/hc/requests/new).
 
+You can find the ImunifyAV(+) instructions [here](https://docs.imunifyav.com/faq_and_known_issues/#imunify-agent-is-not-running-troubleshooting).
+
 
 ## Corner cases
 

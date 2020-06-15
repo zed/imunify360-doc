@@ -778,7 +778,7 @@ After these actions, wait until the files downloading and the migration process 
 <div class="notranslate">
 
 ```
-# tail -f /var/log/imunify360/console.log.
+# tail -f /var/log/imunify360/console.log
 ```
 </div>
 

@@ -525,10 +525,7 @@ You will see the _Scope_ column and controls (on clicking the _Add_ button) to m
 
 #### How to change Scope to Group/Local
 
-To change the scope to <span class="notranslate">_Group/Local_</span>, first create your groups in the CLN.
-
-![](https://blog.imunify360.com/hubfs/pasted%20image%200%20(1)-1.png)
-
+To change the scope to <span class="notranslate">_Group/Local_</span>, first [create your groups](https://docs.cln.cloudlinux.com/dashboard/#how-to-add-a-server-to-a-group) in the CLN.
 
 After that, go to <span class="notranslate">_Firewall > White/Black list_</span> and select an IP.
 

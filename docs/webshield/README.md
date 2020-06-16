@@ -305,16 +305,25 @@ For cPanel/EasyApache 4, Plesk, DirectAdmin and LiteSpeed _mod_remoteip_ will be
 
 Imunify360 Captcha isn't available in some countries due to certain restrictions, for example, in China. To alleviate this, Chinese customers can use Imunify360 SplashScreen as Captcha.
 
-To enable SplashScreen, add the following line: 
+To enable SplashScreen, open the file <span class="notranslate">`/etc/imunify360-webshield/wscheck.conf`</span>, find the following line: 
 
 <div class="notranslate">
 
 ```
-wscheck_splashscreen_as_captcha= on
+wscheck_splashscreen_as_captcha off;
 ```
 </div>
 
-to the <span class="notranslate">`/etc/imunify360-webshield/webshield-http.conf.d/wscheck.conf`</span> and run the following command.
+Change <span class="notranslate">`off`</span> to <span class="notranslate">`on`</span>:
+
+<div class="notranslate">
+
+```
+wscheck_splashscreen_as_captcha on;
+```
+</div>
+
+Save the file and run the following command:
 
 **For Ubuntu:**
 

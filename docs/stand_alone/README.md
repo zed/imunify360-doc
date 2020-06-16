@@ -270,6 +270,7 @@ To ensure WebShield and Graylist are working correctly (e.g. a correct IP is pas
 
 WebShield passes the real client IP in the <span class="notranslate">`X-Real-IP`</span> header.
 
+:::tip Note
 In the LogFormat configuration strings for correct representation of a remote host IP address it is required using:
 
 <div class="notranslate">
@@ -289,6 +290,7 @@ instead of
 </div>
 
 You can find more details at [http://httpd.apache.org/docs/current/mod/mod_log_config.html](http://httpd.apache.org/docs/current/mod/mod_log_config.html).
+:::
 
 #### Integration with Malware Scanner
 

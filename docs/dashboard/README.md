@@ -1193,7 +1193,7 @@ Here you can install and uninstall the following components:
 ![](/images/settingsgeneralinstallation.png)
 
 
-**HardenedPHP**
+#### HardenedPHP
 
 To install or uninstall HardenedPHP click on a button related. Please find additional information about HardenedPHP in [this article](https://www.cloudlinux.com/hardenedphp).
 During HardenedPHP installation process the installation log will appear and will update automatically.
@@ -1205,7 +1205,7 @@ HardenedPHP is free on the servers with Imunify360 installed.
 ![](/images/kc_install_log_zoom91.png)
 
 
-**Invisible Captcha**
+#### Invisible Captcha
 
 **Overview**
 
@@ -1230,8 +1230,10 @@ Go to <span class="notranslate">Imunify360 → Settings → General → Installa
 
 ![](/images/invisiblecaptcharemove_zoom70.png)
 
+See [how to test invisible CAPTCHA](/webshield/#verification).
 
-**KernelCare**
+
+#### KernelCare
 
 To install or uninstall KernelCare click on a button related. Please find additional information about KernelCare [here](https://www.kernelcare.com).
 

@@ -129,6 +129,8 @@ Then reload WebShield.
 
 ## Configuring reCAPTCHA keys
 
+See [how to setup invisible CAPTCHA](/dashboard/#invisible-captcha).
+
 ### Why do you need to specify the Google reCAPTCHA keys in the Imunify360 product
 
 Prior to version 4.9, Imunify360 used embedded reCAPTCHA keys to show Google reCAPTCHA challenge for greylisted IP addresses and did not require any settings for captcha challenge. Starting from v4.9, Imunify360 admin shall specify reCAPTCHA keys for the server since we’re planning to completely remove embedded reCAPTCHA keys in the future versions.

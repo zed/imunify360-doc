@@ -4,7 +4,7 @@
 
 ## Common Questions
 
-#### 1. End user IP is blocked and I do not know why
+### 1. End user IP is blocked and I do not know why
 
 If you use CSF, then try to find the IP in [CSF](/ids_integration/#csf-integration) <span class="notranslate">Allow/Deny</span> Lists using their [documentation and support](https://support.configserver.com/knowledgebase/category/support%20). If not, then do the following:
 
@@ -24,11 +24,11 @@ If nothing helps, then [contact our support team](https://cloudlinux.zendesk.com
 There is a corner case of [IP whitelisting/port blocking precedence](/faq_and_known_issues/#ip-whitelisting-port-blocking-precedence)
 :::
 
-#### 2. Could I disable IPtables (firewall) or OSSEC, when using Imunify360?
+### 2. Could I disable IPtables (firewall) or OSSEC, when using Imunify360?
 
 No. Imunify360 will not be able to stop an attack without IPtables and will not be able to detect an attack without OSSEC.
 
-#### 3. Does Imunify360 log events such as adding or removing an IP to/from the Gray List?
+### 3. Does Imunify360 log events such as adding or removing an IP to/from the Gray List?
 
 Most Imunify360 logs are saved in <span class="notranslate">`/var/log/imunify360/console.log`</span>. For example, when IP is blocked and added to the <span class="notranslate">Black List</span>, the following lines are added:
 
@@ -57,7 +57,7 @@ defence360agent.plugins.protector.lazy_init: IP 10.101.1.18 is UNBLOCKED
 
 Adding and removing IPs from the <span class="notranslate">White List</span> is only possible manually, no IPs will be added automatically.
 
-#### 5. To start using Imunify360 we need to know which information is sent to your servers. Could you please give us some more information?
+### 5. To start using Imunify360 we need to know which information is sent to your servers. Could you please give us some more information?
 
 The following info is sent to our server:
 
@@ -68,7 +68,7 @@ The following info is sent to our server:
 * all running scans for malware (maldet scans) and information on moving to the quarantine or discovering suspicious files
 * optionally, suspicious files can be sent to us for the analysis. Files can be sent via UI by marking a proper checkbox
 
-#### 6. No valid Imunify360 License Found.
+### 6. No valid Imunify360 License Found.
 
 Check if the agent is running.
 
@@ -88,7 +88,7 @@ Ensure that <span class="notranslate">`/etc/sysconfig/imunify360/imunify360.id`<
 
 If no, <span class="notranslate">`imunify360-agent register KEY`</span>.
 
-#### 7. I have an error peewee.DatabaseError: database disk image is malformed. What should I do?
+### 7. I have an error peewee.DatabaseError: database disk image is malformed. What should I do?
 
 Imunify360 uses SQLite database to store its data. Although this database has proved its reliability, database files become corrupted in rare cases. To restore data try to perform the following steps:
 
@@ -148,13 +148,13 @@ Stop the agent.
 
 Start the agent
 
-#### 8. Why does my cPanel with LiteSpeed and OWASP ModSecurity rule set trigger 500 error on all web pages after installing Imunify360?
+### 8. Why does my cPanel with LiteSpeed and OWASP ModSecurity rule set trigger 500 error on all web pages after installing Imunify360?
 
 OWASP rule set may conflict with Imunify360 default rule set on a server running <span class="notranslate">LiteSpeed Web Server</span>. We recommend to turn off OWASP rule set prior to installing Imunify360.
 
 Please find more FAQs in our [Knowledge Base](https://cloudlinux.zendesk.com/hc/sections/360003635400-FAQ).
 
-#### 9. Disabling WAF rules for certain countries.
+### 9. Disabling WAF rules for certain countries.
 
 It is possible to disable some WAF rules for IPs that are resolved to be from some country (or other geographical entity).
 To implement this, a customer should create his own modsecurity configuration file, and include it into the default modsecurity configuration. In case of cPanel, this can be done by creating <span class="notranslate">`/etc/apache2/conf.d/includes/countrywafrules.conf`</span> and adding it as an include to the <span class="notranslate">`/etc/apache2/conf.d/modsec/modsec2.cpanel.conf`</span>. Otherwise configuration files might be rewritten by Imunify360 rules update.
@@ -204,11 +204,11 @@ Fields:
 * <span class="notranslate">`DMA_CODE`</span>: metropolitan area code if supported by the database. (US only)  
 * <span class="notranslate">`AREA_CODE`</span>: phone system area code. (US only)  
 
-#### 10. How to clone Imnify360 configuration on another system?
+### 10. How to clone Imnify360 configuration on another system?
 
 The solution is available in [FAQ section](https://cloudlinux.zendesk.com/hc/en-us/articles/360022689394-How-to-Clone-Imunify360-Installation)
 
-#### 11. How to disable Support icon in the Imunify360 UI?
+### 11. How to disable Support icon in the Imunify360 UI?
 
 1. Go to <span class="notranslate">`/etc/sysconfig/imunify360/imunify360.config`</span>.
 2. And set <span class="notranslate">`PERMISSIONS.support_form:`</span> option to <span class="notranslate">`false`</span>.
@@ -219,7 +219,7 @@ OR, **better**, run the following command:
 imunify360-agent config update '{"PERMISSIONS": {"support_form": false}}'
 ```
 
-#### 12. How to hide the Ignore List tab for end users in the Imunify360 UI?
+### 12. How to hide the Ignore List tab for end users in the Imunify360 UI?
 
 1. Go to <span class="notranslate">`/etc/sysconfig/imunify360/imunify360.config`</span>.
 2. And set <span class="notranslate">`PERMISSIONS.user_ignore_list:`</span> option to <span class="notranslate">`false`</span>.
@@ -230,7 +230,7 @@ OR, **better**, run the following command:
 imunify360-agent config update '{"PERMISSIONS": {"user_ignore_list": false}}'
 ```
 
-#### 13. How to delete malware scan results from Imunify360’s database?
+### 13. How to delete malware scan results from Imunify360’s database?
 
 Sometimes, you may need to delete all users’ scan results from the server. This should not be common practice, and we do not recommend doing it on a regular basis. But, if you do need to erase the results of all Imunify360 scans, you can find the instructions below.
 
@@ -312,7 +312,7 @@ Unfortunately, there’s no easy way to delete records in the <span class="notra
 
 If you need any more information on this or anything else related to Imunify360 administration, please [get in touch](mailto:feedback@imunify360.com) .
 
-#### 14. Imunify360 WebShield ‘Could not allocate memory’ problem. How to fix?
+### 14. Imunify360 WebShield ‘Could not allocate memory’ problem. How to fix?
 
 **Symptoms:** It can have pretty different symptoms (increased IO, CPU and memory usage), but the main one is that WebShield blacklisting (through CDN) does not work.
 
@@ -382,7 +382,7 @@ key      shmid   owner    perms   bytes nattch status
 The first column must not have zeros (like in the second row), the third column (owner) is expected to be ‘imunify360-webshield’, and size must correspond to values set in the config files (22020096 in our case).
 
 
-#### 15. How to check "ModSecurity scan" works?
+### 15. How to check "ModSecurity scan" works?
 
 1. To verify, if ModSecurity scan works, you can use the following command:
 
@@ -426,7 +426,7 @@ grep 'Testing the work of the i360 ModSecurity rules' /var/log/imunify360/consol
 ```
 </div>
 
-#### 16. How to check "automatically scan all modified files" works?
+### 16. How to check "automatically scan all modified files" works?
 
 To check "automatically scan all modified files" (i.e inotify scanner), upload a malware sample to some account's webroot via SSH and check if it will appear in the <span class="notranslate">_Malicious_</span> tab shortly.
 
@@ -447,7 +447,7 @@ where <span class="notranslate">`X.Y.Z.A`</span> - your server IP address
 
 You can find the results in the <span class="notranslate">_Malware scanner > Files_</span> tab.
 
-#### 17. Malware file reasons
+### 17. Malware file reasons
 
 Starting from Imunify version 4.6 you can see the advanced reason why a file was detected as malicious.
 
@@ -471,7 +471,7 @@ A reason pattern looks like the following:
 |<span class="notranslate">`<mlwcategory>`</span>|a malware category, see [Table 2](/faq_and_known_issues/#table-2-malware-categories) below|
 |<span class="notranslate">`<mlwclassification>`</span>|malware classification; can vary depends on the different cases and signatures; see [Table 3](/faq_and_known_issues/#table-3-malware-classification) below|
 
-##### Table 1. File types and their codes
+#### Table 1. File types and their codes
 
 | | |
 |-|-|
@@ -487,7 +487,7 @@ A reason pattern looks like the following:
 |Other server pages|`Jsp` (`asp`,`aspx`), `vb`|
 
 
-##### Table 2. Malware categories
+#### Table 2. Malware categories
 
 | | |
 |-|-|
@@ -502,7 +502,7 @@ A reason pattern looks like the following:
 |<span class="notranslate">`deface`</span>|Any sort of artifacts that are meant to show off attacker's intentions or to spread a certain message. Example: Defacements, banners, etc.|
 
 
-##### Table 3. Malware classification
+#### Table 3. Malware classification
 
 The <span class="notranslate">_Malware classification_</span> field is not fixed and may vary depending on the purposes of the malware.
 
@@ -519,7 +519,7 @@ The following table shows the <span class="notranslate">_Malware classification_
 
 
 
-##### Example
+#### Example
 
 | | |
 |-|-|
@@ -527,11 +527,11 @@ The following table shows the <span class="notranslate">_Malware classification_
 |<span class="notranslate">`SMW-SA-05155-sh.bkdr.wshll`</span>|**type**: server malware (`SMW`)<br>**detected**: stand-alone (file is completely malicious) (`SA`)<br>**signature ID**: `05155`<br>**file type**: shell scripts (`sh`)<br>**mlwcategory**: artifacts that help attackers with partial or complete access to victims (`bkdr`)<br>**mlwclassification**: web shells (`wshll`)|
 
 
-#### 18. Can Imunify360 firewall block traffic by domain name?
+### 18. Can Imunify360 firewall block traffic by domain name?
 
 Unfortunately, Imunify360 does not have such ability. 
 
-#### 19. What ports are used by WebShield?  
+### 19. What ports are used by WebShield?  
  
 The following ports are reserved:
 
@@ -551,12 +551,12 @@ You can find additional information in the following config files:
 
 </div>
 
-#### 20. Where can I find the quarantined files?
+### 20. Where can I find the quarantined files?
 
 You can find the quarantined files in the following directory: <span class="notranslate">`/home/.imunify.quarantined/USERNAME`</span>
 
 
-#### 21. How to check that CAPTCHA works?
+### 21. How to check that CAPTCHA works?
 
 First, remove an IP from the White list:
 
@@ -590,7 +590,7 @@ Also, it is possible to use a domain name of a website which `DNS A` record is p
 </div>
 
 
-#### 22. How to edit watched and excluded patterns for Malware Scanner? <Badge text="v.4.8" />
+### 22. How to edit watched and excluded patterns for Malware Scanner? <Badge text="v.4.8" />
 
 Starting from Imunify version 4.8 you can edit watched and excluded patterns for Malware Scanner.
 
@@ -662,7 +662,7 @@ Custom exclude patterns have higher priority than custom watched patterns.
 After making changes to this file, perform the <span class="notranslate">`imunify360-agent malware rebuild patterns`</span> command.
 :::   
 
-#### 23. How to test rules based on ModSecurity tags?
+### 23. How to test rules based on ModSecurity tags?
 
 You can use the following URIs to check what was activated.
 
@@ -685,7 +685,7 @@ curl -k 'https://example.org/?tag_test=wp_core'
 It will produce 403 only for sites with WordPress.
 
 
-#### 24. "Imunify agent is not running" troubleshooting
+### 24. "Imunify agent is not running" troubleshooting
 
 Having the Imunify service installed, you may come across the situation when the message <span class="notranslate">"Imunify agent is not running"</span> is displayed when you try to access the Dashboard:
 
@@ -828,7 +828,7 @@ You can find the ImunifyAV(+) instructions [here](https://docs.imunifyav.com/faq
 
 ## Corner cases
 
-#### IP whitelisting/port blocking precedence
+### IP whitelisting/port blocking precedence
 
 Imunify360 has a corner case related to the following behavior of the Imunify360 firewall: when some IP is whitelisted and at the same time a certain port is blocked, the access to the port for the whitelisted IP is blocked (the port setting takes precedence).
 
@@ -851,7 +851,7 @@ imunify360-agent blocked-port add  2083:tcp --ips 69.175.3.6  10.102.1.37
 
 ## Plesk related
 
-#### How to get an Imunify activation key from the extended Plesk license
+### How to get an Imunify activation key from the extended Plesk license
 
 Often our clients purchase Imunify licenses through Plesk/Odin and in such cases, they get a universal key which includes the Imunify license and other additional keys for Plesk plugins. Such a key has the following syntax – `A00B00-0CDE00-F0G000-HIGK00-LM0N00`, – and initially, it is installed through Plesk automatically and the license gets activated successfully.
 

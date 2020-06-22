@@ -188,6 +188,7 @@ Use filters to show the exact list of incidents:
 * <span class="notranslate">_Timeframe_</span> – allows filtering incidents by different time periods.
 * <span class="notranslate">_List_</span> – allows filtering incidents by <span class="notranslate">White List, Black List</span>, or <span class="notranslate">Gray List</span>, or showing the incidents from all lists.
 * _IP_ – allows showing all the incidents of a proper IP address. Tick <span class="notranslate">_Description/IP_</span> checkbox to enable input field where you can enter a proper IP or a part of it and filter the list by clicking on magnifier or pressing Enter.
+* _TTL_ - It has different values depends on Severity and number of an attack attempts. The value can be from 5 min to 24 days. It is not possible to manage TTL for Graylist
 * <span class="notranslate">_Country_</span> – allows filtering the incidents by abusers country. Tick <span class="notranslate">_Country_</span> checkbox to enable input field with auto-complete where you can enter a proper country and  filter the incidents by clicking magnifier or _Enter_.
 
 ![](/images/tloi_zoom86.png)

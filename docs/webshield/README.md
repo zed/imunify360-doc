@@ -1,5 +1,9 @@
 # WebShield
 
+:::warning Warning
+Starting with Imunify360 4.9.2, when the interface IP address is added to or deleted from the system, the restart of the webshield is required for the latter to recognize the new IP.
+:::
+
 #### Setting the WebShield "Server" header
 
 Sometimes it's desired to change the WebShield "Server" header to something that suits certain requirements.
@@ -52,9 +56,6 @@ There are three files:
 To find information on supported browsers follow this link [https://support.google.com/recaptcha/answer/6223828](https://support.google.com/recaptcha/answer/6223828).
 
 ### Update Captcha localizations
-::: tip Note
-Custom Captcha localization is available starting from Imunify360 version 2.6.0 and later.
-:::
 
 A user can change the text of captcha messages for the supported languages. Note that adding custom language is not supported.
 
@@ -131,7 +132,7 @@ Then reload WebShield.
 
 See [how to setup invisible CAPTCHA](/dashboard/#invisible-captcha).
 
-### Why do you need to specify the Google reCAPTCHA keys in the Imunify360 product
+#### Why do you need to specify the Google reCAPTCHA keys in the Imunify360 product
 
 Prior to version 4.9, Imunify360 used embedded reCAPTCHA keys to show Google reCAPTCHA challenge for greylisted IP addresses and did not require any settings for captcha challenge. Starting from v4.9, Imunify360 admin shall specify reCAPTCHA keys for the server since we’re planning to completely remove embedded reCAPTCHA keys in the future versions.
 
@@ -244,11 +245,9 @@ You can watch how invisible reCAPTCHA works at [https://www.youtube.com/watch?v=
 
 ## CDN Support
 	
-Starting from version 3.8 Imunify360 correctly graylists and blocks IPs behind Cloudflare and other CDNs (see [here](/webshield/#supported-cdn-providers) for the full list).
+Imunify360 correctly graylists and blocks IPs behind Cloudflare and other CDNs (see [here](/webshield/#supported-cdn-providers) for the full list).
 	
 Imunify360 passes all requests from CDN through <span class="notranslate">WebShield</span>, and uses <span class="notranslate">CF-Connecting-IP</span> and <span class="notranslate">X-Forwarded-For</span> headers to identify real IPs.
-	
-The feature is disabled by default in Imunify360 version 3.8 but will be enabled in the future versions.
 	
 To enable it now, add the following section to the Imunify360 config file (<span class="notranslate">_/etc/sysconfig/imunify360/imunify360.config_</span>):
 	
@@ -353,11 +352,7 @@ The graylisted visitors will see such screen for 5 seconds before redirecting to
 
 ### How to block attacks from a particular country in WebShield
 
-:::tip Note
-Imunify360 4.3+
-:::
-
-By default, country traffic blocking is not applied to the requests that come via a legitimate proxy such as Cloudflare. Even if the country is blocked in settings. Starting from Imunify360 version 4.3, we introduce a new way of country traffic blocking.
+Country traffic blocking can be applied to the requests that come via a legitimate proxy such as Cloudflare.
 
 1. Add those countries to the <span class="notranslate">`/etc/imunify360-webshield/blocked_country_codes.conf`</span> file.
 For example:

@@ -73,21 +73,35 @@ Exim+Dovecot brute-force attack protection is an advanced protection against Dov
 
 **How to enable Dovecot**
 
+We recommend using Imunify360 agent config to enable Dovecot because this allows to correctly switch OSSEC rules/configs:
+
 <div class="notranslate">
 
 ```
-imunify360-pam enable-dovecot
+imunify360-agent config update '{"PAM": {"enable": true, "exim_dovecot_protection": true}}'
 ```
 </div>
 
 **How to disable Dovecot**
 
+To disable all PAM module via config file:
+
 <div class="notranslate">
 
 ```
-imunify360-pam disable-dovecot
+imunify360-agent config update '{"PAM": {"enable": false, "exim_dovecot_protection": false}}'
 ```
 </div>
+
+To disable only Exim+Dovecot via config file:
+
+<div class="notranslate">
+
+```
+imunify360-agent config update '{"PAM": {"exim_dovecot_protection": false}}'
+```
+</div>
+
 
 The options of the `pam_imunufy` are placed in the file: <span class="notranslate">`/etc/pam_imunify/i360.ini`</span>
 

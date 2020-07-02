@@ -1,5 +1,7 @@
 # IDS Integrations
 
+[[toc]]
+
 ## CSF Integration
 
 

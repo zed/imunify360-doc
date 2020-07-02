@@ -23,7 +23,7 @@ It allows to access:
 
 * <span class="notranslate">[Incidents](/dashboard/#incidents)</span> – the list of all suspicious activity on the server.
 
-* <span class="notranslate">[Lists](/dashboard/#firewall)</span> – a dashboard of <span class="notranslate">Black List, White List</span> and <span class="notranslate">Gray List</span>, and <span class="notranslate">Blocked Ports</span> with the ability to manage them.
+* <span class="notranslate">[Firewall](/dashboard/#firewall)</span> – a dashboard of <span class="notranslate">Black List, White List</span> and <span class="notranslate">Gray List</span>, and <span class="notranslate">Blocked Ports</span> with the ability to manage them.
 
 * <span class="notranslate">[Malware Scanner](/dashboard/#malware-scanner)</span> – real-time file scanner.
 

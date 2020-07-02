@@ -2,9 +2,7 @@
 
 There are following tabs in the Imunify360 end user interface:
 
-* [Files](/user_interface/#files)
-* [History](/user_interface/#history)
-* [Ignore List](/user_interface/#ignore-list)
+[[toc]]
 
 ## Files
 

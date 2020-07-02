@@ -1,5 +1,7 @@
 # Imunify360 Features
 
+[[toc]]
+
 ## External Black/Whitelist Management
 
 To use external files with the list of <span class="notranslate">Black/White IPs</span>, place this list into the following directory:

@@ -1,5 +1,9 @@
 # Installation Guide
+
+[[toc]]
+
 ## Requirements
+
 **Operating system**
 * <span class="notranslate">CentOS/RHEL 6 and 7</span>
 * <span class="notranslate">CloudLinux OS</span> 6 and 7

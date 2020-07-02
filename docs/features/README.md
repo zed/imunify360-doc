@@ -120,6 +120,17 @@ The options of the `pam_imunufy` are placed in the file: <span class="notranslat
 |<span class="notranslate">`IP_LOCK_TIMEOUT=5`</span>|a period of time during which an IP should be blocked (minutes)|
 |<span class="notranslate">`IP_LOCK_ATTEMPTS=10`</span>|a number of attempts after which an IP should be blocked|
 |<span class="notranslate">`IP_LOCK_MINUTES=5`</span>|a period of time during which violation attempts from an IP are counted; all attempts earlier than <span class="notranslate">`IP_LOCK_MINUTES`</span> are not counted|
+|<span class="notranslate">`rbl=net-brute.rbl.imunify.com.`</span>| RBL DNS Zone |
+|<span class="notranslate">`RBL_timeout=5`</span>|this is the wait time for a response from RBL|
+|<span class="notranslate">`RBL_nameserver=ns1-rbl.imunify.com:53`</span>|NS Server|
+
+
+:::tip Notes
+
+Default RBL block time for IP = 4 hours.
+
+:::
+
 
 **How to apply settings**
 

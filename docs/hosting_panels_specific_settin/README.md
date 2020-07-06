@@ -20,7 +20,7 @@ This section includes specific settings for each hosting panel that Imunify360 s
 ::: danger Important!
 If <span class="notranslate">mod_security</span> is installed after Imunify360, it is important to execute the following command to add <span class="notranslate">mod_security</span> ruleset to Imunify360:
 
-For cPanel/Plesk/DirectAdmin:
+For cPanel/Plesk/DirectAdmin/Stand-alone:
 
 <div class="notranslate">
 

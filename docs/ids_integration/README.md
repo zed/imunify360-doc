@@ -4,6 +4,7 @@
 
 ## CSF Integration
 
+
 It is possible to use <span class="notranslate">[ConfigServer Security & Firewall (CSF)](https://www.configserver.com/cp/csf.html)</span>  along with Imunify360.
 
 Imunify360 automatically detects that CSF is running (you can enable it anytime). Imunify360 [Blocked Ports](/dashboard/#blocked-ports), [DoS Protection](/dashboard/#dos-protection) and [SMTP Traffic Manager](/dashboard/#smtp-traffic-manager) features are automatically disabled in this case. In general:

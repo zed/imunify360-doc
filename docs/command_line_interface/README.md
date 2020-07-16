@@ -83,6 +83,7 @@ Available commands:
 |[<span class="notranslate">`infected-domains`</span>](/command_line_interface/#infected-domains)|Returns infected domain list|
 |[<span class="notranslate">`login`</span>](/command_line_interface/#login)|Allows to get a token which can be used for authentication in [stand-alone Imunify UI](/stand_alone/).|
 |[<span class="notranslate">`malware`</span>](/command_line_interface/#malware)|Allows to manage malware options|
+|[<span class="notranslate">`notifications-config`</span>](/command_line_interface/#notifications-config)|Allows to show and update notifications in the configuration file via CLI|
 |[<span class="notranslate">`proactive`</span>](/command_line_interface/#proactive)|Allows to manage Proactive Defense feature|
 |[<span class="notranslate">`register`</span>](/command_line_interface/#register)|Agent registration|
 |[<span class="notranslate">`reload-lists`</span>](/command_line_interface/#reload-lists)|Allows to use external files with the list of Black/White-listed IPs. [More details](/features/#external-black-whitelist-management).|
@@ -90,7 +91,7 @@ Available commands:
 |[<span class="notranslate">`rstatus`</span>](/command_line_interface/#rstatus)|Query the server to check if the license is valid|
 |[<span class="notranslate">`rules`</span>](/command_line_interface/#rules)|Allows user to manage disabled rules|
 |[<span class="notranslate">`submit false-positive/false-negative`</span>](/command_line_interface/#submit-false-positive-false-negative)|Allows to submit a file as false positive/false negative|
-|[<span class="notranslate">`unregister`</span>](/command_line_interface/#unregister)|Unregistration the agent|
+|[<span class="notranslate">`unregister`</span>](/command_line_interface/#unregister)|Unregister the agent|
 |[<span class="notranslate">`vendors`</span>](/command_line_interface/#vendors)|Command for manipulating Imunify360 vendors|
 |[<span class="notranslate">`version`</span>](/command_line_interface/#version)|Show version|
 |[<span class="notranslate">`whitelist`</span>](/command_line_interface/#whitelist)|Return/Edit operator for IP and domain white list|
@@ -1306,6 +1307,118 @@ imunify360-agent malware rebuild patterns
 
 ```
 imunify360-agent malware user list
+```
+</div>
+
+## Notifications config
+
+Allows to show and update notifications in the configuration file via CLI.
+
+**Usage:**
+
+<div class="notranslate">
+
+```
+imunify360-agent notifications-config [command] [configuration options]
+```
+
+</div>
+
+<span class="notranslate">`command`</span> can be:
+
+| | |
+|-|-|
+|<span class="notranslate">`show`</span>|returns the whole config as a JSON|
+|<span class="notranslate">`update`</span>|updates the config (partial update is supported) and returns the whole updated config as a JSON|
+
+You can find all configuration options [here](/config_file_description/) and instructions on how to apply configuration changes from CLI [here](/config_file_description/#how-to-apply-changes-from-cli).
+
+**Examples:**
+
+1. The <span class="notranslate">`imunify360-agent notifications-config show`</span> command output:
+
+<div class="notranslate">
+
+``` json
+{
+    "admin": {
+        "default_emails": [
+            "email1",
+            "email2"
+        ],
+        "locale": "en-US",
+        "notify_from_email": "root@hosting.example.com"
+    },
+    "rules": {
+        "EVENT_ID": {
+            "ADMIN": {
+                "admin_emails": [
+                    "email3",
+                    "email4",
+                    "default"
+                ],
+                "enabled": true,
+                "period": 3600
+            },
+            "SCRIPT": {
+                "enabled": true,
+                "period": 10,
+                "scripts": [
+                    "/path/to/script"
+                ]
+            }
+        },
+        "EVENT_ID_2": {
+            "ADMIN": {
+                "admin_emails": [
+                    "email3",
+                    "email4",
+                    "default"
+                ]
+            },
+            "SCRIPT": {
+                "scripts": [
+                    "/path/to/script"
+                ]
+            }
+        }
+```
+
+</div>
+
+2. Update admin default emails:
+
+<div class="notranslate">
+
+```
+imunify360-agent notifications-config update '{"admin": {"default_emails": ["email1", "email2"]}}'
+```
+</div>
+
+3. Enable and configure email notifications for <span class="notranslate">ADMIN</span> for the <span class="notranslate">REALTIME_MALWARE_FOUND</span> event:
+
+<div class="notranslate">
+
+```
+imunify360-agent notifications-config update '{"rules": {"REALTIME_MALWARE_FOUND": {"ADMIN": {"enabled": true, "period": 3600, "admin_emails": ["email3", "email4", "default"]}}}}'
+```
+</div>
+
+4. Disable email notifications for <span class="notranslate">ADMIN</span> for the <span class="notranslate">REALTIME_MALWARE_FOUND</span> event:
+
+<div class="notranslate">
+
+```
+imunify360-agent notifications-config update '{"rules": {"REALTIME_MALWARE_FOUND": {"ADMIN": {"enabled": false}}}}'
+```
+</div>
+
+5. Change the period for the <span class="notranslate">SCRIPT</span> hook for the <span class="notranslate">REALTIME_MALWARE_FOUND</span> event to 1 minute:
+
+<div class="notranslate">
+
+```
+imunify360-agent notifications-config update '{"rules": {"REALTIME_MALWARE_FOUND": {"SCRIPT": {"period": 60}}}}'
 ```
 </div>
 

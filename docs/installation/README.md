@@ -172,20 +172,27 @@ imunify360-agent register IPL
 
 ### SELinux support
 
-If selinux is enabled on your server, you must install Imunify360 selinux policy module. Policy is shipped with Imunify360 package in located in `/opt/alt/python35/share/imunify360/imunify360.te`
+If SELinux (Security-Enhanced Linux) is enabled on your server, you should install the Imunify360 SELinux policy module. Policy is shipped with Imunify360 package and is located in the <span class="notranslate">`/opt/alt/python35/share/imunify360/imunify360.te`</span>
 
 To apply it, run the following commands:
+
+<div class="notranslate">
+
 ```
 checkmodule -M -m -o /var/imunify360/imunify360.mod /opt/alt/python35/share/imunify360/imunify360.te
 semodule_package -o /var/imunify360/imunify360.pp -m /var/imunify360/imunify360.mod
 semodule -i /var/imunify360/imunify360.pp
 ```
+</div>
 
 ## Update Instructions
 
+:::tip Note
+Starting from Imunify360 v.4.10, the updates are unconditionally enabled and the Imunify360 service starts during the package update.
+:::
 
 
-To upgrade Imunify360 run the command:
+To upgrade Imunify360, run the command:
 
 <div class="notranslate">
 
@@ -195,7 +202,7 @@ yum update imunify360-firewall
 
 </div>
 
-To update Imunify360 beta version run:
+To update Imunify360 beta version, run the command:
 
 <div class="notranslate">
 
@@ -205,7 +212,7 @@ yum update imunify360-firewall --enablerepo=imunify360-testing
 
 </div>
 
-To update Imunify360 on <span class="notranslate">Ubuntu</span> run the command:
+To update Imunify360 on <span class="notranslate">Ubuntu</span>, run the command:
 
 <div class="notranslate">
 
@@ -216,7 +223,7 @@ apt-get install --only-upgrade imunify360-firewall
 
 </div>
 
-To update Imunify360 beta version on <span class="notranslate">Ubuntu 16.04</span> run the command:
+To update Imunify360 beta version on <span class="notranslate">Ubuntu 16.04</span>, run the command:
 
 <div class="notranslate">
 
@@ -229,7 +236,7 @@ apt-get install --only-upgrade imunify360-firewall
 </div>
 
 
-To update Imunify360 beta version on <span class="notranslate">Ubuntu 18.04</span> run the command:
+To update Imunify360 beta version on <span class="notranslate">Ubuntu 18.04</span>, run the command:
 
 <div class="notranslate">
 

@@ -110,7 +110,7 @@ that were uploaded via http/https. Note that it requires <a href="https://modsec
 <tr><td><span class="notranslate">cloud_assisted_scan: True</span></td>
 <td># speed up scans by check file hashes using cloud database</td></tr>
 <tr><td><span class="notranslate">rapid_scan: False</span></td>
-<td># speeds up (<span class="notranslate">True</span>) ot not (<span class="notranslate">False</span>) (default value) repeated scans based on smart re-scan approach, local result caching and cloud-assisted scan.</font></td></tr>
+<td># speeds up (<span class="notranslate">True</span>) ot not (<span class="notranslate">False</span>) (default value) repeated scans based on smart re-scan approach, local result caching and cloud-assisted scan.</td></tr>
 <tr>
 <th colspan="2" align="left"><span class="notranslate">CAPTCHA:</span></th></tr>
 <tr><td><span class="notranslate">cert_refresh_timeout: 3600</span></td>
@@ -175,6 +175,8 @@ to request CAPTCHA again</td></tr>
 <td># enable (<span class="notranslate">true</span>) or disable (<span class="notranslate">false) Blamer</span></td></tr>
 <tr><td><span class="notranslate">mode: KILL</span></td>
 <td># available modes:<ul><li><span class="notranslate">KILL</span></li><li><span class="notranslate">DISABLED</span></li><li><span class="notranslate">LOG</span></li></ul></td></tr>
+<tr><td><span class="notranslate">php_immunity: false</span></td>
+<td># enable (<span class="notranslate">true</span>) or disable (<span class="notranslate">false) PHP Immunity </span> (allows to automatically detect & patch vulnerabilities in software at the Proactive Defense level preventing re-infections through the same vulnerability). By enabling this feature, Blamer will be enabled as well and Proactive Defence switched into the KILL mode.</td></tr>
 <tr>
 <th colspan="2" align="left"><span class="notranslate">MALWARE_SCAN_INTENSITY:</span></th></tr>
 <tr><td><span class="notranslate">cpu: 6</span></td>
@@ -200,6 +202,8 @@ to request CAPTCHA again</td></tr>
 <td># enable (<span class="notranslate">true</span>) or disable (<span class="notranslate">false</span>) (default value) PAM brute-force attack protection</td></tr>
 <tr><td><span class="notranslate">PAM.exim_dovecot_protection: false</span></td>
 <td># enable (<span class="notranslate">true</span>) or disable (<span class="notranslate">false</span>) (default value) Exim+Dovecot brute-force attack protection against Dovecot brute-force attacks.</td></tr>
+<tr><td><span class="notranslate">PAM.ftp_protection: false</span></td>
+<td># enable (<span class="notranslate">true</span>) or disable (<span class="notranslate">false</span>) (default value) FTP brute-force attack protection.</td></tr>
 <tr>
 <th align="left"><span class="notranslate">KERNELCARE:</span></th>
 <th align="left"># KernelCare extension for Imunify360 which allows tracing malicious invocations to detect privilege escalation attempts</th></tr>
@@ -241,7 +245,7 @@ to request CAPTCHA again</td></tr>
 <td># enable (<span class="notranslate">True</span>) or disable (<span class="notranslate">False</span>) (the default value) “scan” action in the UI of the end-user.</td></tr>
 <tr><th colspan="2" align="left"><span class="notranslate">STOP_MANAGING:</span></th></tr>
 <tr><td><span class="notranslate">modsec_directives: False</span></td>
-<td># for internal useage, do not edit</td></tr>
+<td># for internal usage, do not edit</td></tr>
 <tr><th colspan="2" align="left"><span class="notranslate">WEB_SERVICES:</span></th></tr>
 <tr><td><span class="notranslate">http_ports: </span></td>
 <td># additional http ports for Captcha</td></tr>

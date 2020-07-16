@@ -183,16 +183,12 @@ Use filters to show the exact list of incidents:
 
 * <span class="notranslate">_Timeframe_</span> – allows filtering incidents by different time periods.
 * <span class="notranslate">_List_</span> – allows filtering incidents by <span class="notranslate">White List, Black List</span>, or <span class="notranslate">Gray List</span>, or showing the incidents from all lists.
-* _IP_ – allows showing all the incidents of a proper IP address. Tick <span class="notranslate">_Description/IP_</span> checkbox to enable input field where you can enter a proper IP or a part of it and filter the list by clicking on magnifier or pressing Enter.
-* _TTL_ - It has different values depends on Severity and number of an attack attempts. The value can be from 5 min to 24 days. It is not possible to manage TTL for Graylist
+* <span class="notranslate">_Search field_</span> – allows showing all the incidents of a proper IP address, domain or description. Tick <span class="notranslate">_Description/IP_</span> checkbox to enable input field where you can enter a proper IP or a part of it, domain or description and filter the list.
 * <span class="notranslate">_Country_</span> – allows filtering the incidents by abusers country. Tick <span class="notranslate">_Country_</span> checkbox to enable input field with auto-complete where you can enter a proper country and  filter the incidents by clicking magnifier or _Enter_.
 
-![](/images/tloi_zoom86.png)
+![](/images/IncidentsGeneral.png)
 
-Slide _Auto-refresh_ to enable or disable automatic refresh of the incidents in the table without reloading the web page.
-Set the number of incidents to be shown on a page by choosing the number of items per page in the bottom right of the page.
-
-![](/images/auto_refresh_zoom92.png)
+Move _Auto-refresh_ to enable or disable automatic refresh of the incidents in the table without reloading the web page.
 
 The list of incidents contains the following information:
 
@@ -205,13 +201,14 @@ There is a color indication for IP address.
   * A black bubble means that this IP address is currently in the <span class="notranslate">Black List</span>. And access from this IP is totally blocked without ability to unblock by the CAPTCHA.
   * No bubble is shown when this incident doesn’t contain IP address.
 * <span class="notranslate">_Country_ </span>– country origin of the abuser IP address.
-* <span class="notranslate">_# of Times_</span> – the number of times the abuser tried to repeat the action.
+* <span class="notranslate">_Count_</span> – the number of times the abuser tried to repeat the action.
 * <span class="notranslate">_Event_</span> – description of the event or suspicious activity (as it is described by OSSEC and Mod_Security sensors).
 * <span class="notranslate">_Severity_</span> – severity level of the incidents (as it is estimated in [OSSEC severity levels](https://ossec-docs.readthedocs.io/en/latest/docs/manual/rules-decoders/rule-levels.html?highlight=severity%20level) and [Mod_Security severity levels](https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual-%28v2.x%29#severity)). The color of severity means:
 
   * Green – Mod_Security levels 7-5, OSSEC levels 00-03
   * Orange – Mod_Security level 4, OSSEC levels 04-10
   * Red – Mod_Security levels 3-0, OSSEC levels 11-15
+* <span class="notranslate">_Actions_</span> – actions available for the Incident.
 
 ![](/images/list.jpg)
 
@@ -1162,6 +1159,7 @@ The following tabs are available:
 * <span class="notranslate">[Backups](/dashboard/#backups)</span>
 * <span class="notranslate">[Disables Rules](/dashboard/#disabled-rules)</span>
 * <span class="notranslate">[Attributions](/dashboard/#attributions)</span>
+* <span class="notranslate">[Notifications](/dashboard/#notifications)</span>
 
 ### General
 
@@ -1512,7 +1510,7 @@ imunify360-agent config update '{"PAM": {"enable": true}}'
 ```
 </div>
 
-Click <span class="notranslate">_Save changes_</span> button on the bottom of the section to save changes. This will enable protection for SSH/FTP protocols.
+Click <span class="notranslate">_Save changes_</span> button at the bottom of the section to apply changes. This will enable protection for SSH/FTP protocols.
 
 #### Exim+Dovecot brute-force attack protection
 
@@ -1529,9 +1527,25 @@ imunify360-agent config update '{"PAM": {"exim_dovecot_protection": true}}'
 ```
 </div>
 
-Click <span class="notranslate">_Save changes_</span> button on the bottom of the section to save changes.
+Click <span class="notranslate">_Save changes_</span> button at the bottom of the section to apply changes.
 
 
+#### FTP brute-force attack protection 
+
+Tick the <span class="notranslate">_FTP brute-force attack protection_</span> checkbox to enable protection for ftpd server against FTP brute-force attacks. It uses a time-proven algorithm that we’ve been using in the SSH PAM extension.
+	
+![](/images/ftpBruteForceAttackProtection.png)
+
+You can also enable it via CLI with the following command:
+
+<div class="notranslate">
+
+```
+imunify360-agent config update '{"PAM": {"ftp_protection": true}}'
+```
+</div>
+
+Click <span class="notranslate">_Save changes_</span> button on the bottom of the section to save changes. This will enable protection for SSH/FTP protocols.
 
 #### Error Reporting
  
@@ -1662,10 +1676,18 @@ Imunify360 security team will use that information to prevent future infections 
 
 ![](/images/SettingsBlamer.png)
 
-Click <span class="notranslate">_Save changes_</span> button at the page bottom to apply all changes.
+To reduce the number of blamer events, similar events are combined by default into a single one. In order to disable it, specify the <span class="notranslate">`filter_messages=off`</span> in the <span class="notranslate">_/usr/share/i360-php-opts/module.ini_</span>
 
-To reduce the number of blamer events, similar events are combined by default into a single one. In order to disable it, specify <span class="notranslate"> `filter_messages=off` </span>
-in <span class="notranslate"> _/usr/share/i360-php-opts/module.ini_ </span>
+* <span class="notranslate">_PHP Immunity_</span> — tick to allow Imunify360 automatically detect and patch vulnerabilities in software at the Proactive Defense level preventing re-infections through the same vulnerability.
+
+Once a vulnerable script or unknown malware executes any malicious flow which in turn leads to a malware drop, it causes the auto-generate rule to be released for the Proactive Defence. Ultimately, it will stop any further attempts to exploit the vulnerability or drop malware. Any dropped malware will be also auto-cleaned by the real-time malware scanner keeping the system clean and protected.
+
+![](/images/SettingsPHPImmunity.png)
+
+By enabling this feature Blamer will be enabled as well and Proactive Defence switched into the KILL mode.
+
+
+Click <span class="notranslate">_Save changes_</span> at the page bottom to apply all changes.
 
 ### Backups
 
@@ -1990,5 +2012,79 @@ It is possible to enable Service Status checker for Imunify360. Perform the foll
 If succeeded, the status of Imunify360 service will be displayed at Service Status section of Server Status.
 
 ![](/images/service_status.jpg)
+
+
+### Notifications
+
+Starting from version 4.10, an administrator is able to configure email addresses to submit reports and execute custom scripts. Go to <span class="notranslate">_Settings_</span> and choose <span class="notranslate">_Notifications_</span> tab.
+
+![](/images/notifications.png)
+
+* <span class="notranslate">**Default admin emails**</span>: specify the default list of emails used for all enabled admin email notifications. 
+* <span class="notranslate">**From**</span>: specify a sender of all emails sent by the Hooks. 
+
+The following events are available.
+
+#### Real-Time scan: malware detected
+
+Occurs when malware is detected during the real-time scanning.
+
+![](/images/RealTimeScanDetected.png)
+
+* <span class="notranslate">**Enable email notifications for admin**</span>: move the slider to <span class="notranslate">ON</span> to notify the administrator and a custom user list via email upon event occurrence. To notify the administrator on the default admin email, tick the <span class="notranslate">_Default admin emails_</span> checkbox. 
+* <span class="notranslate">**Notify every (mins)**</span>: set a notification interval in minutes. The data for all events that happened within the interval will be accumulated and sent altogether.
+* <span class="notranslate">**Admin emails**</span>: tick the <span class="notranslate">_Default admin emails_</span> and/or specify your emails for notifications.
+* <span class="notranslate">**Enable script execution**</span>: move the slide to <span class="notranslate">ON</span> to run a script (event handler) upon event occurrence. 
+* <span class="notranslate">**Notify every (sec)**</span>: set a notification interval in seconds. The data for all events that happened within the interval will be accumulated and sent altogether. 
+* <span class="notranslate">**Run a script**</span>: specify the full path to the script(s) or any other Linux executable to be launched on event occurrence. Make sure that the script has an executable bit (+x) on. A line-separated list of scripts is supported. 
+
+#### User scan: started
+
+Occurs immediately after the user scanning has started.
+
+![](/images/UserScanStarted.png)
+
+
+#### Custom scan: started
+
+![](/images/CustomScanStarted.png)
+
+Occurs immediately after on-demand (manual) scanning has started.
+
+
+#### User scan: finished
+
+Occurs immediately after the user scanning has finished, regardless the malware has found or not.
+
+![](/images/UserScanFinished.png)
+
+#### Custom scan: finished
+
+![](/images/CustomScanFinished.png)
+
+Occurs immediately after on-demand (manual) scanning has finished, regardless the malware has found or not.
+
+
+#### Custom scan: malware detected
+
+Occurs when the on-demand scanning process has finished and malware found.
+
+![](/images/CustomScanDetected.png)
+
+
+#### User scan: malware detected
+
+Occurs when the malware scanning process of a user account has finished and malware found.
+
+![](/images/UserScanDetected.png)
+
+
+#### Script blocked
+
+Occurs when the Proactive Defense has blocked malicious script.
+
+![](/images/ScriptBlocked.png)
+
+Click <span class="notranslate">_Save changes_</span> at the bottom to apply all changes.
 
 <Disqus/>

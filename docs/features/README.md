@@ -37,6 +37,11 @@ imunify360-agent reload-lists
 
 Or restart the agent.
 
+:::warning Warning
+Specifying IPs in those files will not prevent Imunify from adding the same IPs to dynamic lists (like Gray list), but all White lists always have the priority over Black lists when it comes to actual filtering of requests/packages.
+:::
+
+
 ## RapidScan
 
 RapidScan feature allows you to increase scanning speed by lower system resource usage and gives you an opportunity to scan more frequently, further hardening your systems’ security posture.

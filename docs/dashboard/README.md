@@ -521,6 +521,8 @@ You will see the _Scope_ column and controls (on clicking the _Add_ button) to m
 
 To change the scope to <span class="notranslate">_Group/Local_</span>, first [create your groups](https://docs.cln.cloudlinux.com/dashboard/#how-to-add-a-server-to-a-group) in the CLN.
 
+![](/images/CLNGroups.png)
+
 After that, go to <span class="notranslate">_Firewall > White/Black list_</span> and select an IP.
 
 

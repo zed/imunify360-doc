@@ -449,7 +449,7 @@ You can find the results in the <span class="notranslate">_Malware scanner > Fil
 
 ### 17. Malware file reasons
 
-Starting from Imunify version 4.6 you can see the advanced reason why a file was detected as malicious.
+You can see the advanced reason why a file was detected as malicious.
 
 Go to <span class="notranslate">Imunify → Malware Scanner → Files tab → Reason</span>. See [Malware Scanner → Files tab](/dashboard/#files).
 

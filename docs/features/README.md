@@ -164,7 +164,7 @@ Note that the plugin has three separate counters and a set of settings for USER/
 
 ### Overview
 
-Hooks are introduced starting from Imunify360 version 4.2 Beta as a script-based interface for various application events. This is a simple and effective way to automate Imunify360 alerts and event processing.
+Hooks are introduced as a script-based interface for various application events. This is a simple and effective way to automate Imunify360 alerts and event processing.
 For example, an administrator can have Imunify360 calling his own script when malicious files are detected or misconfigurations are detected and perform a custom processing or specific actions, for example, create a ticket.
 Hooks are available only via CLI.
 

@@ -68,7 +68,7 @@ Available commands:
 |[<span class="notranslate">`blocked-port-ip`</span>](/command_line_interface/#blocked-port-ip)|Allows to change the list of IPs that are excluded (allowed) for a certain blocked port|
 |[<span class="notranslate">`checkdb`</span>](/command_line_interface/#checkdb)|Check database integrity|
 |[<span class="notranslate">`check-domains`</span>](/command_line_interface/#check-domains)|Send domain list check|
-|[<span class="notranslate">`check modsec directives`</span>](/command_line_interface/#check-modsec-directives)<sup> Beta 3.9.0+ cPanel</sup>|Allows to check whether the global ModSecurity<br>directives have values recommended by Imunify360|
+|[<span class="notranslate">`check modsec directives`</span>](/command_line_interface/#check-modsec-directives)|Allows to check whether the global ModSecurity<br>directives have values recommended by Imunify360|
 |[<span class="notranslate">`clean`</span>](/command_line_interface/#clean)|Clean the incidents|
 |[<span class="notranslate">`config`</span>](/command_line_interface/#config)|Allows to update and show configuration file via CLI|
 |[<span class="notranslate">`doctor`</span>](/command_line_interface/#doctor)|Collect info about system and send it to the Imunify support team|

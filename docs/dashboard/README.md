@@ -65,7 +65,7 @@ Here you can see notifications about server security and Imunify360 configuratio
 </div>
 
 
-Starting from Imunify360 version 4.1, the <span class="notranslate">Dashboard</span> can display Imunify360 performance data for a number of specified servers. 
+<span class="notranslate">Dashboard</span> can display Imunify360 performance data for a number of specified servers. 
 * You can add a specified server using its server key – a unique server id that identifies an installed Imunify360 instance.
 
     :::tip Note
@@ -508,7 +508,7 @@ See also: [How to use external files with the list of Black/White IPs](/features
 
 ### Global Black/White list IP management
 
-Starting from Imunify360 version 4.5 an administrator can manage IPs globally, this means that you can blacklist or whitelist an IP not only on one server but on a group of servers. 
+Administrator can manage IPs globally, this means that you can blacklist or whitelist an IP not only on one server but on a group of servers. 
 
 Prior to manage IPs globally, you should create a group and add servers into it. This can be done via [CLN UI](https://cln.cloudlinux.com/). You can find the complete documentation on how to create and manage servers’ groups [here](https://docs.cln.cloudlinux.com/dashboard/#server-groups).
 
@@ -745,7 +745,7 @@ It is possible to scan a specific directory for malware. Go to <span class="notr
 	* <span class="notranslate">_Follow symlinks_</span>. Follow all symlinks within the folder to scan. 
 
 :::tip Note
-If Imunify360 <sup>4.6+</sup> is running on CloudLinux OS, LVE is used to manage scan intensity. If it is running on other operating systems, “nice” is used to control CPU and “ionice” is used when the I/O scheduler is CFQ.
+If Imunify360 is running on CloudLinux OS, LVE is used to manage scan intensity. If it is running on other operating systems, “nice” is used to control CPU and “ionice” is used when the I/O scheduler is CFQ.
 :::
 
 ![](/images/malware_scanner_4_7.png)
@@ -910,9 +910,9 @@ The <span class="notranslate">_Detected Events_</span> table includes the follow
 The following actions are available for the detected event:
 * View file content
 * Move IP to the <span class="notranslate">Black List</span>
-* Move file to <span class="notranslate">Ignore List</span><sup> 3.7.0+</sup> (ignore detected rule) — allows a user to exclude a file from <span class="notranslate">Proactive Defense</span> analysis for a particular rule
-* Move file to <span class="notranslate">Ignore List</span> (ignore all rules)<sup> 3.7.0+</sup> — allows a user to exclude a file from <span class="notranslate">Proactive Defense</span> analysis for all rules
-* Remove file from <span class="notranslate">Ignore List</span><sup> 3.7.0+</sup> — allows a user to include ignored file to <span class="notranslate">Proactive Defense</span> analysis again.
+* Move file to <span class="notranslate">Ignore List</span> (ignore detected rule) — allows a user to exclude a file from <span class="notranslate">Proactive Defense</span> analysis for a particular rule
+* Move file to <span class="notranslate">Ignore List</span> (ignore all rules) — allows a user to exclude a file from <span class="notranslate">Proactive Defense</span> analysis for all rules
+* Remove file from <span class="notranslate">Ignore List</span> — allows a user to include ignored file to <span class="notranslate">Proactive Defense</span> analysis again.
 
 **View file content**
 
@@ -939,7 +939,7 @@ Click _View details_ icon in the row of the desired event. Then, click <span cla
 
 ![](/images/proactivedefenseblockip_zoom70.png)
 
-**Move file to Ignore List (ignore detected rule) <sup> 3.7.0+</sup>**
+**Move file to Ignore List (ignore detected rule)**
 
 **The first way**
 Click _Cog_ icon in the row of the desired event and choose <span class="notranslate">_Ignore detected rule for the file_</span>. Click <span class="notranslate">_Yes, add to Ignore List_</span> in the confirmation pop-up or click <span class="notranslate">_Cancel_</span> to close pop-up. Now you can see this file on the <span class="notranslate">Ignore List</span> tab.
@@ -950,7 +950,7 @@ Click _View details_ icon and then in the file details pop-up click <span class=
 
 ![](/images/proactivedefenseignoredetectedruleforfile1_zoom70.png)
 
-**Move file to Ignore List (ignore all rules) <sup>3.7.0+</sup>**
+**Move file to Ignore List (ignore all rules)**
 
 **The first way**
 Click _Cog_ icon in the row of the desired event and choose <span class="notranslate">_Ignore all rules for the file_</span>. Click <span class="notranslate">_Yes, add to Ignore List_</span> in the confirmation pop-up or click <span class="notranslate">_Cancel_</span> to close pop-up. The file will be moved to <span class="notranslate">Ignore List</span> tab.
@@ -961,14 +961,14 @@ Click _View details_ icon and then in the file details pop-up click <span class=
 
 ![](/images/proactivedefenseignoreallrulesforfile1_zoom70.png)
 
-**Remove file from Ignore List <sup>3.7.0+</sup>**
+**Remove file from Ignore List**
 
 On the Ignore List tab click _Bin_ icon and confirm the action.
 ![](/images/proactivedefenseignorelistbin_zoom70.png)
 
 To perform bulk action, tick required checkboxes and click <span class="notranslate">_Remove from ignore list_</span> at the top of the table, then confirm the action in the pop-up.
 
-**Ignore List tab <sup>3.7.0+</sup>**
+**Ignore List tab**
 
 Here, there is a table with files with ignored rules. If file is added to <span class="notranslate">Ignore List, Proactive Defense</span> will not analyze scripts activity from this file for all or specified rule.
 ![](/images/proactivedefenseignorelist_zoom70.png)
@@ -1242,7 +1242,7 @@ KernelCare is free on the servers with Imunify360 installed.
 
 The KernelCare extension for Imunify360 allows tracing malicious invocations to detect privilege escalation attempts.
 
-Starting from Imunify360 version 4.4, you can find these attempts on the [Incidents tab](/dashboard/#incidents) (as part of the OSSEC log). The incidents can be seen by filtering events with the `EDF` label. 
+You can find these attempts on the [Incidents tab](/dashboard/#incidents) (as part of the OSSEC log). The incidents can be seen by filtering events with the `EDF` label. 
 
 To enable the feature, tick the <span class="notranslate">_Privilege escalation detection & protection_</span> checkbox.
 
@@ -1600,7 +1600,7 @@ Read [CXS integration](/ids_integration/#cxs-integration) documentation carefull
     :::
 
     :::tip Note
-    If Imunify360 <sup>4.6+</sup> is running on CloudLinux OS, LVE is used to manage scan intensity. If it is running on other operating systems, “nice” is used to control CPU and “ionice” is used when the I/O scheduler is CFQ.
+    If Imunify360 is running on CloudLinux OS, LVE is used to manage scan intensity. If it is running on other operating systems, “nice” is used to control CPU and “ionice” is used when the I/O scheduler is CFQ.
     :::
 
 #### General
@@ -1979,11 +1979,7 @@ When the **Malware Scanner is not available** for end-user, it doesn't exclude u
 
 Click <span class="notranslate">_Add_</span> to apply changes.
 
-See also: [CLI](http://localhost:8080/command_line_interface/).
-:::tip Note
-Imunify360 4.0 does not support _Not Available_ state for the Malware Scanner in the original in-app Features Management and via CLI. You can disable Malware Scanner for a particular package via WHM Package Manager only.
-:::
- 
+See also: [CLI](http://localhost:8080/command_line_interface/). 
 
 ### Attributions
 

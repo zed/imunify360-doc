@@ -59,7 +59,7 @@
 |<span class="notranslate">CWAF Agent</span> | No problems detected.|
 |<span class="notranslate">Patchman</span> | No problems detected.|
 |<span class="notranslate">Suhosin</span> | We are ignoring alerts by <span class="notranslate">Suhosin</span>.|
-|<span class="notranslate">Cloudflare</span> | Starting from version 3.8, Imunify360 supports graylisting IP addresses behind <span class="notranslate">Cloudflare</span>. More details [here](/ids_integration/#cloudflare-support).|
+|<span class="notranslate">Cloudflare</span> | Imunify360 supports graylisting IP addresses behind <span class="notranslate">Cloudflare</span>. More details [here](/ids_integration/#cloudflare-support).|
 |<span class="notranslate">CXS</span> | [Special actions required](/ids_integration/#cxs-integration) to use Imunify360 with <span class="notranslate">CXS</span> installed.|
 |<span class="notranslate">cPHulk</span> | Imunify360 disables <span class="notranslate">cPHulk</span> during installation. However in case of enabling it back, Imunify360 integrates with it and shows <span class="notranslate">cPHulk</span> events in the incident screen.|
 |<span class="notranslate">OpenVZ</span> | Works for <span class="notranslate">Virtuozzo</span> 7 with kernel 3.10.0-327.10.1.vz7.12.8 or later.|

@@ -1,7 +1,7 @@
 # Localization
 
 
-Starting from version 3.8.0, Imunify360 supports the following languages in addition to default (<span class="notranslate">en-US</span>):
+Imunify360 supports the following languages in addition to default (<span class="notranslate">en-US</span>):
 
 <div class="notranslate">
 
@@ -18,7 +18,7 @@ Starting from version 3.8.0, Imunify360 supports the following languages in addi
 
 </div>
 
-## How to perform a translation to your own language using our language file
+#### How to perform a translation to your own language using our language file
 
 
 Contact Imunify360 support to request the latest language file.

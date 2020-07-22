@@ -1,7 +1,7 @@
 # Imunify360 Stand-alone
 
 
-Previously, Imunify360 had to be installed through a particular control panel, such as cPanel, DirectAdmin, or Plesk. Now, with version 4.5, it can be installed directly on the server, independent of any panel, regardless of the administrative interface. 
+Imunify360 can be installed directly on the server, independent of any panel, regardless of the administrative interface. 
 
 #### Limitations
 
@@ -344,7 +344,7 @@ To add more administrators, list them in the <span class="notranslate">`/etc/sys
 or specify the admins option in the <span class="notranslate">`/etc/sysconfig/imunify360/integration.conf`</span>
 
 Admin users will be merged from three sources: <span class="notranslate">`/etc/sysconfig/imunify360/auth.admin`</span> list and scripts defined in the
-<span class="notranslate">`/etc/sysconfig/imunify360/integration.conf`</span> or <span class="notranslate">`/opt/cpvendor/etc/integration.ini`</span> that return user lists [Imunify 4.7+].
+<span class="notranslate">`/etc/sysconfig/imunify360/integration.conf`</span> or <span class="notranslate">`/opt/cpvendor/etc/integration.ini`</span> that return user lists.
 
 <div class="notranslate">
 

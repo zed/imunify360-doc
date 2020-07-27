@@ -1050,6 +1050,7 @@ while($j <= 255) {
 $jjj = is_int($string2);
 $j++;
 }
+$k = 1;
 while($k <= 255) {
 $kkk = is_numeric($string2);
 $k++;

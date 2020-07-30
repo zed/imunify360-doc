@@ -1700,7 +1700,7 @@ Imunify360 provides customers with an ability to integrate with backup providers
 
 The following integrated with Imunify360 backup providers are available:
 * <span class="notranslate">CloudLinux Backup</span>
-* Hosting panel Backup (cPanel or Plesk)
+* Hosting panel Backup (cPanel, Plesk, or DirectAdmin)
 * <span class="notranslate">Acronis Backup</span>
 
 :::tip Note
@@ -1730,7 +1730,7 @@ To enable backups log in to a hosting panel as administrator, go to Imunify360 p
 * To enable it, select backup provider from the dropdown:
   * <span class="notranslate">[CloudLinux Backup](https://www.imunify360.com/cloudlinux-backup)</span>
   * <span class="notranslate">[Acronis Backup](https://www.acronis.com/en-eu/)</span>
-  * cPanel or Plesk Backup (according to user’s hosting panel)
+  * cPanel, Plesk or DirectAdmin Backup (according to user’s hosting panel)
 
 ![](/images/settingsbackup.png)
 
@@ -1769,15 +1769,15 @@ Imunify360 checks if Acronis agent is already installed. If not, Imunify360 inst
 
 ![](/images/acronisbackup.png)
 
-**cPanel or Plesk Backup**
+**cPanel Plesk or DirectAdmin Backup**
 
-* Choose cPanel/Plesk backup
-* Select <span class="notranslate">_cPanel/Plesk Backup_</span>
+* Choose cPanel/Plesk/DirectAdmin backup
+* Select <span class="notranslate">_cPanel/Plesk/DirectAdmin Backup_</span>
 * Click <span class="notranslate">_Connect Backup_</span> button
 
 ![](/images/backuprestorecpanel.png)
 
-After successful connection, Imunify360 will return an appropriate message.
+After the successful connection, Imunify360 will return the appropriate message.
 
 #### How to disable backups
 

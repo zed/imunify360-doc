@@ -1870,6 +1870,10 @@ imunify360-agent whitelist [subject] [command] <value> [--option]
 |<span class="notranslate">`domain`</span>|Allows to manipulate with domains in the <span class="notranslate">White List</span>.|
 |<span class="notranslate">`country`</span>|Allows to manipulate with countries in the <span class="notranslate">White List</span>.|
 
+:::warning Note
+A domain whitelisting will affect only greylisted IPs. It will not affect ModSecurity rules and blacklisted IPs.
+:::
+
 <span class="notranslate">`command`</span> is a second positional argument and can be:
 
 | | |

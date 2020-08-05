@@ -552,7 +552,7 @@ The path to the executable script that generates a JSON file with the list of ad
       "locale_code": "Ru_ru",
       "email": "admin2@domain.zone",
       "is_main": false
-    },
+    }
   ],
   "metadata": {
     "result": "ok"

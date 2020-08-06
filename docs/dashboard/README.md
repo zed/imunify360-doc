@@ -1003,6 +1003,10 @@ else {
 ```
 </div>
 
+:::tip Note
+This script is available starting from Imunify360 v. 4.10.2
+:::
+
 3. Place this file on the server.
 4. Call a test page with the script from the point 2.
 5. If <span class="notranslate">Proactive Defense</span> is disabled, you will see "PD doesn't work or not in KILL mode" message after calling the script and no records will appear in "Incident" tab.

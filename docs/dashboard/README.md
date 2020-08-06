@@ -991,75 +991,14 @@ See also: [How to edit watched and excluded patterns for Malware Scanner?](/faq_
 
 ``` PHP
 <?php
-$ffile = tmpfile();
-$string2 = 'test';
-$triim = trim($string2, "s");
-$string = 'cup';
-$name = 'coffee';
-$str = 'This is a $string with my $name in it.';
-$arr = array('Hello','World!','Beautiful','Day!');
-eval("\$str = \"$str\";");
-$a = 1;
-while($a <= 255) {
-$aaa = is_string($string2);
-$a++;
+$pattern = 'TEST-FILE';
+$external_code = @file_get_contents('https://secure.eicar.org/eicar.com.txt');
+if (strpos($external_code,$pattern)){
+    print "Poactive Defence DOESN'T work or NOT in KILL mode";
 }
-$b = 1;
-while($b <= 255) {
-$bbb = strstr($string2, '1');
-$ccc = strchr($string2, '2');
-$b++;
+else {
+    print "Proactive Defence works fine - file_get_contents function has been BLOCKED, please check Imunify360 Proactive Defence tab for correspondent BLOCK event";
 }
-$c = 1;
-while($c <= 255) {
-$ccc = strtoupper($string2);
-$ddd = crc32($string2);
-$c++;
-}
-$d =1;
-while($d <= 255) {
-$ddd = strtolower($string2);
-$ttt = join(" ",$arr);
-$d++;
-}
-$e =1;
-while($e <= 255) {
-$eee = is_bool($string2);
-$ppp = implode(",", $arr);
-$e++;
-}
-$f = 1;
-while($f <= 255) {
-$fff = strlen($string2);
-$kkk = str_word_count($string2, 1);
-$f++;
-}
-$g = 1;
-while($g <= 255) {
-$ggg = is_array($string2);
-$g++;
-}
-$h = 1;
-while($h <= 255) {
-$hhh = is_null($string2);
-$sss = ltrim($string2);
-$h++;
-}
-$j = 1;
-while($j <= 255) {
-$jjj = is_int($string2);
-$j++;
-}
-$k = 1;
-while($k <= 255) {
-$kkk = is_numeric($string2);
-$k++;
-}
-$triim = trim($string2, "t");
-if (@file_put_contents($ffile, "<?php\n;") !== false){
-print "PD doesn't work or not in KILL mode";
-}
-fclose($ffile);
 ?>
 ```
 </div>

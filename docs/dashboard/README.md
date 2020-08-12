@@ -1478,6 +1478,10 @@ Click <span class="notranslate">_Save changes_</span> button at the bottom of th
 
 #### FTP brute-force attack protection 
 
+:::tip Note
+This protection type is available only in cPanel/WHM for proftpd and pureftpd daemons.
+:::
+
 Tick the <span class="notranslate">_FTP brute-force attack protection_</span> checkbox to enable protection for ftpd server against FTP brute-force attacks. It uses a time-proven algorithm that we’ve been using in the SSH PAM extension.
 	
 ![](/images/ftpBruteForceAttackProtection.png)

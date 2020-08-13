@@ -537,13 +537,30 @@ After that, go to <span class="notranslate">_Firewall > White/Black list_</span>
 
 This feature allows to block specific ports for TCP/UDP connection. It is also possible to add specific IPs or subnet as a whitelisted so that the rule for the port will not work.
 
-:::tip Note
-Imunify360 can block particular ports using this feature, yet it doesn't support a paradigm to "block everything but the selected ports". That could be achieved via legacy linux iptables.
-:::
-
-Click <span class="notranslate">_Lists_</span> and choose <span class="notranslate">_Blocked Ports_</span>.
+Click <span class="notranslate">_Firewall_</span> and choose <span class="notranslate">_Ports_</span>.
 
 ![](/images/Blocked_Ports1.png)
+
+Choose the default blocking mode:
+
+* All open, except specified
+* All close, except specified
+
+Or you can set the default blocking mode via [CLI and config file](/config_file_description/).
+
+Exact ports and port-ranges to be allowed can be configured by the following fields in the config file:
+
+* FIREWALL.TCP_IN_IPv4
+* FIREWALL.TCP_OUT_IPv4
+* FIREWALL.UDP_IN_IPv4
+* FIREWALL.UDP_OUT_IPv4
+  
+Changes of config files will be applied automatically. You don’t need to restart the server or Imunify360.
+
+:::warning Note
+The feature doesn’t support IPv6 addresses at this moment and CSF needs to be disabled due to conflicts.
+:::
+
 
 ::: tip Note
 If CSF integration enabled, then <span class="notranslate">Blocked Ports</span> will be disabled. Imunify360 imports Closed ports and their whitelisted IPs from CSF.
@@ -871,8 +888,8 @@ Here you can set a mode, view detected events and perform actions on them.
 #### Mode Settings
 
 The following <span class="notranslate">Proactive Defense</span> modes are available:
-* <span class="notranslate">Disabled</span> — means that <span class="notranslate">Proactive Defense</span> feature is not working and a system is not protected enough (default mode)
-* <span class="notranslate">Log Only</span> — means that possible malicious activity is only logged, no actions are performed
+* <span class="notranslate">Disabled</span> — means that <span class="notranslate">Proactive Defense</span> feature is not working and a system is not protected enough
+* <span class="notranslate">Log Only</span> — means that possible malicious activity is only logged, no actions are performed (default mode)
 * <span class="notranslate">Kill Mode</span> — the highest level of protection — the script is terminated as soon as malicious activity is detected
 
 To select a mode, tick the desired checkbox. When an action is completed, you will see a pop-up with the successful mode changing message.
@@ -1478,10 +1495,6 @@ Click <span class="notranslate">_Save changes_</span> button at the bottom of th
 
 #### FTP brute-force attack protection 
 
-:::tip Note
-This protection type is available only in cPanel/WHM for proftpd and pureftpd daemons.
-:::
-
 Tick the <span class="notranslate">_FTP brute-force attack protection_</span> checkbox to enable protection for ftpd server against FTP brute-force attacks. It uses a time-proven algorithm that we’ve been using in the SSH PAM extension.
 	
 ![](/images/ftpBruteForceAttackProtection.png)
@@ -1559,7 +1572,7 @@ Read [CXS integration](/ids_integration/#cxs-integration) documentation carefull
   ::: tip Note
   It requires inotify to be installed and may put an additional load on a system.
   :::
-* <span class="notranslate">_Optimize real-time scan_</span><sup><em> 4.9 Beta</em></sup> – enables the [File Change API](https://docs.cloudlinux.com/cloudlinux_os_kernel/#file-change-api) support to reduce the system load while watching for file changes in comparison with inotify watchs.
+* <span class="notranslate">_Optimize real-time scan_</span> – enables the [File Change API](https://docs.cloudlinux.com/cloudlinux_os_kernel/#file-change-api) support to reduce the system load while watching for file changes in comparison with inotify watchs.
 * <span class="notranslate">_Automatically scan any file uploaded using web_</span> – enables real-time scanning of all the files that were uploaded via http/https.
   ::: tip Note
   It requires [ModSecurity](https://modsecurity.org/) to be installed.

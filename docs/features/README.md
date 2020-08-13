@@ -585,4 +585,94 @@ def im_hook(dict_param):
 
 </div>
 
+## Malware Database Scanner (MDS) <Badge text="Beta" type="warning"/> <Badge text="5.1"/>
+
+<span class="notranslate">Malware Database Scanner (MDS)</span> is designed to solve all malware related problems in the database.
+
+:::danger Warning
+Version 5.1 of the Imunify360 introduces a CLI tool without the UI. Further versions will be integrated with the Malware Scanner UI.
+:::
+
+:::danger Warning
+For now, Malware Database Scanner (MDS) supports WordPress databases only.
+:::
+
+### How to use Malware Database Scanner (MDS)
+
+To provide safe work with database MDS supports several methods:
+
+* <span class="notranslate">`--scan`</span> - only scan the database, no changes will be applied
+* <span class="notranslate">`--clean`</span> - scan database and clean-up malicious
+* <span class="notranslate">`--restore`</span> - restore data affected by clean-up from the backup CSV file
+
+#### Usage
+
+<div class="notranslate">
+
+```
+php /opt/ai-bolit/imunify_dbscan.php [OPTIONS] [PATH]
+```
+</div>
+
+**Options**
+
+| | |
+|-|-|
+|<span class="notranslate">`--host=<host>`</span>|Database host|
+|<span class="notranslate">`--port=<port>`</span>|Database port|
+|<span class="notranslate">`--login=<username>`</span>|Database username|
+|<span class="notranslate">`--password=<password>`</span>|Database password|
+|<span class="notranslate">`--password-from-stdin`</span>|Get database password from stdin|
+|<span class="notranslate">`--database=<db_name>`</span>|Database name|
+|<span class="notranslate">`--prefix=<prefix>`</span>|Prefix for table|
+|<span class="notranslate">`--scan`</span>|Do scan|
+|<span class="notranslate">`--clean`</span>|Do clean|
+|<span class="notranslate">`--report-file=<filepath>`</span>|Filepath where to put the report|
+|<span class="notranslate">`--signature-db=<filepath>`</span>|Filepath with signatures|
+|<span class="notranslate">`--progress=<filepath>`</span>|Filepath with progress|
+|<span class="notranslate">`--shared-mem-progress=<shmem_id>`</span>|ID of shared memory segment|
+|<span class="notranslate">`--create-shared-mem`</span>|MDS create own shared memory segment|
+|<span class="notranslate">`--status=<filepath>`</span>|Filepath with status for control task|
+|<span class="notranslate">`--avdb=<filepath>`</span>|Filepath with ai-bolit signatures database|
+|<span class="notranslate">`--procudb=<filepath>`</span>|Filepath with procu signatures database|
+|<span class="notranslate">`--state-file=<filepath>`</span>|Filepath with info about state (content: <span class="notranslate">`new`/`working`/`done`/`canceled`</span>). You can change it on <span class="notranslate">`canceled`</span>.|
+|<span class="notranslate">`--restore=<filepath>`</span>|Filepath to restore CSV file|
+|<span class="notranslate">`-h, --help`</span>|Display this help and exit|
+|<span class="notranslate">`-v, --version`</span>|Show version|
+
+#### Example of usage
+
+#### Scan database
+
+<div class="notranslate">
+
+```
+# /opt/alt/php74-imunify/usr/bin/php -n -d extension=json.so -d extension=pdo.so -d extension=mysqlnd.so -d extension=nd_mysqli.so /opt/ai-bolit/imunify_dbscan.php --port=3306 --login=user --password-from-stdin --database=$DATABASE --avdb=`pwd`/mds-ai-bolit-hoster.db --report-file=`pwd`/report.json --scan
+```
+</div>
+
+Scan results will be stored in the <span class="notranslate">`results.json`</span>.
+
+#### Scan & Clean-up database
+
+<div class="notranslate">
+
+```
+# /opt/alt/php74-imunify/usr/bin/php -n -d extension=json.so -d extension=pdo.so -d extension=mysqlnd.so -d extension=nd_mysqli.so /opt/ai-bolit/imunify_dbscan.php --port=3306 --login=user --password-from-stdin --database=$DATABASE --avdb=`pwd`/mds-ai-bolit-hoster.db --procudb=`pwd`/procu2.php --report-file=`pwd`/report.json --clean
+```
+</div>
+
+Scan results will be stored in the <span class="notranslate">`results.json`</span>. Also, backup of the affected data will be created with a filename similar to the <span class="notranslate">`mds_backup_1597223818.csv`</span>.
+
+
+#### Undo changes (restore)
+
+<div class="notranslate">
+
+```
+# /opt/alt/php74-imunify/usr/bin/php -n -d extension=json.so -d extension=pdo.so -d extension=mysqlnd.so -d extension=nd_mysqli.so /opt/ai-bolit/imunify_dbscan.php --port=3306 --login=user --password-from-stdin --database=$DATABASE --report-file=$REPORT --restore=`pwd`/mds_backup_1597223818.csv
+```
+</div>
+
+
 <Disqus/>

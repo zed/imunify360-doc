@@ -516,6 +516,16 @@ The path to the web server directory, where Imunify360 will be installed and ser
 <div class="notranslate">
 
 ``` ini
+[paths]
+ui_path_owner = panel_user:web_server_group
+```
+</div>
+
+Allows executing `chown` to that owner for files after installation. The parameter is optional, if it is absent, `chown` doesn't execute.
+
+<div class="notranslate">
+
+``` ini
 [pam]
 service_name = system-auth
 ```

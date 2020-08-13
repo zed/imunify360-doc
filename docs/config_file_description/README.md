@@ -31,6 +31,20 @@ In the config file it is possible to set up Imunify360 configuration. The follow
 </td><td># limit on port 80 is set to 150 connections</td>
 </tr>
 <tr>
+<th colspan="2" align="left"><span class="notranslate">FIREWALL:</span></th>
+</tr>
+<tr>
+<td width="250px;"><span class="notranslate">port_blocking_mode: ALLOW</span></td><td># allows to set firewall port blocking mode.<br><br>
+<b>ALLOW (default)</b> - allow all except specified.<br>
+<b>DENY</b> - block all except specified.<br><br>
+Exact ports and port-ranges to be allowed can be configured by the following fields in the config file:<br>
+- FIREWALL.TCP_IN_IPv4<br>
+- FIREWALL.TCP_OUT_IPv4<br>
+- FIREWALL.UDP_IN_IPv4<br>
+- FIREWALL.UDP_OUT_IPv4<br><br>
+Changes of config files will be applied automatically. You don’t need to restart the server or Imunify360.<br><br>
+<em><b>Please note, the feature doesn’t support IPv6 addresses at this moment and CSF needs to be disabled due to conflicts.</b></em></td></tr>
+<tr>
 <th colspan="2" align="left"><span class="notranslate">INCIDENT_LOGGING:</span></th>
 </tr>
 <tr>
@@ -38,6 +52,13 @@ In the config file it is possible to set up Imunify360 configuration. The follow
 <tr><td><span class="notranslate">num_days: 100</span></td><td># incidents older than <span class="notranslate"><em>num_days</em></span> are automatically deleted</td></tr>
 <tr><td><span class="notranslate">limit: 100000</span></td><td># how many incidents should be stored in Imunify360 log file</td></tr>
 <tr><td><span class="notranslate">ui_autorefresh_timeout: 10</span></td><td># set auto refresh time for incidents in user interface</td></tr>
+<tr>
+<th colspan="2" align="left"><span class="notranslate">LOGGER:</span></th>
+</tr>
+<tr>
+<td width="250px;"><span class="notranslate">max_log_file_size: 62914560</span></td><td># defines the maximum size of the log file in bytes (default is 60 MB)</td></tr>
+<tr>
+<td width="250px;"><span class="notranslate">backup_count: 5</span></td><td># defines how many log files to store. If 5, it will store <span class="notranslate"><em>app.log</em>, <em>app.log.1</em></span>, and up to <span class="notranslate"><em>app.log.5</em></span>.</td></tr>
 <tr>
 <th align="left"><span class="notranslate">MOD_SEC:</span></th>
 <th align="left"><span class="notranslate"># defines ModSecurity settings</span></th>

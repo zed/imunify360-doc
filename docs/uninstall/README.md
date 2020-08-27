@@ -58,6 +58,8 @@ For CloudLinux OS, please run the following commands:
 
 to remount <span class="notranslate">CageFS</span> and remove files from user's local directories as after uninstalling these files are not removed automatically and can generate errors to Apache log.
 
+See also: [Imunify360/AV uninstallation FAQ](https://cloudlinux.zendesk.com/hc/en-us/articles/360016144139-Imunify360-AV-uninstallation-FAQ).
+
 #### How to disable updates
 
 Starting from Imunify360 v.4.10, if you need to disable Imunify360 then you need to disable updates as well by editing cron file and comment out the update command.

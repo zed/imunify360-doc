@@ -828,7 +828,7 @@ You can find the ImunifyAV(+) instructions [here](https://docs.imunifyav.com/faq
 
 ### 25. "ssh_exchange_identification: Connection closed by remote host" troubleshooting
 
-If you see <span class="notranslate">"ssh_exchange_identification: Connection closed by remote host"</span> like few times in a row, then this must be an evidence that <span class="notranslate">SSH</span> is under bruteforce attack and some of concurrent unauthenticated connections are dropped due to <span class="notranslate">/etc/ssh/ssh_config MaxStartups ...</span> parameter default value. Thus we would advise you to increase <span class="notranslate">MaxStartups ...</span> from default (e.g. 10:30:60) to 100:30:200 or something that is proportional to your SSH server bruteforce intensity (100:30:200 is for 25 attempts per second bruteforce intensity rate).
+If you see the <span class="notranslate">"ssh_exchange_identification: Connection closed by remote host"</span> few times in a row, then this might be an evidence that <span class="notranslate">SSH</span> is under bruteforce attack and some of concurrent unauthenticated connections are dropped due to the <span class="notranslate">/etc/ssh/ssh_config MaxStartups ...</span> parameter default value. Thus, we would advise you to increase the <span class="notranslate">MaxStartups ...</span> from the default (e.g. 10:30:60) to 100:30:200 or something that is proportional to your SSH server bruteforce intensity (100:30:200 is for 25 attempts per second bruteforce intensity rate).
 
 ## Corner cases
 

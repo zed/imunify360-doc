@@ -75,7 +75,7 @@ If there is no Imunify360 ruleset installed, run <span class="notranslate">` imu
         <div class="notranslate">
  
         ```
-        /usr/local/cpanel/scripts/modsec_vendor enable-updates imunify360_full_apache
+        /usr/local/cpanel/scripts/modsec_vendor enable-updates imunify360-full-apache
         ```
         </div>
     * For LiteSpeed run the following command:
@@ -83,7 +83,7 @@ If there is no Imunify360 ruleset installed, run <span class="notranslate">` imu
         <div class="notranslate">
  
         ```
-        /usr/local/cpanel/scripts/modsec_vendor enable-updates imunify360_full_litespeed 
+        /usr/local/cpanel/scripts/modsec_vendor enable-updates imunify360-full-litespeed 
         ```
         </div>
 

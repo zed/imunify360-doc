@@ -70,23 +70,21 @@ The following info is sent to our server:
 
 ### 6. No valid Imunify360 License Found.
 
-Check if the agent is running.
-
-Check access to the central server (<span class="notranslate">`IP: 148.251.130.176 port: 443)`</span>.
-
-Call <span class="notranslate">`imunify360-agent rstatus`</span> and ensure that status is <span class="notranslate">`True`</span>:
+Check if the agent is running:
 
 <div class="notranslate">
 
 ```
-{'expiration': 0, 'status': True, 'user_count': None, 'user_limit': None, 'redirect_url': None}
+systemctl status imunify360
 ```
 
 </div>
 
-Ensure that <span class="notranslate">`/etc/sysconfig/imunify360/imunify360.id`</span> file contains <span class="notranslate">`server_id`</span>.
+Check access to the central server (<span class="notranslate">`imunify360.cloudlinux.com port: 443)`</span>.
 
-If no, <span class="notranslate">`imunify360-agent register KEY`</span>.
+Call <span class="notranslate">`imunify360-agent rstatus`</span> and ensure that status is <span class="notranslate">`OK`</span>
+
+If not, [register](/installation/#registering) it.
 
 ### 7. I have an error peewee.DatabaseError: database disk image is malformed. What should I do?
 

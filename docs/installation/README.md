@@ -147,6 +147,8 @@ bash i360deploy.sh -h
 
 </div>
 
+#### Registering
+
 In a case of registration key is passed later, then you can register an activation key via the <span class="notranslate">Imunify360-agent</span> command:
 
 <div class="notranslate">

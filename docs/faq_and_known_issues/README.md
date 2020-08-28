@@ -80,11 +80,11 @@ systemctl status imunify360
 
 </div>
 
-Check access to the central server (<span class="notranslate">`imunify360.cloudlinux.com port: 443)`</span>.
+Check access to the central server (e.g. using `telnet`) (<span class="notranslate">`imunify360.cloudlinux.com port: 443)`</span>.
 
-Call <span class="notranslate">`imunify360-agent rstatus`</span> and ensure that status is <span class="notranslate">`OK`</span>
+Run <span class="notranslate">`imunify360-agent rstatus`</span> and ensure that status is <span class="notranslate">`OK`</span>
 
-If not, [register](/installation/#registering) it.
+If not, [register](/installation/#registering) the agent.
 
 ### 7. I have an error peewee.DatabaseError: database disk image is malformed. What should I do?
 

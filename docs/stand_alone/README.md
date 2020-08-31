@@ -653,12 +653,12 @@ It should point to an executable file that generates a JSON file similar to the 
     "example.com": {
       "document_root": "/home/username/public_html/",
       "is_main": true,
-      "owner": "username",
+      "owner": "username"
     },
     "subdomain.example.com": {
       "document_root": "/home/username/public_html/subdomain/",
       "is_main": false,
-      "owner": "username",
+      "owner": "username"
     }
   },
   "metadata": {

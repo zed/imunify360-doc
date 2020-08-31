@@ -588,9 +588,7 @@ Also, it is possible to use a domain name of a website which `DNS A` record is p
 </div>
 
 
-### 22. How to edit watched and excluded patterns for Malware Scanner? <Badge text="v.4.8" />
-
-Starting from Imunify version 4.8 you can edit watched and excluded patterns for Malware Scanner.
+### 22. How to edit watched and excluded patterns for Malware Scanner?
 
 There are two files:
 * <span class="notranslate">`/etc/sysconfig/imunify360/malware-filters-admin-conf/watched.txt`</span> defines which paths are watched by Imunify360

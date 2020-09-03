@@ -137,8 +137,8 @@ module.exports = {
                 url: "https://cloudlinux.zendesk.com/hc/en-us/sections/360004020779-Getting-Started"
             },
             {
-                text: "Contact support",
-                url: "https://cloudlinux.zendesk.com/hc/en-us/requests/new"
+                text: "Report an error in documentation",
+                url: "https://direct.lc.chat/7898891/5"
             },
             { text: "Blog", url: "https://www.imunify360.com/blog" }
         ],

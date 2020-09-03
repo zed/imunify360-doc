@@ -1386,7 +1386,7 @@ Click <span class="notranslate">_Save changes_</span> button on the bottom of th
 In this section it is possible to control what kind of incidents will be shown on the [Incidents page](/dashboard/#incidents).
 Move the slider to change your preferences.
 
-There are 15 available levels related to [OSSEC](http://ossec-docs.readthedocs.io/en/latest/manual/rules-decoders/rule-levels.html) and [ModSecurity](https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual#severity) severity levels:
+There are 15 available levels related to [OSSEC](https://www.ossec.net/docs/manual/rules-decoders/rule-levels.html) and [ModSecurity](https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual#severity) severity levels:
 
 | |  | |
 |-|--|-|
@@ -1944,7 +1944,7 @@ When the **Malware Scanner is not available** for end-user, it doesn't exclude u
 
 Click <span class="notranslate">_Add_</span> to apply changes.
 
-See also: [CLI](http://localhost:8080/command_line_interface/). 
+See also: [CLI](/command_line_interface/). 
 
 ### Attributions
 

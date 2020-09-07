@@ -145,6 +145,7 @@ imunify360-agent 3rdparty conflicts
 
 </div>
 
+
 2. The following command lists other IDS that might be running concurrently with Imunify360:
 
 <div class="notranslate">
@@ -211,10 +212,7 @@ The <span class="notranslate">`check`</span> command returns <span class="notran
 <div class="notranslate">
 
    ```
-   $ imunify360-agent backup-systems list
-   acronis 
-   r1soft 
-   cloudlinux
+   imunify360-agent backup-systems list
    ```
 </div>
 
@@ -223,18 +221,17 @@ The <span class="notranslate">`check`</span> command returns <span class="notran
 <div class="notranslate">
 
    ```
-   $ imunify360-agent backup-systems init cloudlinux
-   Backup initialization process is in progress
+   imunify360-agent backup-systems init cloudlinux
    ```
 </div>
+
 
 3. The following command checks if the CloudLinux backup system is connected:
 
 <div class="notranslate">
 
    ```
-   $ imunify360-agent backup-systems check cloudlinux
-   {'url': 'https://cln.cloudlinux.com/clweb/cb/buy.html?id=YourServerIdHere', 'status': 'unpaid'}
+   imunify360-agent backup-systems check cloudlinux
    ```
 </div>
 
@@ -245,10 +242,10 @@ Run the check again and now it returns the size and that the backup has been pai
 <div class="notranslate">
 
    ```
-   $ imunify360-agent backup-systems check cloudlinux
-   {'size': 10, 'status': 'paid'}
+   imunify360-agent backup-systems check cloudlinux
    ```
 </div>
+
 
 The above commands create a new cloudlinuxbackup.com account and link that account to this server after following the link and confirming the payment of $0.00 for free 10GB.
 
@@ -339,7 +336,6 @@ imunify360-agent blacklist ip add 1.2.3.4 --scope group
    ```
 
 </div>
-
 
 :::warning Warning
 For now, ipset supports only IPv6/64 networks
@@ -678,7 +674,7 @@ imunify360-agent features [command] <feature name>
 
    </div>
 
-2. The following command installs KernelCare:
+1. The following command installs KernelCare:
 
 <div class="notranslate">
 
@@ -785,7 +781,7 @@ Imunify360 will keep applying users <span class="notranslate">Features Managemen
 <span class="notranslate">`feature-management enable/disable --feature av`</span> and <span class="notranslate">`feature-management enable/disable --feature proactive`</span> commands will start functioning.
 :::
 
-3. The following command enables the <span class="notranslate">Native Features Management</span>
+1. The following command enables the <span class="notranslate">Native Features Management</span>
 
 <div class="notranslate">
 
@@ -813,7 +809,6 @@ All existing <span class="notranslate">Features Management</span> settings will 
 :::
 
 ## Fix modsec directives
-	
 	
 Fixes the non-recommended values (sets them to ones recommended by Imunify360)
 	
@@ -1847,6 +1842,7 @@ imunify360-agent version [--json]
 ```
 
 </div>
+
 
 ## Whitelist
 

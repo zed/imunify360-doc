@@ -58,6 +58,27 @@ Click <span class="notranslate">_Dashboard_</span> tab to display an overview of
 
 Here you can see notifications about server security and Imunify360 configuration, along with recommendations for making server security effective and proactive.
 
+### Imunify Advisor <Badge text="beta"/> <Badge text="5.2"/>
+
+The Imunify Advisor checks your server’s current settings, then provides a list of optimal settings for your individual server. 
+
+![](/images/Imunify_Advisor.png)
+
+A dialog box pops up to display recommendations.
+
+You can accept or reject them (by unchecking a corresponding checkbox) and apply settings by clicking <span class="notranslate">_Apply_</span>.
+
+Rejected recommendations will not appear again for a while.
+
+:::tip Note
+If you do not want to use the recommendations you can disable Imunify Advisor via the [config file](/config_file_description/).
+:::
+
+:::tip Note
+If your server's settings differ from the recommended, the Imunify Advisor will pop up again to display the settings.
+:::
+
+
 <div class="notranslate">
 
 ### Multi-server Dashboard
@@ -173,6 +194,7 @@ This chart lists the number of cleaned malicious files.
 :::tip Note
 Some charts may be hidden if no alerts of a particular type were recorded within the selected time interval.
 :::
+
 
 ## Incidents
 

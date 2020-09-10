@@ -102,4 +102,3 @@ The following filters are available:
 
 The table can be sorted by Added and Path. By default, it is sorted from newest to oldest.
 
-<Disqus/>

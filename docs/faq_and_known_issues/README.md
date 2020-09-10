@@ -893,5 +893,5 @@ The new license key should have the following format: `IMxxxxxxxxxxxxxxx`.
 This is it!
 
 
-<Disqus/>
+
 

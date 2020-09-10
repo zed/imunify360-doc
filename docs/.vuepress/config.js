@@ -35,7 +35,7 @@ module.exports = {
       before: info => `<div class="danger custom-block"><p class="custom-block-title">${info}</p>`,
       after: '</div>',
     }],
-    ['disqus-spa', { shortname: 'docsimunify360com' }],
+//    ['disqus-spa', { shortname: 'docsimunify360com' }],
     ['@vuepress/google-analytics',
       {
         'ga': 'UA-12711721-12'

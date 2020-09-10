@@ -472,4 +472,3 @@ For Acronis backup two restore modes are available:
   
 Recovery mode is used by default because it restores file owner and permissions, too. Though downloading mode can be enabled with passing <span class="notranslate">`use_download`</span> option to <span class="notranslate">`restore_infected`</span> function. The second optional parameter - <span class="notranslate">`timeout`</span> can be passed to <span class="notranslate">`restore_infected`</span> function to change the default waiting time (time to wait while a file to be restored is being pulled by recovery agent). By default timeout is 600 seconds.
 
-<Disqus/>

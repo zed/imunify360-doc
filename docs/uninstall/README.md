@@ -83,4 +83,3 @@ Ubuntu
 </div>
 
 
-<Disqus/>

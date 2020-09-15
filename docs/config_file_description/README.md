@@ -191,7 +191,7 @@ to request CAPTCHA again</td></tr>
 <tr><td><span class="notranslate">captcha_secret_key: ""</span></td>
 <td># your secret key; required for communication between Google server and this server to get reCAPTCHA pass results</td></tr>
 <tr>
-<th colspan="2" align="left"><span class="notranslate">PROACTIVE_DEFENСE:</span></th></tr>
+<th colspan="2" align="left"><span class="notranslate">PROACTIVE_DEFENCE:</span></th></tr>
 <tr><td><span class="notranslate">blamer: True</span></td>
 <td># enable (<span class="notranslate">True</span> (default)) or disable (<span class="notranslate">False) Blamer</span></td></tr>
 <tr><td><span class="notranslate">mode: LOG</span></td>
@@ -208,8 +208,8 @@ to request CAPTCHA again</td></tr>
 <td># intensity level for RAM consumption. Minimum value is 1024, default is 2048</td></tr>
 <tr>
 <th colspan="2" align="left"><span class="notranslate">MALWARE_SCAN_SCHEDULE:</span></th></tr>
-<tr><td><span class="notranslate">day_of_month: 1</span></td>
-<td># when the background scan shall start, day of the month. Can be from 1 to 31, the default value is 1 (the next day after installation).</td></tr>
+<tr><td><span class="notranslate">day_of_month: &lt;next day after installation&gt;</span></td>
+<td># when the background scan shall start, day of the month. Can be from 1 to 31, the default value is the &lt;next day after installation&gt;.</td></tr>
 <tr><td><span class="notranslate">day_of_week: 0</span></td>
 <td># when the background scan shall start, day of the week. Can be from 0 to 7 (0 for Sunday, 1 for Monday..., 7 for Sunday (again)), the default value is 0</td></tr>
 <tr><td><span class="notranslate">hour: 3</span></td>

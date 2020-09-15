@@ -548,6 +548,17 @@ imunify360-agent clean --days 5 --limit 5000
 
 </div>
 
+Below you may see the example of the above command execution – the output identifies the number of the incidents cleaned:
+
+<div class="notranslate">
+
+```
+# imunify360-agent clean --days 5 --limit 5000
+2521
+```
+
+</div>
+
 ## Config
 
 Allows to update and show configuration file via CLI.
@@ -582,6 +593,8 @@ imunify360-agent config update ‘{"MALWARE_SCAN_INTENSITY": {"cpu": 5}}’
 ```
 </div>
 
+The successful output should display the configuration file content.
+
 ## Doctor
 
 Collecting information about Imunify360 state, generating the report and sending it to Imunify360 Support Team. This command can be used in case of any troubles or issues with Imunify360. This command will generate a key to be sent to Imunify360 Support Team. With that key Imunify360 Support Team can help with any problem as fast as possible.
@@ -595,7 +608,18 @@ imunify360-agent doctor
 ```
 
 </div>
- 
+
+The successful output will contain the unique set of symbols, for example:
+
+<div class="notranslate">
+
+```
+Please, provide this key:
+SSXX11xXXXxxxxXX.1a1bcd1e-222f-33g3-hi44-5551k5lmn555
+to Imunify360 Support Team
+```
+
+</div>
 
 ## Eula
 
@@ -800,6 +824,16 @@ Imunify360 <span class="notranslate">Package Extensions</span> will be auto-enab
 
 All existing <span class="notranslate">Features Management</span> settings will be overridden with the Imunify360 <span class="notranslate">Package Extensions</span> ones for all users.
 
+If the command is executed successfully, you will see the following output:
+
+<div class="notranslate">
+
+```
+OK
+```
+
+</div>
+
 ::: tip Note
 <span class="notranslate">Features Management</span> tab will be hidden on the User Interface.
 :::
@@ -833,6 +867,8 @@ imunify360-agent fix modsec directives
 ```
 	
 </div>
+
+The successful execution will display the ```OK``` message. Otherwise, the actual error message will be displayed if there are any issues with that.
 
 ## Get
 
@@ -877,6 +913,23 @@ imunify360-agent get --period 1h --by-country-code UA --by-list black --json
 ```
 
 </div>
+
+This one will show the incidents with the severity level 5 of triggered rules, e.g.:
+
+<div class="notranslate">
+
+```
+# imunify360-agent get --period 20d --severity 5
+
+TIMESTAMP   ABUSER        COUNTRY  TIMES    NAME                         SEVERITY
+1600162404  11.22.33.44    CN        1      SSHD authentication failed.  5       
+1600154599  11.22.33.44    CN        1      SSHD authentication failed.  5       
+1600138163  11.22.33.44    CN        1      Process exiting (killed).    5 
+```
+
+</div>
+
+To get more detailed output to check the plugin or the rule ID these incidents belong to, use the ```--json``` argument.
 
 ## Graylist
 
@@ -933,6 +986,8 @@ imunify360-agent graylist ip delete 1.2.3.4
 
 </div>
 
+Once it is removed, the ```OK``` message will be shown in the output.
+
 ## Hooks
 
 You can find more about hooks [here](/features/#hooks).
@@ -970,7 +1025,17 @@ The following command shows existing event handlers:
 <div class="notranslate">
 
 ```
-imunify360-agent hook list
+imunify360-agent hook list --event all
+```
+
+</div>
+
+If you have any hooks configured, the output will include something similar to this:
+
+<div class="notranslate">
+
+```
+Event: malware-detected, Path: /root/directory/im360mwscannereventhooks/get_user.py
 ```
 
 </div>

@@ -19,7 +19,7 @@ In the config file it is possible to set up Imunify360 configuration. The follow
 <th colspan="2" align="left"><span class="notranslate">DOS:</span></th>
 </tr>
 <tr>
-<td width="250px;"><span class="notranslate">enabled: false</span></td><td># allows to enable (<span class="notranslate">true</span>) or disable (<span class="notranslate">false</span>) DOS detection</td></tr>
+<td width="250px;"><span class="notranslate">enabled: True</span></td><td># allows to enable (<span class="notranslate">True</span>, the default value) or disable (<span class="notranslate">False</span>) DOS detection</td></tr>
 <tr><td><span class="notranslate">interval: 30</span></td><td># interval in seconds between DoS detection system activation</td></tr>
 <tr><td><span class="notranslate">default_limit: 250</span></td><td># maximum default limit of connections from remote IP to local port before DoS protection will be triggered. Cannot be set lower than 100</td></tr>
 <tr>
@@ -66,11 +66,11 @@ Changes of config files will be applied automatically. You don’t need to resta
 <tr>
 <td width="250px;"><span class="notranslate">ruleset: FULL</span></td><td># defines what ruleset to use: <span class="notranslate">FULL</span> (default value) or <span class="notranslate">MINIMAL</span>. If the amount of RAM on the server is less than 2.1GB, the ruleset value is automatically set to <span class="notranslate">MINIMAL</span>.</td></tr>
 <tr>
-<td width="250px;"><span class="notranslate">cms_account_compromise_prevention: true</span></td><td># enables WordPress account brute-force protection.</td></tr>
+<td width="250px;"><span class="notranslate">cms_account_compromise_prevention: False</span></td><td># enables WordPress account brute-force protection. Default is <b>False</b>.</td></tr>
 <td width="250px;"><span class="notranslate">prev_settings: </span></td><td># for internal usage, do not edit</td></tr>
 <tr>
 <th colspan="2" align="left"><span class="notranslate">MOD_SEC_BLOCK_BY_SEVERITY:</span></th></tr>
- <tr><td><span class="notranslate">enable: true</span></td><td># allows to enable or disable option that moves IPs to <span class="notranslate">Gray List</span> if the ModSecurity rule is triggered</td></tr>
+ <tr><td><span class="notranslate">enable: True</span></td><td># allows to enable or disable option that moves IPs to <span class="notranslate">Gray List</span> if the ModSecurity rule is triggered</td></tr>
 <tr><td><span class="notranslate">max_incidents: 2</span></td><td># set a number of repeats of the ModSecurity incident from the same IP for adding it to <span class="notranslate">Gray List</span></td></tr>
 <tr><td><span class="notranslate">denied_num_limit: 2</span></td>
 <td># set a number of repeats of the ModSecurity incidents that got Access Denied error from the same IP for adding it to <span class="notranslate">Gray List</span></td></tr>
@@ -89,22 +89,22 @@ Changes of config files will be applied automatically. You don’t need to resta
 <tr>
 <th colspan="2" align="left"><span class="notranslate">MALWARE_SCANNING:</span></th></tr>
 <tr><td><span class="notranslate">try_restore_from_backup_first: false</span></td>
-<td># allows to enable (<span class="notranslate">true</span>) or disable (<span class="notranslate">false</span>) automatic malicious file restore from backup if a clean copy exists,
+<td># allows to enable (<span class="notranslate">true</span>) or disable (<span class="notranslate">false</span> – the defult value) automatic malicious file restore from backup if a clean copy exists,
 otherwise <span class="notranslate"><em>default_action</em></span> is applied</td></tr>
-<tr><td><span class="notranslate">default_action: quarantine</span></td>
+<tr><td><span class="notranslate">default_action: cleanup_or_quarantine</span></td>
 <td># default action on malicious file detected.<br>
 Available options:
 <ul><li><span class="notranslate">quarantine</span> – do not delete and move to quarantine</li>
 <li><span class="notranslate">notify</span> – do not delete and send email notification</li>
 <li><span class="notranslate">delete</span> – delete malicious file</li>
 <li><span class="notranslate">cleanup</span> – cleanup malicious file</li>
-<li><span class="notranslate">cleanup_or_quarantine</span> – choose what to do with a malicious file</li></ul></td></tr>
-<tr><td><span class="notranslate">enable_scan_inotify: False</span></td>
-<td># enable (<span class="notranslate">true</span>) or disable (<span class="notranslate">false</span>) real-time scanning for modified files using <a href="https://en.wikipedia.org/wiki/Inotify" target="_blank">inotify</a> library</td></tr>
-<tr><td><span class="notranslate">enable_scan_pure_ftpd: true</span></td>
-<td># enable (<span class="notranslate">true</span>) or disable (<span class="notranslate">false</span>) real-time scanning for files uploaded through PureFTPd</td></tr>
-<tr><td><span class="notranslate">enable_scan_modsec: true</span></td>
-<td>#  enable (<span class="notranslate">true</span>) or disable (<span class="notranslate">false</span>) real-time scanning of all the files
+<li><span class="notranslate">cleanup_or_quarantine</span> (default) – choose what to do with a malicious file</li></ul></td></tr>
+<tr><td><span class="notranslate">enable_scan_inotify: True</span></td>
+<td># enable (<span class="notranslate">True</span> (default)) or disable (<span class="notranslate">False</span>) real-time scanning for modified files using <a href="https://en.wikipedia.org/wiki/Inotify" target="_blank">inotify</a> library</td></tr>
+<tr><td><span class="notranslate">enable_scan_pure_ftpd: True</span></td>
+<td># enable (<span class="notranslate">True</span> (default)) or disable (<span class="notranslate">False</span>) real-time scanning for files uploaded through PureFTPd</td></tr>
+<tr><td><span class="notranslate">enable_scan_modsec: True</span></td>
+<td>#  enable (<span class="notranslate">True</span> (default) or disable (<span class="notranslate">False</span>) real-time scanning of all the files
 that were uploaded via http/https. Note that it requires <a href="https://modsecurity.org" target="_blank">ModSecurity</a> to be installed</td></tr>
 <tr><td><span class="notranslate">max_signature_size_to_scan: 1048576</span></td>
 <td># max file size to scan in the standard mode; value is set in bytes</td></tr>
@@ -116,8 +116,8 @@ that were uploaded via http/https. Note that it requires <a href="https://modsec
 <td># enable (<span class="notranslate">True</span>) or disable (<span class="notranslate">False</span>) (default value) binary (ELF) malware detection</td></tr>
 <tr><td><span class="notranslate">notify_on_detect: False</span></td>
 <td># notify (<span class="notranslate">True</span>) or not (<span class="notranslate">False</span>) (default value) an admin when malware is detected</td></tr>
-<tr><td><span class="notranslate">optimize_realtime_scan: False</span></td>
-<td># enable (<span class="notranslate">True</span>) or disable (<span class="notranslate">False</span>) (default value) the  <a href="https://docs.cloudlinux.com/cloudlinux_os_kernel/#file-change-api" target="_blank">File Change API</a> support to reduce the system load while watching for file changes in comparison with inotify watch</td></tr>
+<tr><td><span class="notranslate">optimize_realtime_scan: True</span></td>
+<td># enable (<span class="notranslate">True</span>) (default value) or disable (<span class="notranslate">False</span>) the  <a href="https://docs.cloudlinux.com/cloudlinux_os_kernel/#file-change-api" target="_blank">File Change API</a> support to reduce the system load while watching for file changes in comparison with inotify watch</td></tr>
 <tr><td><span class="notranslate">sends_file_for_analysis: True</span></td>
 <td># send (<span class="notranslate">True</span>) (default value) or not (<span class="notranslate">False</span>) malicious and suspicious files to the Imunify team for analysis</td></tr>
 <tr><td><span class="notranslate">i360_clamd: False</span></td>
@@ -130,28 +130,28 @@ that were uploaded via http/https. Note that it requires <a href="https://modsec
 <td># enable (<span class="notranslate">True</span>) (default value) or disable (<span class="notranslate">False</span>) real-time scanning for modified files using inotify library. The Scanner searches for modified files in user’s DocumentRoot directories.</td></tr>
 <tr><td><span class="notranslate">cloud_assisted_scan: True</span></td>
 <td># speed up scans by check file hashes using cloud database</td></tr>
-<tr><td><span class="notranslate">rapid_scan: False</span></td>
-<td># speeds up (<span class="notranslate">True</span>) ot not (<span class="notranslate">False</span>) (default value) repeated scans based on smart re-scan approach, local result caching and cloud-assisted scan.</td></tr>
+<tr><td><span class="notranslate">rapid_scan: True</span></td>
+<td># speeds up (<span class="notranslate">True</span>) (default value) ot not (<span class="notranslate">False</span>) repeated scans based on smart re-scan approach, local result caching and cloud-assisted scan.</td></tr>
 <tr>
 <th colspan="2" align="left"><span class="notranslate">CAPTCHA:</span></th></tr>
 <tr><td><span class="notranslate">cert_refresh_timeout: 3600</span></td>
 <td># set in seconds how often SSL certificate will be refreshed</td></tr>
 <tr>
 <th colspan="2" align="left"><span class="notranslate">ERROR_REPORTING:</span></th></tr>
-<tr><td><span class="notranslate">enable: true</span></td>
+<tr><td><span class="notranslate">enable: True</span></td>
 <td># automatically report errors to imunify360 team</td></tr>
 <tr>
 <th colspan="2" align="left"><span class="notranslate">SEND_ADDITIONAL_DATA:</span></th></tr>
-<tr><td><span class="notranslate">enable: true</span></td>
-<td># send anonymized data from query string/post parameters and cookies.</td></tr>
+<tr><td><span class="notranslate">enable: True</span></td>
+<td># send anonymized data from query string/post parameters and cookies. True is the default value.</td></tr>
 <tr>
 <th align="left"><span class="notranslate">NETWORK_INTERFACE:</span></th>
 <th aligh="left"># manages for what network interfaces Imunify360 rules will be applied</th></td>
 <tr>
-<td><span class="notranslate">eth_device: null</span></td>
+<td><span class="notranslate">eth_device: None</span></td>
 <td># by default, Imunify360 will auto-configure iptables to filter all traffic. 
 If you want iptables rules to be applied to a specific NIC only, list them here (e.g. <span class="notranslate">eth1</span>)</td></tr>
-<tr><td><span class="notranslate">eth6_device: null</span></td>
+<tr><td><span class="notranslate">eth6_device: None</span></td>
 <td># it is the same as <span class="notranslate"><em>eth_device</em></span>, but configures ip6tables to use specific device</td></tr>
 <tr><td><span class="notranslate">eth_device_skip: []</span></td>
 <td># if you don't want iptables\ip6tables rules to be applied to specific NICs, list them here (e.g <span class="notranslate">[eth1, eth2]</span>)</td></tr>
@@ -160,13 +160,13 @@ If you want iptables rules to be applied to a specific NIC only, list them here 
 <tr><td><span class="notranslate">max_days_in_backup: 90</span></td>
 <td># restore from backup files that are not older than <span class="notranslate"><em>max_days_in_backup</em></span></td></tr>
 <tr><td><span class="notranslate">cl_backup_allowed: True</span></td>
-<td># show <span class="notranslate">CloudLinux Backup</span> in the list of available backup system (<span class="notranslate">True</span>) or hide it (<span class="notranslate">False</span>)</td></tr>
+<td># show <span class="notranslate">CloudLinux Backup</span> in the list of available backup system (<span class="notranslate">True</span> (default)) or hide it (<span class="notranslate">False</span>)</td></tr>
 <tr><td><span class="notranslate">cl_on_premise_backup_allowed: False</span></td>
-<td># do not allow CloudLinux backup (<span class="notranslate">False</span>) or allow it (<span class="notranslate">True</span>)</td></tr>
+<td># do not allow CloudLinux backup (<span class="notranslate">False</span> (default)) or allow it (<span class="notranslate">True</span>)</td></tr>
 <tr>
 <th colspan="2" align="left"><span class="notranslate">CAPTCHA_DOS:</span></th></tr>
-<tr><td><span class="notranslate">enabled: true</span></td>
-<td># enable (<span class="notranslate">true</span>) or disable (<span class="notranslate">false</span>) CAPTCHA Dos protection</td></tr>
+<tr><td><span class="notranslate">enabled: True</span></td>
+<td># enable (<span class="notranslate">True</span> (default) or disable (<span class="notranslate">False</span>) CAPTCHA Dos protection</td></tr>
 <tr><td><span class="notranslate">time_frame: 21600</span></td>
 <td># set a period in seconds during which requests to CAPTCHA from the same IP
 will be recorded as repeated</td></tr>
@@ -182,54 +182,54 @@ to request CAPTCHA again</td></tr>
 <td># defines the default state of ports which is not explicitly set by user (<span class="notranslate"><em>denied</em></span> by default or <span class="notranslate"><em>allowed</em></span> by default). Currently only <span class="notranslate"><em>allowed</em></span> is supported</td></tr>
 <tr>
 <th colspan="2" align="left"><span class="notranslate">WEBSHIELD:</span></th></tr>
-<tr><td><span class="notranslate">known_proxies_support: true</span></td>
-<td># enable CDN support, treat IPs behind CDN as any other IPs</td></tr>
-<tr><td><span class="notranslate">enable: true</span></td>
-<td># enable (true) (default value) or disable (false) WebShield</td></tr>
+<tr><td><span class="notranslate">known_proxies_support: True</span></td>
+<td># enable CDN support, treat IPs behind CDN as any other IPs. (True is the default value).</td></tr>
+<tr><td><span class="notranslate">enable: True</span></td>
+<td># enable (True) (default value) or disable (False) WebShield</td></tr>
 <tr><td><span class="notranslate">captcha_site_key: ""</span></td>
 <td># your site key; required to show reCAPTCHA on the page</td></tr>
 <tr><td><span class="notranslate">captcha_secret_key: ""</span></td>
 <td># your secret key; required for communication between Google server and this server to get reCAPTCHA pass results</td></tr>
 <tr>
 <th colspan="2" align="left"><span class="notranslate">PROACTIVE_DEFENСE:</span></th></tr>
-<tr><td><span class="notranslate">blamer: false</span></td>
-<td># enable (<span class="notranslate">true</span>) or disable (<span class="notranslate">false) Blamer</span></td></tr>
-<tr><td><span class="notranslate">mode: KILL</span></td>
-<td># available modes:<ul><li><span class="notranslate">KILL</span></li><li><span class="notranslate">DISABLED</span></li><li><span class="notranslate">LOG</span></li></ul></td></tr>
-<tr><td><span class="notranslate">php_immunity: false</span></td>
-<td># enable (<span class="notranslate">true</span>) or disable (<span class="notranslate">false) PHP Immunity </span> (allows to automatically detect & patch vulnerabilities in software at the Proactive Defense level preventing re-infections through the same vulnerability). By enabling this feature, Blamer will be enabled as well and Proactive Defence switched into the KILL mode.</td></tr>
+<tr><td><span class="notranslate">blamer: True</span></td>
+<td># enable (<span class="notranslate">True</span> (default)) or disable (<span class="notranslate">False) Blamer</span></td></tr>
+<tr><td><span class="notranslate">mode: LOG</span></td>
+<td># available modes:<ul><li><span class="notranslate">KILL</span></li><li><span class="notranslate">DISABLED</span></li><li><span class="notranslate">LOG</span> (default)</li></ul></td></tr>
+<tr><td><span class="notranslate">php_immunity: False</span></td>
+<td># enable (<span class="notranslate">True</span>) or disable (<span class="notranslate">False (default)) PHP Immunity </span> (allows to automatically detect & patch vulnerabilities in software at the Proactive Defense level preventing re-infections through the same vulnerability). By enabling this feature, Blamer will be enabled as well and Proactive Defence switched into the KILL mode.</td></tr>
 <tr>
 <th colspan="2" align="left"><span class="notranslate">MALWARE_SCAN_INTENSITY:</span></th></tr>
-<tr><td><span class="notranslate">cpu: 6</span></td>
+<tr><td><span class="notranslate">cpu: 2</span></td>
 <td># intensity level for CPU consumption. Can be set from 1 to 7, default is 2</td></tr>
-<tr><td><span class="notranslate">io: 6</span></td>
+<tr><td><span class="notranslate">io: 2</span></td>
 <td># intensity level for file operations. Can be set from 1 to 7, default is 2</td></tr>
-<tr><td><span class="notranslate">ram: 1024</span></td>
+<tr><td><span class="notranslate">ram: 2048</span></td>
 <td># intensity level for RAM consumption. Minimum value is 1024, default is 2048</td></tr>
 <tr>
 <th colspan="2" align="left"><span class="notranslate">MALWARE_SCAN_SCHEDULE:</span></th></tr>
-<tr><td><span class="notranslate">day_of_month: 4</span></td>
-<td># when the background scan shall start, day of the month. Can be from 1 to 31, the default value is the next day after the installation</td></tr>
+<tr><td><span class="notranslate">day_of_month: 1</span></td>
+<td># when the background scan shall start, day of the month. Can be from 1 to 31, the default value is 1 (the next day after installation).</td></tr>
 <tr><td><span class="notranslate">day_of_week: 0</span></td>
 <td># when the background scan shall start, day of the week. Can be from 0 to 7 (0 for Sunday, 1 for Monday..., 7 for Sunday (again)), the default value is 0</td></tr>
 <tr><td><span class="notranslate">hour: 3</span></td>
 <td># when the background scan shall start, hour. Can be from 0 to 23, the default value is 3</td></tr>
-<tr><td><span class="notranslate">interval: none</span></td>
-<td># interval of scan. Supported values: strings <span class="notranslate">`none`</span>, <span class="notranslate">`day`</span>, <span class="notranslate">`week`</span>, <span class="notranslate">`month`</span>, the default value is <span class="notranslate">`none`</span> (no scan)</td></tr>
+<tr><td><span class="notranslate">interval: MONTH</span></td>
+<td># interval of scan. Supported values: strings <span class="notranslate">`NONE`</span> (no scan), <span class="notranslate">`DAY`</span>, <span class="notranslate">`WEEK`</span>, <span class="notranslate">`MONTH`</span>, the default value is <span class="notranslate">`MONTH`</span></td></tr>
 <tr>
 <th align="left"><span class="notranslate">PAM:</span></th>
 <th align="left"># effective way to prevent brute-force attacks against FTP/SSH</th></tr>
-<tr><td><span class="notranslate">enable: false</span></td>
-<td># enable (<span class="notranslate">true</span>) or disable (<span class="notranslate">false</span>) (default value) PAM brute-force attack protection</td></tr>
-<tr><td><span class="notranslate">PAM.exim_dovecot_protection: false</span></td>
-<td># enable (<span class="notranslate">true</span>) or disable (<span class="notranslate">false</span>) (default value) Exim+Dovecot brute-force attack protection against Dovecot brute-force attacks.</td></tr>
-<tr><td><span class="notranslate">PAM.ftp_protection: false</span></td>
-<td># enable (<span class="notranslate">true</span>) or disable (<span class="notranslate">false</span>) (default value) FTP brute-force attack protection.</td></tr>
+<tr><td><span class="notranslate">enable: False</span></td>
+<td># enable (<span class="notranslate">True</span>) or disable (<span class="notranslate">False</span>) (default value) PAM brute-force attack protection</td></tr>
+<tr><td><span class="notranslate">PAM.exim_dovecot_protection: False</span></td>
+<td># enable (<span class="notranslate">True</span>) or disable (<span class="notranslate">False</span>) (default value) Exim+Dovecot brute-force attack protection against Dovecot brute-force attacks.</td></tr>
+<tr><td><span class="notranslate">PAM.ftp_protection: False</span></td>
+<td># enable (<span class="notranslate">True</span>) or disable (<span class="notranslate">False</span>) (default value) FTP brute-force attack protection.</td></tr>
 <tr>
 <th align="left"><span class="notranslate">KERNELCARE:</span></th>
 <th align="left"># KernelCare extension for Imunify360 which allows tracing malicious invocations to detect privilege escalation attempts</th></tr>
-<tr><td><span class="notranslate">edf: false</span></td>
-<td># enable (<span class="notranslate">true</span>) or disable (<span class="notranslate">false</span>) (default value) exploit detection framework</td></tr>
+<tr><td><span class="notranslate">edf: False</span></td>
+<td># enable (<span class="notranslate">True</span>) or disable (<span class="notranslate">False</span>) (default value) exploit detection framework</td></tr>
 <tr><th colspan="2" align="left"><span class="notranslate">MALWARE_CLEANUP:</span></th></tr>
 <tr><td><span class="notranslate">trim_file_instead_of_removal: True</span></td>
 <td># do not remove infected file during cleanup but make the file zero-size (for malwares like web-shells) (<span class="notranslate">True</span>) (default value)</td></tr>
@@ -255,8 +255,8 @@ to request CAPTCHA again</td></tr>
 <tr><td><span class="notranslate">redirect: False</span></td>
 <td># enable (<span class="notranslate">True</span>) or disable (<span class="notranslate">False</span>) (the default value) automatic redirection to the local ports for outgoing mail traffic.</td></tr>
 <tr><th colspan="2" align="left"><span class="notranslate">CSF_INTEGRATION:</span></th></tr>
-<tr><td><span class="notranslate">catch_lfd_events: True</span></td>
-<td># let (<span class="notranslate">True</span>) (the default value) Imunify360 use Login Failure Daemon (LFD) as a source for security events.</td></tr>
+<tr><td><span class="notranslate">catch_lfd_events: False</span></td>
+<td># let (<span class="notranslate">True</span>) Imunify360 use Login Failure Daemon (LFD) as a source for security events. Default is False.</td></tr>
 <tr><th colspan="2" align="left"><span class="notranslate">PERMISSIONS:</span></th></tr>
 <tr><td><span class="notranslate">support_form: True</span></td>
 <td># show (<span class="notranslate">True</span>) (the default value) or hide (<span class="notranslate">False</span>) the Support icon in the Imunify360 UI.</td></tr>

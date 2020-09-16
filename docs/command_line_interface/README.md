@@ -216,6 +216,16 @@ The <span class="notranslate">`check`</span> command returns <span class="notran
    ```
 </div>
 
+Example of successful output:
+
+```
+acronis 
+r1soft 
+cloudlinux
+cpanel
+```
+
+
 2. The following command initializes CloudLinux backup system:
 
 <div class="notranslate">
@@ -224,6 +234,12 @@ The <span class="notranslate">`check`</span> command returns <span class="notran
    imunify360-agent backup-systems init cloudlinux
    ```
 </div>
+
+Example of successful output:
+
+```
+Backup initialization process is in progress
+```
 
 
 3. The following command checks if the CloudLinux backup system is connected:
@@ -234,6 +250,12 @@ The <span class="notranslate">`check`</span> command returns <span class="notran
    imunify360-agent backup-systems check cloudlinux
    ```
 </div>
+
+Example of successful output:
+
+```
+{'url': 'https://cln.cloudlinux.com/clweb/cb/buy.html?id=YourServerIdHere', 'status': 'unpaid'}
+```
 
 At first, it shows that it isn't, so you should open the URL from the JSON response in the browser to activate the backup. Once this is done, it shows in the CLN.
 
@@ -326,6 +348,13 @@ where 12.34.56.78 is that specific IP address.
 
 </div>
 
+Example of successful output:
+
+```
+IP       TTL  COUNTRY  IMPORTED_FROM  COMMENT
+1.2.3.4
+```
+
 
 * The following command adds an IP 1.2.3.4 to the Black List and sets the scope to <span class="notranslate">`group`</span>:
 
@@ -336,6 +365,8 @@ imunify360-agent blacklist ip add 1.2.3.4 --scope group
    ```
 
 </div>
+
+It returns `OK` if successful.
 
 :::warning Warning
 For now, ipset supports only IPv6/64 networks
@@ -489,6 +520,8 @@ imunify360-agent check-domains
 
 </div>
 
+It returns `OK` if successful.
+
 ## Check modsec directives
 	
 Allows to check whether the global [ModSecurity directives](https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual-%28v2.x%29#Configuration_Directives) have values recommended by Imunify360. 
@@ -514,7 +547,15 @@ imunify360-agent check modsec directives
 ```
 
 </div>
-	
+
+Example of successful output:
+
+```
+WARNING: {'ignored': False, 'id': '1000', 'fix': 'Run `imunify360-agent fix modsec directives` command', 'title': "Wrong value for SecConnEngine ModSecurity directive. Expected: 'Off' Got: None", 'url': 'https://docs.imunify360.com/'}
+WARNING: {'ignored': False, 'id': '1000', 'fix': 'Run `imunify360-agent fix modsec directives` command', 'title': "Wrong value for SecAuditEngine ModSecurity directive. Expected: 'RelevantOnly' Got: None", 'url': 'https://docs.imunify360.com/'}
+WARNING: {'ignored': False, 'id': '1000', 'fix': 'Run `imunify360-agent fix modsec directives` command', 'title': "Wrong value for SecRuleEngine ModSecurity directive. Expected: 'On' Got: None", 'url': 'https://docs.imunify360.com/'}
+```
+
 ## Clean
 
 Clean the incident list.
@@ -674,7 +715,13 @@ imunify360-agent features [command] <feature name>
 
    </div>
 
-1. The following command installs KernelCare:
+Example of successful output:
+
+```
+{'status': 'not_installed', 'message': 'KernelCare is not installed'}
+```
+
+2. The following command installs KernelCare:
 
 <div class="notranslate">
 
@@ -1843,6 +1890,11 @@ imunify360-agent version [--json]
 
 </div>
 
+Example of successful output:
+
+```
+4.9.5-3
+```
 
 ## Whitelist
 

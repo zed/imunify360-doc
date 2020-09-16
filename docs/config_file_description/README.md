@@ -88,8 +88,8 @@ Changes of config files will be applied automatically. You don’t need to resta
 <td># set a number of repeats of the ModSecurity incident from the same IP for adding it to <span class="notranslate">Gray List</span></td></tr>
 <tr>
 <th colspan="2" align="left"><span class="notranslate">MALWARE_SCANNING:</span></th></tr>
-<tr><td><span class="notranslate">try_restore_from_backup_first: false</span></td>
-<td># allows to enable (<span class="notranslate">true</span>) or disable (<span class="notranslate">false</span> – the defult value) automatic malicious file restore from backup if a clean copy exists,
+<tr><td><span class="notranslate">try_restore_from_backup_first: False</span></td>
+<td># allows to enable (<span class="notranslate">True</span>) or disable (<span class="notranslate">False</span> – the default value) automatic malicious file restore from backup if a clean copy exists,
 otherwise <span class="notranslate"><em>default_action</em></span> is applied</td></tr>
 <tr><td><span class="notranslate">default_action: cleanup_or_quarantine</span></td>
 <td># default action on malicious file detected.<br>
@@ -265,7 +265,7 @@ to request CAPTCHA again</td></tr>
 <tr><td><span class="notranslate">allow_malware_scan: False</span></td>
 <td># enable (<span class="notranslate">True</span>) or disable (<span class="notranslate">False</span>) (the default value) “scan” action in the UI of the end-user.</td></tr>
 <tr>
-<td width="250px;"><span class="notranslate">advisor: true</span></td><td># enable (<span class="notranslate">true</span> - the default value) or disable (<span class="notranslate">false</span>) the Imunify Advisor.</td></tr>
+<td width="250px;"><span class="notranslate">advisor: True</span></td><td># enable (<span class="notranslate">True</span> - the default value) or disable (<span class="notranslate">False</span>) the Imunify Advisor.</td></tr>
 
 <tr><th colspan="2" align="left"><span class="notranslate">STOP_MANAGING:</span></th></tr>
 <tr><td><span class="notranslate">modsec_directives: False</span></td>
@@ -286,7 +286,7 @@ In order to activate <span class="notranslate">Active Response, </span>the follo
 
 ```
 OSSEC:
-  active_response: true
+  active_response: True
 ```
 
 </div>

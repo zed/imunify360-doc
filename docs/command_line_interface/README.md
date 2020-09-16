@@ -153,6 +153,15 @@ imunify360-agent 3rdparty conflicts
 ```
 imunify360-agent 3rdparty list
 ```
+</div>
+
+Here is the example of an output on the server with Fail2ban enabled:
+
+<div class="notranslate">
+
+```
+fail2ban
+```
 
 </div>
 
@@ -421,6 +430,20 @@ imunify360-agent blocked-port add 5555:tcp --comment “Some comment”
 
 </div>
 
+This one includes the list of example IPs and ports blocked:
+
+<div class="notranslate">
+
+```
+# imunify360-agent blocked-port list
+
+COMMENT       ID  IPS                                                                                   PORT  PROTO
+              1   []                                                                                    3306  tcp  
+Some comment  2   [{'comment': None, 'ip': '111.111.111.111'}, {'comment': None, 'ip': '22.22.22.22'}]  5555  tcp 
+```
+
+</div>
+
 ## Blocked Port IP
 
 This command allows to change the list of IPs that are excluded (allowed) for a certain blocked port.
@@ -459,9 +482,18 @@ The following command adds IP address 12.34.56.78 to the blocked port 5555 for t
 <div class="notranslate">
 
 ```
-imunify360-agent blocked-port-ip add 12.34.56.78 5555:tcp --comment “Some comment”
+imunify360-agent blocked-port-ip add 5555:tcp --ips 12.34.56.78 --comment 'Some comment'
 ```
 
+</div>
+
+The example of a successful output:
+
+<div class="notranslate">
+	
+```
+OK
+```
 </div>
 
 ## Checkdb
@@ -589,6 +621,17 @@ imunify360-agent clean --days 5 --limit 5000
 
 </div>
 
+Below you may see the example of the above command execution – the output identifies the number of the incidents cleaned:
+
+<div class="notranslate">
+
+```
+# imunify360-agent clean --days 5 --limit 5000
+2521
+```
+
+</div>
+
 ## Config
 
 Allows to update and show configuration file via CLI.
@@ -623,6 +666,8 @@ imunify360-agent config update ‘{"MALWARE_SCAN_INTENSITY": {"cpu": 5}}’
 ```
 </div>
 
+The successful output should display the configuration file content.
+
 ## Doctor
 
 Collecting information about Imunify360 state, generating the report and sending it to Imunify360 Support Team. This command can be used in case of any troubles or issues with Imunify360. This command will generate a key to be sent to Imunify360 Support Team. With that key Imunify360 Support Team can help with any problem as fast as possible.
@@ -636,7 +681,18 @@ imunify360-agent doctor
 ```
 
 </div>
- 
+
+The successful output will contain the unique set of symbols, for example:
+
+<div class="notranslate">
+
+```
+Please, provide this key:
+SSXX11xXXXxxxxXX.1a1bcd1e-222f-33g3-hi44-5551k5lmn555
+to Imunify360 Support Team
+```
+
+</div>
 
 ## Eula
 
@@ -847,6 +903,16 @@ Imunify360 <span class="notranslate">Package Extensions</span> will be auto-enab
 
 All existing <span class="notranslate">Features Management</span> settings will be overridden with the Imunify360 <span class="notranslate">Package Extensions</span> ones for all users.
 
+If the command is executed successfully, you will see the following output:
+
+<div class="notranslate">
+
+```
+OK
+```
+
+</div>
+
 ::: tip Note
 <span class="notranslate">Features Management</span> tab will be hidden on the User Interface.
 :::
@@ -880,6 +946,8 @@ imunify360-agent fix modsec directives
 ```
 	
 </div>
+
+The successful execution will display the ```OK``` message. Otherwise, the actual error message will be displayed if there are any issues with that.
 
 ## Get
 
@@ -924,6 +992,23 @@ imunify360-agent get --period 1h --by-country-code UA --by-list black --json
 ```
 
 </div>
+
+This one will show the incidents with the severity level 5 of triggered rules, e.g.:
+
+<div class="notranslate">
+
+```
+# imunify360-agent get --period 20d --severity 5
+
+TIMESTAMP   ABUSER        COUNTRY  TIMES    NAME                         SEVERITY
+1600162404  11.22.33.44    CN        1      SSHD authentication failed.  5       
+1600154599  11.22.33.44    CN        1      SSHD authentication failed.  5       
+1600138163  11.22.33.44    CN        1      Process exiting (killed).    5 
+```
+
+</div>
+
+To get more detailed output to check the plugin or the rule ID these incidents belong to, use the ```--json``` argument.
 
 ## Graylist
 
@@ -980,6 +1065,8 @@ imunify360-agent graylist ip delete 1.2.3.4
 
 </div>
 
+Once it is removed, the ```OK``` message will be shown in the output.
+
 ## Hooks
 
 You can find more about hooks [here](/features/#hooks).
@@ -1017,7 +1104,17 @@ The following command shows existing event handlers:
 <div class="notranslate">
 
 ```
-imunify360-agent hook list
+imunify360-agent hook list --event all
+```
+
+</div>
+
+If you have any hooks configured, the output will include something similar to this:
+
+<div class="notranslate">
+
+```
+Event: malware-detected, Path: /root/directory/im360mwscannereventhooks/get_user.py
 ```
 
 </div>
@@ -1089,6 +1186,17 @@ imunify360-agent infected-domains
 
 </div>
 
+In case there are no infected domains located on the server, you will see no output. If there are any, you will get the following output:
+
+<div class="notranslate">
+
+```
+'domain1.com'
+'domain2.com'
+```
+
+</div>
+
 
 ## Login
 
@@ -1137,6 +1245,15 @@ imunify360-agent login get --username my-user1
 
 </div>
 
+The output will display similar to the following:
+
+<div class="notranslate">
+
+```
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDAyNDQwMTAuMDk5MzE5LCJ1c2VyX3R5cGUiOiJjbGllbnQiLCJ1c2VybmFtZSI6ImNsdGVzdCJ9.V_Q03hYw4dNLX5cewEb_h46hOw96KWBWP0E0ChbP3dA
+```
+
+</div>
 
 2. This command is used internally by stand-alone Imunify UI as the default authorization method.
 
@@ -1325,6 +1442,23 @@ imunify360-agent malware malicious list --user cltest --limit 500
 ```
 </div>
 
+The list of the infected files found will be looking in the following way:
+
+<div class="notranslate">
+
+```
+
+CLEANED_AT  CREATED     EXTRA_DATA  FILE  HASH  ID  MALICIOUS  SCAN_ID  SCAN_TYPE  SIZE  STATUS  TYPE  USERNAME
+None        1599955297  {}          /home/cltest/public_html/test/TsMeJD.php        275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f  1627  True       1996cd86e6b14b12a1c165e79e3540d9  background  68    found   SMW-SA-05057-eicar.tst-4  cltest   
+None        1599955297  {}          /home/cltest/public_html/test/TZlfnU.php        275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f  1628  True       1996cd86e6b14b12a1c165e79e3540d9  background  68    found   SMW-SA-05057-eicar.tst-4  cltest   
+None        1599955297  {}          /home/cltest/public_html/test/Ke7V8n.php        275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f  1629  True       1996cd86e6b14b12a1c165e79e3540d9  background  68    found   SMW-SA-05057-eicar.tst-4  cltest   
+None        1599955297  {}          /home/cltest/public_html/yoUq0L.php             275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f  1630  True       1996cd86e6b14b12a1c165e79e3540d9  background  68    found   SMW-SA-05057-eicar.tst-4  cltest   
+None        1599955297  {}          /home/cltest/public_html/test/PKiuhY.php        275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f  1631  True       1996cd86e6b14b12a1c165e79e3540d9  background  68    found   SMW-SA-05057-eicar.tst-4  cltest   
+None        1599955297  {}          /home/cltest/public_html/public_html/Zqrsvh.php  275a021bbfb6489e54d471899f7db9d1663fc695
+
+```
+</div>
+
 8. The following command adds the specified path to the Ignore List
 
 <div class="notranslate">
@@ -1351,6 +1485,8 @@ imunify360-agent malware rebuild patterns
 imunify360-agent malware user list
 ```
 </div>
+
+The successful initiation/stopping of a scanning process or adding of ignore directories/files should give you ```OK``` in the output.
 
 ## Notifications config
 
@@ -1523,6 +1659,8 @@ It means that <span class="notranslate">Proactive Defense</span> will not analyz
    ```
 
    </div>
+   
+   The successful result of the commands execution will be confirmed by the ```OK``` output.
 
 ## Register
 
@@ -1570,6 +1708,8 @@ imunify360-agent register IPL
 
 </div>
 
+You will get ```OK``` in case the registration is successful.
+
 ## Reload lists
 
 Allows to use external files with the list of Black/White-listed IPs.
@@ -1596,6 +1736,8 @@ imunify360-agent reload-lists
 ```
 
 </div>
+
+The successful execution will give you an ```OK``` reply.
 	
 ## Remote-proxy	
 
@@ -1678,6 +1820,16 @@ imunify360-agent remote-proxy add 1.1.2.0/24 --name "my_own_proxy"
 
 </div>
 
+Afterwards, you should receive the following:
+
+<div class="notranslate">
+
+```
+OK
+```
+
+</div>
+
 ## Rstatus
 
 Allows to check if Imunify360 server license is valid.
@@ -1691,6 +1843,40 @@ imunify360-agent rstatus [--optional arguments]
 ```
 
 </div>
+
+An extended variation (otherwise, you receive ```OK``` if everything is fine with the license registered):
+
+<div class="notranslate">
+
+```
+imunify360-agent rstatus --json -v
+
+{
+  "expiration": null,
+  "id": "SSXX11xXXXxxxxXX",
+  "license": {
+    "expiration": null,
+    "id": "SSXX11xXXXxxxxXX",
+    "license_type": "imunify360",
+    "message": "",
+    "redirect_url": " ",
+    "status": true,
+    "user_count": 100,
+    "user_limit": 2147483647
+  },
+  "license_type": "imunify360",
+  "message": "",
+  "redirect_url": " ",
+  "status": true,
+  "strategy": "PRIMARY_IDS",
+  "user_count": 100,
+  "user_limit": 2147483647,
+  "version": "5.1.2-1"
+}
+```
+
+</div>
+
 
 ## Rules
 
@@ -1792,6 +1978,8 @@ Option can be:
 
 </div>
 
+The rest commands should give you ```OK``` if successful.
+
 ## Submit false-positive/false-negative
 
 To submit file as false positive (if Imunify360 considers file as a malicious but it actually isn't) you can use the following command (please make sure to specify the file name along with full path):
@@ -1818,7 +2006,9 @@ imunify360-agent submit false-negative <file>
 
 </div>
 
-Optional arguments:
+ You should get ```OK``` if successful.
+ 
+ Optional arguments:
 
 | | |
 |-|-|
@@ -1842,6 +2032,8 @@ imunify360-agent unregister [--optional arguments]
 ```
 
 </div>
+
+ You should get ```OK``` if successful.
 
 ## Vendors
 
@@ -1875,6 +2067,8 @@ imunify360-agent uninstall-vendors
 ```
 
 </div>
+
+ You should get ```OK``` if successful.
 
 ## Version
 
@@ -2020,6 +2214,9 @@ imunify360-agent whitelist country add BO
 
 </div>
 
+ You should get ```OK``` to all these if successful.
+ 
+
 ## Whitelisted crawlers
 
 
@@ -2064,6 +2261,8 @@ imunify360-agent whitelisted-crawlers [command]
    ```
 
    </div>
+   
+   You should get ```OK``` to these if successful.
 
 3. This command lists all added whitelisted crawlers
    
@@ -2074,6 +2273,16 @@ imunify360-agent whitelisted-crawlers [command]
    ```
 
    </div>
+   
+   Example of successful output:
 
+  <div class="notranslate">
+	
+```
+DESCRIPTION  DOMAINS                                       ID
+Google       ['.google.com', '.googlebot.com']             1 
+Yandex       ['.yandex.ru', '.yandex.com', '.yandex.net']  2 
+```
 
+</div>
 

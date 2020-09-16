@@ -1042,6 +1042,17 @@ imunify360-agent infected-domains
 
 </div>
 
+In case there are no infected domains located on the server, you will see no output. If there are any, you will get the following output:
+
+<div class="notranslate">
+
+```
+'domain1.com'
+'domain2.com'
+```
+
+</div>
+
 
 ## Login
 
@@ -1090,6 +1101,15 @@ imunify360-agent login get --username my-user1
 
 </div>
 
+The output will display similar to the following:
+
+<div class="notranslate">
+
+```
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDAyNDQwMTAuMDk5MzE5LCJ1c2VyX3R5cGUiOiJjbGllbnQiLCJ1c2VybmFtZSI6ImNsdGVzdCJ9.V_Q03hYw4dNLX5cewEb_h46hOw96KWBWP0E0ChbP3dA
+```
+
+</div>
 
 2. This command is used internally by stand-alone Imunify UI as the default authorization method.
 
@@ -1278,6 +1298,23 @@ imunify360-agent malware malicious list --user cltest --limit 500
 ```
 </div>
 
+The list of the infected files found will be looking in the following way:
+
+<div class="notranslate">
+
+```
+
+CLEANED_AT  CREATED     EXTRA_DATA  FILE  HASH  ID  MALICIOUS  SCAN_ID  SCAN_TYPE  SIZE  STATUS  TYPE  USERNAME
+None        1599955297  {}          /home/cltest/public_html/test/TsMeJD.php        275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f  1627  True       1996cd86e6b14b12a1c165e79e3540d9  background  68    found   SMW-SA-05057-eicar.tst-4  cltest   
+None        1599955297  {}          /home/cltest/public_html/test/TZlfnU.php        275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f  1628  True       1996cd86e6b14b12a1c165e79e3540d9  background  68    found   SMW-SA-05057-eicar.tst-4  cltest   
+None        1599955297  {}          /home/cltest/public_html/test/Ke7V8n.php        275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f  1629  True       1996cd86e6b14b12a1c165e79e3540d9  background  68    found   SMW-SA-05057-eicar.tst-4  cltest   
+None        1599955297  {}          /home/cltest/public_html/yoUq0L.php             275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f  1630  True       1996cd86e6b14b12a1c165e79e3540d9  background  68    found   SMW-SA-05057-eicar.tst-4  cltest   
+None        1599955297  {}          /home/cltest/public_html/test/PKiuhY.php        275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f  1631  True       1996cd86e6b14b12a1c165e79e3540d9  background  68    found   SMW-SA-05057-eicar.tst-4  cltest   
+None        1599955297  {}          /home/cltest/public_html/public_html/Zqrsvh.php  275a021bbfb6489e54d471899f7db9d1663fc695
+
+```
+</div>
+
 8. The following command adds the specified path to the Ignore List
 
 <div class="notranslate">
@@ -1304,6 +1341,8 @@ imunify360-agent malware rebuild patterns
 imunify360-agent malware user list
 ```
 </div>
+
+The successful initiation/stopping of a scanning process or adding of ignore directories/files should give you ```OK``` in the output.
 
 ## Notifications config
 
@@ -1476,6 +1515,8 @@ It means that <span class="notranslate">Proactive Defense</span> will not analyz
    ```
 
    </div>
+   
+   The successful result of the commands execution will be confirmed by the ```OK``` output.
 
 ## Register
 
@@ -1523,6 +1564,8 @@ imunify360-agent register IPL
 
 </div>
 
+You will get ```OK``` in case the registration is successful.
+
 ## Reload lists
 
 Allows to use external files with the list of Black/White-listed IPs.
@@ -1549,6 +1592,8 @@ imunify360-agent reload-lists
 ```
 
 </div>
+
+The successful execution will give you an ```OK``` reply.
 	
 ## Remote-proxy	
 
@@ -1631,6 +1676,16 @@ imunify360-agent remote-proxy add 1.1.2.0/24 --name "my_own_proxy"
 
 </div>
 
+Afterwards, you should receive the following:
+
+<div class="notranslate">
+
+```
+OK
+```
+
+</div>
+
 ## Rstatus
 
 Allows to check if Imunify360 server license is valid.
@@ -1644,6 +1699,40 @@ imunify360-agent rstatus [--optional arguments]
 ```
 
 </div>
+
+An extended variation (otherwise, you receive ```OK``` if everything is fine with the license registered):
+
+<div class="notranslate">
+
+```
+imunify360-agent rstatus --json -v
+
+{
+  "expiration": null,
+  "id": "SSXX11xXXXxxxxXX",
+  "license": {
+    "expiration": null,
+    "id": "SSXX11xXXXxxxxXX",
+    "license_type": "imunify360",
+    "message": "",
+    "redirect_url": " ",
+    "status": true,
+    "user_count": 100,
+    "user_limit": 2147483647
+  },
+  "license_type": "imunify360",
+  "message": "",
+  "redirect_url": " ",
+  "status": true,
+  "strategy": "PRIMARY_IDS",
+  "user_count": 100,
+  "user_limit": 2147483647,
+  "version": "5.1.2-1"
+}
+```
+
+</div>
+
 
 ## Rules
 
@@ -1745,6 +1834,8 @@ Option can be:
 
 </div>
 
+The rest commands should give you ```OK``` if successful.
+
 ## Submit false-positive/false-negative
 
 To submit file as false positive (if Imunify360 considers file as a malicious but it actually isn't) you can use the following command (please make sure to specify the file name along with full path):
@@ -1771,7 +1862,9 @@ imunify360-agent submit false-negative <file>
 
 </div>
 
-Optional arguments:
+ You should get ```OK``` if successful.
+ 
+ Optional arguments:
 
 | | |
 |-|-|
@@ -1795,6 +1888,8 @@ imunify360-agent unregister [--optional arguments]
 ```
 
 </div>
+
+ You should get ```OK``` if successful.
 
 ## Vendors
 
@@ -1828,6 +1923,8 @@ imunify360-agent uninstall-vendors
 ```
 
 </div>
+
+ You should get ```OK``` if successful.
 
 ## Version
 
@@ -1968,6 +2065,9 @@ imunify360-agent whitelist country add BO
 
 </div>
 
+ You should get ```OK``` to all these if successful.
+ 
+
 ## Whitelisted crawlers
 
 
@@ -2012,6 +2112,8 @@ imunify360-agent whitelisted-crawlers [command]
    ```
 
    </div>
+   
+   You should get ```OK``` to these if successful.
 
 3. This command lists all added whitelisted crawlers
    
@@ -2022,6 +2124,16 @@ imunify360-agent whitelisted-crawlers [command]
    ```
 
    </div>
+   
+   Example of successful output:
 
+  <div class="notranslate">
+	
+```
+DESCRIPTION  DOMAINS                                       ID
+Google       ['.google.com', '.googlebot.com']             1 
+Yandex       ['.yandex.ru', '.yandex.com', '.yandex.net']  2 
+```
 
+</div>
 

@@ -153,6 +153,15 @@ imunify360-agent 3rdparty conflicts
 ```
 imunify360-agent 3rdparty list
 ```
+</div>
+
+Here is the example of an output on the server with Fail2ban enabled:
+
+<div class="notranslate">
+
+```
+fail2ban
+```
 
 </div>
 
@@ -390,6 +399,20 @@ imunify360-agent blocked-port add 5555:tcp --comment “Some comment”
 
 </div>
 
+This one includes the list of example IPs and ports blocked:
+
+<div class="notranslate">
+
+```
+# imunify360-agent blocked-port list
+
+COMMENT       ID  IPS                                                                                   PORT  PROTO
+              1   []                                                                                    3306  tcp  
+Some comment  2   [{'comment': None, 'ip': '111.111.111.111'}, {'comment': None, 'ip': '22.22.22.22'}]  5555  tcp 
+```
+
+</div>
+
 ## Blocked Port IP
 
 This command allows to change the list of IPs that are excluded (allowed) for a certain blocked port.
@@ -428,9 +451,18 @@ The following command adds IP address 12.34.56.78 to the blocked port 5555 for t
 <div class="notranslate">
 
 ```
-imunify360-agent blocked-port-ip add 12.34.56.78 5555:tcp --comment “Some comment”
+imunify360-agent blocked-port-ip add 5555:tcp --ips 12.34.56.78 --comment 'Some comment'
 ```
 
+</div>
+
+The example of a successful output:
+
+<div class="notranslate">
+	
+```
+OK
+```
 </div>
 
 ## Checkdb

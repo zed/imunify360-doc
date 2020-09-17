@@ -306,7 +306,7 @@ In order to apply changes via command-line interface (CLI), you can use the foll
 <div class="notranslate">
 
 ```
-imunify360-agent config update ‘{"SECTION": {"parameter": value}}’ 
+imunify360-agent config update '{"SECTION": {"parameter": value}}'
 ```
 </div>
 
@@ -315,7 +315,7 @@ For example, if you want to set <span class="notranslate">`MALWARE_SCAN_INTENSIT
 <div class="notranslate">
 
 ```
-imunify360-agent config update ‘{"MALWARE_SCAN_INTENSITY": {"cpu": 5}}’
+imunify360-agent config update '{"MALWARE_SCAN_INTENSITY": {"cpu": 5}}'
 ```
 </div>
 

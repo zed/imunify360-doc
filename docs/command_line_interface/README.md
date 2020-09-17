@@ -146,23 +146,14 @@ imunify360-agent 3rdparty conflicts
 </div>
 
 
-2. The following command lists other IDS that might be running concurrently with Imunify360:
+1. The following command lists other IDS that might be running concurrently with Imunify360. Here is the example of the command and the output on the server with Fail2ban enabled:
 
 <div class="notranslate">
 
 ```
 imunify360-agent 3rdparty list
-```
-</div>
-
-Here is the example of an output on the server with Fail2ban enabled:
-
-<div class="notranslate">
-
-```
 fail2ban
 ```
-
 </div>
 
 ## Backup systems
@@ -222,17 +213,12 @@ The <span class="notranslate">`check`</span> command returns <span class="notran
 
    ```
    imunify360-agent backup-systems list
+   acronis 
+   r1soft 
+   cloudlinux
+   cpanel
    ```
 </div>
-
-Example of successful output:
-
-```
-acronis 
-r1soft 
-cloudlinux
-cpanel
-```
 
 
 2. The following command initializes CloudLinux backup system:
@@ -241,14 +227,9 @@ cpanel
 
    ```
    imunify360-agent backup-systems init cloudlinux
+   Backup initialization process is in progress
    ```
 </div>
-
-Example of successful output:
-
-```
-Backup initialization process is in progress
-```
 
 
 3. The following command checks if the CloudLinux backup system is connected:
@@ -257,14 +238,9 @@ Backup initialization process is in progress
 
    ```
    imunify360-agent backup-systems check cloudlinux
+   {'url': 'https://cln.cloudlinux.com/clweb/cb/buy.html?id=YourServerIdHere', 'status': 'unpaid'}
    ```
 </div>
-
-Example of successful output:
-
-```
-{'url': 'https://cln.cloudlinux.com/clweb/cb/buy.html?id=YourServerIdHere', 'status': 'unpaid'}
-```
 
 At first, it shows that it isn't, so you should open the URL from the JSON response in the browser to activate the backup. Once this is done, it shows in the CLN.
 
@@ -353,16 +329,11 @@ where 12.34.56.78 is that specific IP address.
 
    ```
    imunify360-agent blacklist --by-country-code BO
+   IP       TTL  COUNTRY  IMPORTED_FROM  COMMENT
+   1.2.3.4
    ```
 
 </div>
-
-Example of successful output:
-
-```
-IP       TTL  COUNTRY  IMPORTED_FROM  COMMENT
-1.2.3.4
-```
 
 
 * The following command adds an IP 1.2.3.4 to the Black List and sets the scope to <span class="notranslate">`group`</span>:
@@ -370,12 +341,11 @@ IP       TTL  COUNTRY  IMPORTED_FROM  COMMENT
 <div class="notranslate">
 
    ```
-imunify360-agent blacklist ip add 1.2.3.4 --scope group
+   imunify360-agent blacklist ip add 1.2.3.4 --scope group
+   OK
    ```
 
 </div>
-
-It returns `OK` if successful.
 
 :::warning Warning
 For now, ipset supports only IPv6/64 networks
@@ -420,12 +390,12 @@ imunify360-agent blocked-port [command] <value> [--option]
 
 **Example:**
 
-The following command blocks port 5555 for tcp connections with a comment <span class="notranslate">“Some comment”</span>:
+The following command blocks port 5555 for tcp connections with a comment <span class="notranslate">"Some comment"</span>:
 
 <div class="notranslate">
 
 ```
-imunify360-agent blocked-port add 5555:tcp --comment “Some comment”
+imunify360-agent blocked-port add 5555:tcp --comment "Some comment"
 ```
 
 </div>
@@ -477,23 +447,15 @@ imunify360-agent blocked-port-ip [command] <value> [--option]
 
 **Example:**
 
-The following command adds IP address 12.34.56.78 to the blocked port 5555 for tcp connections with a comment <span class="notranslate">“Some comment”</span>:
+The following command adds IP address 12.34.56.78 to the blocked port 5555 for tcp connections with a comment <span class="notranslate">'Some comment'</span>:
 
 <div class="notranslate">
 
 ```
 imunify360-agent blocked-port-ip add 5555:tcp --ips 12.34.56.78 --comment 'Some comment'
-```
-
-</div>
-
-The example of a successful output:
-
-<div class="notranslate">
-	
-```
 OK
 ```
+
 </div>
 
 ## Checkdb
@@ -548,11 +510,11 @@ The following command sends the domains list for a check to the Imunify360 centr
 
 ```
 imunify360-agent check-domains
+OK
 ```
 
 </div>
 
-It returns `OK` if successful.
 
 ## Check modsec directives
 	
@@ -576,17 +538,12 @@ The following command checks whether the global ModSecurity directives have valu
 
 ```
 imunify360-agent check modsec directives
-```
-
-</div>
-
-Example of successful output:
-
-```
 WARNING: {'ignored': False, 'id': '1000', 'fix': 'Run `imunify360-agent fix modsec directives` command', 'title': "Wrong value for SecConnEngine ModSecurity directive. Expected: 'Off' Got: None", 'url': 'https://docs.imunify360.com/'}
 WARNING: {'ignored': False, 'id': '1000', 'fix': 'Run `imunify360-agent fix modsec directives` command', 'title': "Wrong value for SecAuditEngine ModSecurity directive. Expected: 'RelevantOnly' Got: None", 'url': 'https://docs.imunify360.com/'}
 WARNING: {'ignored': False, 'id': '1000', 'fix': 'Run `imunify360-agent fix modsec directives` command', 'title': "Wrong value for SecRuleEngine ModSecurity directive. Expected: 'On' Got: None", 'url': 'https://docs.imunify360.com/'}
 ```
+
+</div>
 
 ## Clean
 
@@ -611,17 +568,7 @@ imunify360-agent clean [--optional arguments]
 
 **Example:**
 
-The following command deletes all incidents that are older than 5 days from today and leave only 5000 new incidents:
-	
-<div class="notranslate">
-
-```
-imunify360-agent clean --days 5 --limit 5000
-```
-
-</div>
-
-Below you may see the example of the above command execution – the output identifies the number of the incidents cleaned:
+The following command deletes all incidents that are older than 5 days from today and leave only 5000 new incidents. The output identifies the number of the incidents cleaned.
 
 <div class="notranslate">
 
@@ -678,15 +625,6 @@ Collecting information about Imunify360 state, generating the report and sending
 
 ```
 imunify360-agent doctor
-```
-
-</div>
-
-The successful output will contain the unique set of symbols, for example:
-
-<div class="notranslate">
-
-```
 Please, provide this key:
 SSXX11xXXXxxxxXX.1a1bcd1e-222f-33g3-hi44-5551k5lmn555
 to Imunify360 Support Team
@@ -767,15 +705,9 @@ imunify360-agent features [command] <feature name>
 
    ```
    imunify360-agent features status kernelcare
+   {'status': 'not_installed', 'message': 'KernelCare is not installed'}
    ```
-
-   </div>
-
-Example of successful output:
-
-```
-{'status': 'not_installed', 'message': 'KernelCare is not installed'}
-```
+</div>
 
 2. The following command installs KernelCare:
 
@@ -890,6 +822,7 @@ Imunify360 will keep applying users <span class="notranslate">Features Managemen
 
 ```
 imunify360-agent feature-management native enable
+OK
 ```
 
 </div>
@@ -902,16 +835,6 @@ Imunify360 <span class="notranslate">Package Extensions</span> will be auto-enab
 
 
 All existing <span class="notranslate">Features Management</span> settings will be overridden with the Imunify360 <span class="notranslate">Package Extensions</span> ones for all users.
-
-If the command is executed successfully, you will see the following output:
-
-<div class="notranslate">
-
-```
-OK
-```
-
-</div>
 
 ::: tip Note
 <span class="notranslate">Features Management</span> tab will be hidden on the User Interface.
@@ -942,12 +865,13 @@ The following command sets the ModSecurity directives values to ones recommended
 <div class="notranslate">
 
 ```
-imunify360-agent fix modsec directives 
+imunify360-agent fix modsec directives
+OK
 ```
 	
 </div>
 
-The successful execution will display the ```OK``` message. Otherwise, the actual error message will be displayed if there are any issues with that.
+If the execution was unsuccessful, the actual error message will be displayed if there are any issues with that.
 
 ## Get
 
@@ -1061,11 +985,10 @@ The following command will remove IP `1.2.3.4` from the Gray List:
 
 ```
 imunify360-agent graylist ip delete 1.2.3.4
+OK
 ```
 
 </div>
-
-Once it is removed, the ```OK``` message will be shown in the output.
 
 ## Hooks
 
@@ -1099,25 +1022,16 @@ imunify360-agent hook [command] --event [event_name|all] [--path </path/to/hook_
 
 **Example:**
 
-The following command shows existing event handlers:
+The following command shows existing event handlers. If you have any hooks configured, the output will include something similar to this:
 
 <div class="notranslate">
 
 ```
 imunify360-agent hook list --event all
-```
-
-</div>
-
-If you have any hooks configured, the output will include something similar to this:
-
-<div class="notranslate">
-
-```
 Event: malware-detected, Path: /root/directory/im360mwscannereventhooks/get_user.py
 ```
-
 </div>
+
 
 ## Import
 
@@ -1176,21 +1090,12 @@ imunify360-agent infected-domains [--optional arguments]
 
 **Example:**
 
-The following command displays the results of the <span class="notranslate">`check-domains`</span> command:
+The following command displays the results of the <span class="notranslate">`check-domains`</span> command. In case there are no infected domains located on the server, you will see no output. If there are any, you will get the following output:
 
 <div class="notranslate">
 
 ```
 imunify360-agent infected-domains
-```
-
-</div>
-
-In case there are no infected domains located on the server, you will see no output. If there are any, you will get the following output:
-
-<div class="notranslate">
-
-```
 'domain1.com'
 'domain2.com'
 ```
@@ -1235,21 +1140,12 @@ Optional arguments for <span class="notranslate">`pam`</span>:
 **Example**:
 
 1. You can use the <span class="notranslate">`login get`</span> command to implement your own authorization mechanism for stand-alone Imunify.
-For example, you can generate tokens for users which are already authorized in your system/panel, and redirect to stand-alone Imunify UI with <span class="notranslate">`?token=<TOKEN>`</span> in URL. (You can also set it in localStorage: <span class="notranslate">`localStorage.setItem('I360_AUTH_TOKEN', '<TOKEN>');`</span>)
+For example, you can generate tokens for users which are already authorized in your system/panel, and redirect to stand-alone Imunify UI with <span class="notranslate">`?token=<TOKEN>`</span> in URL. (You can also set it in localStorage: <span class="notranslate">`localStorage.setItem('I360_AUTH_TOKEN', '<TOKEN>');`</span>). The output will display similar to the following:
 
 <div class="notranslate">
 
 ```
 imunify360-agent login get --username my-user1
-```
-
-</div>
-
-The output will display similar to the following:
-
-<div class="notranslate">
-
-```
 eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDAyNDQwMTAuMDk5MzE5LCJ1c2VyX3R5cGUiOiJjbGllbnQiLCJ1c2VybmFtZSI6ImNsdGVzdCJ9.V_Q03hYw4dNLX5cewEb_h46hOw96KWBWP0E0ChbP3dA
 ```
 
@@ -1647,6 +1543,7 @@ It means that <span class="notranslate">Proactive Defense</span> will not analyz
 
    ```
    imunify360-agent proactive ignore add --path /home/user/index.php --rule-id 12 --rule-name 'Suspicious detection rule'
+   OK
    ```
 </div>
 
@@ -1656,11 +1553,11 @@ It means that <span class="notranslate">Proactive Defense</span> will not analyz
 
    ```
    imunify360-agent proactive ignore delete path <path to file 1> <path to file 2>
+   OK
    ```
 
    </div>
    
-   The successful result of the commands execution will be confirmed by the ```OK``` output.
 
 ## Register
 
@@ -1692,6 +1589,7 @@ The following command will register and activate Imunify360 with the provided ac
 
 ```
 imunify360-agent register IM250sdfkKK245kJHIL
+OK
 ```
 
 </div>
@@ -1704,11 +1602,10 @@ If you have an IP-based license, you can use <span class="notranslate">`IPL`</sp
 
 ```
 imunify360-agent register IPL
+OK
 ```
 
 </div>
-
-You will get ```OK``` in case the registration is successful.
 
 ## Reload lists
 
@@ -1733,11 +1630,11 @@ To use external files with the list of Black/White-listed IPs, you should place 
 
 ```
 imunify360-agent reload-lists
+OK
 ```
 
 </div>
 
-The successful execution will give you an ```OK``` reply.
 	
 ## Remote-proxy	
 
@@ -1816,15 +1713,6 @@ The following command adds proxy subnet 1.1.2.0/24 with name <span class="notran
 
 ```
 imunify360-agent remote-proxy add 1.1.2.0/24 --name "my_own_proxy"
-```
-
-</div>
-
-Afterwards, you should receive the following:
-
-<div class="notranslate">
-
-```
 OK
 ```
 
@@ -1917,6 +1805,7 @@ Option can be:
 
    ```
    imunify360-agent rules disable --id 42 --plugin modsec --name 'Rule name'
+   OK
    ```
 
    </div>
@@ -1927,6 +1816,7 @@ Option can be:
 
    ```
    imunify360-agent rules enable --id 42 --plugin modsec
+   OK
    ```
 
    </div>
@@ -1945,7 +1835,7 @@ Option can be:
 
    <div class="notranslate">
 
-   ``` Python
+   ``` json
    {'plugin': 'modsec', 'id': '214920', 'domains': ['captchatest.com'], 'name': 'Imported from config'}
 
    {'plugin': 'modsec', 'id': '42', 'domains': None, 'name': 'Rule name'}
@@ -1968,17 +1858,16 @@ Option can be:
    :::
 
  
-4. The following command updates WAF ruleset configurator immediately:
+4. The following command updates the WAF ruleset configurator immediately:
 
 <div class="notranslate">
 
    ```
    imunify360-agent rules update-app-specific-rules
+   OK
    ```
 
 </div>
-
-The rest commands should give you ```OK``` if successful.
 
 ## Submit false-positive/false-negative
 
@@ -2002,11 +1891,10 @@ To submit file as false negative (if Imunify360 considers file as a non-maliciou
 
 ```
 imunify360-agent submit false-negative <file>
+OK
 ```
 
 </div>
-
- You should get ```OK``` if successful.
  
  Optional arguments:
 
@@ -2029,11 +1917,11 @@ To remove Imunify360 from the server it needs to be [uninstalled](/uninstall/).
 
 ```
 imunify360-agent unregister [--optional arguments]
+OK
 ```
 
 </div>
 
- You should get ```OK``` if successful.
 
 ## Vendors
 
@@ -2064,11 +1952,10 @@ The following command uninstalls the <span class="notranslate">ModSecurity</span
 
 ```
 imunify360-agent uninstall-vendors
+OK
 ```
 
 </div>
-
- You should get ```OK``` if successful.
 
 ## Version
 
@@ -2080,15 +1967,10 @@ Allows to view the actual Imunify360 version installed on the server.
 
 ```
 imunify360-agent version [--json]
+4.9.5-3
 ```
 
 </div>
-
-Example of successful output:
-
-```
-4.9.5-3
-```
 
 ## Whitelist
 
@@ -2160,6 +2042,7 @@ where `12.34.56.78` is that specific IP address.
 
    ```
    imunify360-agent whitelist ip add 1.2.3.4 --comment “one good ip”
+   OK
    ```
 
    </div>
@@ -2180,6 +2063,7 @@ where `12.34.56.78` is that specific IP address.
 
    ```
    imunify360-agent whitelist domain add example.com
+   OK
    ```
 
    </div>
@@ -2190,6 +2074,7 @@ where `12.34.56.78` is that specific IP address.
 
    ```
    imunify360-agent whitelist domain list
+   OK
    ```
 
 </div>
@@ -2199,7 +2084,8 @@ where `12.34.56.78` is that specific IP address.
 <div class="notranslate">
 
    ```
-imunify360-agent whitelist ip add 1.2.3.4 --scope group
+   imunify360-agent whitelist ip add 1.2.3.4 --scope group
+   OK
    ```
 
 </div>
@@ -2209,12 +2095,11 @@ imunify360-agent whitelist ip add 1.2.3.4 --scope group
 <div class="notranslate">
 
    ```
-imunify360-agent whitelist country add BO
+   imunify360-agent whitelist country add BO
+   OK
    ```
 
 </div>
-
- You should get ```OK``` to all these if successful.
  
 
 ## Whitelisted crawlers
@@ -2248,6 +2133,7 @@ imunify360-agent whitelisted-crawlers [command]
 
    ```
    imunify360-agent whitelisted-crawlers add yandex.com google.com
+   OK
    ```
 
    </div>
@@ -2258,11 +2144,10 @@ imunify360-agent whitelisted-crawlers [command]
 
    ```
    imunify360-agent whitelisted-crawlers delete yandex.com
+   OK
    ```
 
    </div>
-   
-   You should get ```OK``` to these if successful.
 
 3. This command lists all added whitelisted crawlers
    
@@ -2270,19 +2155,10 @@ imunify360-agent whitelisted-crawlers [command]
 
    ```
    imunify360-agent whitelisted-crawlers list
+   DESCRIPTION  DOMAINS                                       ID
+   Google       ['.google.com', '.googlebot.com']             1 
+   Yandex       ['.yandex.ru', '.yandex.com', '.yandex.net']  2 
    ```
 
    </div>
-   
-   Example of successful output:
-
-  <div class="notranslate">
-	
-```
-DESCRIPTION  DOMAINS                                       ID
-Google       ['.google.com', '.googlebot.com']             1 
-Yandex       ['.yandex.ru', '.yandex.com', '.yandex.net']  2 
-```
-
-</div>
 

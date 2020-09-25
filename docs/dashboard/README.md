@@ -1144,7 +1144,7 @@ The following tabs are available:
 * <span class="notranslate">[Backups](/dashboard/#backups)</span>
 * <span class="notranslate">[Disables Rules](/dashboard/#disabled-rules)</span>
 * <span class="notranslate">[Attributions](/dashboard/#attributions)</span>
-* <span class="notranslate">[Notifications](/dashboard/#notifications)</span>
+* <span class="notranslate">[Notifications](/features/#notifications)</span>
 
 ### General
 
@@ -1997,79 +1997,3 @@ It is possible to enable Service Status checker for Imunify360. Perform the foll
 If succeeded, the status of Imunify360 service will be displayed at Service Status section of Server Status.
 
 ![](/images/service_status.jpg)
-
-
-### Notifications
-
-Starting from version 4.10, an administrator is able to configure email addresses to submit reports and execute custom scripts. Go to <span class="notranslate">_Settings_</span> and choose <span class="notranslate">_Notifications_</span> tab.
-
-![](/images/notifications.png)
-
-* <span class="notranslate">**Default admin emails**</span>: specify the default list of emails used for all enabled admin email notifications. 
-* <span class="notranslate">**From**</span>: specify a sender of all emails sent by the Hooks. 
-
-The following events are available.
-
-#### Real-Time scan: malware detected
-
-Occurs when malware is detected during the real-time scanning.
-
-![](/images/RealTimeScanDetected.png)
-
-* <span class="notranslate">**Enable email notifications for admin**</span>: move the slider to <span class="notranslate">ON</span> to notify the administrator and a custom user list via email upon event occurrence. To notify the administrator on the default admin email, tick the <span class="notranslate">_Default admin emails_</span> checkbox. 
-* <span class="notranslate">**Notify every (mins)**</span>: set a notification interval in minutes. The data for all events that happened within the interval will be accumulated and sent altogether.
-* <span class="notranslate">**Admin emails**</span>: tick the <span class="notranslate">_Default admin emails_</span> and/or specify your emails for notifications.
-* <span class="notranslate">**Enable script execution**</span>: move the slide to <span class="notranslate">ON</span> to run a script (event handler) upon event occurrence. 
-* <span class="notranslate">**Notify every (sec)**</span>: set a notification interval in seconds. The data for all events that happened within the interval will be accumulated and sent altogether. 
-* <span class="notranslate">**Run a script**</span>: specify the full path to the script(s) or any other Linux executable to be launched on event occurrence. Make sure that the script has an executable bit (+x) on. A line-separated list of scripts is supported. 
-
-#### User scan: started
-
-Occurs immediately after the user scanning has started.
-
-![](/images/UserScanStarted.png)
-
-
-#### Custom scan: started
-
-![](/images/CustomScanStarted.png)
-
-Occurs immediately after on-demand (manual) scanning has started.
-
-
-#### User scan: finished
-
-Occurs immediately after the user scanning has finished, regardless the malware has found or not.
-
-![](/images/UserScanFinished.png)
-
-#### Custom scan: finished
-
-![](/images/CustomScanFinished.png)
-
-Occurs immediately after on-demand (manual) scanning has finished, regardless the malware has found or not.
-
-
-#### Custom scan: malware detected
-
-Occurs when the on-demand scanning process has finished and malware found.
-
-![](/images/CustomScanDetected.png)
-
-
-#### User scan: malware detected
-
-Occurs when the malware scanning process of a user account has finished and malware found.
-
-![](/images/UserScanDetected.png)
-
-
-#### Script blocked
-
-Occurs when the Proactive Defense has blocked malicious script.
-
-![](/images/ScriptBlocked.png)
-
-Click <span class="notranslate">_Save changes_</span> at the bottom to apply all changes.
-
-

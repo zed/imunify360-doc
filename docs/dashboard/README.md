@@ -1623,7 +1623,7 @@ Those options may be hidden for end-user if Cleanup is disabled in Features Mana
 :::
 
 * <span class="notranslate">_Enable RapidScan_</span> – dramatically speeds up repeated scans based on smart re-scan approach, local result caching and cloud-assisted scan. When you first enable the RapidScan feature, the first scan will run as before. But subsequent scans will see a dramatic speed improvement, anywhere between 5 to 20 times faster. You can find details [here](/features/#rapidscan).
-* <span class="notranslate">_Binary (ELF) malware detection_</span> – this option allows to scans user home directories for malware.
+* <span class="notranslate">_Binary (ELF) malware detection_</span> – this option allows to search for any binaries (ELF files) in the user home directories and consider them malicious.
 
 Tick required checkboxes and click <span class="notranslate">_Save changes_</span> button.
 

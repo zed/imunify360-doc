@@ -453,39 +453,43 @@ Go to <span class="notranslate">Imunify → Malware Scanner → Files tab → Re
 
 A reason pattern looks like the following:
 
-<div class="notranslate">
 
 ```
-<type>-<detected>-<ID>-<file-type>.<mlwcategory>.<mlwclassification>
+<type>-<detected>-<ID>-<filetype>.<mlwcategory>.<mlwclassification>
 ```
-</div>
 
 | | |
 |-|-|
-|<span class="notranslate">`<type>`</span>|`SMW` – server malware, `CMW` – client malware|
-|<span class="notranslate">`<detected>`</span>|`SA`- stand-alone (file is completely malicious), `INJ` – injections (malware is injected to some legitimate file), `BLKH` – blackhash|
-|<span class="notranslate">`<ID>`</span>|a signature ID|
-|<span class="notranslate">`<file-type>`</span>|a file type; see [Table 1](/faq_and_known_issues/#table-1-file-types-and-their-codes) below|
-|<span class="notranslate">`<mlwcategory>`</span>|a malware category, see [Table 2](/faq_and_known_issues/#table-2-malware-categories) below|
-|<span class="notranslate">`<mlwclassification>`</span>|malware classification; can vary depends on the different cases and signatures; see [Table 3](/faq_and_known_issues/#table-3-malware-classification) below|
+|`<type>`|`SMW` – server malware, `CMW` – client malware|
+|`<detected>`|`SA`- stand-alone (file is completely malicious), `INJ` – injections (malware is injected to some legitimate file)|
+|`<ID>`|a signature ID|
+|`<filetype>`|a file type; see [Table 1. File types and their code](/faq_and_known_issues/#table-1-file-types-and-their-codes)|
+|`<mlwcategory>`|a malware category, see [Table 2. Malware categories](/faq_and_known_issues/#table-2-malware-categories)|
+|`<mlwclassification>`|malware classification; it varies based on scenario/actions of a malicious artifact (see [Table 3. Malware classification](/faq_and_known_issues/#table-3-malware-classification))|
 
 #### Table 1. File types and their codes
 
+`filetype`
+
 | | |
 |-|-|
-|**File types**|**Codes**|
+|**File types**|**File extensions**|
 |Markup language files|`htm`, `html`, `shtml` ,`phtml`|
 |Server config files|`htaccess`|
 |<span class="notranslate">JavaScript</span> files|`js`|
 |<span class="notranslate">Perl</span> files|`pl`|
 |<span class="notranslate">Python</span> files|`py`|
 |<span class="notranslate">Ruby</span> files|`rb`|
-|<span class="notranslate">Cron</span> files|`cron`|
 |<span class="notranslate">Shell</span> scripts|shells in common: `sh`|
+|<span class="notranslate">Cron</span> files|`cron`|
+|<span class="notranslate">ELF</span> files|`elf`|
 |Other server pages|`Jsp` (`asp`,`aspx`), `vb`|
+|Files with no extension/fake extension|These files can be named based on the type of malicious code used inside the file - the above other filetype classification can be used based on code.|
 
 
 #### Table 2. Malware categories
+
+`mlwcategory`
 
 | | |
 |-|-|
@@ -499,23 +503,69 @@ A reason pattern looks like the following:
 |<span class="notranslate">`redi`</span>|Malware artifacts causing redirects for any sort of malicious reason can be covered under this category|
 |<span class="notranslate">`deface`</span>|Any sort of artifacts that are meant to show off attacker's intentions or to spread a certain message. Example: Defacements, banners, etc.|
 
-
 #### Table 3. Malware classification
 
-The <span class="notranslate">_Malware classification_</span> field is not fixed and may vary depending on the purposes of the malware.
+`mlwclassification`
 
-The following table shows the <span class="notranslate">_Malware classification_</span> field examples.
+The <span class="notranslate">`mlwclassification`</span> field is not fixed and may vary depending on the purposes of the malware.
+
+The following table shows the <span class="notranslate">`mlwclassification`</span> field examples.
+
+* Sometimes we include a file extension as a part of the malware classification (like `php.tool.htaccess` or `php.tool.cron` or `php.tool.js`). It means that malware artifact involves manipulation of file types mentioned in the classification. For example, the `php.tool.htaccess` example can be explained as a PHP based malware involved in modifying/dropping content related to htaccess.
+* Sometimes you may see signature categories beginning with `elf.troj`. The `troj` classification is mainly associated with ELF file types where we classify trojans as `troj`.
 
 | | |
 |-|-|
-|**Category**|**Classification**|
-|<span class="notranslate">`bkdr`</span>|<span class="notranslate">`wshll`</span> for web shells; <span class="notranslate">`exec`</span> for simple command executor injections|
-|<span class="notranslate">`tool`</span>|<span class="notranslate">`upldr`/`dwnldr`/`drpr`</span> for uploader/downloader/dropper type of files|
-|<span class="notranslate">`exploit`</span>|<span class="notranslate">`vuln`/`joom`/`wp`</span> for vulnerability/Joomla/WordPress|
-|<span class="notranslate">`phish`</span>|<span class="notranslate">`ecom`/`bank`/`edu`</span> for mentioning phishing on e-commerce/banking/educational domains|
-|<span class="notranslate">`miner`</span>|<span class="notranslate">`chive`/`cimp`/`cloot`</span> for Coinhive/CoinIMP/CryptoLoot|
-
-
+|**Classification**|**Explanation**|
+|`ad/adware`|Malware that drops spammy advertisements in some way falls under this classification.|
+|`wshll`|Webshells of any sort fall under this classification.|
+|`google`/`yahoo`/`fb`/`apple`/`msoft`/`nflix`/`msn`|This involves expandable classification in which malware involves any sort of incident/attacks regarding big corporates such as Google, Yahoo, Facebook, Microsoft, Netflix, etc.|
+|`link`/`links`|Covers malware involving/spreading/dropping spammy links.|
+|`bank`/`edu`/`ecom`/`pharma`/`ent`|Covers different varieties of phishing or malware based on the corporate sector they are targeting. `bank` stands for banking, `edu` for education, `ecom` for e-commerce, `pharma` for pharmaceuticals, `ent` for entertainment.|
+|`red`/`redi`|Usually covers malware involving redirects of any sort. Some may redirect you to spam pages, some works as a part of SMM panels to send traffic, etc.|
+|`drpr`/`dwnldr`|Covers malware that opens the door to drop more complex malware from a remote location.|
+|`upldr`/`upld`|Malware that acts as a simple uploader tool that can be used to upload more backdoors/webshells.|
+|`inc`/`incl`|Covers malware that abuses `include`/`require` functions in PHP to execute code hidden in files with non PHP extensions. For example, image file extensions with PHP code hidden inside.|
+|`mobi`/`mob`|Covers malware scripts that activate/work based on detection of mobile device. One such example can be a few JavaScripts redirects to spammy domains based on detecting the presence of mobile based user agents.|
+|`drwy`|Covers spammy doorway pages.|
+|`deface`|Deface covers any sort of artifacts that are meant to show off attackers intentions or to spread a certain message. When we use `deface` in the classification instead of the category it’s because the artifact can be a tool that aids in defacing websites. Something like `php.tool.deface` explains this scenario.|
+|`wp`/`joom`/`mage`/`presta`|Covers malicious artifacts targeting major CMS/applications such as WordPress (`wp`), Joomla (`joom`), Magento (`mage`), PrestaShop (`presta`).|
+|`gen`|`gen` stands for generic. We use it when the signature is generic in nature covering artifacts of different origins but falls under the same category.|
+|`mail`/`mailer`|It covers tools that are used for malicious purposes such as mailers.|
+|`db`/`wpdb`|Usually covers malware infections that affect databases in some way or trying to extract some information from the databases.|
+|`exec`/`eva`/`eval`/`cmd`|Covers malware injections that assists attackers execute code via attacker controlled parameters in HTTP requests.|
+|`seo`|Covers malware campaigns that involve in some sort of SEO specific malicious actions.|
+|`gif`/`img`/`ico`/`jpg`...|An identified artifact/malicious file has PHP code hidden inside file extensions that mimic that of images.|
+|`paste`/`pastebin`/`pbin`/`pasteb`|Covers malware utilising pastebin to further drop more malicious content.|
+|`create`/`crtfunc`/`cf`/`createfunction`|Covers backdoors that relies on using PHP function `createfunction` to execute code on a victim's server.|
+|`stealer`/`steal`/`cred`|To classify malware that steals credentials of any sort.|
+|`fakeplugin`|Some malware authors utilise technique of mimicking legit WordPress plugins to conceal the presence of malware. Such fake plugins are covered under this classification.|
+|`glob`/`globals`|Covers malware that utilises PHP superglobals based obfuscation to avoid detection.|
+|`btrx`/`bitrix`|Covers malware that works based on hiding itself inside Bitrix installations.|
+|`dos`/`ddos`/`flood`/`booter`|Covers any typical malware that involves denial of service attacks.|
+|`exfil`|Covers malware that involves in data exfiltration.|
+|`filemanager`/`fileman`/`fm`|For malwares with capabilities of a file manager.|
+|`crypto`/`chive`/`cimp`|For malware that involves stealing cryptocurrencies or mining of cryptocurrencies.|
+|`goto`|Covers malware that utilises PHP `goto` feature for obfuscation and to avoid detection.|
+|`wpvcd`/`wpcd`|For malware that are involved in the WPVCD malware campaign.|
+|`oneliner`/`oneline`|Sometimes malware authors try to make a backdoor injection as short as possible to accommodate in a single line and deploy various tactics to achieve it. Such malware is covered under this classification.|
+|`tmp`|Sometimes we create temporary signatures that will either be deleted/changed to something else after sometime. These are marked with `tmp`.|
+|`wpnull24`|Malware injections that are part of nulled plugins/themes from the wpnull24 website.|
+|`iframe`|Malware injections that deliver iframe.|
+|`sym`/`symlink`/`symlnk`|Covers malware workings related to symbolic links.|
+|`cpanel`/`whm`/`cp`/`resetpass`|Malware/tools that involve stealing/cracking credentials related to cPanel/WHM.|
+|`tele`/`tgram`|Covers malware involving exfiltration of information using the Telegram API.|
+|`conf`/`confgrab`/`grabber`|Malware that involves activities such as grabbing configurations, configuration files, etc.|
+|`brute`/`bruter`/`wpbrute`/`bruteforce`|Covers malware artifacts involving brute force attacks of any sort.|
+|`bninja`/`bloodninja`|Covers malware authored by a malware author dubbed `bloodninja`.|
+|`obf`/`enc`|Obfuscated/encrypted malware artifact is somehow obfuscated/encrypted to conceal the malware code.|
+|`indo`/`indoxploit`/`indox`|Covers various versions of IndoXploit webshell.|
+|`cracker`/`crack`|Covers malware artifacts involving cracking credentials of any sort.|
+|`klg`/`rms`|Covers backdoors or webshells related to malware campaigns dubbed `klg` and `rms`.|
+|`array`|Malware that utilises arrays and array based functions to hide/ make legit looking backdoor code.|
+|`skim`/`skimmer`|Covers malware artifacts that involve web skimming.|
+|`bot`/`botnet`|Malicious code that resembles activities of a bot/botnet.|
+|`irc`/`ircbot`|Covers malicious IRC artifacts.|
 
 #### Example
 

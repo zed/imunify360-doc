@@ -355,4 +355,6 @@ The graylisted visitors will see such screen for 5 seconds before redirecting to
 You can find WebShield and Captcha related logs in the <span class="notranslate">`/var/log/imunify360-webshield/`</span> file.
 :::
 
+### How to block attacks from a particular country in WebShield
 
+Country blocking is available in both [Admin UI](/dashboard/#black-list) and [CLI](/command_line_interface/#blacklist)

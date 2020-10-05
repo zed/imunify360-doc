@@ -112,8 +112,8 @@ that were uploaded via http/https. Note that it requires <a href="https://modsec
 <td># max file size to scan in the cloud-assisted (by hashes) mode; value is set in bytes</td></tr>
 <tr><td><span class="notranslate">max_mrs_upload_file: 10485760</span></td>
 <td># max file size to upload to CloudLinux malware research service; value is set in bytes</td></tr>
-<tr><td><span class="notranslate">detect_elf: False</span></td>
-<td># enable (<span class="notranslate">True</span>) or disable (<span class="notranslate">False</span>) (default value) binary (ELF) malware detection</td></tr>
+<tr><td><span class="notranslate">detect_elf: True</span></td>
+<td># enable (<span class="notranslate">True</span>) (default value) or disable (<span class="notranslate">False</span>) binary (ELF) malware detection</td></tr>
 <tr><td><span class="notranslate">notify_on_detect: False</span></td>
 <td># notify (<span class="notranslate">True</span>) or not (<span class="notranslate">False</span>) (default value) an admin when malware is detected</td></tr>
 <tr><td><span class="notranslate">optimize_realtime_scan: True</span></td>

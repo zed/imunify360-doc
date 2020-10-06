@@ -187,16 +187,14 @@ semodule -i /var/imunify360/imunify360.pp
 ```
 </div>
 
-After that, restart imunify360 and ossec-hids services.
+After that, restart imunify360 service.
 For CentOS6/CloudLinux6:
 ```
-service ossec-hids restart
 service imunify360 restart
 ```
 
 For other systems:
 ```
-systemctl restart ossec-hids
 systemctl restart imunify360
 ```
 

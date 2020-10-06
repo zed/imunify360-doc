@@ -67,6 +67,8 @@ Changes of config files will be applied automatically. You don’t need to resta
 <td width="250px;"><span class="notranslate">ruleset: FULL</span></td><td># defines what ruleset to use: <span class="notranslate">FULL</span> (default value) or <span class="notranslate">MINIMAL</span>. If the amount of RAM on the server is less than 2.1GB, the ruleset value is automatically set to <span class="notranslate">MINIMAL</span>.</td></tr>
 <tr>
 <td width="250px;"><span class="notranslate">cms_account_compromise_prevention: False</span></td><td># enables WordPress account brute-force protection. Default is <b>False</b>.</td></tr>
+<tr>
+<td width="250px;"><span class="notranslate">app_specific_ruleset: True</span></td><td># enables WAF Rules Auto-Configurator. Default is <b>True</b>.</td></tr>
 <td width="250px;"><span class="notranslate">prev_settings: </span></td><td># for internal usage, do not edit</td></tr>
 <tr>
 <th colspan="2" align="left"><span class="notranslate">MOD_SEC_BLOCK_BY_SEVERITY:</span></th></tr>

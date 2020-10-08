@@ -736,7 +736,7 @@ Scan results will be stored in the <span class="notranslate">`results.json`</spa
 ```
 </div>
 
-Scan results will be stored in the <span class="notranslate">`results.json`</span>. Also, backup of the affected data will be created with a filename similar to the <span class="notranslate">`mds_backup_1597223818.csv`</span>.
+Cleanup results will be stored in the <span class="notranslate">`results.json`</span>. Also, backup of the affected data will be created with a filename similar to the <span class="notranslate">`mds_backup_1597223818.csv`</span>.
 
 
 #### Undo changes (restore)

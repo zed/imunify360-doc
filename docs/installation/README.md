@@ -187,6 +187,17 @@ semodule -i /var/imunify360/imunify360.pp
 ```
 </div>
 
+After that, restart imunify360 service.
+For CentOS6/CloudLinux6:
+```
+service imunify360 restart
+```
+
+For other systems:
+```
+systemctl restart imunify360
+```
+
 ## Update Instructions
 
 :::tip Note

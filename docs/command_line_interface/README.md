@@ -348,7 +348,8 @@ where 12.34.56.78 is that specific IP address.
 </div>
 
 :::warning Warning
-For now, ipset supports only IPv6/64 networks
+For now, ipset supports only IPv6/64 networks. In most cases, it is enough to specify the mask `/64`. An example of 
+ a proper IPv6 address with the subnet mask: `2001:db8:abcd:0012::0/64`.
 :::
 
 ## Blocked ports

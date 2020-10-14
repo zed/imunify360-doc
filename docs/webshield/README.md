@@ -251,31 +251,14 @@ Imunify360 correctly graylists and blocks IPs behind Cloudflare and other CDNs (
 	
 Imunify360 passes all requests from CDN through <span class="notranslate">WebShield</span>, and uses <span class="notranslate">CF-Connecting-IP</span> and <span class="notranslate">X-Forwarded-For</span> headers to identify real IPs.
 	
-To enable it now, add the following section to the Imunify360 config file (<span class="notranslate">_/etc/sysconfig/imunify360/imunify360.config_</span>):
+To enable it now, run the command:
 	
 <div class="notranslate">
 
-```
-WEBSHIELD:
- known_proxies_support: true
-```
-
-</div>
-And restart <span class="notranslate">WebShield</span>
-For EL6:
-<div class="notranslate">
-
-```
-service imunify360-webshield restart
+```sh
+imunify360-agent config update '{"WEBSHIELD": {"known_proxies_support": true}}'
 ```
 
-</div>
-For other systems:
-<div class="notranslate">
-
-```
-systemctl restart imunify360-webshield
-```
 </div>
 
 ::: tip Note

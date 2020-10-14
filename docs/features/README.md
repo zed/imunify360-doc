@@ -707,6 +707,14 @@ To provide safe work with database MDS supports several methods:
 * <span class="notranslate">`--clean`</span> - scan database and clean-up malicious
 * <span class="notranslate">`--restore`</span> - restore data affected by clean-up from the backup CSV file
 
+:::tip Note
+“Clean” operation includes “scan”, so you don’t need to run a scan before the cleanup. Whereas the “scan” can be used for non-disruptive checks of the database. Cleanup mode creates a backup file that can be used to rollback all changes back. It makes MDS safe to use and prevents websites from breaking and data loss.
+:::
+
+The easiest way to use MDS is to run it with  <span class="notranslate">`--search-configs`</span> argument: MDS will try to find the config files and print out database credentials that should be later specified for scanning. 
+
+<span class="notranslate">`--creds-from-xargs`</span> argument can be used to run MDS without a need to manually enter credentials. It allows automating the process of credentials discovery and the scan process.
+
 #### Usage
 
 <div class="notranslate">
@@ -729,6 +737,8 @@ php /opt/ai-bolit/imunify_dbscan.php [OPTIONS] [PATH]
 |<span class="notranslate">`--prefix=<prefix>`</span>|Prefix for table|
 |<span class="notranslate">`--scan`</span>|Do scan|
 |<span class="notranslate">`--clean`</span>|Do clean|
+|<span class="notranslate">`--search-configs`</span>|Find the config files and print out database credentials|
+|<span class="notranslate">`--creds-from-xargs`</span>|Discover credentials and do scan|
 |<span class="notranslate">`--report-file=<filepath>`</span>|Filepath where to put the report|
 |<span class="notranslate">`--signature-db=<filepath>`</span>|Filepath with signatures|
 |<span class="notranslate">`--progress=<filepath>`</span>|Filepath with progress|

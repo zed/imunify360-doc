@@ -6,6 +6,13 @@
 Starting with Imunify360 4.9.2, when the interface IP address is added to or deleted from the system, the restart of the webshield is required for the latter to recognize the new IP.
 :::
 
+<div class="notranslate">
+
+```
+service imunify360-webshield restart
+```
+</div>
+
 #### Setting the WebShield "Server" header
 
 Sometimes it's desired to change the WebShield "Server" header to something that suits certain requirements.

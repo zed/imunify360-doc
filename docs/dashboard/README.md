@@ -1037,7 +1037,7 @@ if (strpos($external_code,$pattern)){
     print "Poactive Defence DOESN'T work or NOT in KILL mode";
 }
 else {
-    print "Proactive Defence works fine - file_get_contents function has been BLOCKED, please check Imunify360 Proactive Defence tab for correspondent BLOCK event";
+    print "Proactive Defence works fine - file_get_contents function has been BLOCKED, please check Imunify360 Proactive Defence tab for corresponding BLOCK event";
 }
 ?>
 ```

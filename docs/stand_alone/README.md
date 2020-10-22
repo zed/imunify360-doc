@@ -21,6 +21,7 @@ Imunify360 can be installed directly on the server, independent of any panel, re
 
 * Apache
 * LiteSpeed
+* Nginx
 
 #### There are four main steps in general required for having Imunify360 Stand-alone running on your server:
 

@@ -37,7 +37,7 @@ If you have already deleted <span class="notranslate">`i360deploy.sh`</span> the
 <div class="notranslate">
 
 ```
-wget http://repo.imunify360.cloudlinux.com/defence360/i360deploy.sh
+wget https://repo.imunify360.cloudlinux.com/defence360/i360deploy.sh
 ```
 
 </div>

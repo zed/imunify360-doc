@@ -39,8 +39,8 @@ Imunify Web-UI PHP code has to be executed under a non-root user which has acces
 
 Imunify360 Stand-alone version requires the following components installed or enabled at the server:
 
-* ModSecurity 2.9.x
-* Apache module <span class="notranslate">`mod_remoteip`</span>
+* ModSecurity 2.9.x for Apache or ModSecurity 3.0.x for Nginx
+* Apache module <span class="notranslate">`mod_remoteip`</span> or nginx module `ngx_http_realip_module`
 * PHP with <span class="notranslate">`proc_open`</span> function enabled (remove it from the <span class="notranslate">`disable_functions`</span> list in <span class="notranslate">`php.ini`</span>)
 
 
@@ -74,26 +74,66 @@ ui_path = /var/www/vhosts/imunify360/imunify360.hosting.example.com/html/im360
 
 Ensure that the domain you are going to use for the Imunify360 web-based UI refers to this path and that there are no other scripts or files under <span class="notranslate">`ui_path`</span>, as they might be overridden by Imunify360 installation.
 
-#### Interaction with ModSecurity
+#### Integraction with ModSecurity
+
+##### Web server configuration
+
+###### Apache and LiteSpeed
 
 Configure [ModSecurity configuration directives](https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual-%28v2.x%29#Configuration_Directives) (so that it can block):
 
 <div class="notranslate">
 
 ``` apacheconf
-SecAuditEngine = "RelevantOnly"
-SecConnEngine = "Off"
-SecRuleEngine = "On"
+SecAuditEngine RelevantOnly
+SecConnEngine Off
+SecRuleEngine On
 ```
 </div>
 
 Create the empty file <span class="notranslate">`/etc/sysconfig/imunify360/generic/modsec.conf`</span> and include it into the web server config as <span class="notranslate">`IncludeOptional`</span>. The file would be replaced with the actual config during the first Imunify360 installation or you can fill it via calling the Imunify360 ModSec ruleset installation <span class="notranslate">`imunify360-agent install-vendors`</span>.
 
+###### Nginx
+
+Note that ModSecurity has different syntax comparing to nginx configuration, thus ModSecurity directives
+can not be directly included to nginx config files.
+
+Create separate file (i.e. `/etc/nginx/modsec.conf`) and set following ModSecurity directives in it:
+
+``` apacheconf
+SecAuditEngine RelevantOnly
+SecConnEngine Off
+SecRuleEngine On
+SecAuditLogFormat JSON
+# should match modsec_audit_log option in integration.conf (see below)
+SecAuditLog /var/log/nginx/modsec_audit_log
+```
+
+Warning: ModSecurity on Nginx does not properly re-opens audit log on SIGHUP/SIGUSR1, which can cause
+logrotate to break integration with Imunify360. See https://github.com/SpiderLabs/ModSecurity-nginx/issues/121
+for details
+
+Create the empty file <span class="notranslate">`/etc/sysconfig/imunify360/generic/modsec.conf`</span>. 
+The file would be replaced with the actual config during the first Imunify360 installation or you can 
+fill it via calling the Imunify360 ModSec ruleset installation <span class="notranslate">`imunify360-agent install-vendors`</span>.
+
+Then enable ModSecurity and include both files into Nginx configuration using `modsecurity_rules_file` directive:
+
+```
+modsecurity on;
+modsecurity_rules_file /etc/nginx/modsec.conf;
+modsecurity_rules_file /etc/sysconfig/imunify360/generic/modsec.conf;
+```
+
+
+##### Imunify360 integration configuration
+
 Set the path and graceful restart script in the <span class="notranslate">`integration.conf`</span>
 
 * <span class="notranslate">`[web_server].graceful_restart_script`​</span> – a script that restarts the web server to be called after any changes in web server config or ModSecurity rules
 * <span class="notranslate">`[web_server].modsec_audit_log​`​</span> – a path to ModSecurity audit log file
-* <span class="notranslate">`[web_server].modsec_audit_logdir​`​</span> – a path to ModSecurity audit log dir
+* <span class="notranslate">`[web_server].modsec_audit_logdir​`​</span> – a path to ModSecurity audit log dir 
+(required when `SecAuditLogType` set to `Concurrent`)
 
 Example
 
@@ -254,7 +294,7 @@ To allow WebShield to handle non-SNI requests properly, include an `ip` field in
 
 WebShield will use this data to decide which certificate to serve if a request without Server Name Indication (SNI) arrives. If there are several domains with the specified IPs, WebShield will use the first one alphabetically.
 
-#### Required mod_remoteip configuration
+#### Required web server configuration to correctly detect client IP addresses from  headers
 
 To ensure WebShield and Graylist are working correctly (e.g. a correct IP is passed to ModSecurity), the server must recognize WebShield as an internal proxy. For example, for Apache, `mod_remoteip` must be installed and configured like this:
 
@@ -264,15 +304,23 @@ To ensure WebShield and Graylist are working correctly (e.g. a correct IP is pas
 <IfModule remoteip_module>
     RemoteIPInternalProxy 127.0.0.1
     RemoteIPInternalProxy ::1
-    RemoteIPHeader X-Real-IP
+    RemoteIPHeader X-Forwarded-For
 </IfModule>
 ```
 </div>
 
-WebShield passes the real client IP in the <span class="notranslate">`X-Real-IP`</span> header.
+For nginx, `ngx_http_realip_module` module should be configured in following way:
+
+```
+real_ip_header X-Forwarded-For;
+set_real_ip_from 127.0.0.1;
+set_real_ip_from ::1;
+```
+
+WebShield passes the real client IP in the <span class="notranslate">`X-Forwarded-For`</span> header.
 
 :::tip Note
-In the LogFormat configuration strings for correct representation of a remote host IP address it is required using:
+In the apache LogFormat configuration strings for correct representation of a remote host IP address it is required using:
 
 <div class="notranslate">
 

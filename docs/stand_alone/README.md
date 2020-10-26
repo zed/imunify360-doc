@@ -43,6 +43,11 @@ Imunify360 Stand-alone version requires the following components installed or en
 * Apache module <span class="notranslate">`mod_remoteip`</span> or nginx module `ngx_http_realip_module`
 * PHP with <span class="notranslate">`proc_open`</span> function enabled (remove it from the <span class="notranslate">`disable_functions`</span> list in <span class="notranslate">`php.ini`</span>)
 
+:::warning Warning
+We recommend using stable versions of ModSecurity3 (i.e. 3.0.4), because development versions (i.e. master) can have
+stability issues (see https://github.com/SpiderLabs/ModSecurity/issues/2381 for example)
+:::
+
 
 ## 2. Configure Imunify360 integrations
 

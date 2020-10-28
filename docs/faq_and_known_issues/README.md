@@ -878,7 +878,75 @@ If you see the <span class="notranslate">"ssh_exchange_identification: Connectio
 
 ### 26. Where can I find the files backup location?
 
-You can find the files backup location in the following directory: `/var/imunify360/cleanup_storage/`
+You can find the files backup location in the following directory: `/var/imunify360/cleanup_storage/`.
+
+### 27. Ipset max elements error "Hash is full, cannot add more elements"
+
+We would like to describe a possible situation you may come across while adding some IP(s) into the Black/White List. In case you are experiencing difficulties with the procedure and get the following error message within the Imunify360 Dashboard or the CLI:
+
+<div class="notranslate">
+
+```
+Command ['/usr/sbin/ipset', 'add', 'i360.ipv4.blacklist', '11.22.33.44/32', 'timeout', '0', '-exist'] returned non-zero code 1,
+Stdout: None,
+Stderr: ipset v7.1: Hash is full, cannot add more elements
+```
+</div>
+
+This means the ipset elements limit is exceeded.
+
+The ipset size is hardcoded in the Imunify360 source code and currently, it is equal to a 100K IPs limit. You can confirm it with the following commands:
+
+<div class="notranslate">
+
+```
+# ipset -t list i360.ipv4.blacklist
+Name: i360.ipv4.blacklist
+Type: hash:net
+Revision: 3
+Header: family inet hashsize 1024 maxelem 100000 timeout 0
+Size in memory: 17040
+References: 1
+```
+</div>
+
+or
+
+<div class="notranslate">
+
+```
+# ipset list "i360.ipv4.blacklist" | grep -oP '(?<=maxelem )[^ ]*'
+100000
+```
+</div>
+
+In case you wish to expand the lists to add more elements to a Black/White list, you can use the external one by creating a separate file with the list of the IPs you would like to whitelist/blacklist and placing it inside:
+
+<div class="notranslate">
+
+```
+/etc/imunify360/whitelist/*.txt
+```
+</div>
+
+or
+
+<div class="notranslate">
+
+```
+/etc/imunify360/blacklist/*.txt
+```
+</div>
+
+Please mind that apart from single IP addresses, subnets can be also added to blacklists to block more addresses.
+
+Such lists support up to 500K elements. More details about configuring external lists can be found [here](/features/#external-black-whitelist-management ).
+
+:::tip Note
+We also would like to clarify the decision of keeping the ipset size as it is – it's not reasonable to further increase the ipset size because it can lead to the degradation of network performance. There is no reason to keep IPs in the blacklist forever because IP addresses used by hackers are often changed. Please be informed that Imunify360 analytics do their best to provide optimal TTL for the graylist to ensure the best protection with a low false positives rate.
+:::
+
+You may also want to add a whole region (or certain regions) to the blacklist, which can contain quite an impressive number of IPs. We believe the entire country cannot be malicious and crawlers can be operating from different locations. Still, if you wish to block the whole country/countries and to allow access to your server for specific IPs/subnets, we would recommend that you use the option to ["block all except specified"](/dashboard/#blocked-ports) for blocking the majority of common ports and [whitelist the necessary IPs/subnets](/dashboard/#white-list) you wish to allow access to your server.
 
 ## Corner cases
 

@@ -93,14 +93,15 @@ Changes of config files will be applied automatically. You don’t need to resta
 <tr><td><span class="notranslate">try_restore_from_backup_first: False</span></td>
 <td># allows to enable (<span class="notranslate">True</span>) or disable (<span class="notranslate">False</span> – the default value) automatic malicious file restore from backup if a clean copy exists,
 otherwise <span class="notranslate"><em>default_action</em></span> is applied</td></tr>
-<tr><td><span class="notranslate">default_action: cleanup_or_quarantine</span></td>
+<tr><td><span class="notranslate">default_action: cleanup</span></td>
 <td># default action on malicious file detected.<br>
 Available options:
-<ul><li><span class="notranslate">quarantine</span> – do not delete and move to quarantine</li>
-<li><span class="notranslate">notify</span> – do not delete and send email notification</li>
-<li><span class="notranslate">delete</span> – delete malicious file</li>
-<li><span class="notranslate">cleanup</span> – cleanup malicious file</li>
-<li><span class="notranslate">cleanup_or_quarantine</span> (default) – choose what to do with a malicious file</li></ul></td></tr>
+<ul>
+<li><span class="notranslate"><b>notify</b></span> – just display in dashboard</li>
+<li><span class="notranslate"><b>cleanup</b></span> – cleanup malicious file (default)</li>
+<li><span class="notranslate">quarantine</span> – do not delete and move to quarantine (available only via CLI)</li>
+<li><span class="notranslate">delete</span> – delete malicious file (available only via CLI)</li>
+<li><span class="notranslate">cleanup_or_quarantine</span> choose what to do with a malicious file (available only via CLI)</li></ul></td></tr>
 <tr><td><span class="notranslate">enable_scan_inotify: True</span></td>
 <td># enable (<span class="notranslate">True</span> (default)) or disable (<span class="notranslate">False</span>) real-time scanning for modified files using <a href="https://en.wikipedia.org/wiki/Inotify" target="_blank">inotify</a> library</td></tr>
 <tr><td><span class="notranslate">enable_scan_pure_ftpd: True</span></td>

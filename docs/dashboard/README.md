@@ -1612,11 +1612,12 @@ Read [CXS integration](/ids_integration/#cxs-integration) documentation carefull
 * <span class="notranslate">_Try to restore from backup first_</span> – allows to restore file as soon as it was detected as malicious from backup if a clean copy exists. If a clean copy does not exist or it is outdated, default action will be applied. See also <span class="notranslate">[CloudLinux Backup](/dashboard/#backups)</span>.
 * <span class="notranslate">_Use backups not older than (days)_</span> – allows to set the a maximum age of a clean file.
 * <span class="notranslate">_Default action on detect_</span> – configure Malware Scanner actions when detecting malicious activity:
-  * <span class="notranslate">Delete permanently</span>
-  * <span class="notranslate">Quarantine file</span>
   * <span class="notranslate">Just display in dashboard</span>
-  * <span class="notranslate">Cleanup</span>
-  * <span class="notranslate">Cleanup, Quarantine as a fallback</span>
+  * <span class="notranslate">Cleanup</span> (default)
+
+  :::warning Warning
+  Starting from Imunify360 v.5.4, the <span class="notranslate">_Delete permanently_</span>, the <span class="notranslate">_Quarantine file_</span>, and the <span class="notranslate">_Cleanup, Quarantine as a fallback_</span> options are available only [via CLI](/config_file_description/). They will be removed completely in Imunify360 v.5.8. For more information see [this blog post](https://blog.imunify360.com/file-quarantine-is-no-longer-effective).
+  :::
 
 
 :::tip Note

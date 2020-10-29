@@ -687,7 +687,7 @@ Occurs when the Proactive Defense has blocked malicious script.
 Click <span class="notranslate">_Save changes_</span> at the bottom to apply all changes.
 
 
-## Malware Database Scanner (MDS) <Badge text="Beta" type="warning"/> <Badge text="5.1"/>
+## Malware Database Scanner (MDS)
 
 <span class="notranslate">Malware Database Scanner (MDS)</span> is designed to solve all malware related problems in the database.
 

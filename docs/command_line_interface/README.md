@@ -288,13 +288,13 @@ imunify360-agent blacklist [subject] [command] <value> [--option]
 |<span class="notranslate">`list`</span>| list items(-s) in <span class="notranslate">Black List</span>|
 
 
-Please note that by default <span class="notranslate">`list`</span> command outputs only first 100 items in the list as if it was run as <span class="notranslate">`blacklist ip list --limit 100`</span>.
+Please note that by default <span class="notranslate">`list`</span> command outputs only first 100 items in the list as if it was run as <span class="notranslate">`imunify360-agent blacklist ip list --limit 100`</span>.
 To check whether specific IP address is in the list, you can run the following command:
 
 <div class="notranslate">
 
 ```
-blacklist ip list --by-ip 12.34.56.78
+imunify360-agent blacklist ip list --by-ip 12.34.56.78
 ```
 
 </div>
@@ -346,6 +346,18 @@ where 12.34.56.78 is that specific IP address.
    ```
 
 </div>
+
+To blacklist multiple IP addresses, put them into a file and add to the black list as follows:
+
+<div class="notranslate">
+
+```
+cat list.txt | xargs -n 1 imunify360-agent blacklist ip add
+```
+
+</div>
+
+The alternative would be using the [external white/black list feature](/features/#external-black-whitelist-management).
 
 :::warning Warning
 For now, ipset supports only IPv6/64 networks. In most cases, it is enough to specify the mask `/64`. An example of 
@@ -2010,13 +2022,13 @@ A domain whitelisting will affect only greylisted IPs. It will not affect ModSec
 |<span class="notranslate">`list`</span>|List items(-s) in the <span class="notranslate">White List</span>.|
 |<span class="notranslate">`reset-to`</span>|Replace whitelisted domains list with a new list.|
 
-Please note that by default <span class="notranslate">`list`</span> command outputs only first 100 items in the list as if it was run as <span class="notranslate">`whitelist ip list --limit 100`</span>.
+Please note that by default <span class="notranslate">`list`</span> command outputs only first 100 items in the list as if it was run as <span class="notranslate">`imunify360-agent whitelist ip list --limit 100`</span>.
 To check whether specific IP address is in the list, you can run the following command:
 
 <div class="notranslate">
 
 ```
-whitelist ip list --by-ip 12.34.56.78
+imunify360-agent whitelist ip list --by-ip 12.34.56.78
 ```
 
 </div>
@@ -2102,6 +2114,18 @@ where `12.34.56.78` is that specific IP address.
 
 </div>
  
+To whitelist multiple IP addresses, put them into a file and add to the white list as follows:
+
+<div class="notranslate">
+
+```
+cat list.txt | xargs -n 1 imunify360-agent whitelist ip add
+```
+
+</div>
+
+The alternative would be using the [external white/black list feature](/features/#external-black-whitelist-management).
+
 
 ## Whitelisted crawlers
 

@@ -72,7 +72,7 @@ list [--until]
 
 </div>
 
-If a date string is passed as <span class="notranslate">`--until`</span>, list all backups from now up to that date or all backups otherwise. The date for <span class="notranslate">`--unitil`</span> parameter can be in any format that python-dateutil can parse, e.g. _2017-08-01_, _01 Aug 2017_, etc.
+If a date string is passed as <span class="notranslate">`--until`</span>, list all backups from now up to that date or all backups otherwise. The date for <span class="notranslate">`--until`</span> parameter can be in any format that python-dateutil can parse, e.g. _2017-08-01_, _01 Aug 2017_, etc.
 
 Example:
 

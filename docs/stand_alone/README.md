@@ -19,7 +19,7 @@ Imunify360 can be installed directly on the server, independent of any panel, re
 
 **Web servers**
 
-* Apache
+* Apache >= 2.4.30
 * LiteSpeed
 * Nginx (starting from Imunify360 5.4)
 

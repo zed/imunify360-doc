@@ -2049,7 +2049,7 @@ where `12.34.56.78` is that specific IP address.
 
 **Examples:**
 
-1. The following commands adds IP `1.2.3.4` to the <span class="notranslate">White List</span> with a comment <span class="notranslate">“one bad ip”</span>:
+1. The following commands adds IP `1.2.3.4` to the <span class="notranslate">White List</span> with a comment <span class="notranslate">“one good ip”</span>:
 
 <div class="notranslate">
 

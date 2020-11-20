@@ -2054,7 +2054,7 @@ where `12.34.56.78` is that specific IP address.
 <div class="notranslate">
 
    ```
-   imunify360-agent whitelist ip add 1.2.3.4 --comment “one good ip”
+   imunify360-agent whitelist ip add 1.2.3.4 --comment "one good ip"
    OK
    ```
 

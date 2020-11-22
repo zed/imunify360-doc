@@ -740,13 +740,15 @@ The table has the following columns:
   * <span class="notranslate">**Cleanup in progress**</span> — infected file cleanup is in progress now.
 * <span class="notranslate">**Actions**</span>:
   * <span class="notranslate">**Add to Ignore List**</span> — add file to the <span class="notranslate">Ignore List</span> and remove it from the <span class="notranslate">Malicious files</span> list. Note that if a file is added to the <span class="notranslate">Ignore List</span>, Imunify360 will no longer scan this file. Click the <span class="notranslate">_Gear_</span> symbol ![](/images/gear.png) and select <span class="notranslate">_Add to Ignore List_</span>.
-  * <span class="notranslate">**Delete permanently**</span> — remove the file from the server and from the list of <span class="notranslate">Malicious</span> files. Click the <span class="notranslate">_Gear_ symbol</span> ![](/images/gear.png) and select <span class="notranslate">_Delete permanently_</span>.
   * <span class="notranslate">**View file**</span> — click <span class="notranslate">_View file_</span> symbol ![](/images/view_file_symbol.png) in the file line and the file content will be displayed in the pop-up. Only the first 100Kb of the file content will be shown in case if a file has bigger size.
-  * <span class="notranslate">**Move to quarantine**</span> — move the file to the quarantine. Click <span class="notranslate">_Move to quarantine_</span> symbol ![](/images/movetoquarantine_symbol.png) and confirm the action in the pop-up.
   * <span class="notranslate">**Cleanup file**</span> — click <span class="notranslate">_Clean up_</span> symbol ![](/images/cleanup_symbol.png) to clean up all infected files within the account.
   * <span class="notranslate">**Restore from quarantine**</span> — click <span class="notranslate">_Restore from quarantine_</span> symbol ![](/images/restore_fromquarantine_symbol.png) to restore the fle from the quarantine.
   * <span class="notranslate">**Restore original file (before cleanup)**</span> — click <span class="notranslate">_Restore original_</span> symbol ![](/images/restore_original_symbol.png) to restore the original content removed as infected.
   * <span class="notranslate">**Restore from backup**</span> — click the <span class="notranslate">_Gear_</span> symbol ![](/images/gear.png) and select <span class="notranslate">_Try to restore from backup_</span> to restore the original file before it got infected if it exists.
+
+:::warning Warning
+  Starting from Imunify360 v.5.4, the <span class="notranslate">_Delete permanently_</span>, the <span class="notranslate">_Quarantine file_</span>, and the <span class="notranslate">_Cleanup, Quarantine as a fallback_</span> options are available only [via CLI](/config_file_description/). They will be removed completely in Imunify360 v.5.8. For more information see [this blog post](https://blog.imunify360.com/file-quarantine-is-no-longer-effective).
+  :::
 
 To perform a bulk action, tick required files and click the corresponding button above the table.
 

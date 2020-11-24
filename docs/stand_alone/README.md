@@ -225,12 +225,12 @@ im360-ssl-cache --add /path/to/certs.json
 ```
 </div>
 
-The <span class="notranslate">`--add`</span> parameter accepts zero or one parameter. If a parameter is given, it is taken as a path to a file in JSON format with a list of certificates and private keys to be added. Otherwise, data is expected to be sent in JSON format to STDIN as in the following example:
+The <span class="notranslate">`--add`</span> parameter accepts exactly one value. If the parameter value is not `-`, it is taken as a path to a file in JSON format with a list of certificates and private keys to be added. Otherwise, if the parameter value is `-`, data is expected to be sent in JSON format to STDIN as in the following example:
 
 <div class="notranslate">
 
 ```
-cat certs.json | im360-ssl-cache --add
+cat certs.json | im360-ssl-cache --add -
 ```
 </div>
 

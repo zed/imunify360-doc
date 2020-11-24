@@ -238,7 +238,7 @@ Click an incident to expand the detailed information.
 
 ![](/images/expand.jpg)
 
-**Actions available for the Incidents:**
+#### Actions available for the Incidents
 
 * Disabling the rule of the incident and add it to the list of Disabled rules. Click _Ban_ icon in a proper incident row and confirm the action.
 

@@ -983,7 +983,7 @@ To check whether specific IP address is in the list, you can run the following c
 <div class="notranslate">
 
 ```
-graylist ip list --by-ip 12.34.56.78
+imunify360-agent graylist ip list --by-ip 12.34.56.78
 ```
 
 </div>

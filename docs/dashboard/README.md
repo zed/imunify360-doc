@@ -1580,11 +1580,11 @@ Read [CXS integration](/ids_integration/#cxs-integration) documentation carefull
 
 ![](/images/SettingsMalwareResourceConsumption.png)
 
-* <span class="notranslate">_CPU consumption_</span> – enables to set a level of CPU usage by Malware Scanner.
+* <span class="notranslate">_CPU consumption_</span> – allows to set a level of CPU usage by Malware Scanner.
     ::: tip Note
     Low CPU usage means low scanning speed
     :::
-* <span class="notranslate">_I/O consumption_</span> – enables to set a level of I/O usage by Malware Scanner.
+* <span class="notranslate">_I/O consumption_</span> – allows to set a level of I/O usage by Malware Scanner.
     :::tip Note
     Low I/O usage means low scanning speed
     :::

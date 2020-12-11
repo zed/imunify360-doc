@@ -98,10 +98,7 @@ otherwise <span class="notranslate"><em>default_action</em></span> is applied</t
 Available options:
 <ul>
 <li><span class="notranslate"><b>notify</b></span> – just display in dashboard</li>
-<li><span class="notranslate"><b>cleanup</b></span> – cleanup malicious file (default)</li>
-<li><span class="notranslate">quarantine</span> – do not delete and move to quarantine (available only via CLI)</li>
-<li><span class="notranslate">delete</span> – delete malicious file (available only via CLI)</li>
-<li><span class="notranslate">cleanup_or_quarantine</span> choose what to do with a malicious file (available only via CLI)</li></ul></td></tr>
+<li><span class="notranslate"><b>cleanup</b></span> – cleanup malicious file (default)</li></ul></td></tr>
 <tr><td><span class="notranslate">enable_scan_inotify: True</span></td>
 <td># enable (<span class="notranslate">True</span> (default)) or disable (<span class="notranslate">False</span>) real-time scanning for modified files using <a href="https://en.wikipedia.org/wiki/Inotify" target="_blank">inotify</a> library</td></tr>
 <tr><td><span class="notranslate">enable_scan_pure_ftpd: True</span></td>

@@ -65,7 +65,7 @@ The following info is sent to our server:
 * all the messages from <span class="notranslate">mod_security</span> (can be found in <span class="notranslate">`modsec_audit.log`</span>)
 * users domains (to be checked in reputation engine);
 * CAPTCHA verification info
-* all running scans for malware (maldet scans) and information on moving to the quarantine or discovering suspicious files
+* all running scans for malware (maldet scans) and information on cleaning up or discovering suspicious files
 * optionally, suspicious files can be sent to us for the analysis. Files can be sent via UI by marking a proper checkbox
 
 ### 6. No valid Imunify360 License Found.
@@ -599,12 +599,8 @@ You can find additional information in the following config files:
 
 </div>
 
-### 20. Where can I find the quarantined files?
 
-You can find the quarantined files in the following directory: <span class="notranslate">`/home/.imunify.quarantined/USERNAME`</span>
-
-
-### 21. How to check that CAPTCHA works?
+### 20. How to check that CAPTCHA works?
 
 First, remove an IP from the White list:
 
@@ -638,7 +634,7 @@ Also, it is possible to use a domain name of a website which `DNS A` record is p
 </div>
 
 
-### 22. How to edit watched and excluded patterns for Malware Scanner?
+### 21. How to edit watched and excluded patterns for Malware Scanner?
 
 There are two files:
 * <span class="notranslate">`/etc/sysconfig/imunify360/malware-filters-admin-conf/watched.txt`</span> defines which paths are watched by Imunify360
@@ -708,7 +704,7 @@ Custom exclude patterns have higher priority than custom watched patterns.
 After making changes to this file, perform the <span class="notranslate">`imunify360-agent malware rebuild patterns`</span> command.
 :::   
 
-### 23. How to test rules based on ModSecurity tags?
+### 22. How to test rules based on ModSecurity tags?
 
 You can use the following URIs to check what was activated.
 
@@ -731,7 +727,7 @@ curl -k 'https://example.org/?tag_test=wp_core'
 It will produce 403 only for sites with WordPress.
 
 
-### 24. "Imunify agent is not running" troubleshooting
+### 23. "Imunify agent is not running" troubleshooting
 
 Having the Imunify service installed, you may come across the situation when the message <span class="notranslate">"Imunify agent is not running"</span> is displayed when you try to access the Dashboard:
 
@@ -872,15 +868,15 @@ and provide the output to our Support Team at [https://cloudlinux.zendesk.com/hc
 You can find the ImunifyAV(+) instructions [here](https://docs.imunifyav.com/faq_and_known_issues/#imunify-agent-is-not-running-troubleshooting).
 
 
-### 25. "ssh_exchange_identification: Connection closed by remote host" troubleshooting
+### 24. "ssh_exchange_identification: Connection closed by remote host" troubleshooting
 
 If you see the <span class="notranslate">"ssh_exchange_identification: Connection closed by remote host"</span> few times in a row, then this might be an evidence that <span class="notranslate">SSH</span> is under bruteforce attack and some of concurrent unauthenticated connections are dropped due to the <span class="notranslate">/etc/ssh/ssh_config MaxStartups ...</span> parameter default value. Thus, we would advise you to increase the <span class="notranslate">MaxStartups ...</span> from the default (e.g. 10:30:60) to 100:30:200 or something that is proportional to your SSH server bruteforce intensity (100:30:200 is for 25 attempts per second bruteforce intensity rate).
 
-### 26. Where can I find the files backup location?
+### 25. Where can I find the files backup location?
 
 You can find the files backup location in the following directory: `/var/imunify360/cleanup_storage/`.
 
-### 27. Ipset max elements error "Hash is full, cannot add more elements"
+### 26. Ipset max elements error "Hash is full, cannot add more elements"
 
 We would like to describe a possible situation you may come across while adding some IP(s) into the Black/White List. In case you are experiencing difficulties with the procedure and get the following error message within the Imunify360 Dashboard or the CLI:
 

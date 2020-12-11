@@ -645,7 +645,7 @@ To delete a port or separate IP/subnet, click _Bin_ icon in the row of the eleme
  The functionality described here depends on <span class="notranslate">[Malware Scanner settings](/dashboard/#malware)</span>.
 :::
 
-Imunify360 <span class="notranslate">Malware Scanner</span> can scan file systems for malware injection and quarantine infected files.
+Imunify360 <span class="notranslate">Malware Scanner</span> can scan file systems for malware injection and clean up infected files.
 
 This is also a real time file scanner for vulnerability and it can:
 
@@ -661,7 +661,7 @@ Malware scanning allows you to:
 
 * observe scanner activity
 * start on-demand file scanner
-* manage malicious and quarantined files
+* manage malicious and cleaned up files
 * manage Ignore List
 
 Click <span class="notranslate">_Malware Scanner_</span> in the main menu of the Imunify360 admin interface.
@@ -735,19 +735,17 @@ The table has the following columns:
 * <span class="notranslate">**Status**</span> — displays the file status:
   * <span class="notranslate">**Infected**</span> — threat was detected after scanning. If a file was not cleaned after cleanup, the info icon is displayed. Hover mouse over info icon to display the reason;
   * <span class="notranslate">**Cleaned**</span> —  infected file is cleaned up.
-  * <span class="notranslate">**Quarantined**</span> – a file was moved to the quarantine.
   * <span class="notranslate">**Content removed**</span> — a file content was removed after cleanup.
   * <span class="notranslate">**Cleanup in progress**</span> — infected file cleanup is in progress now.
 * <span class="notranslate">**Actions**</span>:
   * <span class="notranslate">**Add to Ignore List**</span> — add file to the <span class="notranslate">Ignore List</span> and remove it from the <span class="notranslate">Malicious files</span> list. Note that if a file is added to the <span class="notranslate">Ignore List</span>, Imunify360 will no longer scan this file. Click the <span class="notranslate">_Gear_</span> symbol ![](/images/gear.png) and select <span class="notranslate">_Add to Ignore List_</span>.
   * <span class="notranslate">**View file**</span> — click <span class="notranslate">_View file_</span> symbol ![](/images/view_file_symbol.png) in the file line and the file content will be displayed in the pop-up. Only the first 100Kb of the file content will be shown in case if a file has bigger size.
   * <span class="notranslate">**Cleanup file**</span> — click <span class="notranslate">_Clean up_</span> symbol ![](/images/cleanup_symbol.png) to clean up all infected files within the account.
-  * <span class="notranslate">**Restore from quarantine**</span> — click <span class="notranslate">_Restore from quarantine_</span> symbol ![](/images/restore_fromquarantine_symbol.png) to restore the fle from the quarantine.
   * <span class="notranslate">**Restore original file (before cleanup)**</span> — click <span class="notranslate">_Restore original_</span> symbol ![](/images/restore_original_symbol.png) to restore the original content removed as infected.
   * <span class="notranslate">**Restore from backup**</span> — click the <span class="notranslate">_Gear_</span> symbol ![](/images/gear.png) and select <span class="notranslate">_Try to restore from backup_</span> to restore the original file before it got infected if it exists.
 
 :::warning Warning
-  Starting from Imunify360 v.5.4, the <span class="notranslate">_Delete permanently_</span>, the <span class="notranslate">_Quarantine file_</span>, and the <span class="notranslate">_Cleanup, Quarantine as a fallback_</span> options are available only [via CLI](/config_file_description/). They will be removed completely in Imunify360 v.5.8. For more information see [this blog post](https://blog.imunify360.com/file-quarantine-is-no-longer-effective).
+  Starting from Imunify360 v.5.5, the <span class="notranslate">_Delete permanently_</span>, the <span class="notranslate">_Quarantine file_</span>, and the <span class="notranslate">_Cleanup, Quarantine as a fallback_</span> options are available only [via CLI](/config_file_description/). They will be removed completely in Imunify360 v.5.9. For more information see [this blog post](https://blog.imunify360.com/file-quarantine-is-no-longer-effective).
   :::
 
 To perform a bulk action, tick required files and click the corresponding button above the table.
@@ -836,15 +834,11 @@ The table has the following columns:
   * <span class="notranslate">**Detected as malicious**</span> — after scanning the file was detected as infected.
   * <span class="notranslate">**Cleaned**</span> — the file is cleaned up.
   * <span class="notranslate">**Failed to clean up**</span> — there was a problem during cleanup. Hover mouse over the info icon to read more.
-  * <span class="notranslate">**Added to Ignore List**</span> — the file was added to the <span class="notranslate">Ignore List</span>. Imunify360 will not scan it but the file is not quarantined.
+  * <span class="notranslate">**Added to Ignore List**</span> — the file was added to the <span class="notranslate">Ignore List</span>. Imunify360 will not scan it.
   * <span class="notranslate">**Restored original**</span> — file content was restored as not malicious.
   * <span class="notranslate">**Cleanup removed content**</span> — file contend was removed after cleanup.
   * <span class="notranslate">**Deleted from Ignore List**</span> — the file was removed from the <span class="notranslate">Ignore List</span>. Imunify360 will scan it.
-  * <span class="notranslate">**Deleted permanently**</span> — the file was deleted.
   * <span class="notranslate">**Submitted for analysis**</span> — the file was submitted to Imunify360 team for analysis.
-  * <span class="notranslate">**Quarantined**</span> — the file was added to quarantine. It is no longer executable.
-  * <span class="notranslate">**Restored from quarantine**</span> — for now, the file is executable.
-  * <span class="notranslate">**Failed to delete**</span> — there was a problem during removal. Hover mouse over the info icon to read more.
   * <span class="notranslate">**Failed to ignore**</span> — there was a problem during adding to the <span class="notranslate">Ignore List</span>. Hover mouse over the info icon to read more.
   * <span class="notranslate">**Failed to delete from ignore**</span> — there was a problem during removal from the <span class="notranslate">Ignore List</span>. Hover mouse over the info icon to read more.
   
@@ -1618,7 +1612,7 @@ Read [CXS integration](/ids_integration/#cxs-integration) documentation carefull
   * <span class="notranslate">Cleanup</span> (default)
 
   :::warning Warning
-  Starting from Imunify360 v.5.4, the <span class="notranslate">_Delete permanently_</span>, the <span class="notranslate">_Quarantine file_</span>, and the <span class="notranslate">_Cleanup, Quarantine as a fallback_</span> options are available only [via CLI](/config_file_description/). They will be removed completely in Imunify360 v.5.8. For more information see [this blog post](https://blog.imunify360.com/file-quarantine-is-no-longer-effective).
+  Starting from Imunify360 v.5.5, the <span class="notranslate">_Delete permanently_</span>, the <span class="notranslate">_Quarantine file_</span>, and the <span class="notranslate">_Cleanup, Quarantine as a fallback_</span> options are available only [via CLI](/config_file_description/). They will be removed completely in Imunify360 v.5.9. For more information see [this blog post](https://blog.imunify360.com/file-quarantine-is-no-longer-effective).
   :::
 
 
@@ -1955,7 +1949,7 @@ Choose an option for each feature.
 
 <span class="notranslate">**Malware Scanner**</span>
 * <span class="notranslate">_View reports + Cleanup_</span> – a user can view scanning reports and cleanup found malware
-* <span class="notranslate">_View reports only_</span> – a user can view scanning reports but can't cleanup found malware (note that quarantine and file removal functionality is still available in this mode)
+* <span class="notranslate">_View reports only_</span> – a user can view scanning reports but can't cleanup found malware
 * <span class="notranslate">_Not available_</span> – the <span class="notranslate">Malware Scanner</span> is not available for a user, and its tab is hidden on the Imunify360 main menu
 :::tip Note
 The last option is available in the WHM/cPanel Package Manager only and is not available via Imunify360 UI or CLI.

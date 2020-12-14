@@ -1234,13 +1234,11 @@ where PATHS are the absolute paths to files or folders divided by a whitespace.
 |<span class="notranslate">`cleanup`</span>|clean up infected ITEMS for a USER|
 |<span class="notranslate">`cleanup-all`</span>|clean up all files that have been detected as infected for all users|
 |<span class="notranslate">`restore-original`</span>|restore the original (malicious/infected) file to its original location|
-|<span class="notranslate">`delete`</span>|delete malicious/infected files|
 |<span class="notranslate">`list`</span>|list malicious/infected files|
 |<span class="notranslate">`move-to-ignore`</span>|move a <span class="notranslate">Malicious List</span> entry to the (malware) <span class="notranslate">Ignore List</span>|
-|<span class="notranslate">`quarantine-malicious`</span>|add malicious/infected files to the quarantine|
 |<span class="notranslate">`remove-from-list`</span>|remove malicious/infected files from the <span class="notranslate">Malicious List</span>|
 |<span class="notranslate">`restore-from-backup`</span>|restore a clean version of infected file from backup|
-|<span class="notranslate">`restore-from-quarantine`</span>|restore a quarantined file. The file will be automatically re-scanned|
+|<span class="notranslate">`restore-from-quarantine`</span>|<b>deprecated in ver. 5.9.</b> Restore a quarantined file. The file will be automatically re-scanned|
 
 
 <span class="notranslate">`action`</span> is the second positional argument for <span class="notranslate">`on-demand`</span> and can be one of the following:
@@ -1269,10 +1267,8 @@ The optional arguments for <span class="notranslate">`on-demand start`</span> an
 
 | | |
 |-|-|
-|<span class="notranslate">`delete`</span>|delete a <span class="notranslate">Suspicious List</span> entry|
 |<span class="notranslate">`list`</span>|obtain the list of <span class="notranslate">Suspicious List</span> entries|
 |<span class="notranslate">`move-to-ignore`</span>|move a <span class="notranslate">Suspicious List</span> entry to the (malware) <span class="notranslate">Ignore List</span>|
-|<span class="notranslate">`move-to-quarantine`</span>|move a <span class="notranslate">Suspicious List</span> entry to the quarantine|
 
 
 <span class="notranslate">`action`</span> is the second positional argument for <span class="notranslate">`user`</span> and can be one of the following:

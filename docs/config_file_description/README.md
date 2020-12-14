@@ -237,7 +237,7 @@ to request CAPTCHA again</td></tr>
 <td># the original infected file is available for restore within the defined period. The default is 14 days. The minimum value is one day.</td></tr>
 <tr><th colspan="2" align="left"><span class="notranslate">OSSEC:</span></th></tr>
 <tr><td><span class="notranslate">active_response: False</span></td>
-<td># block (<span class="notranslate">True</span>) access to a specific server port being attacked. The default value is <span class="notranslate">False</span>.</td></tr>
+<td># block (<span class="notranslate">True</span>) access to a specific server port being attacked. The ports include FTP (21), SSH (22) and SMTP (25, 465, 587). The default value is <span class="notranslate">False</span>.</td></tr>
 <tr><th colspan="2" align="left"><span class="notranslate">ADMIN_CONTACTS:</span></th></tr>
 <tr><td><span class="notranslate">emails: youremail@email.com</span></td>
 <td># your email to receive reports about critical issues, security alerts or system misconfigurations detected on your servers.</td></tr>

@@ -1,5 +1,6 @@
 # Imunify360 Stand-alone
 
+[[toc]]
 
 Imunify360 can be installed directly on the server, independent of any panel, regardless of the administrative interface. 
 
@@ -35,7 +36,7 @@ Imunify Web-UI PHP code has to be executed under a non-root user which has acces
 :::
 
 
-## 1. Prerequisites
+### 1. Prerequisites
 
 Imunify360 Stand-alone version requires the following components installed or enabled at the server:
 
@@ -49,7 +50,7 @@ stability issues (see [https://github.com/SpiderLabs/ModSecurity/issues/2381](ht
 :::
 
 
-## 2. Configure Imunify360 integrations
+### 2. Configure Imunify360 integrations
 
 Imunify360 Stand-alone version require the following integrations before installation:
 
@@ -443,11 +444,11 @@ It should point to an executable file that generates a JSON file similar to the 
 </div>
 
 
-## 3. Install Imunify360
+### 3. Install Imunify360
 
 The installation instructions are the same as for cPanel/Plesk/DirectAdmin version and can be found in the [Imunify360 documentation](/installation/#installation-instructions).
 
-## 4. Settings related to Stand-alone version
+### 4. Settings related to Stand-alone version
 
 The web-based UI is available via the domain configured in the <span class="notranslate">`ui_path`</span>.
 
@@ -553,7 +554,7 @@ A JSON file should be similar to the following:
 
 <span class="notranslate">`web_server_config_path`</span> should point to a path that is added as <span class="notranslate">`IncludeOptional`</span> in this domain's virtual host e.g., <span class="notranslate">`/path/to/example.com/specific/config/to/include`</span> path should be added for the <span class="notranslate">`example.com`</span> domain.
 
-## Integration config file
+### Integration config file
 
 The documentation for the Imunify360 Stand-alone version integration configuration file format.
 

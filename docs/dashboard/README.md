@@ -1296,7 +1296,7 @@ imunify360-agent config update '{"DOS": {"enabled": true}}'
 It is possible to configure how Imunify360 will behave:
 
 * <span class="notranslate">_Max Connections_</span>– allows to setup the number of simultaneous connections allowed before IP will be blocked. Cannot be set lower than 100.
-* <span class="notranslate">_Check delay_</span> – allows to setup period in seconds between each DoS detection system activation that will check a server for DoS attack. Also, it is possible to set different limits for different local ports by editing the configuration file directly.
+* <span class="notranslate">_Check delay_</span> – allows to setup period in seconds between each DoS detection system activation that will check a server for DoS attack. Also, it is possible to set different limits for different local ports by editing the [configuration file](/config_file_description/) directly.
 
 **The minimum values**: 
 

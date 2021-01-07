@@ -134,13 +134,13 @@ module.exports = {
             },
             {
                 text: "Getting started",
-                url: "https://cloudlinux.zendesk.com/hc/en-us/sections/360004020779-Getting-Started"
+                url: "https://www.imunify360.com/getting-started"
             },
             {
                 text: "Contact support",
                 url: "https://cloudlinux.zendesk.com/hc/en-us/requests/new"
             },
-            { text: "Blog", url: "https://www.imunify360.com/blog" }
+            { text: "Blog", url: "https://blog.imunify360.com" }
         ],
         sidebar: [
           {

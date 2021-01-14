@@ -5,17 +5,22 @@
 ## Requirements
 
 **Operating system**
-* <span class="notranslate">CentOS/RHEL 6 and 7</span>
-* <span class="notranslate">CloudLinux OS</span> 6 and 7
-* <span class="notranslate">Ubuntu 16.04 LTS</span> only
-* <span class="notranslate">Ubuntu 18.04</span>
+
+* CentOS/RHEL 6 and 7
+* CloudLinux OS 6 and 7
+* Ubuntu 16.04 LTS only
+* Ubuntu 18.04
 * CentOS 8 with Plesk
 * CentOS 8 with DirectAdmin
 * CentOS 8 as stand-alone
 * CloudLinux OS 8 with DirectAdmin
 * CloudLinux OS 8 as stand-alone
-
-
+* Debian 9 with Plesk
+* Debian 9 with DirectAdmin
+* Debian 9 as stand-alone
+* Debian 10 with Plesk
+* Debian 10 with DirectAdmin
+* Debian 10 as stand-alone
 
 **Virtualization**
 

@@ -58,7 +58,7 @@ Click <span class="notranslate">_Dashboard_</span> tab to display an overview of
 
 Here you can see notifications about server security and Imunify360 configuration, along with recommendations for making server security effective and proactive.
 
-### Imunify Advisor <Badge text="beta"/> <Badge text="5.2"/>
+### Imunify Advisor
 
 The Imunify Advisor checks your server’s current settings, then provides a list of optimal settings for your individual server. 
 
@@ -98,6 +98,10 @@ If your server's settings differ from the recommended, the Imunify Advisor will 
 
 ![](/images/dashboard_servers2.png)
 
+
+:::tip Note
+Starting from Imunify360 v. 5.5, all filter and view options are stored in the browser's local storage so you can select filter preference options once and next time you'll open the tab, the options will be preset.
+:::
 
 #### **How to get a server key**
 
@@ -280,6 +284,10 @@ Use filters to show the exact list of the IPs:
 * <span class="notranslate">Comments</span> – allows filtering the list by comments. Enter a comment into the input field.
 * Use <span class="notranslate">_Items per page_</span> at the page bottom right to set the number of the incidents to be shown on the page.
 
+:::tip Note
+Starting from Imunify360 v. 5.5, all filter and view options are stored in the browser's local storage so you can select filter preference options once and next time you'll open the tab, the options will be preset.
+:::
+
 You can perform the following actions with the IPs in the <span class="notranslate">White List</span>:
 
 * Add IP manually
@@ -369,6 +377,10 @@ Use filters to show the exact list of the IPs:
 * <span class="notranslate">Comments</span> – allows filtering the list by comments. Enter a comment into the input field.
 * Use <span class="notranslate">_Items per page_</span> at the page bottom right to set the number of the incidents to be shown on the page.
 
+:::tip Note
+Starting from Imunify360 v. 5.5, all filter and view options are stored in the browser's local storage so you can select filter preference options once and next time you'll open the tab, the options will be preset.
+:::
+
 You can perform the following actions with the IPs in the <span class="notranslate">Gray List</span>:
 
 * Move IP from the Gray List to the Black List
@@ -430,6 +442,10 @@ Use filters to show the exact list of the IPs:
 * <span class="notranslate">_Country_</span> – allows filtering the list by country origin. Enter a country name into the input field with autocomplete. Imunify360 will show the list of IPs of the chosen country.
 * <span class="notranslate">Comments</span> – allows filtering the list by comments. Enter a comment into the input field.
 * Use <span class="notranslate">_Items per page_</span> at the page bottom right to set the number of the incidents to be shown on the page.
+
+:::tip Note
+Starting from Imunify360 v. 5.5, all filter and view options are stored in the browser's local storage so you can select filter preference options once and next time you'll open the tab, the options will be preset.
+:::
 
 The following actions are available with IPs in the <span class="notranslate">Black List</span>:
 
@@ -596,6 +612,10 @@ Use filters to show the exact list of the IPs:
 * <span class="notranslate">Comments</span> – allows filtering the list by comments. Enter a comment into the input field.
 * Use <span class="notranslate">_Items per page_</span> at the page bottom right to set the number of the incidents to be shown on the page.
 
+:::tip Note
+Starting from Imunify360 v. 5.5, all filter and view options are stored in the browser's local storage so you can select filter preference options once and next time you'll open the tab, the options will be preset.
+:::
+
 The following actions are available for the ports:
 
 * add port to the list of blocked ports
@@ -715,6 +735,10 @@ The following filters are available:
 
 The table can be sorted by <span class="notranslate">_User name_</span> and <span class="notranslate">_Infection status_</span> (by the date of the last action).
 
+:::tip Note
+Starting from Imunify360 v. 5.5, all filter and view options are stored in the browser's local storage so you can select filter preference options once and next time you'll open the tab, the options will be preset.
+:::
+
 ### Files
 
 Go to <span class="notranslate">Imunify360 → Malware Scanner → Files</span> tab. Here, there is a table with a list of infected files within all domains and user accounts.
@@ -761,6 +785,10 @@ The following filters are available:
 * <span class="notranslate">**Timeframe**</span> — displays the results filtered by chosen period or date.
 * <span class="notranslate">**Status**</span> — displays the results filtered by chosen status.
 * <span class="notranslate">**Items per page displayed**</span> — click the number at the table bottom.
+
+:::tip Note
+Starting from Imunify360 v. 5.5, all filter and view options are stored in the browser's local storage so you can select filter preference options once and next time you'll open the tab, the options will be preset.
+:::
 
 The table can be sorted by detection date (detected), user name, file path (file), reason, and status.
 
@@ -875,6 +903,10 @@ The following filters are available:
 * <span class="notranslate">**Timeframe**</span> — displays the results filtered by chosen period or date.
 * <span class="notranslate">**Items per page**</span> — click the number at the table bottom.
 
+:::tip Note
+Starting from Imunify360 v. 5.5, all filter and view options are stored in the browser's local storage so you can select filter preference options once and next time you'll open the tab, the options will be preset.
+:::
+
 The table can be sorted by <span class="notranslate">_Added_</span> and <span class="notranslate">_Path_</span>. By default, it is sorted from newest to oldest.
 
 To search file or folder in the <span class="notranslate">Ignore List</span> use <span class="notranslate">_Search_</span> input field above the table.
@@ -925,8 +957,15 @@ The <span class="notranslate">Detected Events</span> table displays all the nece
 ![](/images/proactivedefensedetectedevents_zoom70.png)
 
 You can filter items by time frame in a <span class="notranslate">_Timframe_</span> dropdown and search a certain entity in a search field.
+
 The items in the <span class="notranslate">_Detected Events_</span> table are displayed per 25 on a page. To change a number of items displayed, click the number at the bottom right corner <span class="notranslate">_Items per page_</span> and select a desired number in the dropdown.
+
 To go to the next or the previous page click >> or << button or click a desired page number.
+
+:::tip Note
+Starting from Imunify360 v. 5.5, all filter and view options are stored in the browser's local storage so you can select filter preference options once and next time you'll open the tab, the options will be preset.
+:::
+
 The <span class="notranslate">_Detected Events_</span> table includes the following columns:
 * <span class="notranslate">Group/individual action</span> checkbox — allows to perform actions on one or several desired entities
 * <span class="notranslate">Detection Date/Time</span> — displays the date and the exact time of event detected. To view the exact time click the clock icon in the desired event line. To order the events from the last to the first or vice versa click the ▲ icon in the <span class="notranslate">Date/Time</span> of detection column header

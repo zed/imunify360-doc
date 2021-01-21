@@ -12,15 +12,15 @@
 * Ubuntu 18.04
 * CentOS 8 with Plesk
 * CentOS 8 with DirectAdmin
-* CentOS 8 as stand-alone
+* CentOS 8 as [stand-alone](/stand_alone/)
 * CloudLinux OS 8 with DirectAdmin
-* CloudLinux OS 8 as stand-alone
+* CloudLinux OS 8 as [stand-alone](/stand_alone/)
 * Debian 9 with Plesk
 * Debian 9 with DirectAdmin
-* Debian 9 as stand-alone
+* Debian 9 as [stand-alone](/stand_alone/)
 * Debian 10 with Plesk
 * Debian 10 with DirectAdmin
-* Debian 10 as stand-alone
+* Debian 10 as [stand-alone](/stand_alone/)
 
 **Virtualization**
 
@@ -47,7 +47,8 @@
 
 **Supported Web-servers**
 * <span class="notranslate">Apache</span>
-* <span class="notranslate">LiteSpeed</span> 
+* <span class="notranslate">LiteSpeed</span>
+* Nginx (starting from Imunify360 5.4)
 
 
 ## Side by side installation with another <span class="notranslate">IDS</span>

@@ -17,6 +17,7 @@ Imunify360 can be installed directly on the server, independent of any panel, re
 * RHEL 6/7
 * CloudLinux OS 
 * Ubuntu 16.04/18.04
+* Debian 9/10
 
 **Web servers**
 

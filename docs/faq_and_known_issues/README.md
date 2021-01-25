@@ -944,6 +944,22 @@ We also would like to clarify the decision of keeping the ipset size as it is �
 
 You may also want to add a whole region (or certain regions) to the blacklist, which can contain quite an impressive number of IPs. We believe the entire country cannot be malicious and crawlers can be operating from different locations. Still, if you wish to block the whole country/countries and to allow access to your server for specific IPs/subnets, we would recommend that you use the option to ["block all except specified"](/dashboard/#blocked-ports) for blocking the majority of common ports and [whitelist the necessary IPs/subnets](/dashboard/#white-list) you wish to allow access to your server.
 
+### 27. How to enable scan for end-users?
+
+An administrator can enable the “scan” action for end-users in the config file via the CLI.
+
+End-user scans are disabled by default. To enable it, run the followint command:
+
+<div class="notranslate">
+
+```
+imunify360-agent config update '{"PERMISSIONS": {"allow_malware_scan": true}}'
+```
+</div>
+
+All user scans are scheduled using a single queue. Thus, multiple scans requested by users will not affect server performance.
+
+
 ## Corner cases
 
 ### IP whitelisting/port blocking precedence

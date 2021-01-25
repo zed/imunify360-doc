@@ -1003,7 +1003,9 @@ OK
 
 </div>
 
-## Hooks
+## Hooks <Badge text="Deprecated" type="warning"/>
+
+You can use a new notification system via [CLI](/command_line_interface/#notifications-config) and [UI](/features/#notifications).
 
 You can find more about hooks [here](/features/#hooks).
 
@@ -1395,7 +1397,10 @@ The successful initiation/stopping of a scanning process or adding of ignore dir
 
 ## Notifications config
 
-Allows to show and update notifications in the configuration file via CLI.
+Allows administrators to do the following:
+
+* configure email addresses to submit reports on events execution
+* execute custom scripts on events execution
 
 **Usage:**
 
@@ -1411,92 +1416,266 @@ imunify360-agent notifications-config [command] [configuration options]
 
 | | |
 |-|-|
-|<span class="notranslate">`show`</span>|returns the whole config as a JSON|
-|<span class="notranslate">`update`</span>|updates the config (partial update is supported) and returns the whole updated config as a JSON|
+|<span class="notranslate">`show`</span>|returns the full config as a JSON|
+|<span class="notranslate">`update`</span>|updates the config (partial update is supported) and returns the full updated config as a JSON|
 
-You can find all configuration options [here](/config_file_description/) and instructions on how to apply configuration changes from CLI [here](/config_file_description/#how-to-apply-changes-from-cli).
+We advise administrators to use the <span class="notranslate">`notifications-config show`</span> to get the full config, pick what they want to edit, and feed it to the <span class="notranslate">`notifications-config update`</span>.
 
-**Examples:**
-
-1. The <span class="notranslate">`imunify360-agent notifications-config show`</span> command output:
+The general structure of the <span class="notranslate">`imunify360-agent notifications-config show`</span> command output:
 
 <div class="notranslate">
 
-``` json
+```json
 {
-    "admin": {
-        "default_emails": [
-            "email1",
-            "email2"
-        ],
-        "locale": "en-US",
-        "notify_from_email": "root@hosting.example.com"
-    },
-    "rules": {
-        "EVENT_ID": {
-            "ADMIN": {
-                "admin_emails": [
-                    "email3",
-                    "email4",
-                    "default"
-                ],
-                "enabled": true,
-                "period": 3600
-            },
-            "SCRIPT": {
-                "enabled": true,
-                "period": 10,
-                "scripts": [
-                    "/path/to/script"
-                ]
-            }
-        },
-        "EVENT_ID_2": {
-            "ADMIN": {
-                "admin_emails": [
-                    "email3",
-                    "email4",
-                    "default"
-                ]
-            },
-            "SCRIPT": {
-                "scripts": [
-                    "/path/to/script"
-                ]
-            }
-        }
+   "rules": {
+      "SCRIPT_BLOCKED": {
+         "SCRIPT": {
+            "scripts": [], 
+            "period": 1,
+            "enabled": False
+         }, 
+         "ADMIN": {
+            "period": 1,
+            "admin_emails": [],
+            "enabled": False
+         }
+      },
+      "USER_SCAN_FINISHED": {
+         "SCRIPT": {
+            "scripts": [],
+            "enabled": False
+         }
+      },
+      "USER_SCAN_MALWARE_FOUND": {
+         "SCRIPT": {
+            "scripts": [],
+            "enabled": False
+         },
+         "ADMIN": {
+         "admin_emails": [],
+         "enabled": False
+         }
+      },
+      "USER_SCAN_STARTED": {
+         "SCRIPT": {
+            "scripts": [],
+            "enabled": False
+         }
+      },
+      "CUSTOM_SCAN_STARTED": {
+         "SCRIPT": {
+            "scripts": [],
+            "enabled": False
+         }
+      },
+      "REALTIME_MALWARE_FOUND": {
+         "SCRIPT": {
+            "scripts": [], 
+            "period": 1,
+            "enabled": False
+         },
+         "ADMIN": {
+            "period": 1,
+            "admin_emails": [],
+            "enabled": False
+         }
+      },
+      "CUSTOM_SCAN_FINISHED": {
+         "SCRIPT": {
+            "scripts": [],
+            "enabled": False
+         }
+      },
+      "CUSTOM_SCAN_MALWARE_FOUND": {
+         "SCRIPT": {
+            "scripts": [],
+            "enabled": False
+         },
+         "ADMIN": {
+            "admin_emails": [],
+            "enabled": False
+         }
+      }
+   },
+   "admin": {
+      "notify_from_email": None,
+      "default_emails": []
+   }
+}
 ```
 
 </div>
 
-2. Update admin default emails:
+Let's review all the options.
+
+Rules:
+
+* <span class="notranslate">SCRIPT_BLOCKED</span> – occurs when the Proactive Defense has blocked malicious script.
+* <span class="notranslate">USER_SCAN_FINISHED</span> – occurs immediately after the user scanning has finished, regardless the malware has found or not.
+* <span class="notranslate">USER_SCAN_MALWARE_FOUND</span> – occurs when the malware scanning process of a user account has finished and malware found.
+* <span class="notranslate">USER_SCAN_STARTED</span> – occurs immediately after the user scanning has started.
+* <span class="notranslate">CUSTOM_SCAN_STARTED</span> – occurs immediately after on-demand (manual) scanning has started.
+* <span class="notranslate">REALTIME_MALWARE_FOUND</span> – occurs when malware is detected during the real-time scanning.
+* <span class="notranslate">CUSTOM_SCAN_FINISHED</span> – occurs immediately after on-demand (manual) scanning has finished, regardless the malware has found or not.
+* <span class="notranslate">CUSTOM_SCAN_MALWARE_FOUND</span> – occurs when the on-demand scanning process has finished and malware found.
+
+
+Admin:
+
+* <span class="notranslate">default_emails</span> – specify the default list of emails used for all enabled admin email notifications.
+* <span class="notranslate">notify_from_email</span> – specify a sender of all emails sent by the Hooks.
+
+Let's review all options for a specific event on the <span class="notranslate">REALTIME_MALWARE_FOUND</span> example:
+
+<div class="notranslate">
+
+```json
+   "REALTIME_MALWARE_FOUND": {
+      "SCRIPT": {
+         "scripts": [], 
+         "period": 1,
+         "enabled": False
+      },
+      "ADMIN": {
+         "period": 1,
+         "admin_emails": [],
+         "enabled": False
+      }
+```
+</div>
+
+<span class="notranslate">**SCRIPT**</span>
+
+* <span class="notranslate">scripts</span> – specify the full path to the script(s) or any other Linux executable to be launched on event occurrence. Make sure that the script has an executable bit (+x) on. A line-separated list of scripts is supported.
+* <span class="notranslate">period</span> – set a notification interval in seconds. The data for all events that happened within the interval will be accumulated and sent altogether.
+* <span class="notranslate">enabled</span> – run (`True`) a script (event handler) upon event occurrence.
+
+
+<span class="notranslate">**ADMIN**</span>:
+
+* <span class="notranslate">period</span> – set a notification interval in minutes. The data for all events that happened within the interval will be accumulated and sent altogether.
+* <span class="notranslate">admin_emails</span> – set `default` to use the default administrator emails and/or specify your emails for notifications.
+* <span class="notranslate">enabled</span> – notify (`True`) the administrator and a custom user list via email upon event occurrence.
+
+**Examples**:
+
+1. Update admin default emails:
 
 <div class="notranslate">
 
 ```
-imunify360-agent notifications-config update '{"admin": {"default_emails": ["email1", "email2"]}}'
+imunify360-agent notifications-config update '{"admin": {"default_emails": ["email1@email.com", "email2@email.com"]}}'
 ```
 </div>
 
-3. Enable and configure email notifications for <span class="notranslate">ADMIN</span> for the <span class="notranslate">REALTIME_MALWARE_FOUND</span> event:
+2. Enable and configure email notifications for <span class="notranslate">ADMIN</span> for the <span class="notranslate">REALTIME_MALWARE_FOUND</span> event:
 
 <div class="notranslate">
 
 ```
-imunify360-agent notifications-config update '{"rules": {"REALTIME_MALWARE_FOUND": {"ADMIN": {"enabled": true, "period": 3600, "admin_emails": ["email3", "email4", "default"]}}}}'
+imunify360-agent notifications-config update '{"rules": {"REALTIME_MALWARE_FOUND": {"ADMIN": {"enabled": true, "period": 3600, "admin_emails": ["email3@email.com", "email4@email.com", "default"]}}}}'
 ```
 </div>
 
-4. Disable email notifications for <span class="notranslate">ADMIN</span> for the <span class="notranslate">REALTIME_MALWARE_FOUND</span> event:
+After the successful execution, the <span class="notranslate">`imunify360-agent notifications-config update`</span> command returns the full config with changes. 
+
+The <span class="notranslate">`imunify360-agent notifications-config show`</span> command output after applying the examples 1 and 2:
+
+<div class="notranslate">
+
+```json
+{
+   "rules": {
+      "SCRIPT_BLOCKED": {
+         "ADMIN": {
+            "admin_emails": [],
+            "period": 1,
+            "enabled": False
+         },
+         "SCRIPT": {
+            "scripts": [],
+            "period": 1,
+            "enabled": False
+         }
+      },
+      "USER_SCAN_FINISHED": {
+         "SCRIPT": {
+            "scripts": [],
+            "enabled": False
+         }
+      }, 
+      "USER_SCAN_MALWARE_FOUND": {
+         "ADMIN": {
+            "admin_emails": [],
+            "enabled": False
+         },
+         "SCRIPT": {
+            "scripts": [],
+            "enabled": False
+         }
+      },
+      "CUSTOM_SCAN_STARTED": {
+         "SCRIPT": {
+            "scripts": [],
+            "enabled": False
+         }
+      },
+      "REALTIME_MALWARE_FOUND": {
+         "ADMIN": {
+            "admin_emails": ['email3@email.com', 'email4@email.com', 'default'],
+            "period": 3600,
+            "enabled": True
+         },
+         "SCRIPT": {
+            "scripts": [],
+            "period": 1,
+            "enabled": False
+         }
+      },
+      "USER_SCAN_STARTED": {
+         "SCRIPT": {
+            "scripts": [],
+            "enabled": False
+         }
+      },
+      "CUSTOM_SCAN_FINISHED": {
+         "SCRIPT": {
+            "scripts": [],
+            "enabled": False
+         }
+      },
+      "CUSTOM_SCAN_MALWARE_FOUND": {
+         "ADMIN": {
+            "admin_emails": [],
+            "enabled": False
+         },
+         "SCRIPT": {
+            "scripts": [],
+            "enabled": False
+         }
+      }
+   },
+   "admin": {
+      "notify_from_email": None,
+      "default_emails": ['email1@email.com', 'email2@email.com']
+   }
+}
+```
+
+</div>
+
+**More examples**:
+
+3. Run the custom script on the <span class="notranslate">USER_SCAN_FINISHED</span> event occurrence:
 
 <div class="notranslate">
 
 ```
-imunify360-agent notifications-config update '{"rules": {"REALTIME_MALWARE_FOUND": {"ADMIN": {"enabled": false}}}}'
+imunify360-agent notifications-config update '{"rules": {"USER_SCAN_FINISHED": {"SCRIPT": {"scripts": ["/script/my-handler.py"], "enabled": true}}}}'
 ```
 </div>
 
-5. Change the period for the <span class="notranslate">SCRIPT</span> hook for the <span class="notranslate">REALTIME_MALWARE_FOUND</span> event to 1 minute:
+4. Change the period for the <span class="notranslate">SCRIPT</span> hook for the <span class="notranslate">REALTIME_MALWARE_FOUND</span> event to 1 minute:
 
 <div class="notranslate">
 
@@ -1504,6 +1683,97 @@ imunify360-agent notifications-config update '{"rules": {"REALTIME_MALWARE_FOUND
 imunify360-agent notifications-config update '{"rules": {"REALTIME_MALWARE_FOUND": {"SCRIPT": {"period": 60}}}}'
 ```
 </div>
+
+
+After the successful execution, the <span class="notranslate">`imunify360-agent notifications-config update`</span> command returns the full config with changes. 
+
+The <span class="notranslate">`imunify360-agent notifications-config show`</span> command output after applying the examples 3 and 4:
+
+<div class="notranslate">
+
+```json
+{
+   "rules": {
+      "CUSTOM_SCAN_MALWARE_FOUND": {
+         "SCRIPT": {
+            "scripts": [],
+            "enabled": False
+         },
+         "ADMIN': {
+            "enabled": False,
+            "admin_emails": []
+         }
+      },
+      "USER_SCAN_STARTED": {
+         "SCRIPT": {
+            "scripts": [],
+            "enabled": False
+         }
+      },
+      "CUSTOM_SCAN_FINISHED": {
+         "SCRIPT": {
+            "scripts": [],
+            "enabled": False
+         }
+      },
+      "SCRIPT_BLOCKED": {
+         "SCRIPT": {
+            "period": 1,
+            "scripts": [],
+            "enabled": False
+         },
+         "ADMIN": {
+            "period": 1,
+            "enabled": False,
+            "admin_emails": []
+         }
+      },
+      "CUSTOM_SCAN_STARTED": {
+         "SCRIPT": {
+            "scripts": [],
+            "enabled": False
+         }
+      },
+      "USER_SCAN_MALWARE_FOUND": {
+         "SCRIPT": {
+            "scripts": [],
+            "enabled": False
+         },
+         "ADMIN": {
+            "enabled": False,
+            "admin_emails": []
+         }
+      },
+      "REALTIME_MALWARE_FOUND": {
+         "SCRIPT": {
+            "period": 60,
+            "scripts": [],
+            "enabled": False
+         },
+         "ADMIN": {
+            "period": 3600,
+            "enabled": True,
+            "admin_emails": ['email3@email.com', 'email4@email.com', 'default']
+         }
+      },
+      "USER_SCAN_FINISHED": {
+         "SCRIPT": {
+            "scripts": ['/script/my-handler.py'],
+            "enabled": True
+         }
+      }
+   },
+   "admin': {
+      "notify_from_email": None,
+      "default_emails": ['email1@email.com', 'email2@email.com']
+   }
+}
+```
+
+</div>
+
+
+
 
 ## Proactive
 

@@ -160,7 +160,9 @@ Note that the plugin has three separate counters and a set of settings for USER/
 * If an IP is blocked by <span class="notranslate">`IP_LOCK_ATTEMPTS`</span>, then all users will not have access to the server from that specific blocked IP
 :::
 
-## Hooks
+## Hooks <Badge text="Deprecated" type="warning"/>
+
+You can use a new notification system via [CLI](/command_line_interface/#notifications-config) and [UI](/features/#notifications).
 
 ### Overview
 

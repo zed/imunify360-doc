@@ -1320,6 +1320,10 @@ It works in the background and scans domains for installed CMS daily, after that
 
 ![](/images/cms-specific_waf_rules.png)
 
+:::tip Note
+This feature is only available for the Apache 2.4 web server
+:::
+
 #### DoS Protection
 
 <span class="notranslate">DoS Protection</span> section allows to enable or disable DoS protection. DoS protection works by counting connections from each remote IP address per local port separately.

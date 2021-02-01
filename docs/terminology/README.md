@@ -16,3 +16,5 @@
 **<span class="notranslate">Ignore list</span>** – the list of files and folders that [<span class="notranslate">Malware Scanner</span>](/dashboard/#malware-scanner) will ignore during automatic and manual scan processes.
 
 **<span class="notranslate">IP</span>** – IPv4 or IPv6 address (corresponding to 64 bits subnet prefix length).
+
+**<span class="notranslate">Whitelisted domain</span>** – no Captcha will be shown while visiting a whitelisted domain from a graylisted IP.

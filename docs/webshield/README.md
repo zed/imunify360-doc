@@ -3,7 +3,7 @@
 [[toc]]
 
 :::warning Warning
-Starting with Imunify360 4.9.2, when the interface IP address is added to or deleted from the system, the restart of the webshield is required for the latter to recognize the new IP.
+When the interface IP address is added to or deleted from the system, the restart of the webshield is required for the latter to recognize the new IP.
 :::
 
 <div class="notranslate">
@@ -143,7 +143,7 @@ See [how to setup invisible CAPTCHA](/dashboard/#invisible-captcha).
 
 #### Why do you need to specify the Google reCAPTCHA keys in the Imunify360 product
 
-Prior to version 4.9, Imunify360 used embedded reCAPTCHA keys to show Google reCAPTCHA challenge for greylisted IP addresses and did not require any settings for captcha challenge. Starting from v4.9, Imunify360 admin shall specify reCAPTCHA keys for the server since we’re planning to completely remove embedded reCAPTCHA keys in the future versions.
+Imunify360 admin should specify reCAPTCHA keys for the server since we’re planning to completely remove embedded reCAPTCHA keys in the future versions.
 
 In this article, you can find a step by step guide on how to set up a custom site and secret keys for your Imunify360 server.
 
@@ -225,7 +225,23 @@ In order to make sure that you’ve done everything correctly you need to do the
    ```
    </div>
 
-2. Send at least two WAF test requests to any domain on the server
+2. Make sure your target domain is not [whitelisted](/terminology/):
+
+   <div class="notranslate">
+
+   ```
+   # imunify360-agent whitelist domain list
+   example.com
+   ```
+   
+   ```
+   # imunify360-agent whitelist domain delete example.com
+   OK
+   ```
+   
+   <div>
+
+3. Send at least two WAF test requests to any domain on the server
 
    <div class="notranslate">
 
@@ -234,8 +250,8 @@ In order to make sure that you’ve done everything correctly you need to do the
    ```
    </div>
 
-3. Open your test domain in the browser and let it pass the captcha challenge
-4. Check the list of whitelisted IPs again
+4. Open your test domain in the browser and let it pass the captcha challenge
+5. Check the list of whitelisted IPs again
 
    <div class="notranslate">
 
@@ -269,7 +285,7 @@ imunify360-agent config update '{"WEBSHIELD": {"known_proxies_support": true}}'
 </div>
 
 ::: tip Note
-If you are using cPanel/EasyApache3, Imunify360 will not automatically deploy _mod_remoteip_, and log files will show local server IP for visitors coming from CDN. EasyApache 3 is EOL in December 2018, and we don't plan to add automated _mod_remoteip_ setup and configuration for it.
+If you are using cPanel/EasyApache3, Imunify360 will not automatically deploy _mod_remoteip_, and log files will show local server IP for visitors coming from CDN. EasyApache 3 is EOL since December 2018, and we don't plan to add automated _mod_remoteip_ setup and configuration for it.
 :::
 :::tip Note
 For cPanel/EasyApache 4, Plesk, DirectAdmin and LiteSpeed _mod_remoteip_ will be automatically installed and configured.

@@ -267,6 +267,9 @@ If you see that your IP is whitelisted then integration between Imunify360 and r
 
 You can watch how invisible reCAPTCHA works at [https://www.youtube.com/watch?v=GQXmAj5hyDo](https://www.youtube.com/watch?v=GQXmAj5hyDo).
 
+:::tip Note
+It is also possible to test Captcha by the server IP. Find more information [here](/faq_and_known_issues/#_20-how-to-check-that-captcha-works)
+:::
 
 ## CDN Support
 	

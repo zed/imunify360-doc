@@ -623,15 +623,7 @@ After that, run the following loop which triggers ModSecurity test rule 5 times 
 
 Where <span class="notranslate">`SERVER_IP`</span> is the server's IP address where Imunify360 is installed and where you want to check CAPTCHA.
 
-Also, it is possible to use a domain name of a website which `DNS A` record is pointed to the server. In other words, which is located on the server, like: 
-
-<div class="notranslate">
-
-```
-
-# for i in {1..5} ; do curl -s http://your.cooldomain.net/?i360test=88ff0adf94a190b9d1311c8b50fe2891c85af732 > /dev/null; echo $i; done
-```
-</div>
+Also, it is possible to use a domain name of a website which `DNS A` record is pointed to the server. In other words, which is located on the server, like [shown here](/webshield/#verification)
 
 
 ### 21. How to edit watched and excluded patterns for Malware Scanner?

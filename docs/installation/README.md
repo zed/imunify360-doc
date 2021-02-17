@@ -180,7 +180,7 @@ imunify360-agent register IPL
 
 ### SELinux support
 
-If SELinux (Security-Enhanced Linux) is enabled on your server, you should install the Imunify360 SELinux policy module. Policy is shipped with Imunify360 package and is located in the <span class="notranslate">`/opt/alt/python35/share/imunify360/imunify360.te`</span>
+If SELinux (Security-Enhanced Linux) is enabled on your server, you should install the Imunify360 SELinux policy module. You can check SELinux status by `sestatus` command. Policy is shipped with Imunify360 package and is located in the <span class="notranslate">`/opt/alt/python35/share/imunify360/imunify360.te`</span>
 
 To apply it, run the following commands:
 
@@ -193,15 +193,33 @@ semodule -i /var/imunify360/imunify360.pp
 ```
 </div>
 
-After that, restart imunify360 service.
+After that, restart imunify360 and imunify360-webshield service.
 For CentOS6/CloudLinux6:
+<div class="notranslate">
+ 
 ```
 service imunify360 restart
+service imunify360-webshield restart
 ```
 
+</div>
+
 For other systems:
+
+<div class="notranslate">
+  
 ```
 systemctl restart imunify360
+systemctl restart imunify360-webshield
+```
+</div>
+
+If <i>checkmodule</i> command is not found, please, install it:
+
+```
+For CentOS8/CloudLinux 8:
+```
+yum install policycoreutils-python-utils
 ```
 
 ## Update Instructions

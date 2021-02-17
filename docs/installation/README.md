@@ -215,12 +215,15 @@ systemctl restart imunify360-webshield
 </div>
 
 If <i>checkmodule</i> command is not found, please, install it:
-
-```
 For CentOS8/CloudLinux 8:
+
+<div class="notranslate">
+  
 ```
 yum install policycoreutils-python-utils
 ```
+
+</div>
 
 ## Update Instructions
 

@@ -2335,7 +2335,7 @@ where `12.34.56.78` is that specific IP address.
 
 </div>
 
-3. The following command adds domain with a name <span class="notranslate">`example.com`</span> to the White List:
+3. The following command adds domain with a name <span class="notranslate">`example.com`</span> to the White List (WebShield will be disabled):
 
 <div class="notranslate">
 

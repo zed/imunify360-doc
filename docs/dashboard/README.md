@@ -1539,6 +1539,10 @@ Click <span class="notranslate">_Save changes_</span> button at the bottom of th
 
 #### Exim+Dovecot brute-force attack protection
 
+:::tip Note
+This protection type is available only in cPanel/WHM.
+:::
+
 Tick the <span class="notranslate">_Exim+Dovecot brute-force attack protection_</span> checkbox to enable advanced protection against Dovecot brute-force attacks. PAM module protects against IMAP/POP3 brute-force attack and prevents mail account from being compromised via brute-forcing.
 
 ![](/images/dovecot.png)

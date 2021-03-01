@@ -1005,7 +1005,10 @@ OK
 
 ## Hooks <Badge text="Deprecated" type="warning"/>
 
+
+:::danger Warning
 You can use a new notification system via [CLI](/command_line_interface/#notifications-config) and [UI](/features/#notifications).
+:::
 
 You can find more about hooks [here](/features/#hooks).
 
@@ -1699,7 +1702,7 @@ The <span class="notranslate">`imunify360-agent notifications-config show`</span
             "scripts": [],
             "enabled": False
          },
-         "ADMIN': {
+         "ADMIN": {
             "enabled": False,
             "admin_emails": []
          }
@@ -1763,7 +1766,7 @@ The <span class="notranslate">`imunify360-agent notifications-config show`</span
          }
       }
    },
-   "admin': {
+   "admin": {
       "notify_from_email": None,
       "default_emails": ['email1@email.com', 'email2@email.com']
    }
@@ -1772,6 +1775,37 @@ The <span class="notranslate">`imunify360-agent notifications-config show`</span
 
 </div>
 
+#### Example of script to create custom scripts to use with notifications-config
+
+There are two script examples you can download:
+
+* [Shell script](/hook_script.sh)
+* [Python script](/hook_script.py)
+
+You can use these scripts as a reference and customize them.
+
+:::warning Note
+Set the `+x` bits to your script file to make it executable. Your script also has to be readable by the special <span class="notranslate">`_imunify`</span> user, so make sure of setting group's permission accordingly:
+
+<div class="notranslate">
+
+```
+chown root:_imunify hook_script.sh
+```
+</div>
+:::
+
+#### Python script description
+
+The agent generates messages of different types on hook events. The ‘if chain’ in the script calls the particular method corresponding to type of the event that came from the agent.
+
+For example, if you'd like to block sites for all users, that were detected as infected by realtime scan you can use the `handle_realtime_malware_found` method.
+
+To unblock user sites which were scanned as clean, you can use the `handle_user_scan_finished` method.
+
+Add your path to the related hook (or multiple hooks) and implement the custom logic of blocking and unblocking sites.
+
+Also in this script you could find the way to parse JSON that come from Imunify360 and description of this JSON schema in every possible case. Such descriptions are provided by docstring of the <span class="notranslate">`handle`</span> methods.
 
 
 ## Proactive
@@ -2335,7 +2369,7 @@ where `12.34.56.78` is that specific IP address.
 
 </div>
 
-3. The following command adds domain with a name <span class="notranslate">`example.com`</span> to the White List (WebShield will be disabled):
+3. The following command adds domain with a name <span class="notranslate">`example.com`</span> to the White List:
 
 <div class="notranslate">
 

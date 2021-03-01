@@ -1660,7 +1660,7 @@ The <span class="notranslate">`imunify360-agent notifications-config show`</span
    },
    "admin": {
       "notify_from_email": None,
-      "default_emails": ['email1@email.com', 'email2@email.com']
+      "default_emails": ["email1@email.com", "email2@email.com"]
    }
 }
 ```
@@ -1768,7 +1768,7 @@ The <span class="notranslate">`imunify360-agent notifications-config show`</span
    },
    "admin": {
       "notify_from_email": None,
-      "default_emails": ['email1@email.com', 'email2@email.com']
+      "default_emails": ["email1@email.com", "email2@email.com"]
    }
 }
 ```

@@ -1,8 +1,8 @@
-# Imunify360 Stand-alone
+# Imunify360 Stand-alone (non-panel, generic panel integration)
 
 [[toc]]
 
-Imunify360 can be installed directly on the server, independent of any panel, regardless of the administrative interface. 
+Imunify360 can be installed directly on the server, independent of any panel, regardless of the administrative interface.
 
 #### Limitations
 

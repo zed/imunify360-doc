@@ -93,6 +93,16 @@ On DirectAdmin, Imunify UI requires the <span class="notranslate">`proc_open`</s
    * [cPanel  hosting panel](/hosting_panels_specific_settin/#cpanel)
    * [Plesk hosting panel](/hosting_panels_specific_settin/#plesk)
    * [Stand-alone version (no hosting panel)](/stand_alone/)
+   * On  <span class="notranslate">Debian 10</span>, enable  <span class="notranslate">`buster-backports`<span>:
+<div class="notranslate">
+
+```
+echo "deb http://ftp.debian.org/debian buster-backports main" > /etc/apt/sources.list.d/backports.list
+apt-get update
+```
+
+</div>
+
 
 3. Log in with root privileges to the server where Imunify360 should be installed.
 
@@ -197,7 +207,7 @@ semodule -i /var/imunify360/imunify360.pp
 After that, restart imunify360 and imunify360-webshield service.
 For CentOS6/CloudLinux6:
 <div class="notranslate">
- 
+
 ```
 service imunify360 restart
 service imunify360-webshield restart
@@ -208,7 +218,7 @@ service imunify360-webshield restart
 For other systems:
 
 <div class="notranslate">
-  
+
 ```
 systemctl restart imunify360
 systemctl restart imunify360-webshield
@@ -219,7 +229,7 @@ If <i>checkmodule</i> command is not found, please, install it:
 For CentOS8/CloudLinux 8:
 
 <div class="notranslate">
-  
+
 ```
 yum install policycoreutils-python-utils
 ```
@@ -301,7 +311,7 @@ apt-get update
 </div>
 
 
-### Gradual roll-out 
+### Gradual roll-out
 
 New stable Imunify360 versions are scheduled for the gradual roll-out from our production repository and are available for all customers in about two weeks or less from the release.
 
@@ -314,5 +324,3 @@ wget https://repo.imunify360.cloudlinux.com/defence360/imunify-force-update.sh
 bash imunify-force-update.sh
 ```
 </div>
-
-

@@ -1057,7 +1057,7 @@ The <span class="notranslate">_Ignore List_</span> table includes the following 
 
 See also: [How to edit watched and excluded patterns for Malware Scanner?](/faq_and_known_issues/#_22-how-to-edit-watched-and-excluded-patterns-for-malware-scanner).
 
-**How to test Proactive Defense**
+### How to test Proactive Defense
 
 1. Set <span class="notranslate">Proactive Defense</span> to <span class="notranslate">_Log only_</span> mode (requests will not be blocked) or to <span class="notranslate">_Kill mode_</span> to kill all requests.
 2. Create a file with the following content:

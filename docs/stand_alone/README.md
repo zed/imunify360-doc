@@ -194,6 +194,23 @@ WebShield consists of four services:
 
 The configuration of WebShield is done by an agent, and direct editing of WebShield configuration files is generally not recommended. This is mainly because after the next reconfiguration all custom changes would be lost. However, a host administrator is allowed to set a certificate as the default one for WebShield to return.
 
+#### How to enable WebShield in the Imunify360 config file and start the service
+
+When Imunify360 stand-alone is installed, WebShield is disabled by default.
+
+You can enable it only via CLI. To do so, run the following commands:
+
+
+1. ```
+    imunify360-agent config update '{"WEBSHIELD": {"enable": true, "known_proxies_support": true}}'
+   ```
+2. ```
+    systemctl enable imunify360-webshield
+   ```
+3. ```
+    systemctl restart imunify360-webshield
+   ```
+
 #### Set default SSL certificate explicitly
 
 1. Place a certificate and a key into the <span class="notranslate">`/etc/imunify360-webshield/ssl_certs`</span> folder

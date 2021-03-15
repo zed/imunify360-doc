@@ -18,13 +18,13 @@ Imunify360 can be installed directly on the server, independent of any panel, re
 * CloudLinux OS 
 * Ubuntu 16.04/18.04
 * Debian 9/10
-* Ubuntu 20
+* Ubuntu 20.04
 
 **Web servers**
 
 * Apache >= 2.4.30
 * LiteSpeed
-* Nginx (starting from Imunify360 5.4)
+* Nginx
 
 #### There are four main steps in general required for having Imunify360 Stand-alone running on your server:
 

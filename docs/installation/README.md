@@ -6,24 +6,11 @@
 
 **Operating system**
 
-* CentOS/RHEL 6 and 7
-* CloudLinux OS 6 and 7
-* Ubuntu 16.04 LTS only
-* Ubuntu 18.04
-* CentOS 8 with Plesk
-* CentOS 8 with DirectAdmin
-* CentOS 8 as [stand-alone](/stand_alone/)
-* CloudLinux OS 8 with DirectAdmin
-* CloudLinux OS 8 as [stand-alone](/stand_alone/)
-* Debian 9 with Plesk
-* Debian 9 with DirectAdmin
-* Debian 9 as [stand-alone](/stand_alone/)
-* Debian 10 with Plesk
-* Debian 10 with DirectAdmin
-* Debian 10 as [stand-alone](/stand_alone/)
-* Ubuntu 20 with Plesk
-* Ubuntu 20 with DirectAdmin
-* Ubuntu 20 as [stand-alone](/stand_alone/)
+* CentOS/RHEL 6,7,8
+* CloudLinux OS 6,7,8
+* Ubuntu 16.04 (LTS only), 18.04 and 20.04 
+* Debian 9 and 10
+
 
 **Virtualization**
 
@@ -39,8 +26,8 @@
 * <span class="notranslate">cPanel</span>
 * <span class="notranslate">Plesk (Plesk</span> 12.5 is not supported)
 * <span class="notranslate">DirectAdmin</span>
+* <span class="notranslate">CyberPanel</span> (only CloudLinux OS 7 and 8). See [3rd party integration guide from CyberPanel](https://cyberpanel.net/docs/how-to-install-and-use-imunify360-on-cyberpanel/).
 * [No hosting panel systems](/stand_alone/)
-* <span class="notranslate">CyberPanel</span> (only CloudLinux OS 7 and CloudLinux OS 8). See [3rd party integration guide from CyberPanel](https://cyberpanel.net/docs/how-to-install-and-use-imunify360-on-cyberpanel/).
 
 **Required browsers**
 
@@ -52,7 +39,7 @@
 **Supported Web-servers**
 * <span class="notranslate">Apache</span>
 * <span class="notranslate">LiteSpeed</span>
-* Nginx (starting from Imunify360 5.4)
+* Nginx ([only in Standalone mode](/stand_alone/))
 
 
 ## Side by side installation with another <span class="notranslate">IDS</span>
@@ -242,7 +229,7 @@ yum install policycoreutils-python-utils
 ## Update Instructions
 
 :::tip Note
-Starting from Imunify360 v.4.10, the updates are unconditionally enabled and the Imunify360 service starts during the package update.
+Updates are unconditionally enabled and the Imunify360 service starts during the package update.
 :::
 
 
@@ -266,7 +253,7 @@ yum update imunify360-firewall --enablerepo=imunify360-testing
 
 </div>
 
-To update Imunify360 on <span class="notranslate">Ubuntu</span>, run the command:
+To update Imunify360 on <span class="notranslate">Ubuntu/Debian</span>, run the command:
 
 <div class="notranslate">
 
@@ -277,7 +264,7 @@ apt-get install --only-upgrade imunify360-firewall
 
 </div>
 
-To update Imunify360 beta version on <span class="notranslate">Ubuntu 16.04</span>, run the command:
+To update Imunify360 **beta** version on <span class="notranslate">Ubuntu 16.04</span>, run the command:
 
 <div class="notranslate">
 
@@ -290,7 +277,7 @@ apt-get install --only-upgrade imunify360-firewall
 </div>
 
 
-To update Imunify360 beta version on <span class="notranslate">Ubuntu 18.04</span>, run the command:
+To update Imunify360 **beta** version on <span class="notranslate">Ubuntu 18.04</span>, run the command:
 
 <div class="notranslate">
 
@@ -301,6 +288,19 @@ apt-get install --only-upgrade imunify360-firewall
 ```
 
 </div>
+
+To update Imunify360 **beta** version on <span class="notranslate">Debian</span>, run the command:
+
+<div class="notranslate">
+
+```
+echo 'deb https://repo.imunify360.cloudlinux.com/imunify360/debian-testing/10/ buster main'  > /etc/apt/sources.list.d/imunify360-testing.list
+apt-get update
+apt-get install --only-upgrade imunify360-firewall
+```
+
+</div>
+
 
 If you do not want to receive updates from <span class="notranslate">beta</span>, remove <span class="notranslate">beta</span> repository:
 

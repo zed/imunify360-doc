@@ -37,7 +37,7 @@
 **Supported hosting panels**
 
 * <span class="notranslate">cPanel</span>
-* <span class="notranslate">Plesk (Plesk</span> 12.5 is not supported)
+* <span class="notranslate">Plesk (Plesk</span> 17.5 or newer)
 * <span class="notranslate">DirectAdmin</span>
 * [No hosting panel systems](/stand_alone/)
 * <span class="notranslate">CyberPanel</span> (only CloudLinux OS 7 and CloudLinux OS 8). See [3rd party integration guide from CyberPanel](https://cyberpanel.net/docs/how-to-install-and-use-imunify360-on-cyberpanel/).

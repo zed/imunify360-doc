@@ -21,6 +21,9 @@
 * Debian 10 with Plesk
 * Debian 10 with DirectAdmin
 * Debian 10 as [stand-alone](/stand_alone/)
+* Ubuntu 20 with Plesk
+* Ubuntu 20 with DirectAdmin
+* Ubuntu 20 as [stand-alone](/stand_alone/)
 
 **Virtualization**
 

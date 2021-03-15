@@ -79,6 +79,7 @@ To change the text of the Imunify360 Captcha and update the localizations text, 
    ```
 
    </div>
+
    For example for Polish language the catalog looks like this: 
    
     <div class="notranslate">
@@ -108,6 +109,7 @@ To change the text of the Imunify360 Captcha and update the localizations text, 
    ```
 
    </div>
+
 3. To add Polish translation edit text in the <span class="notranslate">`msgstr`</span> field. To change the text for a default English translation, edit text in the <span class="notranslate">`msgid`</span> field.
 4. Save files.
 5. When translation in <span class="notranslate">`messages.po`</span> files is finished, restart <span class="notranslate">imunify360-webshield</span> service:
@@ -119,6 +121,7 @@ service imunify360-webshield restart
 ```
 
 </div>
+
 6. Block yourself (remove your IP from <span class="notranslate">Imunify360 White List</span> and try to log in to the server via ssh with wrong password until it blocks you). Then go to website and log in. Captcha should appear. Set Polish language and assert that new text is displayed.
 
 ### Changing the default keys to Google reCAPTCHA keys
@@ -239,7 +242,7 @@ In order to make sure that you’ve done everything correctly you need to do the
    OK
    ```
    
-   <div>
+   </div>
 
 3. Send at least two WAF test requests to any domain on the server
 
@@ -367,3 +370,25 @@ You can find WebShield and Captcha related logs in the <span class="notranslate"
 ### How to block attacks from a particular country in WebShield
 
 Country blocking is available in both [Admin UI](/dashboard/#black-list) and [CLI](/command_line_interface/#blacklist)
+
+
+
+## Anti-bot protection
+
+
+Starting from version 5.6, Imunify360 distinguishes bots from real visitors using the JavaScript challenge <span class="notranslate">"Splash Screen</span>." Most bots don’t solve the challenge, and their requests will not reach web applications such as WordPress, Drupal, and others. This can save the server’s resources and protects websites from scanners, automated attacks, and web-spammers.
+
+Only bad actors will be redirected to the Imunify360 <span class="notranslate">Splash Screen</span> challenge page. Legitimate visitors get original content without any verification page nor any delay. The users forced to the <span class="notranslate">Splash Screen</span> will not see the challenge or CAPTCHA and be redirected to the page with the original content. Cookies and JavaScript support are required in a browser to successfully pass the challenge of <span class="notranslate">Anti-bot protection</span>.
+
+The “Anti-bot protection” feature will not block legitimate bots (e.g., Google crawler).
+
+You can enable <span class="notranslate">Anti-bot protection</span>, in the UI. Go to the <span class="notranslate">General</span> tab -> <span class="notranslate">Settings</span> and check the <span class="notranslate">Anti-bot protection</span> checkbox. You can find the details [here](/dashboard/#anti-bot-protection).
+
+Or via CLI. To do so, run the following command:
+
+<div class="notranslate">
+
+```
+# imunify360-agent config update '{"WEBSHIELD": {"splash_screen": true}}'
+```
+</div>

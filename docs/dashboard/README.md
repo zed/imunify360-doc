@@ -769,8 +769,8 @@ The table has the following columns:
   * <span class="notranslate">**Restore from backup**</span> — click the <span class="notranslate">_Gear_</span> symbol ![](/images/gear.png) and select <span class="notranslate">_Try to restore from backup_</span> to restore the original file before it got infected if it exists.
 
 :::warning Warning
-  Starting from Imunify360 v.5.5, the <span class="notranslate">_Delete permanently_</span>, the <span class="notranslate">_Quarantine file_</span>, and the <span class="notranslate">_Cleanup, Quarantine as a fallback_</span> options are available only [via CLI](/config_file_description/). They will be removed completely in Imunify360 v.5.9. For more information see [this blog post](https://blog.imunify360.com/file-quarantine-is-no-longer-effective).
-  :::
+Starting from Imunify360 v.5.5, <span class="notranslate">_Delete permanently_</span>, <span class="notranslate">_Quarantine file_</span>, and <span class="notranslate">_Cleanup, Quarantine as a fallback_</span> options are not available. Restoration from the Quarantine is available until the “Quarantine” Default Action is completely removed from the product (v.5.8, April 2021). You can still manage files in the quarantine if they were quarantined earlier. For more information see [this blog post](https://blog.imunify360.com/file-quarantine-is-no-longer-effective).
+:::
 
 To perform a bulk action, tick required files and click the corresponding button above the table.
 
@@ -1194,6 +1194,7 @@ Go to <span class="notranslate">_Imunify360 → Settings → General_</span>. Th
 * <span class="notranslate">[Auto White List](/dashboard/#auto-white-list)</span>
 * <span class="notranslate">[Incidents Logging](/dashboard/#incidents-logging)</span>
 * <span class="notranslate">[WebShield](/dashboard/#webshield)</span>
+* <span class="notranslate">[Anti-bot protection](/dashboard/#anti-bot-protection)</span>
 * <span class="notranslate">[OSSEC](/dashboard/#ossec)</span>
 * <span class="notranslate">[PAM](/dashboard/#pam)</span>
 * <span class="notranslate">[Error Reporting](/dashboard/#error-reporting)</span>
@@ -1509,6 +1510,17 @@ Click <span class="notranslate">_Save changes_</span> button on the bottom of th
 
 Click <span class="notranslate">_Save changes_</span> button on the bottom of the section to save changes.
 
+#### Anti-bot protection <sup> <badge text="experimental"/></sup>
+
+Tick the <span class="notranslate">_Anti-bot protection_</span> checkbox to enable the JavaScript challenge – "Splash Screen."
+
+You can read more about Anti-bot protection [here](/webshield/#anti-bot-protection).
+	
+![](/images/AntiBotProtection.png)
+
+Click <span class="notranslate">_Save changes_</span> button on the bottom of the section to save changes.
+
+
 #### OSSEC
 
 Tick the <span class="notranslate">_Active response_</span> checkbox to block access to a specific server port being attacked. 
@@ -1659,7 +1671,7 @@ Read [CXS integration](/ids_integration/#cxs-integration) documentation carefull
   * <span class="notranslate">Cleanup</span> (default)
 
   :::warning Warning
-  Starting from Imunify360 v.5.5, the <span class="notranslate">_Delete permanently_</span>, the <span class="notranslate">_Quarantine file_</span>, and the <span class="notranslate">_Cleanup, Quarantine as a fallback_</span> options are available only [via CLI](/config_file_description/). They will be removed completely in Imunify360 v.5.9. For more information see [this blog post](https://blog.imunify360.com/file-quarantine-is-no-longer-effective).
+  Starting from Imunify360 v.5.5, <span class="notranslate">_Delete permanently_</span>, <span class="notranslate">_Quarantine file_</span>, and <span class="notranslate">_Cleanup, Quarantine as a fallback_</span> options are not available. Restoration from the Quarantine is available until the “Quarantine” Default Action is completely removed from the product (v.5.8, April 2021). You can still manage files in the quarantine if they were quarantined earlier. For more information see [this blog post](https://blog.imunify360.com/file-quarantine-is-no-longer-effective).
   :::
 
 

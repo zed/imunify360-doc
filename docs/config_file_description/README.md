@@ -191,7 +191,9 @@ to request CAPTCHA again</td></tr>
 <tr><td><span class="notranslate">captcha_site_key: ""</span></td>
 <td># your site key; required to show reCAPTCHA on the page</td></tr>
 <tr><td><span class="notranslate">captcha_secret_key: ""</span></td>
-<td># your secret key; required for communication between Google server and this server to get reCAPTCHA pass results</td></tr>
+<td># your secret key; required for communication between Google server and this server to get reCAPTCHA pass results</td>
+<tr><td><span class="notranslate">splash_screen: True</span></td>
+<td># enable (<span class="notranslate">True</span>) or disable (<span class="notranslate">False</span>) Anti-bot protection</td></tr>
 <tr>
 <th colspan="2" align="left"><span class="notranslate">PROACTIVE_DEFENCE:</span></th></tr>
 <tr><td><span class="notranslate">blamer: True</span></td>

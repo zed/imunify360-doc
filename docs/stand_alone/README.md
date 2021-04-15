@@ -391,6 +391,7 @@ Example
 <div class="notranslate">
 
 ``` ini
+[malware]
 basedir = /home
 pattern_to_watch = ^/home/.+?/(public_html|public_ftp|private_html)(/.*)?$
 ```

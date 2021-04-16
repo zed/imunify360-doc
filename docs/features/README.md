@@ -70,6 +70,27 @@ When the <span class="notranslate">_Low Resource Usage_</span> mode is activated
 
 ![](/images/LowResourceUsage.png)
 
+#### How to switch from the Low Resource Usage mode to the normal resource usage mode
+
+You can switch the mode via CLI and in the UI.
+
+In CLI, run the following commands:
+
+<div class="notranslate">
+
+```
+imunify360-agent config update '{"WEBSHIELD": {"enable": true}}'
+imunify360-agent config update '{"MOD_SEC": {"ruleset": "FULL"}}'
+```
+</div>
+
+In the UI, do the following steps:
+
+1. Go to <span class="notranslate">_Settings_ | _General_ | _WebShield_</span> and enable _WebShield_:
+  ![](/images/WebShieldEnabled.jpeg)
+2. Go to <span class="notranslate">_Settings_ | _General_ | _WAF Settings_</span> and disable _Minimized ModSec Ruleset_:
+  ![](/images/MinimazedModSecRulesetDisable.jpeg)
+
 ## Exim+Dovecot brute-force attack protection
 
 :::tip Note

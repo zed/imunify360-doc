@@ -1530,6 +1530,13 @@ The purpose of the feature is significantly reducing false positive rate while i
 
 Click <span class="notranslate">_Save changes_</span> button on the bottom of the section to save changes.
 
+::: tip Note
+for now the feature covers the following ports
+FTP - 21 port, 
+SSH - 22 port, and any one manually defined starting the version 5.7 
+SMTP - 25, 465, 587 ports
+:::
+
 #### PAM
 
 #### PAM brute-force attack protection

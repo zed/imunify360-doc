@@ -8,7 +8,7 @@ When you log in to your control panel, Imunify360 asks you to enter your email a
 
 By entering your email address you agree to receive email reports about critical issues, security alerts or system misconfigurations detected on your servers.
 
-::: tip Note
+:::tip Note
 This email address is used ONLY for receiving server reports.
 :::
 
@@ -1529,6 +1529,13 @@ The purpose of the feature is significantly reducing false positive rate while i
 ![](/images/ossec_tick.png)
 
 Click <span class="notranslate">_Save changes_</span> button on the bottom of the section to save changes.
+
+:::tip Note
+For now, the feature covers the following ports:
+* FTP - 21 port, 
+* SSH - 22 port, and any one manually defined starting the version 5.7 
+* SMTP - 25, 465, 587 ports
+:::
 
 #### PAM
 

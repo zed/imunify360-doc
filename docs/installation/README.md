@@ -101,7 +101,7 @@ apt-get update
 <div class="notranslate">
 
 ```
-wget https://repo.imunify360.cloudlinux.com/defence360/i360deploy.sh
+wget https://repo.imunify360.cloudlinux.com/defence360/i360deploy.sh -O i360deploy.sh
 ```
 
 </div>
@@ -132,7 +132,7 @@ If you have an IP-based license, run the same script with no arguments:
 <div class="notranslate">
 
 ```
-wget https://repo.imunify360.cloudlinux.com/defence360/i360deploy.sh
+wget https://repo.imunify360.cloudlinux.com/defence360/i360deploy.sh -O i360deploy.sh
 ```
 
 </div>
